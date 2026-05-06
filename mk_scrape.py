@@ -10,9 +10,27 @@ URL = "https://www.mk.co.kr/today-paper/"
 TARGET = {"world","economy","business","realestate","it","stock","society","politics","culture","columnists","journalist","contributors","editorial"}
 #TARGET = {"editorial"}
 def fetch(sess, url):
-    r = sess.get(url, timeout=20)
-    r.raise_for_status()
-    return r.text
+    # Add more realistic User-Agent headers
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "ko-KR,ko;q=0.9",
+        "Referer": "https://www.google.com/",
+    }
+    try:
+        r = sess.get(url, timeout=20, headers=headers)
+        r.raise_for_status()
+        return r.text
+    except requests.exceptions.HTTPError as e:
+        # Retry with different headers on 403
+        if e.response.status_code == 403:
+            import time
+            time.sleep(2)
+            headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+            r = sess.get(url, timeout=20, headers=headers)
+            r.raise_for_status()
+            return r.text
+        raise
 
 def norm(href, base=URL):
     if not href:
