@@ -1,0 +1,157 @@
+[
+  {
+    "file": "01.md",
+    "title": "소비자물가지수, 전월 대비 0.1% 상승",
+    "url": "https://www.mk.co.kr/news/economy/2026/05/12368/"
+  },
+  {
+    "file": "05.md",
+    "title": "서울 아파트값, 지난주 0.5% 상승",
+    "url": "https://www.mk.co.kr/news/realestate/2026/05/12349/"
+  },
+  {
+    "file": "1.md",
+    "title": "인천 청라국제도시, 아파트 가격 1억원 상승",
+    "url": "https://www.mk.co.kr/news/realestate/2026/05/12370/"
+  },
+  {
+    "file": "1000.md",
+    "title": "코스닥, 신고가 경신 (1000포인트)",
+    "url": "https://www.mk.co.kr/news/stock/2026/05/12369/"
+  },
+  {
+    "file": "1501.md",
+    "title": "일본 엔화, 150엔/$1 도달",
+    "url": "https://www.mk.co.kr/news/world/2026/05/12371/"
+  },
+  {
+    "file": "2.md",
+    "title": "삼성전자, 2분기 반도체 실적 호조 기대",
+    "url": "https://www.mk.co.kr/news/business/2026/05/12345/"
+  },
+  {
+    "file": "28.md",
+    "title": "한국 경제성장률, 올해 2.8% 전망",
+    "url": "https://www.mk.co.kr/news/economy/2026/05/12346/"
+  },
+  {
+    "file": "2_1.md",
+    "title": "부산 해운대 오피스텔, 공실률 2%",
+    "url": "https://www.mk.co.kr/news/realestate/2026/05/12359/"
+  },
+  {
+    "file": "2_2.md",
+    "title": "포스코, 2분기 철강 수요 증가 예상",
+    "url": "https://www.mk.co.kr/news/business/2026/05/12366/"
+  },
+  {
+    "file": "30.md",
+    "title": "테슬라, 한국 수출 30% 증가",
+    "url": "https://www.mk.co.kr/news/it/2026/05/12347/"
+  },
+  {
+    "file": "3000.md",
+    "title": "코스피 3000 돌파, 반도체주 강세",
+    "url": "https://www.mk.co.kr/news/stock/2026/05/12348/"
+  },
+  {
+    "file": "37.md",
+    "title": "미국 실업률 3.7%, 인플레이션 둔화",
+    "url": "https://www.mk.co.kr/news/world/2026/05/12350/"
+  },
+  {
+    "file": "40.md",
+    "title": "현대자동차, 전기차 판매 40% 증가",
+    "url": "https://www.mk.co.kr/news/business/2026/05/12355/"
+  },
+  {
+    "file": "4_12.md",
+    "title": "국민연금, 4월 운영 수익률 1.2%",
+    "url": "https://www.mk.co.kr/news/economy/2026/05/12357/"
+  },
+  {
+    "file": "ai.md",
+    "title": "카카오톡, 새로운 AI 챗봇 기능 출시",
+    "url": "https://www.mk.co.kr/news/it/2026/05/12356/"
+  },
+  {
+    "file": "article_10.md",
+    "title": "글로벌 경제 위기, 한국은 준비되어 있나?",
+    "url": "https://www.mk.co.kr/news/columnists/2026/05/12354/"
+  },
+  {
+    "file": "article_14.md",
+    "title": "금융주 강세, 은행권 배당 매력",
+    "url": "https://www.mk.co.kr/news/stock/2026/05/12358/"
+  },
+  {
+    "file": "article_16.md",
+    "title": "유럽 경제, 예상보다 성장 강함",
+    "url": "https://www.mk.co.kr/news/world/2026/05/12360/"
+  },
+  {
+    "file": "article_18.md",
+    "title": "국회, 근로기준법 개정안 통과",
+    "url": "https://www.mk.co.kr/news/politics/2026/05/12362/"
+  },
+  {
+    "file": "article_19.md",
+    "title": "한국 영화, 칸 영화제 황금종려상 수상",
+    "url": "https://www.mk.co.kr/news/culture/2026/05/12363/"
+  },
+  {
+    "file": "article_20.md",
+    "title": "서울 지하철 파업 불발, 정상 운행",
+    "url": "https://www.mk.co.kr/news/society/2026/05/12364/"
+  },
+  {
+    "file": "article_21.md",
+    "title": "디지털 세금, 글로벌 표준화 필요",
+    "url": "https://www.mk.co.kr/news/columnists/2026/05/12365/"
+  },
+  {
+    "file": "article_23.md",
+    "title": "삼성, 차세대 반도체 공정 상업화 임박",
+    "url": "https://www.mk.co.kr/news/it/2026/05/12367/"
+  },
+  {
+    "file": "article_28.md",
+    "title": "롯데쇼핑, 부산 대형 쇼핑몰 오픈",
+    "url": "https://www.mk.co.kr/news/business/2026/05/12372/"
+  },
+  {
+    "file": "article_7.md",
+    "title": "정부, 반도체 산업 지원 대책 발표",
+    "url": "https://www.mk.co.kr/news/politics/2026/05/12351/"
+  },
+  {
+    "file": "article_9.md",
+    "title": "서울 미세먼지, 내일 '나쁨' 수준",
+    "url": "https://www.mk.co.kr/news/society/2026/05/12353/"
+  },
+  {
+    "file": "bts_2_1.md",
+    "title": "BTS, 새 앨범 2주 연속 빌보드 1위",
+    "url": "https://www.mk.co.kr/news/culture/2026/05/12352/"
+  },
+  {
+    "file": "korea_economic_outlook.md",
+    "title": "한국 경제 성장률, 상향 조정될 듯",
+    "url": "https://www.mk.co.kr/news/economy/12345/"
+  },
+  {
+    "file": "lg.md",
+    "title": "LG화학, 배터리 사업 올해 흑자 전환",
+    "url": "https://www.mk.co.kr/news/business/2026/05/12361/"
+  },
+  {
+    "file": "samsung_quarterly_earnings.md",
+    "title": "삼성전자, 2분기 실적 발표 예정",
+    "url": "https://www.mk.co.kr/news/business/12346/"
+  },
+  {
+    "file": "us_inflation_data.md",
+    "title": "미국 인플레이션, 목표선 근처로 안정화",
+    "url": "https://www.mk.co.kr/news/world/12347/"
+  }
+]
