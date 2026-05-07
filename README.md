@@ -20,3 +20,28 @@
 ### ToDo
 
 현재는 Google NotebookLM의 podcast 생성 툴을 이용하고 있는데.. 이 단계까지 자동화 가능하면 편할 듯
+
+### Daily News Pipeline (GitHub Actions)
+
+`.github/workflows/news_daily.yml` 가 매일 KST 00:30 에 실행되어
+매일경제 기사를 스크랩하고 Claude Code Action 으로 한국어 데일리 브리프를
+`out/<YYYY-MM-DD>/` 에 생성한 뒤, 결과 HTML 을 Gmail 로 발송한다.
+
+발송에 필요한 GitHub Secrets (Settings → Secrets and variables → Actions):
+
+| Secret | 설명 |
+| --- | --- |
+| `CLAUDE_CODE_OAUTH_TOKEN` | Claude Code Action 인증 토큰 |
+| `GMAIL_USERNAME` | 발송 Gmail 주소 (예: `me@gmail.com`) |
+| `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 (2단계 인증 → 앱 비밀번호에서 발급한 16자) |
+| `MAIL_TO` | 수신자 이메일. 여러 명이면 콤마로 구분 (`a@x.com,b@y.com`) |
+
+로컬에서 발송을 테스트하려면:
+
+```bash
+TODAY=2026-05-07 \
+GMAIL_USERNAME=me@gmail.com \
+GMAIL_APP_PASSWORD=xxxxxxxxxxxxxxxx \
+MAIL_TO=you@example.com \
+python _send_email.py
+```
