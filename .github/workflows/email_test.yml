@@ -1,0 +1,57 @@
+name: Email Test (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: "YYYY-MM-DD (비우면 out/ 폴더 중 가장 최신)"
+        required: false
+        default: ""
+  push:
+    branches:
+      - "claude/implement-schedule-**"
+    paths:
+      - ".github/workflows/email_test.yml"
+      - "_send_email.py"
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Resolve target date
+        run: |
+          set -e
+          INPUT="${{ github.event.inputs.target_date }}"
+          if [ -n "$INPUT" ]; then
+            TARGET="$INPUT"
+          else
+            TARGET=$(ls -1 out/ | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}$' | sort | tail -n 1)
+          fi
+          if [ -z "$TARGET" ]; then
+            echo "::error::No target date resolved (out/ has no YYYY-MM-DD folder)"
+            exit 1
+          fi
+          HTML="out/${TARGET}/html/daily_brief_${TARGET}.html"
+          if [ ! -s "$HTML" ]; then
+            echo "::error::HTML brief missing or empty: $HTML"
+            exit 1
+          fi
+          echo "TODAY=$TARGET" >> "$GITHUB_ENV"
+          echo "Resolved date: $TARGET"
+
+      - name: Send daily brief via Gmail
+        env:
+          GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python _send_email.py

@@ -118,3 +118,10 @@ jobs:
             exit 1
           fi
           ls -la "out/${TODAY}/" || true
+
+      - name: Send daily brief via Gmail
+        env:
+          GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python _send_email.py
