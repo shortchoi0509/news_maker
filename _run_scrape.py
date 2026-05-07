@@ -7,15 +7,16 @@ Saves to /tmp/scraped_<DATE>.json
 import os
 import json
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 from mk_scrape import scrape as scrape_links
 import requests
 from bs4 import BeautifulSoup
-from time import sleep
 
 KST = timezone(timedelta(hours=9))
 TODAY = datetime.now(KST).strftime("%Y-%m-%d")
 OUTPUT_FILE = f"/tmp/scraped_{TODAY}.json"
+MAX_WORKERS = int(os.getenv("SCRAPE_WORKERS", "8"))
 
 def extract_article(url, timeout=15):
     """
@@ -87,20 +88,27 @@ def main():
         print("[STAGE] No links found, aborting")
         sys.exit(1)
 
-    # Step 2: Extract article content from each URL
+    # Step 2: Extract article content in parallel
     articles = []
-    print(f"[STAGE] Extracting content from {len(link_items)} articles...")
+    total = len(link_items)
+    print(f"[STAGE] Extracting content from {total} articles (workers={MAX_WORKERS})...")
 
-    for i, item in enumerate(link_items, 1):
-        url = item["url"]
-        print(f"  [{i}/{len(link_items)}] {url}")
-
-        article_data = extract_article(url)
-        if article_data:
-            articles.append(article_data)
-
-        # Be nice to the server
-        sleep(0.5)
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+        future_to_url = {ex.submit(extract_article, item["url"]): item["url"] for item in link_items}
+        done = 0
+        for fut in as_completed(future_to_url):
+            done += 1
+            url = future_to_url[fut]
+            try:
+                article_data = fut.result()
+            except Exception as e:
+                print(f"  [{done}/{total}] [ERROR] {url}: {e}")
+                continue
+            if article_data:
+                articles.append(article_data)
+                print(f"  [{done}/{total}] OK  {url}")
+            else:
+                print(f"  [{done}/{total}] SKIP {url}")
 
     print(f"[STAGE] scraped_count={len(articles)}")
     if len(articles) > 0:

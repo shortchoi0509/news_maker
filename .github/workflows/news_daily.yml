@@ -19,6 +19,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,42 +33,65 @@ jobs:
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 lxml lxml_html_clean newspaper3k markdown
+          pip install requests beautifulsoup4 lxml lxml_html_clean markdown
 
       - name: Get Current Date (KST)
-        id: date
         run: echo "TODAY=$(TZ='Asia/Seoul' date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-      - name: Scrape mk.co.kr articles
+      - name: Scrape mk.co.kr articles (parallel)
+        env:
+          SCRAPE_WORKERS: "8"
         run: python _run_scrape.py
+
+      - name: Stage scraped JSON into repo
+        run: |
+          mkdir -p "out/${TODAY}"
+          cp "/tmp/scraped_${TODAY}.json" "out/${TODAY}/scraped.json"
+          echo "Articles: $(python -c "import json;print(len(json.load(open('out/${TODAY}/scraped.json'))))")"
+
+      - name: Configure git for bot commits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Run Claude to summarize and build daily brief
         uses: anthropics/claude-code-action@beta
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          allowed_tools: "Bash,Read,Write,Edit,Glob,Grep"
           prompt: |
-            오늘(${{ env.TODAY }})의 매일경제 기사를 한국어로 요약해 데일리 브리프를 만든다.
+            오늘(${{ env.TODAY }})의 매일경제 데일리 브리프를 만든다. 외부 LLM API 호출 금지 — 모든 요약·해설은 네가 직접 한국어로 작성한다.
 
             입력:
-            - 스크랩된 기사 JSON: /tmp/scraped_${{ env.TODAY }}.json
-            - 각 항목: {url, title, text}
+            - 스크랩된 기사 JSON: out/${{ env.TODAY }}/scraped.json
+            - 각 항목 형식: {url, title, text}
 
-            작업:
-            1. 모든 기사를 빠짐없이 처리(샘플링 금지).
-            2. 단일 통합 마크다운 파일을 생성: out/${{ env.TODAY }}/SUMMARY_KO/daily_brief_${{ env.TODAY }}.md
-               - 상단 frontmatter(title, date, articles 개수)
-               - 목차
-               - 각 기사: ## NN. 제목 / 카테고리·원문 링크 / 요약 / 주요 인용·수치 / 배경·맥락 / 전망 / 시사점 / 용어 정리
-               - 모든 요약·해설은 한국어로 작성
-               - 외부 LLM API 호출 금지 — 내가 직접 요약을 생성
-            3. python generate_html.py 를 실행해 HTML도 함께 생성.
-            4. 결과 파일들을 git add 후 commit (메시지: "feat: Daily news ${{ env.TODAY }}") 후 push.
+            작업 순서:
+            1. JSON에 있는 모든 기사를 빠짐없이 처리(샘플링·생략 금지).
+            2. 단일 통합 마크다운을 다음 경로에 작성:
+               out/${{ env.TODAY }}/SUMMARY_KO/daily_brief_${{ env.TODAY }}.md
+               형식:
+               - frontmatter: title / date / articles 개수
+               - 상단 목차: 번호 + 굵게 표기된 제목
+               - 각 기사:
+                 ## NN. 제목
+                 `카테고리` · [원문 보기](URL)
+                 ### 요약
+                 ### 주요 인용/수치
+                 ### 배경/맥락
+                 ### 전망
+                 ### 시사점
+                 ### 용어 정리
+               - 모든 항목은 한국어, 사실 왜곡 금지, 본문 텍스트 기반으로만 작성
+            3. python generate_html.py 를 실행해 HTML도 생성.
+            4. git add out/${{ env.TODAY }} && git commit -m "feat: Daily news ${{ env.TODAY }}" 후
+               git fetch origin main && git rebase origin/main && git push origin main
+               (충돌 시 rebase --abort 후 git pull --rebase origin main 재시도)
+            5. 최종 검증: 마크다운 파일이 존재하고 5KB 이상인지 확인.
 
             제약:
-            - 절대 외부 LLM API(OpenAI 등)를 호출하지 말 것.
-            - news_maker.news_parse_and_archive / auto_run.py 를 사용하지 말 것 (그 경로는 GPT-5 의존).
-            - 결과 검증: 마크다운 파일이 존재하고 1KB 이상인지 확인.
-          allowed_tools: "Bash,Read,Write,Edit,Glob,Grep"
+            - 절대 OpenAI / DeepSeek / 기타 외부 LLM API 호출 금지.
+            - news_maker.news_parse_and_archive / auto_run.py 사용 금지 (GPT-5 의존 경로).
 
       - name: Verify outputs exist
         run: |
@@ -77,5 +101,10 @@ jobs:
             echo "::error::Daily brief markdown is missing or empty: $MD"
             exit 1
           fi
-          echo "Brief lines: $(wc -l < "$MD")"
+          SIZE=$(stat -c%s "$MD")
+          echo "Brief size: ${SIZE} bytes, lines: $(wc -l < "$MD")"
+          if [ "$SIZE" -lt 5120 ]; then
+            echo "::error::Daily brief is suspiciously small (< 5KB): ${SIZE}"
+            exit 1
+          fi
           ls -la "out/${TODAY}/" || true
