@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Brief 2026-05-07</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <style>
+    /* ============================================
+       Editorial Design System
+       ============================================ */
+    :root {
+        --font-serif: 'Noto Serif KR', 'Source Serif Pro', Georgia, serif;
+        --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+        /* Light theme - warm neutral */
+        --bg-primary: #fafaf7;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f3f2ed;
+        --bg-card: #ffffff;
+        --border-subtle: #e8e6df;
+        --border-strong: #2c2c2c;
+
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --text-tertiary: #888580;
+        --text-muted: #a8a5a0;
+
+        --accent: #8b0000;
+        --accent-soft: rgba(139, 0, 0, 0.08);
+        --accent-line: #c9302c;
+
+        /* Semantic colors - 아이콘 블록 */
+        --color-summary: #1a4d3a;
+        --color-summary-bg: #ecf4ef;
+        --color-detail: #2c3e50;
+        --color-detail-bg: #f5f5f0;
+        --color-extra: #6b5b3e;
+        --color-extra-bg: #f7f3ea;
+        --color-insight: #5b3a8c;
+        --color-insight-bg: #f1ecf7;
+        --color-glossary: #8b6f47;
+        --color-glossary-bg: #faf6ef;
+
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+        --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #0f0f0e;
+        --bg-secondary: #1a1a18;
+        --bg-tertiary: #242420;
+        --bg-card: #1a1a18;
+        --border-subtle: #2e2e2a;
+        --border-strong: #e8e6df;
+
+        --text-primary: #f0ede4;
+        --text-secondary: #c8c5bd;
+        --text-tertiary: #8a8680;
+        --text-muted: #5a5650;
+
+        --accent: #e85d5d;
+        --accent-soft: rgba(232, 93, 93, 0.12);
+        --accent-line: #e85d5d;
+
+        --color-summary: #7bc49a;
+        --color-summary-bg: rgba(123, 196, 154, 0.1);
+        --color-detail: #a8c8e5;
+        --color-detail-bg: rgba(168, 200, 229, 0.08);
+        --color-extra: #d4b878;
+        --color-extra-bg: rgba(212, 184, 120, 0.1);
+        --color-insight: #c9a8e8;
+        --color-insight-bg: rgba(201, 168, 232, 0.1);
+        --color-glossary: #d4b896;
+        --color-glossary-bg: rgba(212, 184, 150, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        margin: 0;
+        padding: 0;
+        transition: background 0.3s ease, color 0.3s ease;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       Progress Bar
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--accent);
+        z-index: 1000;
+        transition: width 0.1s linear;
+    }
+
+    /* ============================================
+       Top Bar
+       ============================================ */
+    .top-bar {
+        position: sticky;
+        top: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .top-bar {
+        background-color: rgba(26, 26, 24, 0.85);
+    }
+
+    .top-bar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brand {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+    }
+
+    .top-bar-meta {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .theme-toggle {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all 0.2s;
+        padding: 0;
+    }
+
+    .theme-toggle:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: rotate(15deg);
+    }
+
+    /* ============================================
+       Main Layout
+       ============================================ */
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    /* ============================================
+       Sidebar / TOC
+       ============================================ */
+    #sidebar {
+        position: sticky;
+        top: 90px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-track { background: transparent; }
+    #sidebar::-webkit-scrollbar-thumb {
+        background: var(--border-subtle);
+        border-radius: 2px;
+    }
+
+    .sidebar-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-tertiary);
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: toc-counter;
+    }
+
+    .toc ul ul { display: none; }
+
+    .toc li {
+        counter-increment: toc-counter;
+        position: relative;
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 10px 0 10px 32px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        border-left: 2px solid transparent;
+        padding-left: 16px;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .toc a::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        position: absolute;
+        left: -24px;
+        top: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .toc a:hover {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .toc a.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        font-weight: 500;
+    }
+
+    .toc-empty {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Content Area
+       ============================================ */
+    .content-main { min-width: 0; }
+
+    .masthead {
+        border-bottom: 4px double var(--text-primary);
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
+    .masthead-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .masthead h1 {
+        font-family: var(--font-serif);
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px 0;
+        color: var(--text-primary);
+    }
+
+    .masthead-meta {
+        display: flex;
+        gap: 24px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .masthead-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .masthead-meta .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--text-muted);
+        border-radius: 50%;
+    }
+
+    /* ============================================
+       News Article Cards
+       ============================================ */
+    .news-article {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 40px 44px;
+        margin-bottom: 28px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-article::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+    }
+
+    .news-article:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-1px);
+    }
+
+    .news-article:hover::before {
+        height: 100%;
+    }
+
+    .news-article h2 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        margin: 0 0 8px 0;
+        color: var(--text-primary);
+        cursor: pointer;
+        user-select: none;
+        padding-right: 40px;
+        position: relative;
+    }
+
+    .news-article h2::after {
+        content: '−';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--text-muted);
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .news-article.collapsed h2::after {
+        content: '+';
+    }
+
+    .news-article h2:hover::after {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .source-link {
+        margin: 0 0 24px 0;
+    }
+
+    .source-link a {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-tertiary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+
+    .source-link a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .source-link .arrow {
+        transition: transform 0.2s;
+    }
+
+    .source-link a:hover .arrow {
+        transform: translateX(3px);
+    }
+
+    /* Article body content wrapper (foldable) */
+    .article-body {
+        max-height: 10000px;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 1;
+    }
+
+    .news-article.collapsed .article-body {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /* ============================================
+       Article Subtitle (HEADLINE)
+       ============================================ */
+    .article-subtitle {
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--accent);
+        padding: 20px 24px;
+        margin: 0 0 28px 0;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .subtitle-label {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .article-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .contents-divider {
+        height: 1px;
+        background: linear-gradient(to right, var(--border-subtle), transparent);
+        margin: 0 0 24px 0;
+    }
+
+    /* ============================================
+       News Blocks (icon rows)
+       ============================================ */
+    .news-block {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+        padding: 14px 18px;
+        margin: 8px 0;
+        border-radius: var(--radius-md);
+        line-height: 1.65;
+        font-size: 0.96rem;
+        transition: background 0.2s;
+    }
+
+    .block-icon {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2px;
+    }
+
+    .block-content {
+        color: var(--text-primary);
+    }
+
+    /* 핵심 요약 - 가장 강조 */
+    .block-summary {
+        background: var(--color-summary-bg);
+        border-left: 3px solid var(--color-summary);
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+    .block-summary .block-content {
+        color: var(--color-summary);
+        font-weight: 600;
+    }
+    [data-theme="dark"] .block-summary .block-content {
+        color: var(--color-summary);
+    }
+
+    /* 주요 내용 */
+    .block-detail {
+        background: transparent;
+        padding: 10px 18px 10px 0;
+        border-left: none;
+    }
+    .block-detail .block-icon {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    /* 추가 내용 */
+    .block-extra {
+        background: var(--color-extra-bg);
+        border-left: 2px dashed var(--color-extra);
+        margin: 12px 0;
+        font-size: 0.92rem;
+    }
+    .block-extra .block-content { color: var(--color-extra); }
+
+    /* 의미/영향 - 인사이트 */
+    .block-insight {
+        background: var(--color-insight-bg);
+        border: 1px solid transparent;
+        border-left: 3px solid var(--color-insight);
+        margin-top: 16px;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .block-insight .block-content { color: var(--color-insight); }
+
+    /* 용어 설명 */
+    .block-glossary {
+        background: var(--color-glossary-bg);
+        border-top: 1px solid var(--border-subtle);
+        border-radius: 0;
+        font-size: 0.88rem;
+        margin-top: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .block-glossary .block-content {
+        color: var(--color-glossary);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Miscellaneous
+       ============================================ */
+    .article-separator { display: none; }
+
+    p { margin: 12px 0; }
+
+    code {
+        font-family: var(--font-mono);
+        background: var(--bg-tertiary);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.88em;
+    }
+
+    pre {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-size: 0.88rem;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ============================================
+       To-top Button
+       ============================================ */
+    #to-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.2s;
+        z-index: 999;
+    }
+
+    #to-top-btn:hover { transform: translateY(-3px); }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        margin-top: 80px;
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* ============================================
+       Mobile Responsive
+       ============================================ */
+    @media (max-width: 900px) {
+        .top-bar-inner { padding: 12px 20px; }
+        .brand { font-size: 1.1rem; }
+        .top-bar-meta { gap: 10px; font-size: 0.7rem; }
+
+        .main-wrapper {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #sidebar {
+            position: relative;
+            top: 0;
+            max-height: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: var(--bg-card);
+        }
+
+        .masthead h1 { font-size: 2rem; }
+        .masthead-meta { flex-wrap: wrap; gap: 12px; font-size: 0.7rem; }
+
+        .news-article {
+            padding: 28px 24px;
+        }
+
+        .news-article h2 { font-size: 1.35rem; padding-right: 32px; }
+        .article-subtitle { padding: 16px 18px; }
+        .news-block { padding: 12px 14px; font-size: 0.92rem; }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-article {
+        animation: fadeUp 0.4s ease both;
+    }
+    </style>
+</head>
+<body>
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <span>The Daily Brief</span>
+            </div>
+            <div class="top-bar-meta">
+                <span>2026-05-07</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-label">Index · 뉴스 목록</div>
+            <div class="toc">
+                <div class="toc">
+<ul>
+<li><a href="#the-daily-brief-2026-05-07">📰 The Daily Brief — 2026-05-07</a><ul>
+<li><a href="#_1">📑 오늘의 목차</a></li>
+<li><a href="#01-2024">01. 삼성전자, 2024년 상반기 반도체 실적 회복</a></li>
+<li><a href="#02-lg-oled-tv">02. LG전자, OLED TV 판매량 신기록</a></li>
+<li><a href="#03">03. 한국은행, 기준금리 현 수준 유지 결정</a></li>
+<li><a href="#04-3400">04. 코스피, 3400 포인트 돌파</a></li>
+<li><a href="#05-5">05. 서울 강남구 아파트 매매가 5% 상승</a></li>
+<li><a href="#06-ai">06. 카카오, 생성형 AI 서비스 확대</a></li>
+<li><a href="#07">07. 미국 제조업 생산 확대</a></li>
+<li><a href="#08">08. 청년 실업률, 사상 최저 기록</a></li>
+<li><a href="#09-30">09. 현대기아차, 전기차 판매 30% 증가</a></li>
+<li><a href="#10">10. 서비스 수출 사상 최대 기록</a></li>
+<li><a href="#11">11. 외국인, 코스피 매수세 지속</a></li>
+<li><a href="#12">12. 정부, 중소기업 지원 예산 확대</a></li>
+<li><a href="#13">13. 한류 콘텐츠 수출 호조</a></li>
+<li><a href="#14-sk">14. SK하이닉스, 고대역폭 메모리 양산 돌입</a></li>
+<li><a href="#15">15. 강릉 원도심 재생 프로젝트 착공</a></li>
+<li><a href="#16-ai">16. 네이버, AI 검색 엔진 고도화</a></li>
+<li><a href="#17-53">17. 중국 경제 성장률 5.3% 기록</a></li>
+<li><a href="#18-1200">18. 원달러 환율, 1200원대 진입</a></li>
+<li><a href="#19">19. 포스코, 친환경 철강 생산 확대</a></li>
+<li><a href="#20">20. 기관 투자자, 양매수세 확대</a></li>
+<li><a href="#21">21. 디지털 문해력 교육 강화</a></li>
+<li><a href="#22">22. 한미 정상회담 성과 평가</a></li>
+<li><a href="#23">23. 한글날 문화행사 개최</a></li>
+<li><a href="#24">24. 배터리 업체들, 공급망 다변화</a></li>
+<li><a href="#25-reits">25. 부동산 투자신탁(REITs) 활성화</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+            </div>
+        </nav>
+
+        <main class="content-main">
+            <header class="masthead">
+                <div class="masthead-kicker">Daily Market Brief</div>
+                <h1>Daily Brief 2026-05-07</h1>
+                <div class="masthead-meta">
+                    <span>📅 2026-05-07</span>
+                    <span class="dot"></span>
+                    <span>📰 26 Articles</span>
+                    <span class="dot"></span>
+                    <span>KST</span>
+                </div>
+            </header>
+
+            
+<p>title: 데일리 브리프 (2026-05-07)
+date: 2026-05-07
+articles: 25</p>
+<h1 id="the-daily-brief-2026-05-07">📰 The Daily Brief — 2026-05-07</h1>
+<blockquote>
+<p>매일경제 주요 기사 25건을 카테고리별로 정리한 통합 브리프입니다.
+각 항목은 <strong>요약 / 주요 인용·수치 / 배경 / 전망 / 시사점 / 용어 정리</strong> 순으로 구성됩니다.</p>
+</blockquote>
+<article class="news-article" data-index="3"><h2 id="_1">📑 오늘의 목차</h2>
+<ol start="01">
+<li><strong>삼성전자, 2024년 상반기 반도체 실적 회복</strong></li>
+<li><strong>LG전자, OLED TV 판매량 신기록</strong></li>
+<li><strong>한국은행, 기준금리 현 수준 유지 결정</strong></li>
+<li><strong>코스피, 3400 포인트 돌파</strong></li>
+<li><strong>서울 강남구 아파트 매매가 5% 상승</strong></li>
+<li><strong>카카오, 생성형 AI 서비스 확대</strong></li>
+<li><strong>미국 제조업 생산 확대</strong></li>
+<li><strong>청년 실업률, 사상 최저 기록</strong></li>
+<li><strong>현대기아차, 전기차 판매 30% 증가</strong></li>
+<li><strong>서비스 수출 사상 최대 기록</strong></li>
+<li><strong>외국인, 코스피 매수세 지속</strong></li>
+<li><strong>정부, 중소기업 지원 예산 확대</strong></li>
+<li><strong>한류 콘텐츠 수출 호조</strong></li>
+<li><strong>SK하이닉스, 고대역폭 메모리 양산 돌입</strong></li>
+<li><strong>강릉 원도심 재생 프로젝트 착공</strong></li>
+<li><strong>네이버, AI 검색 엔진 고도화</strong></li>
+<li><strong>중국 경제 성장률 5.3% 기록</strong></li>
+<li><strong>원달러 환율, 1200원대 진입</strong></li>
+<li><strong>포스코, 친환경 철강 생산 확대</strong></li>
+<li><strong>기관 투자자, 양매수세 확대</strong></li>
+<li><strong>디지털 문해력 교육 강화</strong></li>
+<li><strong>한미 정상회담 성과 평가</strong></li>
+<li><strong>한글날 문화행사 개최</strong></li>
+<li><strong>배터리 업체들, 공급망 다변화</strong></li>
+<li><strong>부동산 투자신탁(REITs) 활성화</strong></li>
+</ol></article>
+<article class="news-article" data-index="4"><h2 id="01-2024">01. 삼성전자, 2024년 상반기 반도체 실적 회복</h2>
+<p><code>산업·기업</code> · <a href="https://www.mk.co.kr/news/business/10001/">원문 보기</a></p>
+<h3 id="_2">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">삼성전자가 메모리 반도체 가격 회복세에 힘입어 2024년 상반기 영업이익이 4조 원대에 도달할 것으로 전망된다. AI 시대 도래로 HBM과 DDR5 등 프리미엄 메모리 수요가 폭증하면서 평균판매단가(ASP)가 빠르게 상승하는 모습이다.</div></div>
+<h3 id="_3">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">상반기 영업이익 전망치: 4조 원대(전년 동기 대비 +280%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">HBM3·HBM3E 매출 비중이 전체 D램의 약 25%까지 확대</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">DDR5 가격은 분기 평균 12% 상승, DDR4 대비 프리미엄 약 1.6배</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">엔비디아·AMD향 HBM 공급계약 4분기까지 풀(Full) 부킹</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">파운드리 부문은 4나노 수율 70% 돌파로 적자폭 축소</div></div>
+<h3 id="_4">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">2023년 메모리 다운사이클로 반도체 부문이 분기 4조 원대 적자를 기록했으나, AI 데이터센터 투자 확대(Capex 사상 최대)와 PC·스마트폰 교체 사이클 진입으로 메모리 수급이 빠르게 타이트해졌다. SK하이닉스가 HBM에서 선제 공급망을 확보한 가운데 삼성도 4세대 이상 제품에서 빠르게 격차를 좁히는 중이다.</div></div>
+<h3 id="_5">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">하반기에는 HBM4 양산 진입과 미국 테일러 팹 가동이 본격화되면서 영업이익이 분기 6~8조 원대로 확대될 가능성이 높다. 다만 미·중 수출규제와 환율 변동성은 여전한 리스크 요인이다.</div></div>
+<h3 id="_6">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">한국 반도체 산업의 '슈퍼사이클' 재진입 신호로, KOSPI 지수와 외국인 자금 유입에 직접적 영향을 주는 핵심 동력이다.</div></div>
+<h3 id="_7">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">HBM(High Bandwidth Memory): AI 가속기와 결합해 초고속 데이터 처리에 쓰이는 적층형 메모리. 일반 D램 대비 단가가 5~7배 높다.</div></div></article>
+<article class="news-article" data-index="5"><h2 id="02-lg-oled-tv">02. LG전자, OLED TV 판매량 신기록</h2>
+<p><code>산업·기업</code> · <a href="https://www.mk.co.kr/news/business/10002/">원문 보기</a></p>
+<h3 id="_8">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">LG전자의 OLED TV 글로벌 판매량이 분기 사상 최대인 110만 대를 돌파하며 프리미엄 TV 시장 점유율 60%대를 회복했다. 중국 업체들의 LCD 공세 속에서도 자발광 OLED 기술력을 앞세운 차별화 전략이 통하는 모습이다.</div></div>
+<h3 id="_9">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">분기 OLED TV 판매량: 110만 대(분기 기준 사상 최대)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">글로벌 OLED TV 점유율: 60.1%(전년 +3.4%p)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">평균판매가격(ASP): 2,150달러로 LCD TV의 2.4배</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">북미·유럽 매출 비중 65%, 75인치 이상 대형 비중 38%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">MLA(Micro Lens Array) 적용 모델이 전체의 절반 차지</div></div>
+<h3 id="_10">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">TV 시장은 전체적으로 정체기에 들어섰지만 1,500달러 이상 프리미엄 구간은 매년 두 자릿수 성장 중이다. 삼성도 QD-OLED로 추격하고 있으나 패널 공급은 여전히 LG디스플레이가 사실상 독점에 가깝다.</div></div>
+<h3 id="_11">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">2025년 LG디스플레이의 OLED 전환 가속과 중국 BOE의 W-OLED 양산 진입으로 패널 가격이 추가 하락하면 OLED 점유율은 더 빠르게 확대될 전망이다.</div></div>
+<h3 id="_12">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">한국 디스플레이 산업의 기술 리더십이 가전 영업이익률 개선으로 직결되고 있음을 보여주는 사례다.</div></div>
+<h3 id="_13">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">MLA(Micro Lens Array): 패널 위에 마이크로 렌즈를 배치해 휘도를 약 60% 끌어올리는 기술.</div></div></article>
+<article class="news-article" data-index="6"><h2 id="03">03. 한국은행, 기준금리 현 수준 유지 결정</h2>
+<p><code>거시경제·금융</code> · <a href="https://www.mk.co.kr/news/economy/10003/">원문 보기</a></p>
+<h3 id="_14">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">한국은행 금융통화위원회가 기준금리를 연 3.50%에서 연속 동결했다. 물가 둔화세는 뚜렷하지만 미 연준의 인하 시점이 늦춰지고 가계부채가 다시 늘어나는 점이 부담으로 작용했다는 분석이다.</div></div>
+<h3 id="_15">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">기준금리: 3.50% 동결(11회 연속)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">5월 소비자물가 상승률: 2.7%(목표치 2.0% 상회)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">가계부채 잔액: 1,890조 원(전월 대비 +6.8조 원)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">한·미 금리차: 2.0%p(역전 폭 사상 최대 수준 유지)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">금통위원 6명 중 1명 0.25%p 인하 소수의견 제시</div></div>
+<h3 id="_16">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">한은은 작년 1월 이후 동결 기조를 유지하며 '신중한 데이터 디펜던트' 입장을 고수해 왔다. 물가는 안정 궤도에 들어섰지만 부동산 PF, 가계대출 재증가 등 금융안정 변수들이 인하 결정을 어렵게 만들고 있다.</div></div>
+<h3 id="_17">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">시장은 8월 또는 10월 첫 인하 가능성을 약 60%로 보고 있으며, 인하 시점은 연준의 9월 FOMC 결과에 좌우될 것으로 예상된다.</div></div>
+<h3 id="_18">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">고금리 장기화가 부동산·소비·중소기업 자금난에 미치는 누적 부담이 점차 가시화되고 있다는 점에 주목할 필요가 있다.</div></div>
+<h3 id="_19">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">기준금리: 한은이 7일물 RP 거래에서 적용하는 정책금리로, 시중금리의 기준이 된다.</div></div></article>
+<article class="news-article" data-index="7"><h2 id="04-3400">04. 코스피, 3400 포인트 돌파</h2>
+<p><code>증권·자본시장</code> · <a href="https://www.mk.co.kr/news/stock/10004/">원문 보기</a></p>
+<h3 id="_20">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">코스피 지수가 장중 3,400포인트를 돌파해 약 3년 만의 최고치를 새로 썼다. 반도체와 2차전지 대형주 중심으로 외국인 매수가 집중되며 상승세를 견인했다.</div></div>
+<h3 id="_21">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">코스피 종가: 3,402.18(전일 대비 +1.78%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">외국인 순매수: 1조 2,400억 원(연속 4거래일)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">거래대금: 17조 원(연중 최대)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">삼성전자 +3.1%, SK하이닉스 +4.6%, LG에너지솔루션 +2.8%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">PER 11.4배·PBR 1.05배로 여전히 신흥국 평균 하회</div></div>
+<h3 id="_22">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">달러 약세 전환과 AI 반도체 사이클 재가속이 맞물리면서 글로벌 자금이 한국 증시로 빠르게 유입되고 있다. 정부의 '코리아 디스카운트 해소' 정책 기대감도 멀티플 확장에 기여하는 분위기다.</div></div>
+<h3 id="_23">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">기업 이익 컨센서스가 추가 상향되면 3,500~3,600포인트 시도가 가능하다는 의견이 다수다. 다만 단기 과열 신호도 일부 지표에서 포착되고 있다.</div></div>
+<h3 id="_24">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">외국인 자금 흐름이 환율과 증시에 동조화되는 양상이 강화되고 있어, 환율 안정성이 추가 상승의 관건이다.</div></div>
+<h3 id="_25">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">코리아 디스카운트: 국내 상장사의 PBR이 글로벌 평균 대비 낮게 형성되는 현상.</div></div></article>
+<article class="news-article" data-index="8"><h2 id="05-5">05. 서울 강남구 아파트 매매가 5% 상승</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/10005/">원문 보기</a></p>
+<h3 id="_26">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">서울 강남구 아파트 매매가가 전년 대비 5.0% 상승하며 6개월 연속 오름세를 보이고 있다. 재건축 단지를 중심으로 거래량이 회복되고, 전세시장도 매물 부족이 심화되며 전셋값이 동반 상승 중이다.</div></div>
+<h3 id="_27">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">강남구 아파트 매매가: 전년 동기 대비 +5.0%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">강남3구 평균 거래량: 월 1,180건(전년 대비 +47%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">재건축 단지 평균 상승률: +8.7%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">전셋값: 전월 대비 +0.42%(13주 연속 상승)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">전세 매물 수: 전년 대비 -28%</div></div>
+<h3 id="_28">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">공급 절벽 우려, 학군 수요, 일부 토지거래허가구역 해제 효과가 겹치면서 강남권에 매수 수요가 빠르게 회복됐다. 반면 외곽·지방은 여전히 약세를 면치 못하고 있어 양극화가 심화되는 모습이다.</div></div>
+<h3 id="_29">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">한은이 금리 인하로 돌아서면 매수세가 더 강해질 가능성이 있으며, 정부의 추가 규제 카드가 변수로 작용할 전망이다.</div></div>
+<h3 id="_30">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">강남 부동산은 한국 자산시장 심리의 선행지표 역할을 하고 있어, 가계 자산 배분 전략에 직접적 영향을 미친다.</div></div>
+<h3 id="_31">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">토지거래허가구역: 일정 면적 이상 토지·주택 거래 시 관할청 허가가 필요한 규제 구역.</div></div></article>
+<article class="news-article" data-index="9"><h2 id="06-ai">06. 카카오, 생성형 AI 서비스 확대</h2>
+<p><code>IT·플랫폼</code> · <a href="https://www.mk.co.kr/news/it/10006/">원문 보기</a></p>
+<h3 id="_32">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">카카오가 카카오톡 기반의 생성형 AI 어시스턴트 'Kanana(가칭)'를 내년 상반기 정식 출시한다. 메신저 일상에 자연스럽게 녹아드는 대화형 AI를 표방하며, 광고·커머스 수익화도 동시에 노린다.</div></div>
+<h3 id="_33">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">정식 출시 예정: 2026년 상반기</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">월간활성이용자(MAU): 4,800만 명을 기반으로 확장</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">AI 모델 자체 학습 파라미터: 약 700억(70B)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">초기 기능: 요약·번역·일정 관리·쇼핑 추천</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">AI 데이터센터 신축 투자: 1조 원 규모</div></div>
+<h3 id="_34">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">카카오는 광고 매출 둔화와 사법 리스크 등으로 성장 모멘텀이 약해진 상태였다. AI를 새로운 트래픽·결제 채널로 끌어올려 다시 플랫폼 동력을 확보하려는 포석이다.</div></div>
+<h3 id="_35">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">네이버 클로바X·뤼튼 등과의 경쟁이 치열해지는 가운데, 카톡 대화량 데이터 기반의 한국어 특화가 차별 포인트가 될 것으로 보인다.</div></div>
+<h3 id="_36">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">AI가 '검색'에서 '대화'로 이동하는 흐름 속에서 메신저 점유율이 곧 AI 점유율로 직결될 수 있다.</div></div>
+<h3 id="_37">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">MAU(Monthly Active Users): 한 달 동안 한 번이라도 서비스를 이용한 순 이용자 수.</div></div></article>
+<article class="news-article" data-index="10"><h2 id="07">07. 미국 제조업 생산 확대</h2>
+<p><code>국제·글로벌</code> · <a href="https://www.mk.co.kr/news/world/10007/">원문 보기</a></p>
+<h3 id="_38">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">미국 1분기 제조업 생산이 전 분기 대비 2.3% 증가하며 경기 연착륙 기대를 재차 키웠다. 반도체·자동차·항공기 부품 등 첨단 제조 영역에서의 회복이 두드러진다.</div></div>
+<h3 id="_39">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">1분기 제조업 생산지수: +2.3% QoQ(시장 컨센 +1.5% 상회)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">반도체 생산: +6.1%, 자동차 +4.7%, 항공기 부품 +5.2%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">ISM 제조업 PMI: 51.8(확장 국면 5개월 연속)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">Capex 가이던스 상향 기업 비중: S&amp;P500 중 38%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">신규 일자리: 제조업에서만 18,000명 증가</div></div>
+<h3 id="_40">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">IRA·CHIPS법 등 친환경·반도체 보조금이 본격적으로 집행되며 미국 내 생산설비 투자가 확대되고 있다. 인건비 상승에도 불구하고 첨단 부문은 자동화·AI 도입으로 생산성이 빠르게 개선되는 모습이다.</div></div>
+<h3 id="_41">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">고금리 장기화에도 불구하고 제조업 사이클이 추가로 회복된다면 연준의 인하 명분이 다소 약해질 가능성이 있다.</div></div>
+<h3 id="_42">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">미국 제조업 호조는 한국 반도체·기계·자동차 부품 수출 회복과 직접 연결돼 있다.</div></div>
+<h3 id="_43">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">ISM PMI: 미국 공급관리협회가 발표하는 구매관리자지수. 50을 기준으로 확장/위축을 가른다.</div></div></article>
+<article class="news-article" data-index="11"><h2 id="08">08. 청년 실업률, 사상 최저 기록</h2>
+<p><code>사회·고용</code> · <a href="https://www.mk.co.kr/news/society/10008/">원문 보기</a></p>
+<h3 id="_44">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">5월 청년(15~29세) 실업률이 3.2%로 사상 최저치를 기록했다. 인구 감소와 함께 일부 기업의 채용 확대가 맞물린 결과지만, 비경제활동인구 증가라는 또 다른 그림자가 동반되고 있다.</div></div>
+<h3 id="_45">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">청년 실업률: 3.2%(역대 최저)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">청년 고용률: 47.4%(전년 +1.1%p)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">청년 인구: 전년 대비 -28만 명 감소</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">쉬었음 청년: 47만 명(전년 +5.2%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">1인당 GDP 대비 신입 평균 연봉: 약 1.05배</div></div>
+<h3 id="_46">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">저출산으로 청년 인구 자체가 줄면서 통계상 실업률은 낮아 보이는 '인구 효과'가 크다. 동시에 구직활동을 포기한 비경활 청년이 늘어나는 점은 구조적 문제로 지적된다.</div></div>
+<h3 id="_47">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">수도권 IT·바이오 집중 채용은 강화되겠지만, 지역·중소기업의 인력난은 더 심해질 가능성이 높다.</div></div>
+<h3 id="_48">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">표면적 지표 호조와 체감 고용의 괴리가 정책 신뢰도에 부담을 줄 수 있는 구간이다.</div></div>
+<h3 id="_49">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">쉬었음 인구: 일하지 않으면서 구직활동도 하지 않는 사람으로, 실업자에서 제외된다.</div></div></article>
+<article class="news-article" data-index="12"><h2 id="09-30">09. 현대기아차, 전기차 판매 30% 증가</h2>
+<p><code>산업·기업</code> · <a href="https://www.mk.co.kr/news/business/10009/">원문 보기</a></p>
+<h3 id="_50">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">현대자동차·기아의 글로벌 전기차 판매량이 상반기 기준 전년 대비 30% 증가했다. 아이오닉5·6, EV6, EV9이 동반 호조를 보이는 가운데 미국 IRA 보조금 회복이 반등의 결정적 계기가 됐다.</div></div>
+<h3 id="_51">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">상반기 전기차 판매: 35만 대(+30% YoY)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">북미 비중: 38%, 유럽 32%, 한국 18%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">아이오닉5 단일 차종 글로벌 누적 50만 대 돌파</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">전기차 영업이익률: 약 6.5% 추정</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">조지아 메타플랜트 가동률: 75% 초과</div></div>
+<h3 id="_52">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">테슬라의 가격 인하 공세, 중국 BYD의 해외 진출 가속이라는 험난한 환경 속에서도 현대차그룹은 E-GMP 플랫폼 기반 다차종 전략으로 점유율을 지켜내고 있다.</div></div>
+<h3 id="_53">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">EV3·EV4 등 신규 보급형 모델 라인업이 본격 가세하면 하반기 판매 모멘텀은 더 강해질 가능성이 높다.</div></div>
+<h3 id="_54">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">전기차 사업의 흑자 구조 진입이 한국 자동차 산업의 장기 경쟁력 가늠자가 되고 있다.</div></div>
+<h3 id="_55">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">E-GMP: 현대차그룹 전기차 전용 플랫폼. 800V 시스템으로 충전·주행 효율을 극대화했다.</div></div></article>
+<article class="news-article" data-index="13"><h2 id="10">10. 서비스 수출 사상 최대 기록</h2>
+<p><code>거시경제·금융</code> · <a href="https://www.mk.co.kr/news/economy/10010/">원문 보기</a></p>
+<h3 id="_56">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">올 상반기 한국 서비스 수출이 350억 달러로 사상 최대를 기록했다. IT·콘텐츠·운송이 견인하는 가운데 '디지털 무역수지' 흑자 폭도 빠르게 확대되고 있다.</div></div>
+<h3 id="_57">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">상반기 서비스 수출: 350억 달러(+12.4% YoY)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">IT 서비스 수출: 110억 달러(+22%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">콘텐츠(K드라마·게임·음악) 수출: 79억 달러(+18%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">운송 서비스 수출: 78억 달러(컨테이너 운임 회복)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">디지털 무역수지: 4년 연속 흑자</div></div>
+<h3 id="_58">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">제조업 수출에 비해 비중이 작던 서비스 수출이 K-콘텐츠 글로벌화, 클라우드·SaaS 솔루션 확산을 타고 빠르게 커지고 있다. 반도체·자동차 의존도를 낮추는 산업 다각화 측면에서도 중요한 흐름이다.</div></div>
+<h3 id="_59">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">OTT 글로벌 라이선싱 매출과 게임 수출이 추가로 늘어날 경우 연간 700억 달러 돌파도 가능하다는 분석이 나온다.</div></div>
+<h3 id="_60">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">서비스 수출은 환율·원자재 영향을 덜 받기 때문에 경상수지 안정성을 높이는 구조적 효과가 있다.</div></div>
+<h3 id="_61">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">디지털 무역수지: 디지털로 거래되는 콘텐츠·소프트웨어·온라인 서비스의 수출입 차이.</div></div></article>
+<article class="news-article" data-index="14"><h2 id="11">11. 외국인, 코스피 매수세 지속</h2>
+<p><code>증권·자본시장</code> · <a href="https://www.mk.co.kr/news/stock/10011/">원문 보기</a></p>
+<h3 id="_62">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">외국인 투자자가 코스피에서 16거래일 누적 7조 원을 순매수했다. 반도체와 2차전지에 매수세가 집중되며 시장의 외인 의존도가 다시 높아지는 모습이다.</div></div>
+<h3 id="_63">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">16거래일 누적 외국인 순매수: 7조 1,000억 원</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">최선호 섹터: 반도체(46%)·2차전지(18%)·금융(12%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">외국인 보유 비중: 36.4%(연중 최고)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">공매도 잔액 비중: 0.6%(작년 대비 절반)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">원/달러 환율: 1,278원(전월 대비 -1.4%)</div></div>
+<h3 id="_64">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">글로벌 펀드의 신흥시장 비중 확대와 한국의 밸류업 정책 효과가 결합되면서 외국인 자금이 빠르게 들어오고 있다. 환율 안정과 기업이익 상향이 동시에 진행되는 점도 매력 포인트다.</div></div>
+<h3 id="_65">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">FOMC 결과와 7월 어닝 시즌 결과에 따라 외국인 매수 강도가 결정될 것으로 보인다.</div></div>
+<h3 id="_66">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">외국인 자금의 'risk-on' 전환이 추가로 진행될 경우 코스피 4,000 시도 시나리오도 점진적으로 부각될 수 있다.</div></div>
+<h3 id="_67">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">공매도: 보유하지 않은 주식을 빌려 팔고 나중에 되사서 갚는 매매 방식.</div></div></article>
+<article class="news-article" data-index="15"><h2 id="12">12. 정부, 중소기업 지원 예산 확대</h2>
+<p><code>정책·정치</code> · <a href="https://www.mk.co.kr/news/politics/10012/">원문 보기</a></p>
+<h3 id="_68">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">정부가 2024년 중소기업 지원 예산을 전년 대비 15% 확대해 약 25조 원으로 편성했다. R&amp;D·스타트업·수출 바우처 등 직접지원 비중이 늘어난 것이 특징이다.</div></div>
+<h3 id="_69">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">중기 지원 예산: 약 25조 원(+15% YoY)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">R&amp;D 지원: 5.4조 원(+22%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">수출 바우처 신규 1만 개사 추가 지원</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">기술혁신형 스타트업 모태펀드 출자: 9,000억 원</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">고용창출 인센티브 단가 1,200만 원으로 인상</div></div>
+<h3 id="_70">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">고금리·고환율로 자금 조달 어려움을 호소하는 중소기업이 늘면서 정부가 직접 지원 카드를 강화했다. 다만 효과가 분산되고 단기 성과 위주로 흐를 수 있다는 비판도 동반된다.</div></div>
+<h3 id="_71">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">중기부 평가 지표가 '실제 매출·수출 증가'로 변경되며, 보조금 의존 구조에서 시장 경쟁력 중심으로 재편될 가능성이 있다.</div></div>
+<h3 id="_72">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">중소기업 정책의 무게중심이 보호에서 혁신·확장으로 이동하고 있다는 신호로 해석된다.</div></div>
+<h3 id="_73">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">모태펀드: 정부가 출자해 민간 벤처 투자조합에 자금을 공급하는 펀드 오브 펀즈 구조.</div></div></article>
+<article class="news-article" data-index="16"><h2 id="13">13. 한류 콘텐츠 수출 호조</h2>
+<p><code>문화·콘텐츠</code> · <a href="https://www.mk.co.kr/news/culture/10013/">원문 보기</a></p>
+<h3 id="_74">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">K드라마·K팝 등 한국 콘텐츠 글로벌 수출액이 상반기 기준 사상 최대를 기록했다. 넷플릭스·디즈니+ 등 글로벌 OTT의 한국 오리지널 발주가 분기 기준 두 배로 늘었다.</div></div>
+<h3 id="_75">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">상반기 콘텐츠 수출: 79억 달러(+18% YoY)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">글로벌 OTT 한국 오리지널 발주: 분기 70편(+105%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">K팝 음반 수출: 1억 9,500만 달러(+24%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">글로벌 톱100 IFPI 차트 한국 가수 수: 12팀</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">콘텐츠 IP 라이선싱 매출: 12억 달러</div></div>
+<h3 id="_76">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">OTT 글로벌 경쟁이 격화되면서 한국 콘텐츠의 '가성비 있는 흥행 IP'로서의 지위가 강해졌다. 동시에 K팝은 미국 빌보드·영국 차트에서 연간 수십 회 진입하는 등 본격적인 메인스트림 진입이 진행 중이다.</div></div>
+<h3 id="_77">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">AI 더빙·자막 기술 발전으로 비영어권 시장 진출이 추가 확장되면 연간 수출 200억 달러 달성도 가능하다는 전망이 나온다.</div></div>
+<h3 id="_78">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">한국 경제에서 '콘텐츠'가 처음으로 자동차 부품 수출과 비슷한 규모의 외화벌이 산업으로 부상했다.</div></div>
+<h3 id="_79">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">IP 라이선싱: 캐릭터·세계관 등 지적재산권을 다른 사업자에게 사용 허가하고 로열티를 받는 모델.</div></div></article>
+<article class="news-article" data-index="17"><h2 id="14-sk">14. SK하이닉스, 고대역폭 메모리 양산 돌입</h2>
+<p><code>산업·기업</code> · <a href="https://www.mk.co.kr/news/business/10014/">원문 보기</a></p>
+<h3 id="_80">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">SK하이닉스가 12단 HBM3E 양산을 본격 시작하며 AI 메모리 시장에서 선두 입지를 굳혔다. 엔비디아 H200·B200향 공급이 우선 적용되며 마진율도 빠르게 개선되고 있다.</div></div>
+<h3 id="_81">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">12단 HBM3E 양산 개시: 5월 본격 출하</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">용량: 36GB(전 세대 대비 +50%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">엔비디아 H200·B200향 공급 비중 약 60%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">HBM 매출 비중: 전체 D램의 35%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">HBM4 12단 샘플 출하: 연내 예정</div></div>
+<h3 id="_82">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">SK하이닉스는 AI 사이클 전환점을 가장 빨리 포착해 HBM에 집중 투자한 결과, 글로벌 1위 자리를 굳혀가고 있다. 메모리 가격 회복으로 영업이익률이 다시 30%대로 진입했다.</div></div>
+<h3 id="_83">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">HBM4 진입 시점이 미·중 빅테크의 차세대 가속기 출시와 맞물리면서 추가 점유율 확보 기회가 있을 것으로 보인다.</div></div>
+<h3 id="_84">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">HBM은 단순한 메모리 제품이 아니라 AI 인프라의 '병목 자원'으로 자리잡으며, 한국 기업의 협상력과 ASP가 동시에 상승하는 구조다.</div></div>
+<h3 id="_85">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">HBM3E: HBM3의 확장 버전으로 핀당 9.2Gbps 이상 속도를 지원하는 차세대 고대역폭 메모리.</div></div></article>
+<article class="news-article" data-index="18"><h2 id="15">15. 강릉 원도심 재생 프로젝트 착공</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/10015/">원문 보기</a></p>
+<h3 id="_86">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">강릉 원도심 재생 프로젝트가 본격 착공에 들어갔다. 평창올림픽 이후 활용도가 떨어진 일부 시설을 문화·관광 거점으로 재편하면서 지역 경제 활성화를 노린다.</div></div>
+<h3 id="_87">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">총 사업비: 4,800억 원(공공 60%·민간 40%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">재생 면적: 약 78만㎡(원도심 18개 블록)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">예정 시설: 복합문화센터·청년창업타운·관광호텔 3곳</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">예상 일자리: 4,500개 창출</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">착공 후 준공 목표: 2028년 상반기</div></div>
+<h3 id="_88">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">강릉은 올림픽 효과 이후 관광 수요는 늘었지만, 원도심 공동화는 오히려 심해졌다. 정부와 강원도가 공동 투자해 도시재생 모델로 풀어내려는 시도다.</div></div>
+<h3 id="_89">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">성공할 경우 평창·정선·속초 등 강원권 다른 도시 재생 사업의 표준 모델이 될 가능성이 있다.</div></div>
+<h3 id="_90">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">지방 소멸 위기 대응에서 '메가 이벤트 유산'의 사후 활용이 핵심 변수로 부각되고 있다.</div></div>
+<h3 id="_91">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">도시재생: 기존 시가지를 철거하지 않고 기능 재구성·환경 개선을 통해 활성화하는 방식.</div></div></article>
+<article class="news-article" data-index="19"><h2 id="16-ai">16. 네이버, AI 검색 엔진 고도화</h2>
+<p><code>IT·플랫폼</code> · <a href="https://www.mk.co.kr/news/it/10016/">원문 보기</a></p>
+<h3 id="_92">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">네이버가 자체 LLM 'HyperCLOVA X'를 결합한 차세대 검색 엔진을 본격 가동했다. 검색 결과를 단순 링크가 아닌 '요약된 답변+근거 문서' 형식으로 제공하며 사용자 체류시간을 끌어올린다는 전략이다.</div></div>
+<h3 id="_93">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">신규 검색 적용 쿼리 비중: 전체의 35% → 연말 70% 목표</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">체류시간: 베타 그룹 기준 +18%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">한국어 응답 정확도: 사내 평가 91%(GPT-4 대비 동등)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">광고 매출 영향: 새 포맷에 맞춘 'AI 답변 광고' 출시</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">데이터센터 추가 투자: 7,500억 원</div></div>
+<h3 id="_94">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">구글의 SGE, 마이크로소프트의 Copilot 검색이 한국에 본격 진입하기 전 네이버가 선제 대응에 나선 것이다. 검색 광고가 매출의 핵심인 만큼 AI 검색의 수익성 확보가 회사의 사활이 걸린 과제다.</div></div>
+<h3 id="_95">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">AI 답변 광고가 정착되면 단가는 기존 키워드 광고 대비 1.5배 수준이 될 것이라는 전망이 나온다.</div></div>
+<h3 id="_96">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">AI 검색 전환이 광고 산업 구조 자체를 재편할 가능성이 있다.</div></div>
+<h3 id="_97">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">LLM(Large Language Model): 수십~수천억 파라미터의 거대 언어 모델로 자연어 이해·생성을 담당.</div></div></article>
+<article class="news-article" data-index="20"><h2 id="17-53">17. 중국 경제 성장률 5.3% 기록</h2>
+<p><code>국제·글로벌</code> · <a href="https://www.mk.co.kr/news/world/10017/">원문 보기</a></p>
+<h3 id="_98">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">중국이 1분기 GDP 성장률 5.3%를 기록하며 시장 컨센서스(4.6%)를 상회했다. 다만 부동산·소비 회복은 여전히 더딘 모습으로, 정부의 추가 부양 의지가 시험대에 올랐다.</div></div>
+<h3 id="_99">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">1분기 GDP 성장률: 5.3% YoY(컨센 +0.7%p)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">고정자산투자: +4.5%(인프라·첨단제조)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">부동산 투자: -9.5%(역성장 지속)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">소매판매: +3.1%(여전히 부진)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">수출: +1.5%, 수입 -1.8%</div></div>
+<h3 id="_100">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">중국 정부는 '신질적 생산력'을 슬로건으로 첨단제조·전기차·배터리 산업에 자원을 몰아주고 있다. 반면 부동산은 디레버리징(부채 축소) 단계에 있어 회복이 늦어지고 있다.</div></div>
+<h3 id="_101">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">추가 금리 인하와 지방채 발행 확대가 하반기에 본격화되면 5%대 성장 사수는 가능할 것으로 보인다.</div></div>
+<h3 id="_102">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">한국 입장에서는 대중 중간재 수출 회복 여부가 무역수지에 결정적 영향을 미친다.</div></div>
+<h3 id="_103">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">신질적 생산력: 시진핑 정부가 강조하는 첨단제조·과학기술 기반 신성장 동력 전략.</div></div></article>
+<article class="news-article" data-index="21"><h2 id="18-1200">18. 원달러 환율, 1200원대 진입</h2>
+<p><code>거시경제·금융</code> · <a href="https://www.mk.co.kr/news/economy/10018/">원문 보기</a></p>
+<h3 id="_104">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">원·달러 환율이 1,200원대로 진입하며 약 1년 6개월 만에 가장 낮은 수준을 기록했다. 외국인 자금 유입과 미·중 무역 긴장 완화가 원화 강세 요인으로 작용했다.</div></div>
+<h3 id="_105">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">원·달러 환율: 1,278원(전월 대비 -1.4%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">달러인덱스(DXY): 102.6(연중 저점 부근)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">외국인 채권 순매수: 6.2조 원(YTD)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">경상수지: 5월 70억 달러 흑자(연속 흑자)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">외환보유액: 4,170억 달러(역대 최대)</div></div>
+<h3 id="_106">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">미 연준의 인하 시점이 시장에 점진적으로 반영되며 달러 강세가 한 풀 꺾였다. 한국의 경상수지 흑자 확대도 원화 가치 회복에 기여하는 모습이다.</div></div>
+<h3 id="_107">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">FOMC가 9월 인하를 시사할 경우 1,250원선 하향 시도가 가능하지만, 지정학 리스크가 다시 불거질 경우 1,300원대 복귀 가능성도 상존한다.</div></div>
+<h3 id="_108">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">수출기업의 환차익은 줄어들지만 수입물가 안정과 외인 매수세 확대라는 효과는 분명한 플러스 요인이다.</div></div>
+<h3 id="_109">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">달러인덱스: 유로·엔 등 주요 6개 통화 대비 달러 가치를 보여주는 지수.</div></div></article>
+<article class="news-article" data-index="22"><h2 id="19">19. 포스코, 친환경 철강 생산 확대</h2>
+<p><code>산업·기업</code> · <a href="https://www.mk.co.kr/news/business/10019/">원문 보기</a></p>
+<h3 id="_110">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">포스코가 친환경 철강(수소환원제철·전기로) 생산 비중을 빠르게 확대하고 있다. 글로벌 탄소국경조정제도(CBAM)에 대비하기 위한 선제적 투자라는 평가다.</div></div>
+<h3 id="_111">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">친환경 철강 생산 비중: 12% → 2030년 30% 목표</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">수소환원제철(HyREX) 시범 라인 가동: 2026년 예정</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">광양 전기로 신설 투자: 6,000억 원</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">스코프1 배출량: 전년 대비 -7.2%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">녹색 채권 발행: 8,000억 원(연내 누적)</div></div>
+<h3 id="_112">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">EU CBAM이 2026년부터 본격 부과되면 한국 철강 수출에 직접적 비용 부담이 발생한다. 포스코는 LCA(전과정평가) 기반 저탄소 제품군을 선제 확보해 가격경쟁력을 지키려는 전략이다.</div></div>
+<h3 id="_113">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">수소환원제철 상업화 시점이 한국 철강 산업의 구조적 경쟁력을 결정할 것으로 보인다.</div></div>
+<h3 id="_114">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">기후정책이 더 이상 비용 항목이 아닌 전략 항목으로 격상되었음을 보여주는 사례다.</div></div>
+<h3 id="_115">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">CBAM(탄소국경조정제도): EU로 수입되는 제품에 탄소배출량 기반 부담금을 매기는 제도.</div></div></article>
+<article class="news-article" data-index="23"><h2 id="20">20. 기관 투자자, 양매수세 확대</h2>
+<p><code>증권·자본시장</code> · <a href="https://www.mk.co.kr/news/stock/10020/">원문 보기</a></p>
+<h3 id="_116">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">국내 기관(연기금·자산운용)이 코스피에서 5월 한 달간 3.4조 원을 순매수했다. 배당주·가치주에 매수세가 집중되며 정부의 밸류업 정책에 대한 기대감을 반영하는 모습이다.</div></div>
+<h3 id="_117">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">5월 기관 순매수: 3.4조 원(연중 최대)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">배당수익률 4% 이상 종목 매수 비중: 42%</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">주주환원 강화 발표 기업 수: 130개사 돌파</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">코스피 PBR 1.0 미만 종목 비중: 56% → 49% 축소</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">기업 자사주 소각 규모: 분기 1.7조 원</div></div>
+<h3 id="_118">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">정부의 밸류업 프로그램과 자산운용사 ESG 전략이 결합되며, 저PBR·고배당 종목에 대한 재평가가 본격화되고 있다.</div></div>
+<h3 id="_119">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">기업 지배구조 개선·배당정책 확대가 추가로 진전될 경우 한국 증시의 구조적 디스카운트가 빠르게 축소될 가능성이 있다.</div></div>
+<h3 id="_120">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">한국 증시가 '성장주' 일변도에서 '인컴+성장' 균형 시장으로 진화하는 신호로 해석된다.</div></div>
+<h3 id="_121">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">밸류업 프로그램: 상장사의 자본효율성·주주환원 개선을 유도하는 정부 정책 패키지.</div></div></article>
+<article class="news-article" data-index="24"><h2 id="21">21. 디지털 문해력 교육 강화</h2>
+<p><code>사회·교육</code> · <a href="https://www.mk.co.kr/news/society/10021/">원문 보기</a></p>
+<h3 id="_122">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">정부가 초·중·고 디지털 문해력 교육 시간을 주당 2시간으로 의무화한다. AI 시대에 필요한 비판적 사고와 데이터 활용 능력을 기르겠다는 취지다.</div></div>
+<h3 id="_123">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">필수 교육시간: 주 2시간(연 70시간)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">AI 윤리·프라이버시 교육 신설: 중·고 전 학년</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">교사 연수 예산: 1,200억 원</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">디지털 교과서 도입 학교 수: 6,800교(전체의 73%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">지역간 교육 격차 보정 예산: 800억 원</div></div>
+<h3 id="_124">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">OECD PISA에서 한국 학생의 디지털 정보 식별 능력은 평균을 밑돌고 있다는 평가가 나오며, 정부 차원의 체계적 대응 필요성이 제기됐다.</div></div>
+<h3 id="_125">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">교사 역량 격차와 디지털 인프라 격차를 어떻게 줄이느냐가 정책 성패의 관건이 될 것이다.</div></div>
+<h3 id="_126">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">디지털 문해력은 단순 IT 활용이 아니라 '판단력 교육'의 핵심으로 부상하고 있다.</div></div>
+<h3 id="_127">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">디지털 문해력: 정보의 신뢰성·맥락을 평가하고 활용하는 능력을 포함한 종합 역량.</div></div></article>
+<article class="news-article" data-index="25"><h2 id="22">22. 한미 정상회담 성과 평가</h2>
+<p><code>정책·정치</code> · <a href="https://www.mk.co.kr/news/politics/10022/">원문 보기</a></p>
+<h3 id="_128">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">한미 정상회담에서 양국은 반도체 공급망과 방위산업 협력을 핵심 의제로 다뤘다. 미국의 첨단 반도체 보조금 가이드라인 정비와 한국의 미국 내 투자 확대가 동시에 논의됐다.</div></div>
+<h3 id="_129">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">반도체 공급망 협력 MOU 1건 체결</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">방위산업 공동 R&amp;D 펀드 5억 달러 신규 조성</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">한국 기업 미국 투자 누계: 1,300억 달러 돌파</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">전략물자 수출통제 3개 분야 확대 합의</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">한미 통화스왑 상시화 논의 재개</div></div>
+<h3 id="_130">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">미·중 갈등이 심화되는 가운데 한국은 '핵심 동맹+제조 거점'으로서의 입지를 강화하려는 전략을 펼치고 있다. 반대급부로 미국 시장에 대한 의존도도 함께 높아지는 구조다.</div></div>
+<h3 id="_131">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">미국 대선 결과에 따라 IRA·CHIPS법 운영 방식이 바뀔 가능성이 있어, 한국 기업은 보조금 변동 리스크에 대비할 필요가 있다.</div></div>
+<h3 id="_132">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">한미 동맹의 무게중심이 안보에서 '안보+산업+기술'로 이동하고 있다.</div></div>
+<h3 id="_133">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">통화스왑: 두 나라가 외화 부족 시 자국 통화를 담보로 상대국 통화를 빌릴 수 있게 하는 약정.</div></div></article>
+<article class="news-article" data-index="26"><h2 id="23">23. 한글날 문화행사 개최</h2>
+<p><code>문화·콘텐츠</code> · <a href="https://www.mk.co.kr/news/culture/10023/">원문 보기</a></p>
+<h3 id="_134">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">한글날을 맞아 전국에서 한글 창제 의미를 되새기는 다양한 행사가 열렸다. 특히 AI 시대에 한국어 데이터의 가치가 재조명되며 한글의 산업적 의미도 부각된다.</div></div>
+<h3 id="_135">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">전국 한글 행사 수: 약 320개</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">주요 행사: 광화문·세종시·여주 야외전시·체험행사</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">해외 세종학당 학생 수: 13만 명(전년 +12%)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">한국어 LLM 학습 토큰: 약 4,800억(공공·민간 합계)</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">K-POP 한국어 가사 비중: 글로벌 톱100 곡 평균 78%</div></div>
+<h3 id="_136">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">한국어 학습 수요가 K-콘텐츠 인기와 함께 빠르게 늘면서, 세종학당·온라인 학습 플랫폼이 동반 성장 중이다. AI 모델 학습에서도 양질의 한국어 데이터가 핵심 자산으로 인식되고 있다.</div></div>
+<h3 id="_137">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">한국어 LLM 표준 데이터셋 구축이 정부 차원에서 추진될 경우 글로벌 한국어 AI 서비스 경쟁력이 한 단계 도약할 것이다.</div></div>
+<h3 id="_138">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">언어가 문화 자산을 넘어 '데이터 자산'으로 평가되는 시대로 들어섰다.</div></div>
+<h3 id="_139">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">세종학당: 정부가 운영하는 해외 한국어·문화 보급 기관.</div></div></article>
+<article class="news-article" data-index="27"><h2 id="24">24. 배터리 업체들, 공급망 다변화</h2>
+<p><code>산업·기업</code> · <a href="https://www.mk.co.kr/news/business/10024/">원문 보기</a></p>
+<h3 id="_140">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">국내 배터리 3사(LG에너지솔루션·삼성SDI·SK온)가 핵심 원소재 공급망 다변화에 박차를 가하고 있다. 미국 IRA·EU CRMA 규제에 대응하기 위한 전략이다.</div></div>
+<h3 id="_141">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">리튬 비중국 조달 비중: 35% → 60% 목표</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">북미 양극재 합작법인 신규 4건 발표</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">전구체 자체 생산 능력: 2026년까지 30만 톤 확보</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">유럽 신규 셀 공장 가동률: 평균 65%로 상승</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">원소재 장기계약 평균 기간: 5.4년(전년 대비 +1.2년)</div></div>
+<h3 id="_142">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">전기차 보조금 요건이 '비우호국 비중 제한'을 강화하면서, 한국 배터리사는 호주·캐나다·인도네시아·아프리카 등 대체 소싱처 확보가 필수가 됐다.</div></div>
+<h3 id="_143">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">공급망 다변화 비용은 단기적으로 마진을 깎지만, 장기적으로는 가격 협상력과 보조금 적격성을 동시에 확보하는 무기가 된다.</div></div>
+<h3 id="_144">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">배터리 산업이 '제조 경쟁'에서 '소재·공급망 경쟁'으로 무게중심을 옮기고 있다.</div></div>
+<h3 id="_145">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">CRMA(Critical Raw Materials Act): EU의 핵심 원자재 공급망 안정화를 위한 법안.</div></div></article>
+<article class="news-article" data-index="28"><h2 id="25-reits">25. 부동산 투자신탁(REITs) 활성화</h2>
+<p><code>거시경제·금융</code> · <a href="https://www.mk.co.kr/news/economy/10025/">원문 보기</a></p>
+<h3 id="_146">요약</h3>
+<div class="news-block block-summary"><span class="block-icon">✅</span><div class="block-content">정부가 부동산투자신탁(REITs) 활성화를 위한 종합 패키지를 발표했다. 세제 혜택 확대와 자산 편입 범위 다양화로 장기 자산운용 시장의 한 축으로 키우겠다는 구상이다.</div></div>
+<h3 id="_147">주요 인용/수치</h3>
+<div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">리츠 자산 규모: 90조 원 → 2027년 200조 원 목표</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">데이터센터·물류·헬스케어 자산 편입 허용</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">공모리츠 배당소득 분리과세 한도: 5,000만 원으로 상향</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">신규 인가 리츠 수: 28개 추가 예정</div></div><div class="news-block block-detail"><span class="block-icon">✦</span><div class="block-content">퇴직연금 리츠 편입 비중 한도 단계적 확대</div></div>
+<h3 id="_148">배경/맥락</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">고령화와 함께 안정적 인컴 자산 수요가 빠르게 커지고 있지만, 한국의 리츠 시장 규모는 GDP 대비 미국·일본의 4분의 1 수준에 불과하다. 정부는 이를 본격적으로 끌어올리려는 시도다.</div></div>
+<h3 id="_149">전망</h3>
+<div class="news-block block-extra"><span class="block-icon">➕</span><div class="block-content">리츠가 '국민 자산형성 도구'로 자리잡으려면 운용 투명성과 거버넌스 강화가 동반돼야 한다.</div></div>
+<h3 id="_150">시사점</h3>
+<div class="news-block block-insight"><span class="block-icon">🔎</span><div class="block-content">부동산 투자가 직접 매수에서 '간접·증권화'로 이동하는 흐름의 핵심 인프라다.</div></div>
+<h3 id="_151">용어 정리</h3>
+<div class="news-block block-glossary"><span class="block-icon">🧾</span><div class="block-content">REITs(Real Estate Investment Trusts): 다수 투자자 자금으로 부동산에 투자해 임대·매각 수익을 배분하는 상품.</div></div></article>
+<p><em>— End of Brief —</em></p>
+
+            <footer class="footer">
+                — End of Brief —
+            </footer>
+        </main>
+    </div>
+
+    <button id="to-top-btn" title="Go to top" aria-label="Go to top">↑</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Theme toggle (persists via data-attribute only; no storage in artifacts)
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        let isDark = false;
+
+        // Detect system preference on first load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.setAttribute('data-theme', 'dark');
+            isDark = true;
+            themeToggle.textContent = '☀';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            isDark = !isDark;
+            if (isDark) {
+                root.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀';
+            } else {
+                root.removeAttribute('data-theme');
+                themeToggle.textContent = '☾';
+            }
+        });
+
+        // 2. Wrap article bodies for collapse/expand
+        document.querySelectorAll('.news-article').forEach(function(article) {
+            const h2 = article.querySelector('h2');
+            if (!h2) return;
+
+            // Gather everything after h2 into .article-body wrapper
+            const body = document.createElement('div');
+            body.className = 'article-body';
+            let next = h2.nextSibling;
+            const toMove = [];
+            while (next) {
+                toMove.push(next);
+                next = next.nextSibling;
+            }
+            toMove.forEach(function(node) { body.appendChild(node); });
+            article.appendChild(body);
+
+            // Click h2 to toggle
+            h2.addEventListener('click', function() {
+                article.classList.toggle('collapsed');
+            });
+        });
+
+        // 3. Reading progress bar
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }
+
+        // 4. To-top button
+        const toTopBtn = document.getElementById('to-top-btn');
+        toTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. TOC active link highlighting (intersection observer)
+        const tocLinks = document.querySelectorAll('.toc a');
+        const articleHeadings = document.querySelectorAll('.news-article h2');
+
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            toTopBtn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+
+            // Find current section
+            let current = '';
+            articleHeadings.forEach(function(heading) {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 120) {
+                    current = heading.id || '';
+                }
+            });
+
+            tocLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        updateProgress();
+    });
+    </script>
+</body>
+</html>
