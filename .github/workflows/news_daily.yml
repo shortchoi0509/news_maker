@@ -62,8 +62,11 @@ jobs:
         uses: anthropics/claude-code-action@beta
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          mode: agent
           allowed_tools: "Bash,Read,Write,Edit,Glob,Grep"
-          prompt: |
+          timeout_minutes: "45"
+          direct_prompt: |
             오늘(${{ env.TODAY }})의 매일경제 데일리 브리프를 만든다. 외부 LLM API 호출 금지 — 모든 요약·해설은 네가 직접 한국어로 작성한다.
 
             입력:
