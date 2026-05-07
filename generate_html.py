@@ -88,16 +88,19 @@ def post_process_html(html_body):
 def wrap_articles_in_cards(html_body):
     """
     각 ## 제목부터 다음 ## 또는 <hr> 전까지를 <article> 카드로 감쌉니다.
+    "오늘의 한눈에 보기" 섹션은 카드가 아닌 별도 <section class="executive-summary">로 감쌉니다.
     """
-    # 먼저 separator로 split
     parts = html_body.split('<div class="article-separator"></div>')
     wrapped_parts = []
     for i, part in enumerate(parts):
         part = part.strip()
-        if '<h2' in part:
-            wrapped_parts.append(f'<article class="news-article" data-index="{i}">{part}</article>')
-        else:
+        if '<h2' not in part:
             wrapped_parts.append(part)
+            continue
+        if re.search(r'<h2[^>]*>\s*오늘의 한눈에 보기', part):
+            wrapped_parts.append(f'<section class="executive-summary">{part}</section>')
+        else:
+            wrapped_parts.append(f'<article class="news-article" data-index="{i}">{part}</article>')
     return '\n'.join(wrapped_parts)
 
 
@@ -479,6 +482,35 @@ def create_html_from_markdown(md_content, title):
     /* ============================================
        News Article Cards
        ============================================ */
+    .executive-summary {
+        background: var(--accent-soft);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        padding: 32px 40px;
+        margin: 8px 0 36px;
+        position: relative;
+    }
+
+    .executive-summary h2 {
+        font-family: var(--font-serif);
+        font-size: 1.45rem;
+        margin: 0 0 18px;
+        padding: 0;
+        color: var(--text-primary);
+        border: none;
+    }
+
+    .executive-summary h2::after { content: none; }
+
+    .executive-summary p {
+        font-size: 1.0rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+        margin: 0 0 14px;
+    }
+
+    .executive-summary p:last-child { margin-bottom: 0; }
+
     .news-article {
         background: var(--bg-card);
         border: 1px solid var(--border-subtle);
