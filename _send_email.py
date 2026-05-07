@@ -63,9 +63,16 @@ def main() -> int:
     msg["To"] = ", ".join(recipients)
     msg.set_content(
         f"오늘({today})의 매일경제 데일리 브리프입니다.\n"
-        "HTML을 지원하는 메일 클라이언트에서 본문을 확인해주세요.\n"
+        "HTML을 지원하는 메일 클라이언트에서 본문을 확인하시거나,\n"
+        f"첨부된 {html_path.name} 파일을 브라우저로 열어보세요.\n"
     )
     msg.add_alternative(html_body, subtype="html")
+    msg.add_attachment(
+        html_body.encode("utf-8"),
+        maintype="application",
+        subtype="octet-stream",
+        filename=html_path.name,
+    )
 
     with smtplib.SMTP("smtp.gmail.com", 587) as server:
         server.starttls()
