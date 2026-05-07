@@ -4,10 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "30 15 * * *"  # 매일 KST 00:30 (UTC 15:30)
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/news_daily.yml"
 
 permissions:
   contents: write
