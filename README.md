@@ -1,33 +1,23 @@
-## PodCast Maker
+# Daily News Maker
 
-뉴스 데이터를 기반 pod cast 자동 생성 툴
+매일경제 기사를 자동으로 스크랩하고 Claude 가 한국어 데일리 브리프를
+생성해 Gmail 로 발송하는 GitHub Actions 파이프라인.
 
-### 자동화 pipeline
+## Pipeline (`.github/workflows/news_daily.yml`)
 
-* news_maker
-  * ex) `python -m news_maker.news_parse_and_archive --file-name soccer_news --urls {url1},{url2},{url3},{url4} --input-language ko --output-language ENGLISH --llm-model gpt-4o --output-crolling-dir crolling_results --output-llm-podcast-dir llm_podcast_results`
-    * `--output-crolling-dir` : 기사 크롤링 결과 저장 디렉토리
-    * `--output-llm-podcast-dir` : llm api를 통해 생성된 pod cast 결과 저장 디렉토리
-    * `--output-llm-summary-dir` : llm api를 통해 생성된 결과 저장 디렉토리
-    * 위 세 argument는 **optional** 이므로 주어지지 않은 directory에 대해서는 결과를 저장하지 않음
-  * news url을 던져주면 webcrolling을 통해 기사 제목, contents 추출
-    * newspaper3k 라이브러리로 실패나는 url은 제외하고 추출
-  * llm api로 정제 거친후 각 기사별로 (제목, 내용, 키워드) 추출 후 하나의 txt 파일로 저장
-    * 위 예시의 경우 txt_files/soccer_news.txt 파일로 저장
-  * 지원 llm model
-    * chatGPT, deepseek
+매일 KST 00:30 (UTC 15:30) 자동 실행, 또는 Actions 탭 → Run workflow 로 수동 실행.
 
-### ToDo
+1. `_run_scrape.py` — 매일경제 기사 목록을 병렬 스크랩하여 `out/<YYYY-MM-DD>/scraped.json` 생성
+2. `anthropics/claude-code-action` — `scraped.json` 의 모든 기사를 통합 컨텍스트로 읽고
+   `out/<YYYY-MM-DD>/SUMMARY_KO/daily_brief_<YYYY-MM-DD>.md` 작성
+   - 최상단 `## 오늘의 한눈에 보기` (주제별 단락 종합 개관)
+   - 각 기사별 `## NN. 제목` + `### 요약` / `### 전망` / `### 시사점`
+3. `generate_html.py` — 마크다운을 에디토리얼 스타일 HTML 로 변환
+4. `_send_email.py` — HTML 을 Gmail SMTP 로 발송 (인라인 본문 + 첨부)
 
-현재는 Google NotebookLM의 podcast 생성 툴을 이용하고 있는데.. 이 단계까지 자동화 가능하면 편할 듯
+## Required GitHub Secrets
 
-### Daily News Pipeline (GitHub Actions)
-
-`.github/workflows/news_daily.yml` 가 매일 KST 00:30 에 실행되어
-매일경제 기사를 스크랩하고 Claude Code Action 으로 한국어 데일리 브리프를
-`out/<YYYY-MM-DD>/` 에 생성한 뒤, 결과 HTML 을 Gmail 로 발송한다.
-
-발송에 필요한 GitHub Secrets (Settings → Secrets and variables → Actions):
+Settings → Secrets and variables → Actions:
 
 | Secret | 설명 |
 | --- | --- |
@@ -36,7 +26,9 @@
 | `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 (2단계 인증 → 앱 비밀번호에서 발급한 16자) |
 | `MAIL_TO` | 수신자 이메일. 여러 명이면 콤마로 구분 (`a@x.com,b@y.com`) |
 
-로컬에서 발송을 테스트하려면:
+## Local testing
+
+발송만 단독으로 테스트:
 
 ```bash
 TODAY=2026-05-07 \
@@ -45,3 +37,5 @@ GMAIL_APP_PASSWORD=xxxxxxxxxxxxxxxx \
 MAIL_TO=you@example.com \
 python _send_email.py
 ```
+
+또는 Actions 탭의 `Email Test (manual)` 워크플로우로 수동 발송 검증 가능.
