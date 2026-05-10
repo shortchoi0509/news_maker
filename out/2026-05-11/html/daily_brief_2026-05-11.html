@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Brief 2026-05-11</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <style>
+    /* ============================================
+       Editorial Design System
+       ============================================ */
+    :root {
+        --font-serif: 'Noto Serif KR', 'Source Serif Pro', Georgia, serif;
+        --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+        /* Light theme - warm neutral */
+        --bg-primary: #fafaf7;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f3f2ed;
+        --bg-card: #ffffff;
+        --border-subtle: #e8e6df;
+        --border-strong: #2c2c2c;
+
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --text-tertiary: #888580;
+        --text-muted: #a8a5a0;
+
+        --accent: #8b0000;
+        --accent-soft: rgba(139, 0, 0, 0.08);
+        --accent-line: #c9302c;
+
+        /* Semantic colors - 아이콘 블록 */
+        --color-summary: #1a4d3a;
+        --color-summary-bg: #ecf4ef;
+        --color-detail: #2c3e50;
+        --color-detail-bg: #f5f5f0;
+        --color-extra: #6b5b3e;
+        --color-extra-bg: #f7f3ea;
+        --color-insight: #5b3a8c;
+        --color-insight-bg: #f1ecf7;
+        --color-glossary: #8b6f47;
+        --color-glossary-bg: #faf6ef;
+
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+        --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #0f0f0e;
+        --bg-secondary: #1a1a18;
+        --bg-tertiary: #242420;
+        --bg-card: #1a1a18;
+        --border-subtle: #2e2e2a;
+        --border-strong: #e8e6df;
+
+        --text-primary: #f0ede4;
+        --text-secondary: #c8c5bd;
+        --text-tertiary: #8a8680;
+        --text-muted: #5a5650;
+
+        --accent: #e85d5d;
+        --accent-soft: rgba(232, 93, 93, 0.12);
+        --accent-line: #e85d5d;
+
+        --color-summary: #7bc49a;
+        --color-summary-bg: rgba(123, 196, 154, 0.1);
+        --color-detail: #a8c8e5;
+        --color-detail-bg: rgba(168, 200, 229, 0.08);
+        --color-extra: #d4b878;
+        --color-extra-bg: rgba(212, 184, 120, 0.1);
+        --color-insight: #c9a8e8;
+        --color-insight-bg: rgba(201, 168, 232, 0.1);
+        --color-glossary: #d4b896;
+        --color-glossary-bg: rgba(212, 184, 150, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        margin: 0;
+        padding: 0;
+        transition: background 0.3s ease, color 0.3s ease;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       Progress Bar
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--accent);
+        z-index: 1000;
+        transition: width 0.1s linear;
+    }
+
+    /* ============================================
+       Top Bar
+       ============================================ */
+    .top-bar {
+        position: sticky;
+        top: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .top-bar {
+        background-color: rgba(26, 26, 24, 0.85);
+    }
+
+    .top-bar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brand {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+    }
+
+    .top-bar-meta {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .theme-toggle {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all 0.2s;
+        padding: 0;
+    }
+
+    .theme-toggle:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: rotate(15deg);
+    }
+
+    /* ============================================
+       Main Layout
+       ============================================ */
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    /* ============================================
+       Sidebar / TOC
+       ============================================ */
+    #sidebar {
+        position: sticky;
+        top: 90px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-track { background: transparent; }
+    #sidebar::-webkit-scrollbar-thumb {
+        background: var(--border-subtle);
+        border-radius: 2px;
+    }
+
+    .sidebar-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-tertiary);
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: toc-counter;
+    }
+
+    .toc ul ul { display: none; }
+
+    .toc li {
+        counter-increment: toc-counter;
+        position: relative;
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 10px 0 10px 32px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        border-left: 2px solid transparent;
+        padding-left: 16px;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .toc a::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        position: absolute;
+        left: -24px;
+        top: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .toc a:hover {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .toc a.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        font-weight: 500;
+    }
+
+    .toc-empty {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Content Area
+       ============================================ */
+    .content-main { min-width: 0; }
+
+    .masthead {
+        border-bottom: 4px double var(--text-primary);
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
+    .masthead-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .masthead h1 {
+        font-family: var(--font-serif);
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px 0;
+        color: var(--text-primary);
+    }
+
+    .masthead-meta {
+        display: flex;
+        gap: 24px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .masthead-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .masthead-meta .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--text-muted);
+        border-radius: 50%;
+    }
+
+    /* ============================================
+       News Article Cards
+       ============================================ */
+    .news-article {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 40px 44px;
+        margin-bottom: 28px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-article::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+    }
+
+    .news-article:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-1px);
+    }
+
+    .news-article:hover::before {
+        height: 100%;
+    }
+
+    .news-article h2 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        margin: 0 0 8px 0;
+        color: var(--text-primary);
+        cursor: pointer;
+        user-select: none;
+        padding-right: 40px;
+        position: relative;
+    }
+
+    .news-article h2::after {
+        content: '−';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--text-muted);
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .news-article.collapsed h2::after {
+        content: '+';
+    }
+
+    .news-article h2:hover::after {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .source-link {
+        margin: 0 0 24px 0;
+    }
+
+    .source-link a {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-tertiary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+
+    .source-link a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .source-link .arrow {
+        transition: transform 0.2s;
+    }
+
+    .source-link a:hover .arrow {
+        transform: translateX(3px);
+    }
+
+    /* Article body content wrapper (foldable) */
+    .article-body {
+        max-height: 10000px;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 1;
+    }
+
+    .news-article.collapsed .article-body {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /* ============================================
+       Article Subtitle (HEADLINE)
+       ============================================ */
+    .article-subtitle {
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--accent);
+        padding: 20px 24px;
+        margin: 0 0 28px 0;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .subtitle-label {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .article-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .contents-divider {
+        height: 1px;
+        background: linear-gradient(to right, var(--border-subtle), transparent);
+        margin: 0 0 24px 0;
+    }
+
+    /* ============================================
+       News Blocks (icon rows)
+       ============================================ */
+    .news-block {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+        padding: 14px 18px;
+        margin: 8px 0;
+        border-radius: var(--radius-md);
+        line-height: 1.65;
+        font-size: 0.96rem;
+        transition: background 0.2s;
+    }
+
+    .block-icon {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2px;
+    }
+
+    .block-content {
+        color: var(--text-primary);
+    }
+
+    /* 핵심 요약 - 가장 강조 */
+    .block-summary {
+        background: var(--color-summary-bg);
+        border-left: 3px solid var(--color-summary);
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+    .block-summary .block-content {
+        color: var(--color-summary);
+        font-weight: 600;
+    }
+    [data-theme="dark"] .block-summary .block-content {
+        color: var(--color-summary);
+    }
+
+    /* 주요 내용 */
+    .block-detail {
+        background: transparent;
+        padding: 10px 18px 10px 0;
+        border-left: none;
+    }
+    .block-detail .block-icon {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    /* 추가 내용 */
+    .block-extra {
+        background: var(--color-extra-bg);
+        border-left: 2px dashed var(--color-extra);
+        margin: 12px 0;
+        font-size: 0.92rem;
+    }
+    .block-extra .block-content { color: var(--color-extra); }
+
+    /* 의미/영향 - 인사이트 */
+    .block-insight {
+        background: var(--color-insight-bg);
+        border: 1px solid transparent;
+        border-left: 3px solid var(--color-insight);
+        margin-top: 16px;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .block-insight .block-content { color: var(--color-insight); }
+
+    /* 용어 설명 */
+    .block-glossary {
+        background: var(--color-glossary-bg);
+        border-top: 1px solid var(--border-subtle);
+        border-radius: 0;
+        font-size: 0.88rem;
+        margin-top: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .block-glossary .block-content {
+        color: var(--color-glossary);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Miscellaneous
+       ============================================ */
+    .article-separator { display: none; }
+
+    p { margin: 12px 0; }
+
+    code {
+        font-family: var(--font-mono);
+        background: var(--bg-tertiary);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.88em;
+    }
+
+    pre {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-size: 0.88rem;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ============================================
+       To-top Button
+       ============================================ */
+    #to-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.2s;
+        z-index: 999;
+    }
+
+    #to-top-btn:hover { transform: translateY(-3px); }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        margin-top: 80px;
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* ============================================
+       Mobile Responsive
+       ============================================ */
+    @media (max-width: 900px) {
+        .top-bar-inner { padding: 12px 20px; }
+        .brand { font-size: 1.1rem; }
+        .top-bar-meta { gap: 10px; font-size: 0.7rem; }
+
+        .main-wrapper {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #sidebar {
+            position: relative;
+            top: 0;
+            max-height: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: var(--bg-card);
+        }
+
+        .masthead h1 { font-size: 2rem; }
+        .masthead-meta { flex-wrap: wrap; gap: 12px; font-size: 0.7rem; }
+
+        .news-article {
+            padding: 28px 24px;
+        }
+
+        .news-article h2 { font-size: 1.35rem; padding-right: 32px; }
+        .article-subtitle { padding: 16px 18px; }
+        .news-block { padding: 12px 14px; font-size: 0.92rem; }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-article {
+        animation: fadeUp 0.4s ease both;
+    }
+    </style>
+</head>
+<body>
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <span>The Daily Brief</span>
+            </div>
+            <div class="top-bar-meta">
+                <span>2026-05-11</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-label">Index · 뉴스 목록</div>
+            <div class="toc">
+                <div class="toc">
+<ul>
+<li><a href="#_1">목차</a></li>
+<li><a href="#1">1. 제목 없음</a></li>
+<li><a href="#2">2. 제목 없음</a></li>
+<li><a href="#3">3. 제목 없음</a></li>
+<li><a href="#4">4. 제목 없음</a></li>
+<li><a href="#5">5. 제목 없음</a></li>
+<li><a href="#6">6. 제목 없음</a></li>
+<li><a href="#7">7. 제목 없음</a></li>
+<li><a href="#8-1-3">8. 1 … 3</a></li>
+<li><a href="#9">9. 제목 없음</a></li>
+<li><a href="#10-ai-x">10. AI … X</a></li>
+<li><a href="#11-2">11. [ ] ' ' … 2</a></li>
+<li><a href="#12">12. 제목 없음</a></li>
+<li><a href="#13-1415">13. [ ] 14~15 …</a></li>
+<li><a href="#14-20-5">14. 20% … 5</a></li>
+<li><a href="#15-etf-70">15. … ·ETF 70%</a></li>
+<li><a href="#16-ipo">16. , IPO</a></li>
+<li><a href="#17-456-etf-47">17. 456' ETF … 47%</a></li>
+<li><a href="#18-ai-vs-1">18. AI , vs 1</a></li>
+<li><a href="#19">19. 제목 없음</a></li>
+<li><a href="#20">20. 제목 없음</a></li>
+<li><a href="#21">21. 제목 없음</a></li>
+<li><a href="#22">22. 제목 없음</a></li>
+<li><a href="#23">23. 제목 없음</a></li>
+<li><a href="#24">24. 제목 없음</a></li>
+<li><a href="#25">25. 제목 없음</a></li>
+<li><a href="#26">26. 제목 없음</a></li>
+<li><a href="#27">27. 제목 없음</a></li>
+<li><a href="#28">28. 제목 없음</a></li>
+<li><a href="#29-3-1">29. 3 … 1</a></li>
+<li><a href="#30-93-92">30. [] ' '… 93% 92%</a></li>
+<li><a href="#31">31. 제목 없음</a></li>
+<li><a href="#32-1-grdp-1">32. 1 GRDP 1</a></li>
+<li><a href="#33">33. 제목 없음</a></li>
+<li><a href="#34">34. 제목 없음</a></li>
+<li><a href="#35">35. 제목 없음</a></li>
+<li><a href="#36">36. 제목 없음</a></li>
+<li><a href="#37-4-54">37. 4 54%</a></li>
+<li><a href="#38">38. 제목 없음</a></li>
+<li><a href="#39">39. 제목 없음</a></li>
+<li><a href="#40">40. 제목 없음</a></li>
+<li><a href="#41-lng">41. …·LNG</a></li>
+<li><a href="#42">42. 제목 없음</a></li>
+<li><a href="#43">43. 제목 없음</a></li>
+<li><a href="#44">44. 제목 없음</a></li>
+<li><a href="#45-kai">45. , KAI</a></li>
+<li><a href="#46">46. 제목 없음</a></li>
+<li><a href="#47">47. 제목 없음</a></li>
+<li><a href="#48">48. 제목 없음</a></li>
+<li><a href="#49">49. 제목 없음</a></li>
+<li><a href="#50">50. 제목 없음</a></li>
+<li><a href="#51-13">51. … 1.3</a></li>
+<li><a href="#52-lgu-ai">52. LGU+ AI</a></li>
+<li><a href="#53">53. 제목 없음</a></li>
+<li><a href="#54">54. 제목 없음</a></li>
+<li><a href="#55">55. 제목 없음</a></li>
+<li><a href="#56">56. 제목 없음</a></li>
+<li><a href="#57">57. 제목 없음</a></li>
+</ul>
+</div>
+
+            </div>
+        </nav>
+
+        <main class="content-main">
+            <header class="masthead">
+                <div class="masthead-kicker">Daily Market Brief</div>
+                <h1>Daily Brief 2026-05-11</h1>
+                <div class="masthead-meta">
+                    <span>📅 2026-05-11</span>
+                    <span class="dot"></span>
+                    <span>📰 58 Articles</span>
+                    <span class="dot"></span>
+                    <span>KST</span>
+                </div>
+            </header>
+
+            
+<p>title: "매일경제 데일리 브리프 2026-05-11"
+date: "2026-05-11" 
+articles: 57</p>
+<article class="news-article" data-index="2"><h2 id="_1">목차</h2>
+<ol>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>1 … 3</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>AI … X</strong></li>
+<li><strong>[ ] ' ' … 2</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>[ ] 14~15 …</strong></li>
+<li><strong>20% … 5</strong></li>
+<li><strong>… ·ETF 70%</strong></li>
+<li><strong>, IPO</strong></li>
+<li><strong>456' ETF … 47%</strong></li>
+<li><strong>AI , vs 1</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>3 … 1</strong></li>
+<li><strong>[] ' '… 93% 92%</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>1 GRDP 1</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>4 54%</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>…·LNG</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>, KAI</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>… 1.3</strong></li>
+<li><strong>LGU+ AI</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+<li><strong>제목 없음</strong></li>
+</ol></article>
+<article class="news-article" data-index="3"><h2 id="1">1. 제목 없음</h2>
+<p><code>정치</code> · <a href="https://www.mk.co.kr/news/politics/12042831">원문 보기</a></p>
+<h3 id="_2">요약</h3>
+<p>정치권에서 . , . , . . , . HMM . , . , , . . , . . . , . , , . '' , . . , . . , . , . . , . HMM . , . , , . . , . . . , . , , . '' , . . , .다고 발표했습니다. 이는 향후 정책 방향과 관련된 중요한 움직임으로 분석됩니다.</p>
+<h3 id="_3">전망</h3>
+<p>정책 추진 과정에서 추가적인 논의가 이어질 예정입니다.</p>
+<h3 id="_4">시사점</h3>
+<p>정책 결정 과정에서 국민 의견 수렴이 더욱 중요해질 전망입니다.</p></article>
+<article class="news-article" data-index="4"><h2 id="2">2. 제목 없음</h2>
+<p><code>정치</code> · <a href="https://www.mk.co.kr/news/politics/12042722">원문 보기</a></p>
+<h3 id="_5">요약</h3>
+<p>정치권에서 . , . , · , . . AI, , . , . , . . , . , , . , . . , . , · , . . AI, , . , . , . . , . , , . , .다고 발표했습니다. 이는 향후 정책 방향과 관련된 중요한 움직임으로 분석됩니다.</p>
+<h3 id="_6">전망</h3>
+<p>정책 추진 과정에서 추가적인 논의가 이어질 예정입니다.</p>
+<h3 id="_7">시사점</h3>
+<p>정치권의 이런 움직임은 향후 국가 발전 전략에 영향을 미칠 수 있습니다.</p></article>
+<article class="news-article" data-index="5"><h2 id="3">3. 제목 없음</h2>
+<p><code>정치</code> · <a href="https://www.mk.co.kr/news/politics/12042745">원문 보기</a></p>
+<h3 id="_8">요약</h3>
+<p>정치권에서 . GTX, , ' 30 ' . . , , . , , , '()' . AI , ' 200 ' . , . . , , . '·· (TF)' . , . , . . GTX, , ' 30 ' . . , , . , , , '()' . AI , ' 200 ' . , . . , , . '·· (TF)' . , . , .다고 발표했습니다. 이는 향후 정책 방향과 관련된 중요한 움직임으로 분석됩니다.</p>
+<h3 id="_9">전망</h3>
+<p>정책 추진 과정에서 추가적인 논의가 이어질 예정입니다.</p>
+<h3 id="_10">시사점</h3>
+<p>민주적 의사결정 과정의 투명성 확보가 핵심 과제로 떠오르고 있습니다.</p></article>
+<article class="news-article" data-index="6"><h2 id="4">4. 제목 없음</h2>
+<p><code>정치</code> · <a href="https://www.mk.co.kr/news/politics/12042744">원문 보기</a></p>
+<h3 id="_11">요약</h3>
+<p>정치권에서 ' ' 6·3 . . , ' ' , . , . , . ' ' , . , . ' ' . 6·3 . . ' ' , . , ' ' . . ' ' 6·3 . . , ' ' , . , . , . ' ' , . , . ' ' . 6·3 . . ' ' , . , ' ' . .다고 발표했습니다. 이는 향후 정책 방향과 관련된 중요한 움직임으로 분석됩니다.</p>
+<h3 id="_12">전망</h3>
+<p>정책 추진 과정에서 추가적인 논의가 이어질 예정입니다.</p>
+<h3 id="_13">시사점</h3>
+<p>정치 환경 변화가 국정 운영에 새로운 방향성을 제시할 것으로 보입니다.</p></article>
+<article class="news-article" data-index="7"><h2 id="5">5. 제목 없음</h2>
+<p><code>정치</code> · <a href="https://www.mk.co.kr/news/politics/12042730">원문 보기</a></p>
+<h3 id="_14">요약</h3>
+<p>정치권에서 22 ' ' . , . , , . '' , . , . ' ' . , , , , . . , ' ' , · . . , , , . , , . , . , '' , . , '' '' , . , , . , . , ' ' , . 22 ' ' . , . , , . '' , . , . ' ' . , , , , . . , ' ' , · . . , , , . , , . , . , '' , . , '' '' , . , , . , . , ' ' , .다고 발표했습니다. 이는 향후 정책 방향과 관련된 중요한 움직임으로 분석됩니다.</p>
+<h3 id="_15">전망</h3>
+<p>정책 추진 과정에서 추가적인 논의가 이어질 예정입니다.</p>
+<h3 id="_16">시사점</h3>
+<p>정책 결정 과정에서 국민 의견 수렴이 더욱 중요해질 전망입니다.</p></article>
+<article class="news-article" data-index="8"><h2 id="6">6. 제목 없음</h2>
+<p><code>정치</code> · <a href="https://www.mk.co.kr/news/politics/12042812">원문 보기</a></p>
+<h3 id="_17">요약</h3>
+<p>정치권에서 2, 3 , , , , ' '고 발표했습니다. 이는 향후 정책 방향과 관련된 중요한 움직임으로 분석됩니다.</p>
+<h3 id="_18">전망</h3>
+<p>정책 추진 과정에서 추가적인 논의가 이어질 예정입니다.</p>
+<h3 id="_19">시사점</h3>
+<p>정치권의 이런 움직임은 향후 국가 발전 전략에 영향을 미칠 수 있습니다.</p></article>
+<article class="news-article" data-index="9"><h2 id="7">7. 제목 없음</h2>
+<p><code>정치</code> · <a href="https://www.mk.co.kr/news/politics/12042731">원문 보기</a></p>
+<h3 id="_20">요약</h3>
+<p>정치권에서 6·3 . . , . . , . , · . AI . 6·3 , . , ' ' . . , . 6·3 . . , . . , . , · . AI . 6·3 , . , ' ' . . , .다고 발표했습니다. 이는 향후 정책 방향과 관련된 중요한 움직임으로 분석됩니다.</p>
+<h3 id="_21">전망</h3>
+<p>정책 추진 과정에서 추가적인 논의가 이어질 예정입니다.</p>
+<h3 id="_22">시사점</h3>
+<p>민주적 의사결정 과정의 투명성 확보가 핵심 과제로 떠오르고 있습니다.</p></article>
+<article class="news-article" data-index="10"><h2 id="8-1-3">8. 1 … 3</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042737">원문 보기</a></p>
+<h3 id="_23">요약</h3>
+<p>증시에서 . '' , . , '' '' . , . . '' , . , . , '' '' . . . , , ETF . . , . , ' ' . . '' , . , '' '' . , . . '' , . , . , '' '' . . . , , ETF . . , . , ' ' .다는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_24">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_25">시사점</h3>
+<p>투자 전략의 다각화와 리스크 관리가 더욱 중요해지고 있습니다.</p></article>
+<article class="news-article" data-index="11"><h2 id="9">9. 제목 없음</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042738">원문 보기</a></p>
+<h3 id="_26">요약</h3>
+<p>증시에서 '' . 150 , . ' ' , . . , , 2 , . . , 150 , . , . '' . , . , . , , , . , . ' ' . '' . 150 , . ' ' , . . , , 2 , . . , 150 , . , . '' . , . , . , , , . , . ' ' .다는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_27">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_28">시사점</h3>
+<p>시장 변동성에 대비한 신중한 투자 접근이 필요한 시점입니다.</p></article>
+<article class="news-article" data-index="12"><h2 id="10-ai-x">10. AI … X</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042713">원문 보기</a></p>
+<h3 id="_29">요약</h3>
+<p>증시에서 AI '' . . , . AI . , ( , , ) . X . AI . , . , . AI '' . . , . AI . , ( , , ) . X . AI . , . , .다는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_30">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_31">시사점</h3>
+<p>장기적 관점에서의 포트폴리오 구성 전략 검토가 요구됩니다.</p></article>
+<article class="news-article" data-index="13"><h2 id="11-2">11. [ ] ' ' … 2</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042714">원문 보기</a></p>
+<h3 id="_32">요약</h3>
+<p>증시에서 , ISC, HBM AI , TSMC AI는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_33">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_34">시사점</h3>
+<p>글로벌 시장 동향과 연계한 투자 판단이 중요해지고 있습니다.</p></article>
+<article class="news-article" data-index="14"><h2 id="12">12. 제목 없음</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042712">원문 보기</a></p>
+<h3 id="_35">요약</h3>
+<p>증시에서 2026 , , . (AI) AI . , , AI . , 5~7 . AI , , . AI . AI . , ' ' AI . , 'D.R.A.M'(, , AI , ) . AI , AI . , , . 2026 , , . (AI) AI . , , AI . , 5~7 . AI , , . AI . AI . , ' ' AI . , 'D.R.A.M'(, , AI , ) . AI , AI . , , .다는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_36">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_37">시사점</h3>
+<p>투자 전략의 다각화와 리스크 관리가 더욱 중요해지고 있습니다.</p></article>
+<article class="news-article" data-index="15"><h2 id="13-1415">13. [ ] 14~15 …</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042715">원문 보기</a></p>
+<h3 id="_38">요약</h3>
+<p>증시에서 AI . AI AI . , AI . AI . AI . SK AI (HBM) D, . , , AI , . , . AI , . SK . , . , MSCI . AI . AI AI . , AI . AI . AI . SK AI (HBM) D, . , , AI , . , . AI , . SK . , . , MSCI .다는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_39">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_40">시사점</h3>
+<p>시장 변동성에 대비한 신중한 투자 접근이 필요한 시점입니다.</p></article>
+<article class="news-article" data-index="16"><h2 id="14-20-5">14. 20% … 5</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042708">원문 보기</a></p>
+<h3 id="_41">요약</h3>
+<p>증시에서 20~30% 5 . . , , . , . ' ' ' ' , . (AI) . AI , AI . AI . , 5 , . , . , . , . . , AI AI . AI R&amp;D , , . . 20~30% 5 . . , , . , . ' ' ' ' , . (AI) . AI , AI . AI . , 5 , . , . , . , . . , AI AI . AI R&amp;D , , . .다는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_42">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_43">시사점</h3>
+<p>장기적 관점에서의 포트폴리오 구성 전략 검토가 요구됩니다.</p></article>
+<article class="news-article" data-index="17"><h2 id="15-etf-70">15. … ·ETF 70%</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042674">원문 보기</a></p>
+<h3 id="_44">요약</h3>
+<p>증시에서 ETF . , . AI ETF . , . , '' . . , DC() 1 . ' ' , ETF ETF . , . , ETF . ' ' . · . , . , . ETF . , . AI ETF . , . , '' . . , DC() 1 . ' ' , ETF ETF . , . , ETF . ' ' . · . , . , .다는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_45">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_46">시사점</h3>
+<p>글로벌 시장 동향과 연계한 투자 판단이 중요해지고 있습니다.</p></article>
+<article class="news-article" data-index="18"><h2 id="16-ipo">16. , IPO</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042676">원문 보기</a></p>
+<h3 id="_47">요약</h3>
+<p>증시에서 . , . , . , , . . . . SJG , . . , , . . . , . , , . , . . . , . , . , , . . . . SJG , . . , , . . . , . , , . , . .다는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_48">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_49">시사점</h3>
+<p>투자 전략의 다각화와 리스크 관리가 더욱 중요해지고 있습니다.</p></article>
+<article class="news-article" data-index="19"><h2 id="17-456-etf-47">17. 456' ETF … 47%</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042673">원문 보기</a></p>
+<h3 id="_50">요약</h3>
+<p>증시에서 ETF 456 , ETF 214 47%는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_51">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_52">시사점</h3>
+<p>시장 변동성에 대비한 신중한 투자 접근이 필요한 시점입니다.</p></article>
+<article class="news-article" data-index="20"><h2 id="18-ai-vs-1">18. AI , vs 1</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042682">원문 보기</a></p>
+<h3 id="_53">요약</h3>
+<p>증시에서 AI GPU ' ' , (TPU) 'AI '는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_54">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_55">시사점</h3>
+<p>장기적 관점에서의 포트폴리오 구성 전략 검토가 요구됩니다.</p></article>
+<article class="news-article" data-index="21"><h2 id="19">19. 제목 없음</h2>
+<p><code>국제</code> · <a href="https://www.mk.co.kr/news/world/12042760">원문 보기</a></p>
+<h3 id="_56">요약</h3>
+<p>. ‘ ’ , . , AI . AI . AI ‘ ’ , ‘ ’ . , . , AI . . ‘ ’ ‘’ , , . , AI . AI . . ‘ ’ , . , AI . AI . AI ‘ ’ , ‘ ’ . , . , AI . . ‘ ’ ‘’ , , . , AI . AI .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_57">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_58">시사점</h3>
+<p>세계 경제 동향이 우리 경제에 미치는 영향을 면밀히 분석해야 합니다.</p></article>
+<article class="news-article" data-index="22"><h2 id="20">20. 제목 없음</h2>
+<p><code>국제</code> · <a href="https://www.mk.co.kr/news/world/12042759">원문 보기</a></p>
+<h3 id="_59">요약</h3>
+<p>AI MLCC, FC-BGA, ''는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_60">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_61">시사점</h3>
+<p>국제 정세 변화에 대한 우리의 전략적 대응이 중요해지고 있습니다.</p></article>
+<article class="news-article" data-index="23"><h2 id="21">21. 제목 없음</h2>
+<p><code>국제</code> · <a href="https://www.mk.co.kr/news/world/12042752">원문 보기</a></p>
+<h3 id="_62">요약</h3>
+<p>AI . . , '( )' , , . AI , . . AI , AI . AI . , AI , . , . , . , . , , . . AI . . , '( )' , , . AI , . . AI , AI . AI . , AI , . , . , . , . , , . .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_63">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_64">시사점</h3>
+<p>글로벌 협력 체계 구축을 통한 상호 이익 추구가 필요합니다.</p></article>
+<article class="news-article" data-index="24"><h2 id="22">22. 제목 없음</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042681">원문 보기</a></p>
+<h3 id="_65">요약</h3>
+<p>증시에서 KoAct AI TIME K ETF , ,는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_66">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_67">시사점</h3>
+<p>장기적 관점에서의 포트폴리오 구성 전략 검토가 요구됩니다.</p></article>
+<article class="news-article" data-index="25"><h2 id="23">23. 제목 없음</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12042680">원문 보기</a></p>
+<h3 id="_68">요약</h3>
+<p>증시에서 SM C&amp;C , ·(M&amp;A)는 것으로 나타났습니다. 투자자들의 관심이 집중되고 있습니다.</p>
+<h3 id="_69">전망</h3>
+<p>시장 상황에 따른 추가적인 변동성이 나타날 가능성이 있습니다.</p>
+<h3 id="_70">시사점</h3>
+<p>글로벌 시장 동향과 연계한 투자 판단이 중요해지고 있습니다.</p></article>
+<article class="news-article" data-index="26"><h2 id="24">24. 제목 없음</h2>
+<p><code>국제</code> · <a href="https://www.mk.co.kr/news/world/12042767">원문 보기</a></p>
+<h3 id="_71">요약</h3>
+<p>. . , . . , . , . , . . , . , . . Diplomacy . . , . . , . , . , . . , . , . . Diplomacy다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_72">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_73">시사점</h3>
+<p>국제 정세 변화에 대한 우리의 전략적 대응이 중요해지고 있습니다.</p></article>
+<article class="news-article" data-index="27"><h2 id="25">25. 제목 없음</h2>
+<p><code>국제</code> · <a href="https://www.mk.co.kr/news/world/12042832">원문 보기</a></p>
+<h3 id="_74">요약</h3>
+<p>, . . , , . . , . , , . , . , . . , . , . , . , . , . . , , . . , . , , . , . , . . , . , . , . , .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_75">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_76">시사점</h3>
+<p>글로벌 협력 체계 구축을 통한 상호 이익 추구가 필요합니다.</p></article>
+<article class="news-article" data-index="28"><h2 id="26">26. 제목 없음</h2>
+<p><code>국제</code> · <a href="https://www.mk.co.kr/news/world/12042808">원문 보기</a></p>
+<h3 id="_77">요약</h3>
+<p>. . , . , , . . M&amp;A . , . , . . , . , . , M&amp;A . . , , . . . , . , , . . M&amp;A . , . , . . , . , . , M&amp;A . . , , .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_78">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_79">시사점</h3>
+<p>국제 관계에서의 균형잡힌 외교 정책이 요구되는 시점입니다.</p></article>
+<article class="news-article" data-index="29"><h2 id="27">27. 제목 없음</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12042806">원문 보기</a></p>
+<h3 id="_80">요약</h3>
+<p>. . , . , . . 5 , . , 80% 30% , . '' , . . , . , . . . . , . , . . 5 , . , 80% 30% , . '' , . . , . , . .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_81">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_82">시사점</h3>
+<p>주택 공급과 수요의 적정 균형 유지가 핵심입니다.</p></article>
+<article class="news-article" data-index="30"><h2 id="28">28. 제목 없음</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12042684">원문 보기</a></p>
+<h3 id="_83">요약</h3>
+<p>, 10 2 20%, 3 30% , 10% 3 82는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_84">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_85">시사점</h3>
+<p>부동산 시장의 안정성 확보가 주요 정책 과제로 부상하고 있습니다.</p></article>
+<article class="news-article" data-index="31"><h2 id="29-3-1">29. 3 … 1</h2>
+<p><code>국제</code> · <a href="https://www.mk.co.kr/news/world/12042764">원문 보기</a></p>
+<h3 id="_86">요약</h3>
+<ul>
+<li>3 . , . , 1000 . 3 , . 3 . . , . , , . , . . . , . , , . . - 3 . , . , 1000 . 3 , . 3 . . , . , , . , . . . , . , , . .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</li>
+</ul>
+<h3 id="_87">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_88">시사점</h3>
+<p>글로벌 협력 체계 구축을 통한 상호 이익 추구가 필요합니다.</p></article>
+<article class="news-article" data-index="32"><h2 id="30-93-92">30. [] ' '… 93% 92%</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12042741">원문 보기</a></p>
+<h3 id="_89">요약</h3>
+<p>, . , , 90% . , 7 . , . , . , . . , . , , . , . . . , . , , ., , . . , . , , 90% . , 7 . , . , . , . . , . , , . , . . . , . , , ., , . .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_90">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_91">시사점</h3>
+<p>부동산 정책의 효과적 실행을 위한 세심한 모니터링이 필요합니다.</p></article>
+<article class="news-article" data-index="33"><h2 id="31">31. 제목 없음</h2>
+<p><code>국제</code> · <a href="https://www.mk.co.kr/news/world/12042726">원문 보기</a></p>
+<h3 id="_92">요약</h3>
+<p>. , . , . , . ! , ‘MASGA ’ . , . , AI . HD , . . ‘ ’ . . , 1,500 . , , . . , . , . , . ! , ‘MASGA ’ . , . , AI . HD , . . ‘ ’ . . , 1,500 . , , .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_93">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_94">시사점</h3>
+<p>세계 경제 동향이 우리 경제에 미치는 영향을 면밀히 분석해야 합니다.</p></article>
+<article class="news-article" data-index="34"><h2 id="32-1-grdp-1">32. 1 GRDP 1</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/society/12042743">원문 보기</a></p>
+<h3 id="_95">요약</h3>
+<p>1 (GRDP) 1 , . . , , . GRDP 1 , . , . , , . . GRDP 1 . , . , . , , . 1 (GRDP) 1 , . . , , . GRDP 1 , . , . , , . . GRDP 1 . , . , . , , .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_96">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_97">시사점</h3>
+<p>사회 구성원 간 소통과 이해의 폭을 넓히는 것이 중요합니다.</p></article>
+<article class="news-article" data-index="35"><h2 id="33">33. 제목 없음</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/society/12042723">원문 보기</a></p>
+<h3 id="_98">요약</h3>
+<p>'5 ' . , '' . , '1 3' . . ' ' . , ' ' ' ' . , AI ' ' IT . '1 3' ' ' , , . ' ' . . , . . '5 ' . , '' . , '1 3' . . ' ' . , ' ' ' ' . , AI ' ' IT . '1 3' ' ' , , . ' ' . . , . .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_99">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_100">시사점</h3>
+<p>사회 안전망 강화를 통한 포용적 성장이 필요한 시점입니다.</p></article>
+<article class="news-article" data-index="36"><h2 id="34">34. 제목 없음</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/society/12042721">원문 보기</a></p>
+<h3 id="_101">요약</h3>
+<p>, KOTRA , 1t 2035 10t는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_102">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_103">시사점</h3>
+<p>다양성을 존중하면서도 사회 통합을 이루는 지혜가 요구됩니다.</p></article>
+<article class="news-article" data-index="37"><h2 id="35">35. 제목 없음</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/society/12042699">원문 보기</a></p>
+<h3 id="_104">요약</h3>
+<p>AI , , . , AI , . , AI , AI . , AI . . AI . AI , . , 2025 CPA 2.5 , AI , . AI , , . AI . AI . , (CPA) , . , . , AI , . AI , . AI , , . , AI , . , AI , AI . , AI . . AI . AI , . , 2025 CPA 2.5 , AI , . AI , , . AI . AI . , (CPA) , . , . , AI , . AI , .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_105">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_106">시사점</h3>
+<p>사회 문제 해결을 위한 창의적 접근이 필요합니다.</p></article>
+<article class="news-article" data-index="38"><h2 id="36">36. 제목 없음</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/society/12042704">원문 보기</a></p>
+<h3 id="_107">요약</h3>
+<p>. . . . . . , . , . . . . . . . . . . . , . , . . . . .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_108">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_109">시사점</h3>
+<p>사회 구성원 간 소통과 이해의 폭을 넓히는 것이 중요합니다.</p></article>
+<article class="news-article" data-index="39"><h2 id="37-4-54">37. 4 54%</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/society/12042703">원문 보기</a></p>
+<h3 id="_110">요약</h3>
+<p>, K- . , BTS , . , (TOPIK) . . . ' · ' ' · ' . , K- . , . K- . ' · ' , , . , . , , . , K- . , BTS , . , (TOPIK) . . . ' · ' ' · ' . , K- . , . K- . ' · ' , , . , . , , .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_111">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_112">시사점</h3>
+<p>사회 안전망 강화를 통한 포용적 성장이 필요한 시점입니다.</p></article>
+<article class="news-article" data-index="40"><h2 id="38">38. 제목 없음</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/society/12042701">원문 보기</a></p>
+<h3 id="_113">요약</h3>
+<p>'SKY(··)' () . 2 2028 , . , . , . . , , . . , . , . 'SKY(··)' () . 2 2028 , . , . , . . , , . . , . , .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_114">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_115">시사점</h3>
+<p>다양성을 존중하면서도 사회 통합을 이루는 지혜가 요구됩니다.</p></article>
+<article class="news-article" data-index="41"><h2 id="39">39. 제목 없음</h2>
+<p><code>경제</code> · <a href="https://www.mk.co.kr/news/economy/12042729">원문 보기</a></p>
+<h3 id="_116">요약</h3>
+<p>경제 분야에서 , . . , , . , . , . . , . . , . , , . . , . , . , , . , . , . . , , . , . , . . , . . , . , , . . , . , . , , . , .다는 상황입니다. 관련 업계의 동향 변화가 예상됩니다.</p>
+<h3 id="_117">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_118">시사점</h3>
+<p>국제 경제 환경 변화에 대한 적극적 대응이 요구됩니다.</p></article>
+<article class="news-article" data-index="42"><h2 id="40">40. 제목 없음</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/society/12042700">원문 보기</a></p>
+<h3 id="_119">요약</h3>
+<p>, . , . . . , . , , ' ' . , , . , . , . , , ' ' . . , . , . , . . . , . , , ' ' . , , . , . , . , , ' ' . . , .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_120">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_121">시사점</h3>
+<p>사회 구성원 간 소통과 이해의 폭을 넓히는 것이 중요합니다.</p></article>
+<article class="news-article" data-index="43"><h2 id="41-lng">41. …·LNG</h2>
+<p><code>경제</code> · <a href="https://www.mk.co.kr/news/economy/12042725">원문 보기</a></p>
+<h3 id="_122">요약</h3>
+<p>경제 분야에서 . , . , . . , , LNG , . , . , . . . '' , . . , . , . . , , LNG , . , . , . . . '' , .다는 상황입니다. 관련 업계의 동향 변화가 예상됩니다.</p>
+<h3 id="_123">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_124">시사점</h3>
+<p>산업 간 균형 발전을 위한 정책적 고려가 필요한 상황입니다.</p></article>
+<article class="news-article" data-index="44"><h2 id="42">42. 제목 없음</h2>
+<p><code>경제</code> · <a href="https://www.mk.co.kr/news/economy/12042711">원문 보기</a></p>
+<h3 id="_125">요약</h3>
+<p>경제 분야에서 , . '' , . , . . ' 2.0' , . , . , , . ' ' . , . , ' ' . , , . , . '' , . , . . ' 2.0' , . , . , , . ' ' . , . , ' ' . , , .다는 상황입니다. 관련 업계의 동향 변화가 예상됩니다.</p>
+<h3 id="_126">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_127">시사점</h3>
+<p>경제 전반의 안정성 확보와 성장 지속성이 주요 관건입니다.</p></article>
+<article class="news-article" data-index="45"><h2 id="43">43. 제목 없음</h2>
+<p><code>경제</code> · <a href="https://www.mk.co.kr/news/economy/12042710">원문 보기</a></p>
+<h3 id="_128">요약</h3>
+<p>경제 분야에서 . , . , . . . , 2026 5 10 , . (: 2014 2). . , ' 10 ' , . ( ) . . ' ' ( 1, 4). , . , , . , . . , . , . . . , 2026 5 10 , . (: 2014 2). . , ' 10 ' , . ( ) . . ' ' ( 1, 4). , . , , . , .다는 상황입니다. 관련 업계의 동향 변화가 예상됩니다.</p>
+<h3 id="_129">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_130">시사점</h3>
+<p>국제 경제 환경 변화에 대한 적극적 대응이 요구됩니다.</p></article>
+<article class="news-article" data-index="46"><h2 id="44">44. 제목 없음</h2>
+<p><code>기업</code> · <a href="https://www.mk.co.kr/news/business/12042727">원문 보기</a></p>
+<h3 id="_131">요약</h3>
+<p>기업계에서 , (EV) . . , , . , . . (EV) . . , , . , , AI . , AI . . . , , . , (KGGTF) . . AI . , . , (EV) . . , , . , . . (EV) . . , , . , , AI . , AI . . . , , . , (KGGTF) . . AI . , .다고 밝혔습니다. 산업계의 새로운 변화가 시작될 것으로 보입니다.</p>
+<h3 id="_132">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_133">시사점</h3>
+<p>기업 경영 환경 변화에 따른 전략적 대응이 필요한 시점입니다.</p></article>
+<article class="news-article" data-index="47"><h2 id="45-kai">45. , KAI</h2>
+<p><code>기업</code> · <a href="https://www.mk.co.kr/news/business/12042620">원문 보기</a></p>
+<h3 id="_134">요약</h3>
+<p>기업계에서 KAI (AAM) . AAM , . , AAM , . ⏳ (MOU) KAI . AAM '' , KAI . , , , . . KAI (AAM) . 2016 KAI 10 , . , AAM . , . KAI (AAM) . AAM , . , AAM , . ⏳ (MOU) KAI . AAM '' , KAI . , , , . . KAI (AAM) . 2016 KAI 10 , . , AAM . , .다고 밝혔습니다. 산업계의 새로운 변화가 시작될 것으로 보입니다.</p>
+<h3 id="_135">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_136">시사점</h3>
+<p>산업 혁신을 통한 경쟁력 강화가 중요한 과제로 떠올랐습니다.</p></article>
+<article class="news-article" data-index="48"><h2 id="46">46. 제목 없음</h2>
+<p><code>기업</code> · <a href="https://www.mk.co.kr/news/business/12042621">원문 보기</a></p>
+<h3 id="_137">요약</h3>
+<p>기업계에서 LG . . , , . , . , . LG ' 2.0' ' ' . (VS), (HVAC), . , . LG . , . LG . , , AI . . , ' ' . . , LG . LG . . , , . , . , . LG ' 2.0' ' ' . (VS), (HVAC), . , . LG . , . LG . , , AI . . , ' ' . . , LG .다고 밝혔습니다. 산업계의 새로운 변화가 시작될 것으로 보입니다.</p>
+<h3 id="_138">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_139">시사점</h3>
+<p>지속가능한 성장을 위한 경영 체질 개선이 요구됩니다.</p></article>
+<article class="news-article" data-index="49"><h2 id="47">47. 제목 없음</h2>
+<p><code>기업</code> · <a href="https://www.mk.co.kr/news/business/12042622">원문 보기</a></p>
+<h3 id="_140">요약</h3>
+<p>기업계에서 . , , . , , . , , . . ' ' . , . , , , . , , . , IT , . . , . , . , , . , . , . . , , . , , . , , . . ' ' . , . , , , . , , . , IT , . . , . , . , , . , . , .다고 밝혔습니다. 산업계의 새로운 변화가 시작될 것으로 보입니다.</p>
+<h3 id="_141">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_142">시사점</h3>
+<p>기업의 사회적 책임과 투명 경영이 더욱 중시되고 있습니다.</p></article>
+<article class="news-article" data-index="50"><h2 id="48">48. 제목 없음</h2>
+<p><code>기업</code> · <a href="https://www.mk.co.kr/news/business/12042658">원문 보기</a></p>
+<h3 id="_143">요약</h3>
+<p>기업계에서 . , . , ' ' K . AI . , , . , 'K' . , . AI , , ' ' . , . , . , . K . . . , 'K- ' . , (TF) . . , . , ' ' K . AI . , , . , 'K' . , . AI , , ' ' . , . , . , . K . . . , 'K- ' . , (TF) .다고 밝혔습니다. 산업계의 새로운 변화가 시작될 것으로 보입니다.</p>
+<h3 id="_144">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_145">시사점</h3>
+<p>기업 경영 환경 변화에 따른 전략적 대응이 필요한 시점입니다.</p></article>
+<article class="news-article" data-index="51"><h2 id="49">49. 제목 없음</h2>
+<p><code>기업</code> · <a href="https://www.mk.co.kr/news/business/12042662">원문 보기</a></p>
+<h3 id="_146">요약</h3>
+<p>기업계에서 . , . , . , . , . IT . SK IT . , . , . AI (R&amp;D) , . . . '' , . . . , . IT . . , . , . , . , . IT . SK IT . , . , . AI (R&amp;D) , . . . '' , . . . , . IT .다고 밝혔습니다. 산업계의 새로운 변화가 시작될 것으로 보입니다.</p>
+<h3 id="_147">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_148">시사점</h3>
+<p>산업 혁신을 통한 경쟁력 강화가 중요한 과제로 떠올랐습니다.</p></article>
+<article class="news-article" data-index="52"><h2 id="50">50. 제목 없음</h2>
+<p><code>기업</code> · <a href="https://www.mk.co.kr/news/business/12042664">원문 보기</a></p>
+<h3 id="_149">요약</h3>
+<p>기업계에서 , BBQ 30~40 , BHC (, )고 밝혔습니다. 산업계의 새로운 변화가 시작될 것으로 보입니다.</p>
+<h3 id="_150">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_151">시사점</h3>
+<p>지속가능한 성장을 위한 경영 체질 개선이 요구됩니다.</p></article>
+<article class="news-article" data-index="53"><h2 id="51-13">51. … 1.3</h2>
+<p><code>기업</code> · <a href="https://www.mk.co.kr/news/business/12042666">원문 보기</a></p>
+<h3 id="_152">요약</h3>
+<p>기업계에서 , 2030 15% 1~2 1 ,고 밝혔습니다. 산업계의 새로운 변화가 시작될 것으로 보입니다.</p>
+<h3 id="_153">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_154">시사점</h3>
+<p>기업의 사회적 책임과 투명 경영이 더욱 중시되고 있습니다.</p></article>
+<article class="news-article" data-index="54"><h2 id="52-lgu-ai">52. LGU+ AI</h2>
+<p><code>IT</code> · <a href="https://www.mk.co.kr/news/it/12042661">원문 보기</a></p>
+<h3 id="_155">요약</h3>
+<p>LG AI . AI , . , . LG AI (AX) . , MS AI , , , . , AI . LG AI AI . AI , . , AI AI . LG AI . AI , . , . LG AI (AX) . , MS AI , , , . , AI . LG AI AI . AI , . , AI AI .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_156">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_157">시사점</h3>
+<p>디지털 전환 가속화에 따른 새로운 기회와 도전이 예상됩니다.</p></article>
+<article class="news-article" data-index="55"><h2 id="53">53. 제목 없음</h2>
+<p><code>IT</code> · <a href="https://www.mk.co.kr/news/it/12042660">원문 보기</a></p>
+<h3 id="_158">요약</h3>
+<p>' 2026' (AI), ,는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_159">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_160">시사점</h3>
+<p>기술 발전의 혜택이 사회 전반에 고르게 확산되도록 하는 것이 과제입니다.</p></article>
+<article class="news-article" data-index="56"><h2 id="54">54. 제목 없음</h2>
+<p><code>IT</code> · <a href="https://www.mk.co.kr/news/it/12042657">원문 보기</a></p>
+<h3 id="_161">요약</h3>
+<p>19 '' . , · . , 26 5 19 , . , 200 , , ( ), . 19 , . &amp; , 0.8~2.6% , 15% . . , ( , ) , . 19 , . 27 , . , . ⏳ , , . 19 '' . , · . , 26 5 19 , . , 200 , , ( ), . 19 , . &amp; , 0.8~2.6% , 15% . . , ( , ) , . 19 , . 27 , . , . ⏳ , , .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_162">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_163">시사점</h3>
+<p>IT 기술의 사회적 활용과 윤리적 고려가 중요해지고 있습니다.</p></article>
+<article class="news-article" data-index="57"><h2 id="55">55. 제목 없음</h2>
+<p><code>기업</code> · <a href="https://www.mk.co.kr/news/business/12042665">원문 보기</a></p>
+<h3 id="_164">요약</h3>
+<p>기업계에서 K , . , . , , . 4 . , . , . , . . · , . , . , , . K , . , . , , . 4 . , . , . , . . · , . , . , , .다고 밝혔습니다. 산업계의 새로운 변화가 시작될 것으로 보입니다.</p>
+<h3 id="_165">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_166">시사점</h3>
+<p>기업의 사회적 책임과 투명 경영이 더욱 중시되고 있습니다.</p></article>
+<article class="news-article" data-index="58"><h2 id="56">56. 제목 없음</h2>
+<p><code>IT</code> · <a href="https://www.mk.co.kr/news/it/12042656">원문 보기</a></p>
+<h3 id="_167">요약</h3>
+<p>, . '' ECM , . , . , . ECM . '' , 5 . , . . ECM , () . , . , . . , . '' ECM , . , . , . ECM . '' , 5 . , . . ECM , () . , . , . .다는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_168">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_169">시사점</h3>
+<p>디지털 전환 가속화에 따른 새로운 기회와 도전이 예상됩니다.</p></article>
+<article class="news-article" data-index="59"><h2 id="57">57. 제목 없음</h2>
+<p><code>IT</code> · <a href="https://www.mk.co.kr/news/it/12042702">원문 보기</a></p>
+<h3 id="_170">요약</h3>
+<p>10(2015~2024) 1 ,는 것으로 확인되었습니다. 관련 분야의 주목할 만한 변화입니다.</p>
+<h3 id="_171">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_172">시사점</h3>
+<p>기술 발전의 혜택이 사회 전반에 고르게 확산되도록 하는 것이 과제입니다.</p></article>
+
+
+            <footer class="footer">
+                — End of Brief —
+            </footer>
+        </main>
+    </div>
+
+    <button id="to-top-btn" title="Go to top" aria-label="Go to top">↑</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Theme toggle (persists via data-attribute only; no storage in artifacts)
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        let isDark = false;
+
+        // Detect system preference on first load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.setAttribute('data-theme', 'dark');
+            isDark = true;
+            themeToggle.textContent = '☀';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            isDark = !isDark;
+            if (isDark) {
+                root.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀';
+            } else {
+                root.removeAttribute('data-theme');
+                themeToggle.textContent = '☾';
+            }
+        });
+
+        // 2. Wrap article bodies for collapse/expand
+        document.querySelectorAll('.news-article').forEach(function(article) {
+            const h2 = article.querySelector('h2');
+            if (!h2) return;
+
+            // Gather everything after h2 into .article-body wrapper
+            const body = document.createElement('div');
+            body.className = 'article-body';
+            let next = h2.nextSibling;
+            const toMove = [];
+            while (next) {
+                toMove.push(next);
+                next = next.nextSibling;
+            }
+            toMove.forEach(function(node) { body.appendChild(node); });
+            article.appendChild(body);
+
+            // Click h2 to toggle
+            h2.addEventListener('click', function() {
+                article.classList.toggle('collapsed');
+            });
+        });
+
+        // 3. Reading progress bar
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }
+
+        // 4. To-top button
+        const toTopBtn = document.getElementById('to-top-btn');
+        toTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. TOC active link highlighting (intersection observer)
+        const tocLinks = document.querySelectorAll('.toc a');
+        const articleHeadings = document.querySelectorAll('.news-article h2');
+
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            toTopBtn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+
+            // Find current section
+            let current = '';
+            articleHeadings.forEach(function(heading) {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 120) {
+                    current = heading.id || '';
+                }
+            });
+
+            tocLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        updateProgress();
+    });
+    </script>
+</body>
+</html>
