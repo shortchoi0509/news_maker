@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Brief 2026-05-12</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <style>
+    /* ============================================
+       Editorial Design System
+       ============================================ */
+    :root {
+        --font-serif: 'Noto Serif KR', 'Source Serif Pro', Georgia, serif;
+        --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+        /* Light theme - warm neutral */
+        --bg-primary: #fafaf7;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f3f2ed;
+        --bg-card: #ffffff;
+        --border-subtle: #e8e6df;
+        --border-strong: #2c2c2c;
+
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --text-tertiary: #888580;
+        --text-muted: #a8a5a0;
+
+        --accent: #8b0000;
+        --accent-soft: rgba(139, 0, 0, 0.08);
+        --accent-line: #c9302c;
+
+        /* Semantic colors - 아이콘 블록 */
+        --color-summary: #1a4d3a;
+        --color-summary-bg: #ecf4ef;
+        --color-detail: #2c3e50;
+        --color-detail-bg: #f5f5f0;
+        --color-extra: #6b5b3e;
+        --color-extra-bg: #f7f3ea;
+        --color-insight: #5b3a8c;
+        --color-insight-bg: #f1ecf7;
+        --color-glossary: #8b6f47;
+        --color-glossary-bg: #faf6ef;
+
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+        --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #0f0f0e;
+        --bg-secondary: #1a1a18;
+        --bg-tertiary: #242420;
+        --bg-card: #1a1a18;
+        --border-subtle: #2e2e2a;
+        --border-strong: #e8e6df;
+
+        --text-primary: #f0ede4;
+        --text-secondary: #c8c5bd;
+        --text-tertiary: #8a8680;
+        --text-muted: #5a5650;
+
+        --accent: #e85d5d;
+        --accent-soft: rgba(232, 93, 93, 0.12);
+        --accent-line: #e85d5d;
+
+        --color-summary: #7bc49a;
+        --color-summary-bg: rgba(123, 196, 154, 0.1);
+        --color-detail: #a8c8e5;
+        --color-detail-bg: rgba(168, 200, 229, 0.08);
+        --color-extra: #d4b878;
+        --color-extra-bg: rgba(212, 184, 120, 0.1);
+        --color-insight: #c9a8e8;
+        --color-insight-bg: rgba(201, 168, 232, 0.1);
+        --color-glossary: #d4b896;
+        --color-glossary-bg: rgba(212, 184, 150, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        margin: 0;
+        padding: 0;
+        transition: background 0.3s ease, color 0.3s ease;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       Progress Bar
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--accent);
+        z-index: 1000;
+        transition: width 0.1s linear;
+    }
+
+    /* ============================================
+       Top Bar
+       ============================================ */
+    .top-bar {
+        position: sticky;
+        top: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .top-bar {
+        background-color: rgba(26, 26, 24, 0.85);
+    }
+
+    .top-bar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brand {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+    }
+
+    .top-bar-meta {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .theme-toggle {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all 0.2s;
+        padding: 0;
+    }
+
+    .theme-toggle:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: rotate(15deg);
+    }
+
+    /* ============================================
+       Main Layout
+       ============================================ */
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    /* ============================================
+       Sidebar / TOC
+       ============================================ */
+    #sidebar {
+        position: sticky;
+        top: 90px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-track { background: transparent; }
+    #sidebar::-webkit-scrollbar-thumb {
+        background: var(--border-subtle);
+        border-radius: 2px;
+    }
+
+    .sidebar-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-tertiary);
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: toc-counter;
+    }
+
+    .toc ul ul { display: none; }
+
+    .toc li {
+        counter-increment: toc-counter;
+        position: relative;
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 10px 0 10px 32px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        border-left: 2px solid transparent;
+        padding-left: 16px;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .toc a::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        position: absolute;
+        left: -24px;
+        top: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .toc a:hover {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .toc a.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        font-weight: 500;
+    }
+
+    .toc-empty {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Content Area
+       ============================================ */
+    .content-main { min-width: 0; }
+
+    .masthead {
+        border-bottom: 4px double var(--text-primary);
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
+    .masthead-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .masthead h1 {
+        font-family: var(--font-serif);
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px 0;
+        color: var(--text-primary);
+    }
+
+    .masthead-meta {
+        display: flex;
+        gap: 24px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .masthead-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .masthead-meta .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--text-muted);
+        border-radius: 50%;
+    }
+
+    /* ============================================
+       News Article Cards
+       ============================================ */
+    .news-article {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 40px 44px;
+        margin-bottom: 28px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-article::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+    }
+
+    .news-article:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-1px);
+    }
+
+    .news-article:hover::before {
+        height: 100%;
+    }
+
+    .news-article h2 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        margin: 0 0 8px 0;
+        color: var(--text-primary);
+        cursor: pointer;
+        user-select: none;
+        padding-right: 40px;
+        position: relative;
+    }
+
+    .news-article h2::after {
+        content: '−';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--text-muted);
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .news-article.collapsed h2::after {
+        content: '+';
+    }
+
+    .news-article h2:hover::after {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .source-link {
+        margin: 0 0 24px 0;
+    }
+
+    .source-link a {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-tertiary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+
+    .source-link a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .source-link .arrow {
+        transition: transform 0.2s;
+    }
+
+    .source-link a:hover .arrow {
+        transform: translateX(3px);
+    }
+
+    /* Article body content wrapper (foldable) */
+    .article-body {
+        max-height: 10000px;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 1;
+    }
+
+    .news-article.collapsed .article-body {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /* ============================================
+       Article Subtitle (HEADLINE)
+       ============================================ */
+    .article-subtitle {
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--accent);
+        padding: 20px 24px;
+        margin: 0 0 28px 0;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .subtitle-label {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .article-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .contents-divider {
+        height: 1px;
+        background: linear-gradient(to right, var(--border-subtle), transparent);
+        margin: 0 0 24px 0;
+    }
+
+    /* ============================================
+       News Blocks (icon rows)
+       ============================================ */
+    .news-block {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+        padding: 14px 18px;
+        margin: 8px 0;
+        border-radius: var(--radius-md);
+        line-height: 1.65;
+        font-size: 0.96rem;
+        transition: background 0.2s;
+    }
+
+    .block-icon {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2px;
+    }
+
+    .block-content {
+        color: var(--text-primary);
+    }
+
+    /* 핵심 요약 - 가장 강조 */
+    .block-summary {
+        background: var(--color-summary-bg);
+        border-left: 3px solid var(--color-summary);
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+    .block-summary .block-content {
+        color: var(--color-summary);
+        font-weight: 600;
+    }
+    [data-theme="dark"] .block-summary .block-content {
+        color: var(--color-summary);
+    }
+
+    /* 주요 내용 */
+    .block-detail {
+        background: transparent;
+        padding: 10px 18px 10px 0;
+        border-left: none;
+    }
+    .block-detail .block-icon {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    /* 추가 내용 */
+    .block-extra {
+        background: var(--color-extra-bg);
+        border-left: 2px dashed var(--color-extra);
+        margin: 12px 0;
+        font-size: 0.92rem;
+    }
+    .block-extra .block-content { color: var(--color-extra); }
+
+    /* 의미/영향 - 인사이트 */
+    .block-insight {
+        background: var(--color-insight-bg);
+        border: 1px solid transparent;
+        border-left: 3px solid var(--color-insight);
+        margin-top: 16px;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .block-insight .block-content { color: var(--color-insight); }
+
+    /* 용어 설명 */
+    .block-glossary {
+        background: var(--color-glossary-bg);
+        border-top: 1px solid var(--border-subtle);
+        border-radius: 0;
+        font-size: 0.88rem;
+        margin-top: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .block-glossary .block-content {
+        color: var(--color-glossary);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Miscellaneous
+       ============================================ */
+    .article-separator { display: none; }
+
+    p { margin: 12px 0; }
+
+    code {
+        font-family: var(--font-mono);
+        background: var(--bg-tertiary);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.88em;
+    }
+
+    pre {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-size: 0.88rem;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ============================================
+       To-top Button
+       ============================================ */
+    #to-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.2s;
+        z-index: 999;
+    }
+
+    #to-top-btn:hover { transform: translateY(-3px); }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        margin-top: 80px;
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* ============================================
+       Mobile Responsive
+       ============================================ */
+    @media (max-width: 900px) {
+        .top-bar-inner { padding: 12px 20px; }
+        .brand { font-size: 1.1rem; }
+        .top-bar-meta { gap: 10px; font-size: 0.7rem; }
+
+        .main-wrapper {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #sidebar {
+            position: relative;
+            top: 0;
+            max-height: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: var(--bg-card);
+        }
+
+        .masthead h1 { font-size: 2rem; }
+        .masthead-meta { flex-wrap: wrap; gap: 12px; font-size: 0.7rem; }
+
+        .news-article {
+            padding: 28px 24px;
+        }
+
+        .news-article h2 { font-size: 1.35rem; padding-right: 32px; }
+        .article-subtitle { padding: 16px 18px; }
+        .news-block { padding: 12px 14px; font-size: 0.92rem; }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-article {
+        animation: fadeUp 0.4s ease both;
+    }
+    </style>
+</head>
+<body>
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <span>The Daily Brief</span>
+            </div>
+            <div class="top-bar-meta">
+                <span>2026-05-12</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-label">Index · 뉴스 목록</div>
+            <div class="toc">
+                <div class="toc">
+<ul>
+<li><a href="#-2026-5-12">매일경제 데일리 브리프 - 2026년 5월 12일</a><ul>
+<li><a href="#_1">목차</a></li>
+<li><a href="#1-ai-58">1. 'AI ' 58</a></li>
+<li><a href="#2-1">2. , 1</a></li>
+<li><a href="#3-dx">3. … " DX· "</a></li>
+<li><a href="#4-k">4. … K ''</a></li>
+<li><a href="#5">5. ''…</a></li>
+<li><a href="#6-kai-lig">6. , KAI ·LIG ''</a></li>
+<li><a href="#7">7. " … "</a></li>
+<li><a href="#8-k">8. K …</a></li>
+<li><a href="#9-bbq-100">9. BBQ … 100</a></li>
+<li><a href="#10">10. …</a></li>
+<li><a href="#11-3">11. 3</a></li>
+<li><a href="#12">12.</a></li>
+<li><a href="#13-gs">13. 'GS '</a></li>
+<li><a href="#14-1">14. , 1 … ·</a></li>
+<li><a href="#15">15. " "</a></li>
+<li><a href="#16">16. " … "</a></li>
+<li><a href="#17-nxc-1">17. NXC 1</a></li>
+<li><a href="#18-vs-vs-ai-ai-os">18. vs vs AI … AI, OS</a></li>
+<li><a href="#19">19. ,</a></li>
+<li><a href="#20">20. " ' ' "</a></li>
+<li><a href="#21-ir52">21. [iR52 ]</a></li>
+<li><a href="#22-3">22. , " 3 "</a></li>
+<li><a href="#23">23. ''</a></li>
+<li><a href="#24-23-6">24. 23 6 … ·</a></li>
+<li><a href="#25">25. …</a></li>
+<li><a href="#26">26. " "</a></li>
+<li><a href="#27">27. … " "</a></li>
+<li><a href="#28">28.</a></li>
+<li><a href="#29">29. …</a></li>
+<li><a href="#30-nh">30. NH …</a></li>
+<li><a href="#31-1">31. , 1 ' '</a></li>
+<li><a href="#32-1-1331">32. 1 … 1331</a></li>
+<li><a href="#33-etf-okx">33. ETF … OKX</a></li>
+<li><a href="#34-1-80">34. 1 '' 80%</a></li>
+<li><a href="#35-30">35. "30 "</a></li>
+<li><a href="#36-mbk">36. MBK,</a></li>
+<li><a href="#37-20">37. … '20%'</a></li>
+<li><a href="#38">38. " … "</a></li>
+<li><a href="#39-1">39. " 1, "</a></li>
+<li><a href="#40">40. ·· … ''</a></li>
+<li><a href="#41-ai-4">41. 'AI' , 4</a></li>
+<li><a href="#42">42. " "… ,</a></li>
+<li><a href="#43">43. ' '</a></li>
+<li><a href="#44-vs">44. ' ' ""vs""</a></li>
+<li><a href="#45-70-1025-18">45. 70% 10~25 … 18</a></li>
+<li><a href="#46">46. ' '</a></li>
+<li><a href="#47">47. …</a></li>
+<li><a href="#48">48. ''… " "</a></li>
+<li><a href="#49-83">49. … 83%</a></li>
+<li><a href="#50">50.</a></li>
+<li><a href="#51-0-dna-1200">51. ' 0%' DNA … 1200</a></li>
+<li><a href="#52-rsu">52. , RSU</a></li>
+<li><a href="#53-10">53. , … '10 '</a></li>
+<li><a href="#54-90">54. …" 90%"</a></li>
+<li><a href="#55">55. " "</a></li>
+<li><a href="#56">56. " "</a></li>
+<li><a href="#57-k">57. … K,</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+            </div>
+        </nav>
+
+        <main class="content-main">
+            <header class="masthead">
+                <div class="masthead-kicker">Daily Market Brief</div>
+                <h1>Daily Brief 2026-05-12</h1>
+                <div class="masthead-meta">
+                    <span>📅 2026-05-12</span>
+                    <span class="dot"></span>
+                    <span>📰 58 Articles</span>
+                    <span class="dot"></span>
+                    <span>KST</span>
+                </div>
+            </header>
+
+            
+<p>title: "매일경제 데일리 브리프"
+date: "2026-05-12"
+articles: 57</p>
+<article class="news-article" data-index="2"><h1 id="-2026-5-12">매일경제 데일리 브리프 - 2026년 5월 12일</h1>
+<h2 id="_1">목차</h2>
+<ol>
+<li><strong>'AI ' 58</strong></li>
+<li><strong>, 1</strong></li>
+<li><strong>… " DX· "</strong></li>
+<li><strong>… K ''</strong></li>
+<li><strong>''…</strong></li>
+<li><strong>, KAI ·LIG ''</strong></li>
+<li><strong>" … "</strong></li>
+<li><strong>K …</strong></li>
+<li><strong>BBQ … 100</strong></li>
+<li><strong>…</strong></li>
+<li><strong>3</strong></li>
+<li></article>
+</li>
+<li><strong>'GS '</strong></li>
+<li><strong>, 1 … ·</strong></li>
+<li><strong>" "</strong></li>
+<li><strong>" … "</strong></li>
+<li><strong>NXC 1</strong></li>
+<li><strong>vs vs AI … AI, OS</strong></li>
+<li><strong>,</strong></li>
+<li><strong>" ' ' "</strong></li>
+<li><strong>[iR52 ]</strong></li>
+<li><strong>, " 3 "</strong></li>
+<li><strong>''</strong></li>
+<li><strong>23 6 … ·</strong></li>
+<li><strong>…</strong></li>
+<li><strong>" "</strong></li>
+<li><strong>… " "</strong></li>
+<li>
+</li>
+<li><strong>…</strong></li>
+<li><strong>NH …</strong></li>
+<li><strong>, 1 ' '</strong></li>
+<li><strong>1 … 1331</strong></li>
+<li><strong>ETF … OKX</strong></li>
+<li><strong>1 '' 80%</strong></li>
+<li><strong>"30 "</strong></li>
+<li><strong>MBK,</strong></li>
+<li><strong>… '20%'</strong></li>
+<li><strong>" … "</strong></li>
+<li><strong>" 1, "</strong></li>
+<li><strong>·· … ''</strong></li>
+<li><strong>'AI' , 4</strong></li>
+<li><strong>" "… ,</strong></li>
+<li><strong>' '</strong></li>
+<li><strong>' ' ""vs""</strong></li>
+<li><strong>70% 10~25 … 18</strong></li>
+<li><strong>' '</strong></li>
+<li><strong>…</strong></li>
+<li><strong>''… " "</strong></li>
+<li><strong>… 83%</strong></li>
+<li>
+</li>
+<li><strong>' 0%' DNA … 1200</strong></li>
+<li><strong>, RSU</strong></li>
+<li><strong>, … '10 '</strong></li>
+<li><strong>…" 90%"</strong></li>
+<li><strong>" "</strong></li>
+<li><strong>" "</strong></li>
+<li><strong>… K,</strong></li>
+</ol>
+<article class="news-article" data-index="6"><h2 id="1-ai-58">1. 'AI ' 58</h2>
+<p><code>IT/AI</code> · <a href="https://www.mk.co.kr/news/business/12043488">원문 보기</a></p>
+<h3 id="_2">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_3">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_4">시사점</h3>
+<p>경제 환경의 급격한 변화에 대한 기업들의 민첩한 대응이 필요한 시점이다.</p></article>
+<article class="news-article" data-index="7"><h2 id="2-1">2. , 1</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043548">원문 보기</a></p>
+<h3 id="_5">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_6">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_7">시사점</h3>
+<p>글로벌 경쟁 심화 속에서 차별화된 경쟁력 확보가 생존의 열쇠가 되고 있다.</p></article>
+<article class="news-article" data-index="8"><h2 id="3-dx">3. … " DX· "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043480">원문 보기</a></p>
+<h3 id="_8">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_9">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_10">시사점</h3>
+<p>불확실성이 높아진 경영환경에서 위험 관리 역량이 더욱 중요해지고 있다.</p></article>
+<article class="news-article" data-index="9"><h2 id="4-k">4. … K ''</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043552">원문 보기</a></p>
+<h3 id="_11">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_12">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_13">시사점</h3>
+<p>시장 변화를 기회로 활용하는 전략적 사고가 기업 성패를 좌우하고 있다.</p></article>
+<article class="news-article" data-index="10"><h2 id="5">5. ''…</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043581">원문 보기</a></p>
+<h3 id="_14">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_15">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_16">시사점</h3>
+<p>정부 정책과 기업 전략의 조화가 산업 발전의 핵심 요소로 작용하고 있다.</p></article>
+<article class="news-article" data-index="11"><h2 id="6-kai-lig">6. , KAI ·LIG ''</h2>
+<p><code>IT/AI</code> · <a href="https://www.mk.co.kr/news/business/12043547">원문 보기</a></p>
+<h3 id="_17">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_18">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_19">시사점</h3>
+<p>새로운 사업 모델과 혁신적 접근법이 시장에서 주목받고 있다.</p></article>
+<article class="news-article" data-index="12"><h2 id="7">7. " … "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043481">원문 보기</a></p>
+<h3 id="_20">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_21">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_22">시사점</h3>
+<p>소비자 행동 변화에 대한 기업들의 적극적 대응이 요구되는 상황이다.</p></article>
+<article class="news-article" data-index="13"><h2 id="8-k">8. K …</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043539">원문 보기</a></p>
+<h3 id="_23">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_24">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_25">시사점</h3>
+<p>경제 주체들 간의 협력과 상생이 지속 성장의 밑바탕이 되고 있다.</p></article>
+<article class="news-article" data-index="14"><h2 id="9-bbq-100">9. BBQ … 100</h2>
+<p><code>유통/소비재</code> · <a href="https://www.mk.co.kr/news/business/12043540">원문 보기</a></p>
+<h3 id="_26">요약</h3>
+<p>치킨 프랜차이즈 BBQ가 카자흐스탄에 진출한다고 발표했다. 알마티 대형 쇼핑몰 푸드코트에 1호점을 개장했으며, 연내 100개점 확장을 목표로 하고 있다. KOTRA와 협력해 중앙아시아 시장 개척에 나섰다.</p>
+<h3 id="_27">전망</h3>
+<p>2030년까지 해외 5만 개점이라는 목표 달성을 위해 추가 시장 진출이 예상된다.</p>
+<h3 id="_28">시사점</h3>
+<p>K-푸드의 해외 진출이 단순 수출을 넘어 현지 거점 확보 단계로 진화하고 있다.</p></article>
+<article class="news-article" data-index="15"><h2 id="10">10. …</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043462">원문 보기</a></p>
+<h3 id="_29">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_30">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_31">시사점</h3>
+<p>복합적인 경제 현안들에 대한 종합적 대응 방안 마련이 시급하다.</p></article>
+<article class="news-article" data-index="16"><h2 id="11-3">11. 3</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043542">원문 보기</a></p>
+<h3 id="_32">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_33">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_34">시사점</h3>
+<p>경제 환경의 급격한 변화에 대한 기업들의 민첩한 대응이 필요한 시점이다.</p></article>
+<article class="news-article" data-index="17"><h2 id="12">12.</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043467">원문 보기</a></p>
+<h3 id="_35">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_36">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_37">시사점</h3>
+<p>글로벌 경쟁 심화 속에서 차별화된 경쟁력 확보가 생존의 열쇠가 되고 있다.</p></article>
+<article class="news-article" data-index="18"><h2 id="13-gs">13. 'GS '</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/business/12043469">원문 보기</a></p>
+<h3 id="_38">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_39">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_40">시사점</h3>
+<p>불확실성이 높아진 경영환경에서 위험 관리 역량이 더욱 중요해지고 있다.</p></article>
+<article class="news-article" data-index="19"><h2 id="14-1">14. , 1 … ·</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/it/12043475">원문 보기</a></p>
+<h3 id="_41">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_42">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_43">시사점</h3>
+<p>시장 변화를 기회로 활용하는 전략적 사고가 기업 성패를 좌우하고 있다.</p></article>
+<article class="news-article" data-index="20"><h2 id="15">15. " "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/it/12043583">원문 보기</a></p>
+<h3 id="_44">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_45">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_46">시사점</h3>
+<p>정부 정책과 기업 전략의 조화가 산업 발전의 핵심 요소로 작용하고 있다.</p></article>
+<article class="news-article" data-index="21"><h2 id="16">16. " … "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/it/12043476">원문 보기</a></p>
+<h3 id="_47">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_48">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_49">시사점</h3>
+<p>새로운 사업 모델과 혁신적 접근법이 시장에서 주목받고 있다.</p></article>
+<article class="news-article" data-index="22"><h2 id="17-nxc-1">17. NXC 1</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/it/12043546">원문 보기</a></p>
+<h3 id="_50">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_51">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_52">시사점</h3>
+<p>소비자 행동 변화에 대한 기업들의 적극적 대응이 요구되는 상황이다.</p></article>
+<article class="news-article" data-index="23"><h2 id="18-vs-vs-ai-ai-os">18. vs vs AI … AI, OS</h2>
+<p><code>IT/AI</code> · <a href="https://www.mk.co.kr/news/it/12043567">원문 보기</a></p>
+<h3 id="_53">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_54">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_55">시사점</h3>
+<p>경제 주체들 간의 협력과 상생이 지속 성장의 밑바탕이 되고 있다.</p></article>
+<article class="news-article" data-index="24"><h2 id="19">19. ,</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/it/12043452">원문 보기</a></p>
+<h3 id="_56">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_57">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_58">시사점</h3>
+<p>디지털 전환과 기술 혁신이 모든 산업 분야의 필수 요소가 되고 있다.</p></article>
+<article class="news-article" data-index="25"><h2 id="20">20. " ' ' "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/it/12043566">원문 보기</a></p>
+<h3 id="_59">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_60">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_61">시사점</h3>
+<p>복합적인 경제 현안들에 대한 종합적 대응 방안 마련이 시급하다.</p></article>
+<article class="news-article" data-index="26"><h2 id="21-ir52">21. [iR52 ]</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/it/12043453">원문 보기</a></p>
+<h3 id="_62">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_63">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_64">시사점</h3>
+<p>경제 환경의 급격한 변화에 대한 기업들의 민첩한 대응이 필요한 시점이다.</p></article>
+<article class="news-article" data-index="27"><h2 id="22-3">22. , " 3 "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/world/12043564">원문 보기</a></p>
+<h3 id="_65">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_66">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_67">시사점</h3>
+<p>글로벌 경쟁 심화 속에서 차별화된 경쟁력 확보가 생존의 열쇠가 되고 있다.</p></article>
+<article class="news-article" data-index="28"><h2 id="23">23. ''</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/world/12043584">원문 보기</a></p>
+<h3 id="_68">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_69">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_70">시사점</h3>
+<p>불확실성이 높아진 경영환경에서 위험 관리 역량이 더욱 중요해지고 있다.</p></article>
+<article class="news-article" data-index="29"><h2 id="24-23-6">24. 23 6 … ·</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/world/12043563">원문 보기</a></p>
+<h3 id="_71">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_72">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_73">시사점</h3>
+<p>시장 변화를 기회로 활용하는 전략적 사고가 기업 성패를 좌우하고 있다.</p></article>
+<article class="news-article" data-index="30"><h2 id="25">25. …</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/world/12043491">원문 보기</a></p>
+<h3 id="_74">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_75">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_76">시사점</h3>
+<p>정부 정책과 기업 전략의 조화가 산업 발전의 핵심 요소로 작용하고 있다.</p></article>
+<article class="news-article" data-index="31"><h2 id="26">26. " "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/world/12043489">원문 보기</a></p>
+<h3 id="_77">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_78">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_79">시사점</h3>
+<p>새로운 사업 모델과 혁신적 접근법이 시장에서 주목받고 있다.</p></article>
+<article class="news-article" data-index="32"><h2 id="27">27. … " "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/world/12043493">원문 보기</a></p>
+<h3 id="_80">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_81">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_82">시사점</h3>
+<p>소비자 행동 변화에 대한 기업들의 적극적 대응이 요구되는 상황이다.</p></article>
+<article class="news-article" data-index="33"><h2 id="28">28.</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/world/12043466">원문 보기</a></p>
+<h3 id="_83">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_84">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_85">시사점</h3>
+<p>경제 주체들 간의 협력과 상생이 지속 성장의 밑바탕이 되고 있다.</p></article>
+<article class="news-article" data-index="34"><h2 id="29">29. …</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/world/12043490">원문 보기</a></p>
+<h3 id="_86">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_87">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_88">시사점</h3>
+<p>디지털 전환과 기술 혁신이 모든 산업 분야의 필수 요소가 되고 있다.</p></article>
+<article class="news-article" data-index="35"><h2 id="30-nh">30. NH …</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/stock/12043582">원문 보기</a></p>
+<h3 id="_89">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_90">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_91">시사점</h3>
+<p>복합적인 경제 현안들에 대한 종합적 대응 방안 마련이 시급하다.</p></article>
+<article class="news-article" data-index="36"><h2 id="31-1">31. , 1 ' '</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/stock/12043555">원문 보기</a></p>
+<h3 id="_92">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_93">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_94">시사점</h3>
+<p>경제 환경의 급격한 변화에 대한 기업들의 민첩한 대응이 필요한 시점이다.</p></article>
+<article class="news-article" data-index="37"><h2 id="32-1-1331">32. 1 … 1331</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/stock/12043561">원문 보기</a></p>
+<h3 id="_95">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_96">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_97">시사점</h3>
+<p>글로벌 경쟁 심화 속에서 차별화된 경쟁력 확보가 생존의 열쇠가 되고 있다.</p></article>
+<article class="news-article" data-index="38"><h2 id="33-etf-okx">33. ETF … OKX</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/stock/12043557">원문 보기</a></p>
+<h3 id="_98">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_99">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_100">시사점</h3>
+<p>불확실성이 높아진 경영환경에서 위험 관리 역량이 더욱 중요해지고 있다.</p></article>
+<article class="news-article" data-index="39"><h2 id="34-1-80">34. 1 '' 80%</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/stock/12043558">원문 보기</a></p>
+<h3 id="_101">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_102">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_103">시사점</h3>
+<p>시장 변화를 기회로 활용하는 전략적 사고가 기업 성패를 좌우하고 있다.</p></article>
+<article class="news-article" data-index="40"><h2 id="35-30">35. "30 "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/politics/12043572">원문 보기</a></p>
+<h3 id="_104">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_105">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_106">시사점</h3>
+<p>정부 정책과 기업 전략의 조화가 산업 발전의 핵심 요소로 작용하고 있다.</p></article>
+<article class="news-article" data-index="41"><h2 id="36-mbk">36. MBK,</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/stock/12043511">원문 보기</a></p>
+<h3 id="_107">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_108">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_109">시사점</h3>
+<p>새로운 사업 모델과 혁신적 접근법이 시장에서 주목받고 있다.</p></article>
+<article class="news-article" data-index="42"><h2 id="37-20">37. … '20%'</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/politics/12043574">원문 보기</a></p>
+<h3 id="_110">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_111">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_112">시사점</h3>
+<p>소비자 행동 변화에 대한 기업들의 적극적 대응이 요구되는 상황이다.</p></article>
+<article class="news-article" data-index="43"><h2 id="38">38. " … "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/politics/12043573">원문 보기</a></p>
+<h3 id="_113">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_114">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_115">시사점</h3>
+<p>경제 주체들 간의 협력과 상생이 지속 성장의 밑바탕이 되고 있다.</p></article>
+<article class="news-article" data-index="44"><h2 id="39-1">39. " 1, "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/politics/12043443">원문 보기</a></p>
+<h3 id="_116">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_117">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_118">시사점</h3>
+<p>디지털 전환과 기술 혁신이 모든 산업 분야의 필수 요소가 되고 있다.</p></article>
+<article class="news-article" data-index="45"><h2 id="40">40. ·· … ''</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/politics/12043576">원문 보기</a></p>
+<h3 id="_119">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_120">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_121">시사점</h3>
+<p>복합적인 경제 현안들에 대한 종합적 대응 방안 마련이 시급하다.</p></article>
+<article class="news-article" data-index="46"><h2 id="41-ai-4">41. 'AI' , 4</h2>
+<p><code>IT/AI</code> · <a href="https://www.mk.co.kr/news/stock/12043512">원문 보기</a></p>
+<h3 id="_122">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_123">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_124">시사점</h3>
+<p>경제 환경의 급격한 변화에 대한 기업들의 민첩한 대응이 필요한 시점이다.</p></article>
+<article class="news-article" data-index="47"><h2 id="42">42. " "… ,</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/society/12043704">원문 보기</a></p>
+<h3 id="_125">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_126">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_127">시사점</h3>
+<p>글로벌 경쟁 심화 속에서 차별화된 경쟁력 확보가 생존의 열쇠가 되고 있다.</p></article>
+<article class="news-article" data-index="48"><h2 id="43">43. ' '</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/society/12043531">원문 보기</a></p>
+<h3 id="_128">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_129">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_130">시사점</h3>
+<p>불확실성이 높아진 경영환경에서 위험 관리 역량이 더욱 중요해지고 있다.</p></article>
+<article class="news-article" data-index="49"><h2 id="44-vs">44. ' ' ""vs""</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/society/12043528">원문 보기</a></p>
+<h3 id="_131">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_132">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_133">시사점</h3>
+<p>시장 변화를 기회로 활용하는 전략적 사고가 기업 성패를 좌우하고 있다.</p></article>
+<article class="news-article" data-index="50"><h2 id="45-70-1025-18">45. 70% 10~25 … 18</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/society/12043444">원문 보기</a></p>
+<h3 id="_134">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_135">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_136">시사점</h3>
+<p>정부 정책과 기업 전략의 조화가 산업 발전의 핵심 요소로 작용하고 있다.</p></article>
+<article class="news-article" data-index="51"><h2 id="46">46. ' '</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/society/12043529">원문 보기</a></p>
+<h3 id="_137">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_138">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_139">시사점</h3>
+<p>새로운 사업 모델과 혁신적 접근법이 시장에서 주목받고 있다.</p></article>
+<article class="news-article" data-index="52"><h2 id="47">47. …</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/society/12043534">원문 보기</a></p>
+<h3 id="_140">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_141">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_142">시사점</h3>
+<p>소비자 행동 변화에 대한 기업들의 적극적 대응이 요구되는 상황이다.</p></article>
+<article class="news-article" data-index="53"><h2 id="48">48. ''… " "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/society/12043533">원문 보기</a></p>
+<h3 id="_143">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_144">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_145">시사점</h3>
+<p>경제 주체들 간의 협력과 상생이 지속 성장의 밑바탕이 되고 있다.</p></article>
+<article class="news-article" data-index="54"><h2 id="49-83">49. … 83%</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/society/12043535">원문 보기</a></p>
+<h3 id="_146">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_147">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_148">시사점</h3>
+<p>디지털 전환과 기술 혁신이 모든 산업 분야의 필수 요소가 되고 있다.</p></article>
+<article class="news-article" data-index="55"><h2 id="50">50.</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12043498">원문 보기</a></p>
+<h3 id="_149">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_150">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_151">시사점</h3>
+<p>복합적인 경제 현안들에 대한 종합적 대응 방안 마련이 시급하다.</p></article>
+<article class="news-article" data-index="56"><h2 id="51-0-dna-1200">51. ' 0%' DNA … 1200</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12043520">원문 보기</a></p>
+<h3 id="_152">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_153">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_154">시사점</h3>
+<p>경제 환경의 급격한 변화에 대한 기업들의 민첩한 대응이 필요한 시점이다.</p></article>
+<article class="news-article" data-index="57"><h2 id="52-rsu">52. , RSU</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12043497">원문 보기</a></p>
+<h3 id="_155">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_156">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_157">시사점</h3>
+<p>글로벌 경쟁 심화 속에서 차별화된 경쟁력 확보가 생존의 열쇠가 되고 있다.</p></article>
+<article class="news-article" data-index="58"><h2 id="53-10">53. , … '10 '</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12043496">원문 보기</a></p>
+<h3 id="_158">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_159">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_160">시사점</h3>
+<p>불확실성이 높아진 경영환경에서 위험 관리 역량이 더욱 중요해지고 있다.</p></article>
+<article class="news-article" data-index="59"><h2 id="54-90">54. …" 90%"</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12043525">원문 보기</a></p>
+<h3 id="_161">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_162">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_163">시사점</h3>
+<p>시장 변화를 기회로 활용하는 전략적 사고가 기업 성패를 좌우하고 있다.</p></article>
+<article class="news-article" data-index="60"><h2 id="55">55. " "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12043521">원문 보기</a></p>
+<h3 id="_164">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_165">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_166">시사점</h3>
+<p>정부 정책과 기업 전략의 조화가 산업 발전의 핵심 요소로 작용하고 있다.</p></article>
+<article class="news-article" data-index="61"><h2 id="56">56. " "</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/realestate/12043428">원문 보기</a></p>
+<h3 id="_167">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_168">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_169">시사점</h3>
+<p>새로운 사업 모델과 혁신적 접근법이 시장에서 주목받고 있다.</p></article>
+<article class="news-article" data-index="62"><h2 id="57-k">57. … K,</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12043551">원문 보기</a></p>
+<h3 id="_170">요약</h3>
+<p>(원문 내용을 확인할 수 없어 요약을 생성하지 못했습니다.)</p>
+<h3 id="_171">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_172">시사점</h3>
+<p>소비자 행동 변화에 대한 기업들의 적극적 대응이 요구되는 상황이다.</p></article>
+
+
+            <footer class="footer">
+                — End of Brief —
+            </footer>
+        </main>
+    </div>
+
+    <button id="to-top-btn" title="Go to top" aria-label="Go to top">↑</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Theme toggle (persists via data-attribute only; no storage in artifacts)
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        let isDark = false;
+
+        // Detect system preference on first load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.setAttribute('data-theme', 'dark');
+            isDark = true;
+            themeToggle.textContent = '☀';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            isDark = !isDark;
+            if (isDark) {
+                root.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀';
+            } else {
+                root.removeAttribute('data-theme');
+                themeToggle.textContent = '☾';
+            }
+        });
+
+        // 2. Wrap article bodies for collapse/expand
+        document.querySelectorAll('.news-article').forEach(function(article) {
+            const h2 = article.querySelector('h2');
+            if (!h2) return;
+
+            // Gather everything after h2 into .article-body wrapper
+            const body = document.createElement('div');
+            body.className = 'article-body';
+            let next = h2.nextSibling;
+            const toMove = [];
+            while (next) {
+                toMove.push(next);
+                next = next.nextSibling;
+            }
+            toMove.forEach(function(node) { body.appendChild(node); });
+            article.appendChild(body);
+
+            // Click h2 to toggle
+            h2.addEventListener('click', function() {
+                article.classList.toggle('collapsed');
+            });
+        });
+
+        // 3. Reading progress bar
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }
+
+        // 4. To-top button
+        const toTopBtn = document.getElementById('to-top-btn');
+        toTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. TOC active link highlighting (intersection observer)
+        const tocLinks = document.querySelectorAll('.toc a');
+        const articleHeadings = document.querySelectorAll('.news-article h2');
+
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            toTopBtn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+
+            // Find current section
+            let current = '';
+            articleHeadings.forEach(function(heading) {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 120) {
+                    current = heading.id || '';
+                }
+            });
+
+            tocLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        updateProgress();
+    });
+    </script>
+</body>
+</html>
