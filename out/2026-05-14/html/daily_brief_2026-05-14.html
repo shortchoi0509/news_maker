@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Brief 2026-05-14</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <style>
+    /* ============================================
+       Editorial Design System
+       ============================================ */
+    :root {
+        --font-serif: 'Noto Serif KR', 'Source Serif Pro', Georgia, serif;
+        --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+        /* Light theme - warm neutral */
+        --bg-primary: #fafaf7;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f3f2ed;
+        --bg-card: #ffffff;
+        --border-subtle: #e8e6df;
+        --border-strong: #2c2c2c;
+
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --text-tertiary: #888580;
+        --text-muted: #a8a5a0;
+
+        --accent: #8b0000;
+        --accent-soft: rgba(139, 0, 0, 0.08);
+        --accent-line: #c9302c;
+
+        /* Semantic colors - 아이콘 블록 */
+        --color-summary: #1a4d3a;
+        --color-summary-bg: #ecf4ef;
+        --color-detail: #2c3e50;
+        --color-detail-bg: #f5f5f0;
+        --color-extra: #6b5b3e;
+        --color-extra-bg: #f7f3ea;
+        --color-insight: #5b3a8c;
+        --color-insight-bg: #f1ecf7;
+        --color-glossary: #8b6f47;
+        --color-glossary-bg: #faf6ef;
+
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+        --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #0f0f0e;
+        --bg-secondary: #1a1a18;
+        --bg-tertiary: #242420;
+        --bg-card: #1a1a18;
+        --border-subtle: #2e2e2a;
+        --border-strong: #e8e6df;
+
+        --text-primary: #f0ede4;
+        --text-secondary: #c8c5bd;
+        --text-tertiary: #8a8680;
+        --text-muted: #5a5650;
+
+        --accent: #e85d5d;
+        --accent-soft: rgba(232, 93, 93, 0.12);
+        --accent-line: #e85d5d;
+
+        --color-summary: #7bc49a;
+        --color-summary-bg: rgba(123, 196, 154, 0.1);
+        --color-detail: #a8c8e5;
+        --color-detail-bg: rgba(168, 200, 229, 0.08);
+        --color-extra: #d4b878;
+        --color-extra-bg: rgba(212, 184, 120, 0.1);
+        --color-insight: #c9a8e8;
+        --color-insight-bg: rgba(201, 168, 232, 0.1);
+        --color-glossary: #d4b896;
+        --color-glossary-bg: rgba(212, 184, 150, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        margin: 0;
+        padding: 0;
+        transition: background 0.3s ease, color 0.3s ease;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       Progress Bar
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--accent);
+        z-index: 1000;
+        transition: width 0.1s linear;
+    }
+
+    /* ============================================
+       Top Bar
+       ============================================ */
+    .top-bar {
+        position: sticky;
+        top: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .top-bar {
+        background-color: rgba(26, 26, 24, 0.85);
+    }
+
+    .top-bar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brand {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+    }
+
+    .top-bar-meta {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .theme-toggle {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all 0.2s;
+        padding: 0;
+    }
+
+    .theme-toggle:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: rotate(15deg);
+    }
+
+    /* ============================================
+       Main Layout
+       ============================================ */
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    /* ============================================
+       Sidebar / TOC
+       ============================================ */
+    #sidebar {
+        position: sticky;
+        top: 90px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-track { background: transparent; }
+    #sidebar::-webkit-scrollbar-thumb {
+        background: var(--border-subtle);
+        border-radius: 2px;
+    }
+
+    .sidebar-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-tertiary);
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: toc-counter;
+    }
+
+    .toc ul ul { display: none; }
+
+    .toc li {
+        counter-increment: toc-counter;
+        position: relative;
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 10px 0 10px 32px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        border-left: 2px solid transparent;
+        padding-left: 16px;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .toc a::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        position: absolute;
+        left: -24px;
+        top: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .toc a:hover {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .toc a.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        font-weight: 500;
+    }
+
+    .toc-empty {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Content Area
+       ============================================ */
+    .content-main { min-width: 0; }
+
+    .masthead {
+        border-bottom: 4px double var(--text-primary);
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
+    .masthead-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .masthead h1 {
+        font-family: var(--font-serif);
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px 0;
+        color: var(--text-primary);
+    }
+
+    .masthead-meta {
+        display: flex;
+        gap: 24px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .masthead-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .masthead-meta .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--text-muted);
+        border-radius: 50%;
+    }
+
+    /* ============================================
+       News Article Cards
+       ============================================ */
+    .news-article {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 40px 44px;
+        margin-bottom: 28px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-article::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+    }
+
+    .news-article:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-1px);
+    }
+
+    .news-article:hover::before {
+        height: 100%;
+    }
+
+    .news-article h2 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        margin: 0 0 8px 0;
+        color: var(--text-primary);
+        cursor: pointer;
+        user-select: none;
+        padding-right: 40px;
+        position: relative;
+    }
+
+    .news-article h2::after {
+        content: '−';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--text-muted);
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .news-article.collapsed h2::after {
+        content: '+';
+    }
+
+    .news-article h2:hover::after {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .source-link {
+        margin: 0 0 24px 0;
+    }
+
+    .source-link a {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-tertiary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+
+    .source-link a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .source-link .arrow {
+        transition: transform 0.2s;
+    }
+
+    .source-link a:hover .arrow {
+        transform: translateX(3px);
+    }
+
+    /* Article body content wrapper (foldable) */
+    .article-body {
+        max-height: 10000px;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 1;
+    }
+
+    .news-article.collapsed .article-body {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /* ============================================
+       Article Subtitle (HEADLINE)
+       ============================================ */
+    .article-subtitle {
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--accent);
+        padding: 20px 24px;
+        margin: 0 0 28px 0;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .subtitle-label {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .article-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .contents-divider {
+        height: 1px;
+        background: linear-gradient(to right, var(--border-subtle), transparent);
+        margin: 0 0 24px 0;
+    }
+
+    /* ============================================
+       News Blocks (icon rows)
+       ============================================ */
+    .news-block {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+        padding: 14px 18px;
+        margin: 8px 0;
+        border-radius: var(--radius-md);
+        line-height: 1.65;
+        font-size: 0.96rem;
+        transition: background 0.2s;
+    }
+
+    .block-icon {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2px;
+    }
+
+    .block-content {
+        color: var(--text-primary);
+    }
+
+    /* 핵심 요약 - 가장 강조 */
+    .block-summary {
+        background: var(--color-summary-bg);
+        border-left: 3px solid var(--color-summary);
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+    .block-summary .block-content {
+        color: var(--color-summary);
+        font-weight: 600;
+    }
+    [data-theme="dark"] .block-summary .block-content {
+        color: var(--color-summary);
+    }
+
+    /* 주요 내용 */
+    .block-detail {
+        background: transparent;
+        padding: 10px 18px 10px 0;
+        border-left: none;
+    }
+    .block-detail .block-icon {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    /* 추가 내용 */
+    .block-extra {
+        background: var(--color-extra-bg);
+        border-left: 2px dashed var(--color-extra);
+        margin: 12px 0;
+        font-size: 0.92rem;
+    }
+    .block-extra .block-content { color: var(--color-extra); }
+
+    /* 의미/영향 - 인사이트 */
+    .block-insight {
+        background: var(--color-insight-bg);
+        border: 1px solid transparent;
+        border-left: 3px solid var(--color-insight);
+        margin-top: 16px;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .block-insight .block-content { color: var(--color-insight); }
+
+    /* 용어 설명 */
+    .block-glossary {
+        background: var(--color-glossary-bg);
+        border-top: 1px solid var(--border-subtle);
+        border-radius: 0;
+        font-size: 0.88rem;
+        margin-top: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .block-glossary .block-content {
+        color: var(--color-glossary);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Miscellaneous
+       ============================================ */
+    .article-separator { display: none; }
+
+    p { margin: 12px 0; }
+
+    code {
+        font-family: var(--font-mono);
+        background: var(--bg-tertiary);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.88em;
+    }
+
+    pre {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-size: 0.88rem;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ============================================
+       To-top Button
+       ============================================ */
+    #to-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.2s;
+        z-index: 999;
+    }
+
+    #to-top-btn:hover { transform: translateY(-3px); }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        margin-top: 80px;
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* ============================================
+       Mobile Responsive
+       ============================================ */
+    @media (max-width: 900px) {
+        .top-bar-inner { padding: 12px 20px; }
+        .brand { font-size: 1.1rem; }
+        .top-bar-meta { gap: 10px; font-size: 0.7rem; }
+
+        .main-wrapper {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #sidebar {
+            position: relative;
+            top: 0;
+            max-height: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: var(--bg-card);
+        }
+
+        .masthead h1 { font-size: 2rem; }
+        .masthead-meta { flex-wrap: wrap; gap: 12px; font-size: 0.7rem; }
+
+        .news-article {
+            padding: 28px 24px;
+        }
+
+        .news-article h2 { font-size: 1.35rem; padding-right: 32px; }
+        .article-subtitle { padding: 16px 18px; }
+        .news-block { padding: 12px 14px; font-size: 0.92rem; }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-article {
+        animation: fadeUp 0.4s ease both;
+    }
+    </style>
+</head>
+<body>
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <span>The Daily Brief</span>
+            </div>
+            <div class="top-bar-meta">
+                <span>2026-05-14</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-label">Index · 뉴스 목록</div>
+            <div class="toc">
+                <div class="toc">
+<ul>
+<li><a href="#_1">목차</a><ul>
+<li><a href="#01">01. 美월가도 권력재편 … 모건스탠리 뜨고 골드만삭스 주춤</a></li>
+<li><a href="#02-7-30">02. 중복상장 7년새 30% 급감한 일본 … 전면금지 아닌 소수주주 보호 방점</a></li>
+<li><a href="#03-2">03. 특허분쟁 유리해진 알테오젠 … 주가 뛰며 코스닥 시총2위로</a></li>
+<li><a href="#04">04. 매각 속도내는 '배민'… 알리바바·우버가 노린다</a></li>
+<li><a href="#05-250">05. [단독] 올 250조 불린 국민연금 … '국장 보유 허용치' 이참에 늘릴까</a></li>
+<li><a href="#06-150">06. [단독] 국민연금, 국내주식 150조 초과 보유</a></li>
+<li><a href="#07">07. 중간배당주 배당락으로 코스피 끌어내렸다 … 내일부터 실적장 시작</a></li>
+<li><a href="#08-5">08. '혜원'부터 '유통&amp;외식' 까지 … 키움차이나리뷰어드출시 5년째 줄달리기</a></li>
+<li><a href="#09-lg-lg">09. 'LG엔솔 대안' 가닥 잡힌 LG화학 … 배터리 사업 매각 관련 단상들</a></li>
+<li><a href="#10-etf">10. 금리 인하기인데 … 갈 길 잃은 채권형 ETF</a></li>
+<li><a href="#11-ai">11. AI반도체 훈풍타는 삼성전자</a></li>
+<li><a href="#12-3d-3d">12. 3D프린팅 의료기기 성장속 '3D바이오프린팅솔루션즈' 눈길</a></li>
+<li><a href="#13-4">13. 언제 오를지 혈안 … 수도권 전셋값 '소폭 하락세' 4개월째</a></li>
+<li><a href="#14-29">14. 올들어 장외파생 뛰어든 개인 29% 늘었다</a></li>
+<li><a href="#15-6-it">15. [내가 체험한 중국⑥] 중국 테크놈들과 주먹밥 … IT기업 문화까지 수입</a></li>
+<li><a href="#16-35000">16. 서울 상반기 분양 물량 3만5000가구 … 하반기엔 물량 대폭 늘어</a></li>
+<li><a href="#17">17. 호실별 계좌 개설·증여소득 과세에 … 아파트 조합과세 논란 재점화</a></li>
+<li><a href="#18-4-6">18. [부동산 인사이드] 연 4% 수익률 맞추고 6개월 만에 '팝니다' … 부동산 투자회사들의 어정쩡한 전략</a></li>
+<li><a href="#19-bis">19. "디지털 화폐 도입해도 은행 예금은 안전" … 한은, BIS 보고서 요약 발표</a></li>
+<li><a href="#20-1380">20. 원·달러, 연준 비둘기파 발언에 1380원대 중반</a></li>
+<li><a href="#21">21. [종합]하이브, 직원 주식 보상 프로그램 폐지한다</a></li>
+<li><a href="#22-1q-400">22. '일회성 요소' 뺀 하이브 1Q 실제 영업이익은 400억원대 … 시장 예상 하회</a></li>
+<li><a href="#23-e">23. 벤츠, 전기 밴 'e스프린터' 국내 출시</a></li>
+<li><a href="#24-wto">24. 일본 고베·후쿠시마산 제품 수입 허용 검토 … "WTO 권고 수용"</a></li>
+<li><a href="#25-ccus">25. "올해 암모니아 크래킹 실증사업 착수" … 포스코 CCUS 투자 속도</a></li>
+<li><a href="#26-eu">26. 한국조선해양, EU 조선산업 동맹 옵서버 참여</a></li>
+<li><a href="#27-ls-ceo">27. LS일렉트릭 CEO "계통연계·접속함, 전력 변환의 허브 역할" … 관련 사업 확대 방침</a></li>
+<li><a href="#28-m1509">28. 두산로보틱스, 제조로봇 'M1509' 유럽시장 출시</a></li>
+<li><a href="#29-4">29. 타임워너, 美 뉴욕 본사 임대료 4억달러 절약</a></li>
+<li><a href="#30">30. 팬텀, 브랜드 개편으로 남성 중심 라이프스타일 브랜드로 전환</a></li>
+<li><a href="#31-ibm-ai">31. IBM "메인프레임 신제품으로 AI 시대 대응"</a></li>
+<li><a href="#32-kt-ai-2027-2">32. KT, 분당 AI데이터센터 구축 착수 … 2027년까지 2조원 투자</a></li>
+<li><a href="#33-2024">33. 국립현대미술관 덕수궁관, '키아프 서울 2024' 공식 파트너십 체결</a></li>
+<li><a href="#34">34. 네이버클라우드플랫폼, '효성인포메이션시스템'과 디지털 트랜스포메이션 협력</a></li>
+<li><a href="#35-">35. 에이콘-아마존웹서비스, 클라우드 전문 인재 양성 협약</a></li>
+<li><a href="#36">36. 한컴오피스, 중소기업진흥공단과 디지털 전환 지원 업무협약</a></li>
+<li><a href="#37-kt-5g">37. KT 5G 자율주행 실증 현장 … "자율주행 상용화, 먼 얘기 아니다"</a></li>
+<li><a href="#38-ai">38. [기자체험]아이들이 직접 만드는 AI놀잇감, '제페토 미니'</a></li>
+<li><a href="#39-ai">39. "AI 혁신으로 일자리 변화 불가피 … 직업훈련이 핵심"</a></li>
+<li><a href="#40-300mw-2027">40. 한국전력, 우즈베키스탄 300MW 태양광발전소 참여 … 2027년 준공</a></li>
+<li><a href="#41-1">41. [단독] 아모레퍼시픽 中 1공장 '헤라' 브랜드 전용으로 전환</a></li>
+<li><a href="#42">42. 농협은행, 예금 중개서비스 도입 … 가입자에 우대금리 제공</a></li>
+<li><a href="#43-keb">43. [단독]KEB하나銀 "수신 중시 경영으로 전환" … 예대마진 관리 강화</a></li>
+<li><a href="#44-roe-12-30">44. 우리금융 "올해 ROE 12% 목표, 배당성향도 30% 확대"</a></li>
+<li><a href="#45">45. 신한금융, 베트남 사업 확대 … '신한베트남은행' 사명 변경</a></li>
+<li><a href="#46-mask-ai">46. [M&amp;A리포트]SK텔레콤, 美 AI보안 업체 '센티넬원' 투자 … 국내 사업 확대</a></li>
+<li><a href="#47-3155">47. 현대차 '캐스퍼 일렉트릭' 예약판매 시작 … 3155만원부터</a></li>
+<li><a href="#48-lg">48. LG이노텍, 카메라모듈 新기술 개발 … "웨이퍼 레벨 기술로 초박형화"</a></li>
+<li><a href="#49-lg-gm">49. LG에너지솔루션 "원통형 배터리 수요 급증" … GM과 추가 공급계약</a></li>
+<li><a href="#50">50. 한화오션, 호주 원자력잠수함 사업 참여 검토 … '오쿠스' 프로젝트</a></li>
+<li><a href="#51-2030">51. 포스코홀딩스, 아르헨티나 리튬 생산기지 2030년 완공</a></li>
+<li><a href="#52-sk-2">52. SK이노베이션 배터리 분리막 중국 2공장 건설</a></li>
+<li><a href="#53-why-2-ai">53. [Why] '제2의 엔비디아' 꿈꾸는 AI칩 스타트업들, 왜 줄줄이 실패하나</a></li>
+<li><a href="#54-cj-enm">54. [기업이슈]CJ ENM 음반·콘서트 부문 수익성 개선 … 수익 다각화 전략</a></li>
+<li><a href="#55-1">55. '1분기 폭증' 업체별 구매력으로 이월</a></li>
+<li><a href="#56-100">56. 교보생명, '100세 건강플랜' 판매 … 실손 형태 건강보험 확대</a></li>
+<li><a href="#57-pb-2">57. 삼성증권 PB센터 확대 운영 … "자산 2억원 이상 고객 대상"</a></li>
+<li><a href="#58">58. 메리츠화재, 운전자보험 특약 신설 … "교통사고 형사합의금 보장"</a></li>
+<li><a href="#59-kb-100">59. KB손해보험, 장기운전자보험 출시 … "최대 100세까지 보장"</a></li>
+<li><a href="#60">60. 한국투자증권, 연금저축 라이프사이클 펀드 출시</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+            </div>
+        </nav>
+
+        <main class="content-main">
+            <header class="masthead">
+                <div class="masthead-kicker">Daily Market Brief</div>
+                <h1>Daily Brief 2026-05-14</h1>
+                <div class="masthead-meta">
+                    <span>📅 2026-05-14</span>
+                    <span class="dot"></span>
+                    <span>📰 60 Articles</span>
+                    <span class="dot"></span>
+                    <span>KST</span>
+                </div>
+            </header>
+
+            
+<p>title: "매일경제 데일리 브리프 - 2026년 5월 14일"
+date: "2026-05-14"
+articles: 60</p>
+<h1 id="_1">목차</h1>
+<ol start="01">
+<li><strong>美월가도 권력재편 … 모건스탠리 뜨고 골드만삭스 주춤</strong></li>
+<li><strong>중복상장 7년새 30% 급감한 일본 … 전면금지 아닌 소수주주 보호 방점</strong></li>
+<li><strong>특허분쟁 유리해진 알테오젠 … 주가 뛰며 코스닥 시총2위로</strong></li>
+<li><strong>매각 속도내는 '배민'… 알리바바·우버가 노린다</strong></li>
+<li><strong>[단독] 올 250조 불린 국민연금 … '국장 보유 허용치' 이참에 늘릴까</strong></li>
+<li><strong>[단독] 국민연금, 국내주식 150조 초과 보유</strong></li>
+<li><strong>중간배당주 배당락으로 코스피 끌어내렸다 … 내일부터 실적장 시작</strong></li>
+<li><strong>'혜원'부터 '유통&amp;외식' 까지 … 키움차이나리뷰어드출시 5년째 줄달리기</strong></li>
+<li><strong>'LG엔솔 대안' 가닥 잡힌 LG화학 … 배터리 사업 매각 관련 단상들</strong></li>
+<li><strong>금리 인하기인데 … 갈 길 잃은 채권형 ETF</strong></li>
+<li><strong>AI반도체 훈풍타는 삼성전자</strong></li>
+<li><strong>3D프린팅 의료기기 성장속 '3D바이오프린팅솔루션즈' 눈길</strong></li>
+<li><strong>언제 오를지 혈안 … 수도권 전셋값 '소폭 하락세' 4개월째</strong></li>
+<li><strong>올들어 장외파생 뛰어든 개인 29% 늘었다</strong></li>
+<li><strong>[내가 체험한 중국⑥] 중국 테크놈들과 주먹밥 … IT기업 문화까지 수입</strong></li>
+<li><strong>서울 상반기 분양 물량 3만5000가구 … 하반기엔 물량 대폭 늘어</strong></li>
+<li><strong>호실별 계좌 개설·증여소득 과세에 … 아파트 조합과세 논란 재점화</strong></li>
+<li><strong>[부동산 인사이드] 연 4% 수익률 맞추고 6개월 만에 '팝니다' … 부동산 투자회사들의 어정쩡한 전략</strong></li>
+<li><strong>"디지털 화폐 도입해도 은행 예금은 안전" … 한은, BIS 보고서 요약 발표</strong></li>
+<li><strong>원·달러, 연준 비둘기파 발언에 1380원대 중반</strong></li>
+<li><strong>[종합]하이브, 직원 주식 보상 프로그램 폐지한다</strong></li>
+<li><strong>'일회성 요소' 뺀 하이브 1Q 실제 영업이익은 400억원대 … 시장 예상 하회</strong></li>
+<li><strong>벤츠, 전기 밴 'e스프린터' 국내 출시</strong></li>
+<li><strong>일본 고베·후쿠시마산 제품 수입 허용 검토 … "WTO 권고 수용"</strong></li>
+<li><strong>"올해 암모니아 크래킹 실증사업 착수" … 포스코 CCUS 투자 속도</strong></li>
+<li><strong>한국조선해양, EU 조선산업 동맹 옵서버 참여</strong></li>
+<li><strong>LS일렉트릭 CEO "계통연계·접속함, 전력 변환의 허브 역할" … 관련 사업 확대 방침</strong></li>
+<li><strong>두산로보틱스, 제조로봇 'M1509' 유럽시장 출시</strong></li>
+<li><strong>타임워너, 美 뉴욕 본사 임대료 4억달러 절약</strong></li>
+<li><strong>팬텀, 브랜드 개편으로 남성 중심 라이프스타일 브랜드로 전환</strong></li>
+<li><strong>IBM "메인프레임 신제품으로 AI 시대 대응"</strong></li>
+<li><strong>KT, 분당 AI데이터센터 구축 착수 … 2027년까지 2조원 투자</strong></li>
+<li><strong>국립현대미술관 덕수궁관, '키아프 서울 2024' 공식 파트너십 체결</strong></li>
+<li><strong>네이버클라우드플랫폼, '효성인포메이션시스템'과 디지털 트랜스포메이션 협력</strong></li>
+<li><strong>에이콘-아마존웹서비스, 클라우드 전문 인재 양성 협약</strong></li>
+<li><strong>한컴오피스, 중소기업진흥공단과 디지털 전환 지원 업무협약</strong></li>
+<li><strong>KT 5G 자율주행 실증 현장 … "자율주행 상용화, 먼 얘기 아니다"</strong></li>
+<li><strong>[기자체험]아이들이 직접 만드는 AI놀잇감, '제페토 미니'</strong></li>
+<li><strong>"AI 혁신으로 일자리 변화 불가피 … 직업훈련이 핵심"</strong></li>
+<li><strong>한국전력, 우즈베키스탄 300MW 태양광발전소 참여 … 2027년 준공</strong></li>
+<li><strong>[단독] 아모레퍼시픽 中 1공장 '헤라' 브랜드 전용으로 전환</strong></li>
+<li><strong>농협은행, 예금 중개서비스 도입 … 가입자에 우대금리 제공</strong></li>
+<li><strong>[단독]KEB하나銀 "수신 중시 경영으로 전환" … 예대마진 관리 강화</strong></li>
+<li><strong>우리금융 "올해 ROE 12% 목표, 배당성향도 30% 확대"</strong></li>
+<li><strong>신한금융, 베트남 사업 확대 … '신한베트남은행' 사명 변경</strong></li>
+<li><strong>[M&amp;A리포트]SK텔레콤, 美 AI보안 업체 '센티넬원' 투자 … 국내 사업 확대</strong></li>
+<li><strong>현대차 '캐스퍼 일렉트릭' 예약판매 시작 … 3155만원부터</strong></li>
+<li><strong>LG이노텍, 카메라모듈 新기술 개발 … "웨이퍼 레벨 기술로 초박형화"</strong></li>
+<li><strong>LG에너지솔루션 "원통형 배터리 수요 급증" … GM과 추가 공급계약</strong></li>
+<li><strong>한화오션, 호주 원자력잠수함 사업 참여 검토 … '오쿠스' 프로젝트</strong></li>
+<li><strong>포스코홀딩스, 아르헨티나 리튬 생산기지 2030년 완공</strong></li>
+<li><strong>SK이노베이션 배터리 분리막 중국 2공장 건설</strong></li>
+<li><strong>[Why] '제2의 엔비디아' 꿈꾸는 AI칩 스타트업들, 왜 줄줄이 실패하나</strong></li>
+<li><strong>[기업이슈]CJ ENM 음반·콘서트 부문 수익성 개선 … 수익 다각화 전략</strong></li>
+<li><strong>'1분기 폭증' 업체별 구매력으로 이월</strong></li>
+<li><strong>교보생명, '100세 건강플랜' 판매 … 실손 형태 건강보험 확대</strong></li>
+<li><strong>삼성증권 PB센터 확대 운영 … "자산 2억원 이상 고객 대상"</strong></li>
+<li><strong>메리츠화재, 운전자보험 특약 신설 … "교통사고 형사합의금 보장"</strong></li>
+<li><strong>KB손해보험, 장기운전자보험 출시 … "최대 100세까지 보장"</strong></li>
+<li><strong>한국투자증권, 연금저축 라이프사이클 펀드 출시</strong></li>
+</ol>
+<article class="news-article" data-index="3"><h2 id="01">01. 美월가도 권력재편 … 모건스탠리 뜨고 골드만삭스 주춤</h2>
+<p><code>금융</code> · <a href="https://www.mk.co.kr/news/stock/12046437">원문 보기</a></p>
+<h3 id="_2">요약</h3>
+<p>월가에서 모건스탠리가 자산관리와 자산운용 부문 강화로 더 높은 기업 가치를 인정받는 반면, 골드만삭스 같은 전통적 투자은행 업무 중심 기업들이 상대적으로 주춤한 양상을 보이고 있다. 시장은 변동성이 큰 투자은행 수익보다 안정적인 수수료 수익을 선호하는 방향으로 변하고 있다. UBS의 크레디트스위스 인수 후 자산관리 부문 수익으로 시총이 급증한 사례도 이런 흐름을 뒷받침한다.</p>
+<h3 id="_3">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_4">시사점</h3>
+<p>금융업계의 패러다임 변화로 안정적인 자산관리 서비스가 변동성 높은 투자은행 업무보다 주목받게 되었다. 투자자들은 예측 가능한 수익을 창출하는 금융기관을 선호하게 될 것으로 보인다.</p>
+<h2 id="02-7-30">02. 중복상장 7년새 30% 급감한 일본 … 전면금지 아닌 소수주주 보호 방점</h2>
+<p><code>규제</code> · <a href="https://www.mk.co.kr/news/stock/12046455">원문 보기</a></p>
+<h3 id="_5">요약</h3>
+<p>한국 금융당국이 일본 사례를 참고해 중복상장 규제 강화를 추진하고 있다. 일본은 7년간 중복상장이 30% 감소했으며, 전면 금지보다는 소수주주 보호에 중점을 두었다. 한국도 '원칙 금지, 예외 허용' 방침으로 올 상반기 규정 개정을 거쳐 7월부터 시행할 예정이다.</p>
+<h3 id="_6">전망</h3>
+<p>이르면 7월부터 새로운 중복상장 규제가 시행될 예정이며, 기업들의 자발적인 사업 재편이 늘어날 것으로 예상된다.</p>
+<h3 id="_7">시사점</h3>
+<p>규제 강화를 통해 기업 지배구조의 투명성이 높아지고 '코리아 디스카운트' 해소에 기여할 가능성이 있다. 모회사 주주들의 이익 보호가 강화될 전망이다.</p>
+<h2 id="03-2">03. 특허분쟁 유리해진 알테오젠 … 주가 뛰며 코스닥 시총2위로</h2>
+<p><code>바이오</code> · <a href="https://www.mk.co.kr/news/stock/12046452">원문 보기</a></p>
+<h3 id="_8">요약</h3>
+<p>미국 특허심판원이 할로자임의 특허를 무효 판결하면서 알테오젠에게 유리한 상황이 조성되었다. 이로 인해 알테오젠 주가가 급등하며 코스닥 시가총액 2위를 탈환했다. 알테오젠의 피하주사 제형 전환 기술과 MSD의 '키트루다 큐렉스' 제품의 법적 리스크가 크게 줄어들었다.</p>
+<h3 id="_9">전망</h3>
+<p>특허 분쟁 해결로 알테오젠의 글로벌 파트너십 강화와 사업 확장이 예상된다.</p>
+<h3 id="_10">시사점</h3>
+<p>국내 바이오 기업의 기술 경쟁력이 글로벌 시장에서 인정받으면서 업계 전반의 위상 강화에 기여하고 있다. 환자들에게 보다 편리한 치료 옵션을 제공할 수 있게 되었다.</p>
+<h2 id="04">04. 매각 속도내는 '배민'… 알리바바·우버가 노린다</h2>
+<p><code>M&amp;A</code> · <a href="https://www.mk.co.kr/news/stock/12046451">원문 보기</a></p>
+<h3 id="_11">요약</h3>
+<p>독일 딜리버리히어로(DH)가 재무구조 개선을 위해 배달의민족 매각을 추진하고 있다. 매각가는 8조원 수준으로 예상되며, 알리바바와 우버 등이 유력 인수 후보로 거론된다. JP모건이 매각 주관사를 맡고 있으며, DH의 부채비율은 231.2%에 달한다.</p>
+<h3 id="_12">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_13">시사점</h3>
+<p>국내 배달 플랫폼 시장의 소유권 변화로 소비자 서비스와 시장 경쟁 구도에 변화가 예상된다. 외국 자본의 시장 지배력 강화에 대한 정책적 검토가 필요한 시점이다.</p>
+<h2 id="05-250">05. [단독] 올 250조 불린 국민연금 … '국장 보유 허용치' 이참에 늘릴까</h2>
+<p><code>연기금</code> · <a href="https://www.mk.co.kr/news/stock/12046401">원문 보기</a></p>
+<h3 id="_14">요약</h3>
+<p>국민연금의 운용자산이 250조원을 넘어서면서 국내 주식 보유 비중이 목표치를 초과했다. 현재 150조원 규모의 국내 주식을 기계적으로 매도해야 할 상황에서, 정부는 국내 주식 목표 비중 상향 조정이나 허용 범위 확대를 검토하고 있다.</p>
+<h3 id="_15">전망</h3>
+<p>국민연금 기금운용위원회를 통해 중기 자산배분안 확정 과정에서 관련 정책이 결정될 예정이다.</p>
+<h3 id="_16">시사점</h3>
+<p>국민연금의 투자 결정이 국내 증시에 미치는 영향력이 커지면서, 시장 안정성과 기금 운용의 독립성 간 균형이 중요한 과제가 되었다.</p>
+<h2 id="06-150">06. [단독] 국민연금, 국내주식 150조 초과 보유</h2>
+<p><code>연기금</code> · <a href="https://www.mk.co.kr/news/stock/12046507">원문 보기</a></p>
+<h3 id="_17">요약</h3>
+<p>국민연금의 국내 주식 보유 비중이 27%를 넘어 목표치를 12%포인트 초과했다. 이로 인해 150조원 규모의 국내 주식을 매도해야 할 상황이 발생했으며, 정부는 시장 충격을 최소화하기 위한 대책을 논의하고 있다.</p>
+<h3 id="_18">전망</h3>
+<p>국민연금 기금운용위원회 소집을 통해 매뉴얼 조정이나 목표 비중 상향 등이 논의될 예정이다.</p>
+<h3 id="_19">시사점</h3>
+<p>국민연금의 대규모 매도가 현실화될 경우 국내 주식시장에 상당한 충격이 예상되어, 시장 안정화 방안이 시급한 상황이다.</p>
+<h2 id="07">07. 중간배당주 배당락으로 코스피 끌어내렸다 … 내일부터 실적장 시작</h2>
+<p><code>시장분석</code> · <a href="https://www.mk.co.kr/news/stock/12046399">원문 보기</a></p>
+<h3 id="_20">요약</h3>
+<p>코스피가 중간배당 실시 종목들의 배당락 영향으로 하락했다. 삼성전자, 기아 등 주요 종목들이 중간배당을 실시하면서 배당락으로 인한 주가 조정이 발생했다. 15일부터는 1분기 실적 발표가 본격 시작될 예정이다.</p>
+<h3 id="_21">전망</h3>
+<p>15일부터 1분기 실적 발표가 본격화되면서 실적 중심의 주가 움직임이 예상된다.</p>
+<h3 id="_22">시사점</h3>
+<p>배당락 효과는 일시적 현상으로, 향후 시장은 기업들의 실적에 따라 움직일 것으로 보인다. 투자자들은 실적 발표 일정에 주목할 필요가 있다.</p>
+<h2 id="08-5">08. '혜원'부터 '유통&amp;외식' 까지 … 키움차이나리뷰어드출시 5년째 줄달리기</h2>
+<p><code>증권</code> · <a href="https://www.mk.co.kr/news/stock/12046433">원문 보기</a></p>
+<h3 id="_23">요약</h3>
+<p>키움증권이 중국 주식 리서치 전문 브랜드 '키움 차이나 리뷰어드'를 5년째 운영하며 중국 투자 정보를 제공하고 있다. 혜원, 유통·외식 등 다양한 섹터의 중국 기업들에 대한 분석 리포트를 지속적으로 발간하고 있다.</p>
+<h3 id="_24">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_25">시사점</h3>
+<p>중국 시장에 대한 전문적인 투자 정보 제공이 개인투자자들의 해외 투자 다변화에 도움을 주고 있다.</p>
+<h2 id="09-lg-lg">09. 'LG엔솔 대안' 가닥 잡힌 LG화학 … 배터리 사업 매각 관련 단상들</h2>
+<p><code>화학</code> · <a href="https://www.mk.co.kr/news/stock/12046420">원문 보기</a></p>
+<h3 id="_26">요약</h3>
+<p>LG화학이 LG에너지솔루션 대안으로 배터리 사업 매각을 검토하고 있다는 분석이 나오고 있다. 시장에서는 LG화학의 포트폴리오 재편 가능성에 대한 관심이 높아지고 있다.</p>
+<h3 id="_27">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_28">시사점</h3>
+<p>화학 기업들의 사업 포트폴리오 최적화 움직임이 활발해지면서, 전기차 배터리 시장의 경쟁 구조 변화가 예상된다.</p>
+<h2 id="10-etf">10. 금리 인하기인데 … 갈 길 잃은 채권형 ETF</h2>
+<p><code>펀드</code> · <a href="https://www.mk.co.kr/news/stock/12046414">원문 보기</a></p>
+<h3 id="_29">요약</h3>
+<p>금리 인하 기대감에도 불구하고 채권형 ETF의 수익률이 부진한 상황이다. 시장 금리 변동성과 경기 불확실성이 채권 투자의 매력도를 제한하고 있다.</p>
+<h3 id="_30">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_31">시사점</h3>
+<p>금리 환경 변화에도 불구하고 채권 투자의 복잡성이 증가하면서, 투자자들은 보다 신중한 접근이 필요한 상황이다.</p>
+<h2 id="11-ai">11. AI반도체 훈풍타는 삼성전자</h2>
+<p><code>반도체</code> · <a href="https://www.mk.co.kr/news/stock/12046411">원문 보기</a></p>
+<h3 id="_32">요약</h3>
+<p>AI 반도체 수요 급증으로 삼성전자가 수혜를 받고 있다. AI 칩 시장의 성장과 함께 삼성전자의 메모리 반도체 사업이 호조를 보이고 있다.</p>
+<h3 id="_33">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_34">시사점</h3>
+<p>AI 기술 발전이 반도체 업계 전반에 긍정적 영향을 미치면서, 관련 기업들의 성장 모멘텀이 강화되고 있다.</p>
+<h2 id="12-3d-3d">12. 3D프린팅 의료기기 성장속 '3D바이오프린팅솔루션즈' 눈길</h2>
+<p><code>의료기기</code> · <a href="https://www.mk.co.kr/news/stock/12046408">원문 보기</a></p>
+<h3 id="_35">요약</h3>
+<p>3D프린팅 의료기기 시장이 성장하면서 3D바이오프린팅솔루션즈에 대한 관심이 높아지고 있다. 맞춤형 의료기기 제작 기술의 발전으로 시장 확대가 기대된다.</p>
+<h3 id="_36">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_37">시사점</h3>
+<p>개인 맞춤형 의료 솔루션에 대한 수요 증가로 3D프린팅 기술의 의료 분야 적용이 확산되고 있다.</p>
+<h2 id="13-4">13. 언제 오를지 혈안 … 수도권 전셋값 '소폭 하락세' 4개월째</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12046404">원문 보기</a></p>
+<h3 id="_38">요약</h3>
+<p>수도권 전세가격이 4개월 연속 소폭 하락세를 지속하고 있다. 시장 참가자들은 전세가격 반등 시점을 예상하며 관망하고 있는 상황이다.</p>
+<h3 id="_39">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_40">시사점</h3>
+<p>부동산 정책과 금리 환경 변화가 전세 시장에 지속적 영향을 미치고 있어, 임차인들에게는 상대적으로 유리한 환경이 조성되고 있다.</p>
+<h2 id="14-29">14. 올들어 장외파생 뛰어든 개인 29% 늘었다</h2>
+<p><code>파생상품</code> · <a href="https://www.mk.co.kr/news/stock/12046389">원문 보기</a></p>
+<h3 id="_41">요약</h3>
+<p>올해 들어 장외파생상품에 참여하는 개인투자자가 29% 증가했다. 고수익을 추구하는 개인투자자들이 파생상품 시장에 대거 유입되고 있는 것으로 나타났다.</p>
+<h3 id="_42">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_43">시사점</h3>
+<p>개인투자자들의 고위험 투자 성향이 강해지면서, 투자자 보호와 리스크 관리의 중요성이 더욱 부각되고 있다.</p>
+<h2 id="15-6-it">15. [내가 체험한 중국⑥] 중국 테크놈들과 주먹밥 … IT기업 문화까지 수입</h2>
+<p><code>중국</code> · <a href="https://www.mk.co.kr/news/economy/12046387">원문 보기</a></p>
+<h3 id="_44">요약</h3>
+<p>중국 IT 기업들의 독특한 기업문화와 업무 방식에 대한 체험담을 소개하고 있다. 중국 테크 기업들의 창의적이고 자유로운 업무 환경이 주목받고 있다.</p>
+<h3 id="_45">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_46">시사점</h3>
+<p>글로벌 IT 기업들의 다양한 기업문화를 통해 우리나라 기업들도 혁신적인 조직문화 도입을 검토해볼 필요가 있다.</p>
+<h2 id="16-35000">16. 서울 상반기 분양 물량 3만5000가구 … 하반기엔 물량 대폭 늘어</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12046385">원문 보기</a></p>
+<h3 id="_47">요약</h3>
+<p>서울 지역 상반기 분양 예정 물량이 3만5000가구로 집계됐다. 하반기에는 분양 물량이 대폭 늘어날 것으로 예상된다고 업계가 전망했다.</p>
+<h3 id="_48">전망</h3>
+<p>하반기에는 분양 물량이 대폭 증가할 것으로 예상된다.</p>
+<h3 id="_49">시사점</h3>
+<p>공급 물량 증가로 주택 구매자들의 선택권이 확대되고, 분양가 경쟁이 치열해질 가능성이 있다.</p>
+<h2 id="17">17. 호실별 계좌 개설·증여소득 과세에 … 아파트 조합과세 논란 재점화</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12046383">원문 보기</a></p>
+<h3 id="_50">요약</h3>
+<p>아파트 재건축 조합의 호실별 계좌 개설과 증여소득 과세 문제로 논란이 재점화되고 있다. 세무당국과 조합 간 해석 차이로 갈등이 지속되고 있다.</p>
+<h3 id="_51">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_52">시사점</h3>
+<p>재건축 과정에서의 세무 처리 방식이 조합원들의 부담에 직접적 영향을 미치고 있어, 명확한 기준 정립이 시급하다.</p>
+<h2 id="18-4-6">18. [부동산 인사이드] 연 4% 수익률 맞추고 6개월 만에 '팝니다' … 부동산 투자회사들의 어정쩡한 전략</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12046381">원문 보기</a></p>
+<h3 id="_53">요약</h3>
+<p>부동산 투자회사들이 연 4% 수익률을 약속하며 투자를 유치했지만, 6개월 만에 매각하는 등 일관성 없는 전략을 보이고 있다. 투자자들 사이에서 신뢰성에 대한 의문이 제기되고 있다.</p>
+<h3 id="_54">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_55">시사점</h3>
+<p>부동산 투자시장에서 투자회사들의 전략적 일관성 부족이 투자자 신뢰도 하락으로 이어지고 있어, 보다 투명한 운용이 요구된다.</p>
+<h2 id="19-bis">19. "디지털 화폐 도입해도 은행 예금은 안전" … 한은, BIS 보고서 요약 발표</h2>
+<p><code>금융정책</code> · <a href="https://www.mk.co.kr/news/economy/12046379">원문 보기</a></p>
+<h3 id="_56">요약</h3>
+<p>한국은행이 BIS 보고서를 인용하며 중앙은행 디지털화폐(CBDC) 도입이 이뤄져도 은행 예금의 안전성에는 문제가 없다고 발표했다. 디지털 화폐와 기존 금융시스템의 공존 가능성을 강조했다.</p>
+<h3 id="_57">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_58">시사점</h3>
+<p>디지털 화폐 도입 논의가 활발해지는 가운데, 기존 금융시스템과의 안정적 공존 방안이 중요한 정책 과제로 부상하고 있다.</p>
+<h2 id="20-1380">20. 원·달러, 연준 비둘기파 발언에 1380원대 중반</h2>
+<p><code>환율</code> · <a href="https://www.mk.co.kr/news/economy/12046377">원문 보기</a></p>
+<h3 id="_59">요약</h3>
+<p>미국 연준 인사들의 비둘기파 발언으로 달러 약세가 나타나면서 원·달러 환율이 1380원대 중반으로 하락했다. 금리 인하 기대감이 환율 안정에 기여하고 있다.</p>
+<h3 id="_60">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_61">시사점</h3>
+<p>미국 통화정책의 변화 신호가 국내 환율에 즉각적인 영향을 미치고 있어, 수출기업들에게는 긍정적 요인으로 작용하고 있다.</p>
+<h2 id="21">21. [종합]하이브, 직원 주식 보상 프로그램 폐지한다</h2>
+<p><code>엔터테인먼트</code> · <a href="https://www.mk.co.kr/news/stock/12046375">원문 보기</a></p>
+<h3 id="_62">요약</h3>
+<p>하이브가 직원 대상 주식 보상 프로그램을 폐지하기로 결정했다. 회사는 인사 정책 변화의 일환으로 이번 조치를 단행한다고 밝혔다.</p>
+<h3 id="_63">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_64">시사점</h3>
+<p>엔터테인먼트 업계의 인사 정책이 변화하고 있으며, 직원 보상 체계의 다양성이 줄어드는 경향을 보이고 있다.</p>
+<h2 id="22-1q-400">22. '일회성 요소' 뺀 하이브 1Q 실제 영업이익은 400억원대 … 시장 예상 하회</h2>
+<p><code>엔터테인먼트</code> · <a href="https://www.mk.co.kr/news/stock/12046373">원문 보기</a></p>
+<h3 id="_65">요약</h3>
+<p>하이브의 1분기 실제 영업이익이 일회성 요소를 제외하면 400억원대로 시장 예상을 하회했다. 기대했던 수준의 실적을 달성하지 못하면서 투자자들의 우려가 커지고 있다.</p>
+<h3 id="_66">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_67">시사점</h3>
+<p>엔터테인먼트 업계의 수익성 확보 어려움이 지속되고 있어, 안정적인 수익 구조 구축이 과제로 남아있다.</p>
+<h2 id="23-e">23. 벤츠, 전기 밴 'e스프린터' 국내 출시</h2>
+<p><code>자동차</code> · <a href="https://www.mk.co.kr/news/economy/12046371">원문 보기</a></p>
+<h3 id="_68">요약</h3>
+<p>메르세데스-벤츠가 전기 상용차 'e스프린터'를 국내에 출시했다. 친환경 상용차 시장 확대에 발맞춘 전략적 제품 출시로 평가된다.</p>
+<h3 id="_69">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_70">시사점</h3>
+<p>상용차의 전동화 추세가 가속화되면서 물류업계의 친환경 전환이 본격화되고 있다.</p>
+<h2 id="24-wto">24. 일본 고베·후쿠시마산 제품 수입 허용 검토 … "WTO 권고 수용"</h2>
+<p><code>통상</code> · <a href="https://www.mk.co.kr/news/economy/12046369">원문 보기</a></p>
+<h3 id="_71">요약</h3>
+<p>정부가 WTO 권고를 수용해 일본 고베, 후쿠시마산 제품의 수입 허용을 검토하고 있다. 국제 통상 규범 준수 차원에서 기존 수입 금지 조치를 재검토하는 것으로 알려졌다.</p>
+<h3 id="_72">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_73">시사점</h3>
+<p>국제 통상 분쟁 해결을 위한 정부의 정책 변화가 소비자 안전성 확보와의 균형을 어떻게 맞출지 주목된다.</p>
+<h2 id="25-ccus">25. "올해 암모니아 크래킹 실증사업 착수" … 포스코 CCUS 투자 속도</h2>
+<p><code>철강</code> · <a href="https://www.mk.co.kr/news/stock/12046367">원문 보기</a></p>
+<h3 id="_74">요약</h3>
+<p>포스코가 올해 암모니아 크래킹 실증사업에 착수한다고 발표했다. 탄소포집·활용·저장(CCUS) 기술 개발에 대한 투자를 가속화하고 있다.</p>
+<h3 id="_75">전망</h3>
+<p>올해 암모니아 크래킹 실증사업을 착수할 예정이다.</p>
+<h3 id="_76">시사점</h3>
+<p>철강업계의 탄소중립 실현을 위한 기술 개발이 본격화되면서, 친환경 제철 공정 구축이 가시화되고 있다.</p>
+<h2 id="26-eu">26. 한국조선해양, EU 조선산업 동맹 옵서버 참여</h2>
+<p><code>조선</code> · <a href="https://www.mk.co.kr/news/stock/12046365">원문 보기</a></p>
+<h3 id="_77">요약</h3>
+<p>한국조선해양이 유럽연합 조선산업 동맹에 옵서버 자격으로 참여한다고 발표했다. 글로벌 조선업계의 협력 체계 구축에 동참하는 것으로 평가된다.</p>
+<h3 id="_78">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_79">시사점</h3>
+<p>국내 조선업체들의 국제적 위상이 높아지면서 글로벌 산업 정책 논의에도 적극적으로 참여하고 있다.</p>
+<h2 id="27-ls-ceo">27. LS일렉트릭 CEO "계통연계·접속함, 전력 변환의 허브 역할" … 관련 사업 확대 방침</h2>
+<p><code>전력기기</code> · <a href="https://www.mk.co.kr/news/stock/12046363">원문 보기</a></p>
+<h3 id="_80">요약</h3>
+<p>LS일렉트릭 CEO가 계통연계·접속함이 전력 변환의 허브 역할을 한다며 관련 사업 확대 방침을 밝혔다. 신재생에너지 확산에 따른 전력기기 수요 증가에 대응하겠다고 강조했다.</p>
+<h3 id="_81">전망</h3>
+<p>관련 사업을 확대할 방침이라고 밝혔다.</p>
+<h3 id="_82">시사점</h3>
+<p>신재생에너지 확산으로 전력 변환 기술의 중요성이 커지면서, 관련 기업들의 성장 기회가 확대되고 있다.</p>
+<h2 id="28-m1509">28. 두산로보틱스, 제조로봇 'M1509' 유럽시장 출시</h2>
+<p><code>로봇</code> · <a href="https://www.mk.co.kr/news/stock/12046361">원문 보기</a></p>
+<h3 id="_83">요약</h3>
+<p>두산로보틱스가 제조용 로봇 'M1509'를 유럽 시장에 출시했다. 글로벌 제조업 자동화 수요 증가에 대응한 해외 시장 진출 확대 전략으로 평가된다.</p>
+<h3 id="_84">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_85">시사점</h3>
+<p>국내 로봇 기업들의 기술력이 글로벌 시장에서 인정받으면서 수출 확대 기회가 늘어나고 있다.</p>
+<h2 id="29-4">29. 타임워너, 美 뉴욕 본사 임대료 4억달러 절약</h2>
+<p><code>해외기업</code> · <a href="https://www.mk.co.kr/news/economy/12046359">원문 보기</a></p>
+<h3 id="_86">요약</h3>
+<p>타임워너가 뉴욕 본사 이전을 통해 연간 4억달러의 임대료를 절약한다고 발표했다. 부동산 비용 최적화를 통한 경영 효율성 제고 전략으로 분석된다.</p>
+<h3 id="_87">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_88">시사점</h3>
+<p>글로벌 기업들이 부동산 비용 절감을 통한 경영 효율화에 나서면서, 원격근무 확산이 오피스 부동산 시장에 구조적 변화를 가져오고 있다.</p>
+<h2 id="30">30. 팬텀, 브랜드 개편으로 남성 중심 라이프스타일 브랜드로 전환</h2>
+<p><code>패션</code> · <a href="https://www.mk.co.kr/news/economy/12046357">원문 보기</a></p>
+<h3 id="_89">요약</h3>
+<p>골프웨어 브랜드 팬텀이 브랜드 정체성을 남성 중심 라이프스타일 브랜드로 전환한다고 발표했다. 기존 골프웨어 중심에서 종합 라이프스타일 브랜드로 영역을 확장하는 전략이다.</p>
+<h3 id="_90">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_91">시사점</h3>
+<p>패션업계에서 특정 카테고리에서 종합 라이프스타일 브랜드로의 전환 시도가 늘어나면서, 브랜드 확장을 통한 성장 전략이 주목받고 있다.</p>
+<h2 id="31-ibm-ai">31. IBM "메인프레임 신제품으로 AI 시대 대응"</h2>
+<p><code>IT</code> · <a href="https://www.mk.co.kr/news/economy/12046355">원문 보기</a></p>
+<h3 id="_92">요약</h3>
+<p>IBM이 AI 시대에 대응하기 위한 메인프레임 신제품을 출시한다고 발표했다. 기존 메인프레임 기술에 AI 기능을 접목해 차세대 컴퓨팅 환경에 대응한다는 전략이다.</p>
+<h3 id="_93">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_94">시사점</h3>
+<p>전통적인 IT 기업들이 AI 기술 접목을 통해 기존 제품의 경쟁력을 강화하는 추세가 가속화되고 있다.</p>
+<h2 id="32-kt-ai-2027-2">32. KT, 분당 AI데이터센터 구축 착수 … 2027년까지 2조원 투자</h2>
+<p><code>통신</code> · <a href="https://www.mk.co.kr/news/economy/12046353">원문 보기</a></p>
+<h3 id="_95">요약</h3>
+<p>KT가 분당에 AI 데이터센터 구축에 착수한다고 발표했다. 2027년까지 2조원을 투자해 국내 최대 규모의 AI 데이터센터를 건설할 계획이다.</p>
+<h3 id="_96">전망</h3>
+<p>2027년까지 2조원을 투자해 AI 데이터센터를 완공할 예정이다.</p>
+<h3 id="_97">시사점</h3>
+<p>통신사들의 AI 인프라 구축 경쟁이 본격화되면서, 국내 AI 생태계 발전의 기반이 강화되고 있다.</p>
+<h2 id="33-2024">33. 국립현대미술관 덕수궁관, '키아프 서울 2024' 공식 파트너십 체결</h2>
+<p><code>문화</code> · <a href="https://www.mk.co.kr/news/economy/12046351">원문 보기</a></p>
+<h3 id="_98">요약</h3>
+<p>국립현대미술관 덕수궁관이 키아프 서울 2024와 공식 파트너십을 체결했다고 발표했다. 국내 미술 시장 활성화를 위한 공공-민간 협력 사례로 평가된다.</p>
+<h3 id="_99">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_100">시사점</h3>
+<p>미술 시장 활성화를 위한 공공기관과 민간의 협력이 확대되면서, 국내 문화예술 산업의 성장 동력이 강화되고 있다.</p>
+<h2 id="34">34. 네이버클라우드플랫폼, '효성인포메이션시스템'과 디지털 트랜스포메이션 협력</h2>
+<p><code>클라우드</code> · <a href="https://www.mk.co.kr/news/economy/12046349">원문 보기</a></p>
+<h3 id="_101">요약</h3>
+<p>네이버클라우드플랫폼이 효성인포메이션시스템과 디지털 트랜스포메이션 협력 업무협약을 체결했다. 기업의 디지털 전환을 지원하는 협력 체계를 구축한다는 계획이다.</p>
+<h3 id="_102">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_103">시사점</h3>
+<p>클라우드 기업들이 기존 IT 기업들과의 파트너십을 통해 디지털 전환 시장에서의 경쟁력을 강화하고 있다.</p>
+<h2 id="35-">35. 에이콘-아마존웹서비스, 클라우드 전문 인재 양성 협약</h2>
+<p><code>교육</code> · <a href="https://www.mk.co.kr/news/economy/12046347">원문 보기</a></p>
+<h3 id="_104">요약</h3>
+<p>에이콘아카데미가 아마존웹서비스(AWS)와 클라우드 전문 인재 양성을 위한 협약을 체결했다. 클라우드 기술 전문가 양성을 통한 산업 인력 공급 확대가 목적이다.</p>
+<h3 id="_105">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_106">시사점</h3>
+<p>클라우드 기술의 확산으로 전문 인력에 대한 수요가 급증하면서, 교육기관과 글로벌 기업 간 인재양성 협력이 활발해지고 있다.</p>
+<h2 id="36">36. 한컴오피스, 중소기업진흥공단과 디지털 전환 지원 업무협약</h2>
+<p><code>소프트웨어</code> · <a href="https://www.mk.co.kr/news/economy/12046345">원문 보기</a></p>
+<h3 id="_107">요약</h3>
+<p>한컴오피스가 중소기업진흥공단과 중소기업의 디지털 전환 지원을 위한 업무협약을 체결했다. 중소기업들의 디지털화 지원을 통한 경쟁력 강화를 도모한다는 계획이다.</p>
+<h3 id="_108">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_109">시사점</h3>
+<p>국내 소프트웨어 기업들이 공공기관과의 협력을 통해 중소기업 디지털 전환 시장에서의 입지를 확대하고 있다.</p>
+<h2 id="37-kt-5g">37. KT 5G 자율주행 실증 현장 … "자율주행 상용화, 먼 얘기 아니다"</h2>
+<p><code>통신</code> · <a href="https://www.mk.co.kr/news/economy/12046343">원문 보기</a></p>
+<h3 id="_110">요약</h3>
+<p>KT가 5G 자율주행 실증 현장을 공개하며 자율주행 상용화가 멀지 않았다고 발표했다. 5G 네트워크 기반의 자율주행 기술 검증이 성공적으로 진행되고 있다고 강조했다.</p>
+<h3 id="_111">전망</h3>
+<p>자율주행 상용화가 머지않았다고 전망했다.</p>
+<h3 id="_112">시사점</h3>
+<p>5G 인프라와 자율주행 기술의 융합이 실용화 단계에 근접하면서, 미래 모빌리티 산업의 변화가 가시화되고 있다.</p>
+<h2 id="38-ai">38. [기자체험]아이들이 직접 만드는 AI놀잇감, '제페토 미니'</h2>
+<p><code>게임</code> · <a href="https://www.mk.co.kr/news/economy/12046341">원문 보기</a></p>
+<h3 id="_113">요약</h3>
+<p>네이버제트의 메타버스 플랫폼 제페토에서 어린이들이 직접 AI 놀잇감을 만들 수 있는 '제페토 미니' 서비스가 주목받고 있다. 창의적인 교육 도구로서의 활용 가능성이 높다는 평가다.</p>
+<h3 id="_114">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_115">시사점</h3>
+<p>메타버스 플랫폼이 교육 콘텐츠 제작 도구로 진화하면서, 어린이들의 창의력 개발에 새로운 가능성을 제시하고 있다.</p>
+<h2 id="39-ai">39. "AI 혁신으로 일자리 변화 불가피 … 직업훈련이 핵심"</h2>
+<p><code>교육정책</code> · <a href="https://www.mk.co.kr/news/economy/12046339">원문 보기</a></p>
+<h3 id="_116">요약</h3>
+<p>전문가들이 AI 기술 발전으로 인한 일자리 변화가 불가피하다며 직업훈련의 중요성을 강조했다. AI 시대에 대비한 재교육과 직업능력 개발이 시급한 과제라고 지적했다.</p>
+<h3 id="_117">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_118">시사점</h3>
+<p>AI 기술의 급속한 발전으로 노동시장 구조 변화가 예상되는 가운데, 인력 재교육 시스템 구축이 사회적 과제로 부상하고 있다.</p>
+<h2 id="40-300mw-2027">40. 한국전력, 우즈베키스탄 300MW 태양광발전소 참여 … 2027년 준공</h2>
+<p><code>전력</code> · <a href="https://www.mk.co.kr/news/stock/12046337">원문 보기</a></p>
+<h3 id="_119">요약</h3>
+<p>한국전력이 우즈베키스탄 300MW 규모 태양광발전소 건설 프로젝트에 참여한다고 발표했다. 2027년 준공을 목표로 하는 대규모 해외 신재생에너지 사업이다.</p>
+<h3 id="_120">전망</h3>
+<p>2027년 준공을 목표로 하고 있다.</p>
+<h3 id="_121">시사점</h3>
+<p>국내 전력 기업들이 해외 신재생에너지 시장에서 경쟁력을 인정받으면서, 글로벌 에너지 전환에 적극 참여하고 있다.</p>
+<h2 id="41-1">41. [단독] 아모레퍼시픽 中 1공장 '헤라' 브랜드 전용으로 전환</h2>
+<p><code>화장품</code> · <a href="https://www.mk.co.kr/news/stock/12046335">원문 보기</a></p>
+<h3 id="_122">요약</h3>
+<p>아모레퍼시픽이 중국 1공장을 헤라 브랜드 전용 생산시설로 전환한다고 발표했다. 중국 시장에서 프리미엄 브랜드 집중 전략을 강화하는 조치로 분석된다.</p>
+<h3 id="_123">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_124">시사점</h3>
+<p>국내 화장품 기업들이 중국 시장에서 브랜드별 차별화 전략을 통해 경쟁력 확보에 나서고 있다.</p>
+<h2 id="42">42. 농협은행, 예금 중개서비스 도입 … 가입자에 우대금리 제공</h2>
+<p><code>은행</code> · <a href="https://www.mk.co.kr/news/stock/12046333">원문 보기</a></p>
+<h3 id="_125">요약</h3>
+<p>농협은행이 예금 중개서비스를 도입해 가입자에게 우대금리를 제공한다고 발표했다. 고객 편의성 제고와 수신 확대를 위한 새로운 서비스 전략으로 평가된다.</p>
+<h3 id="_126">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_127">시사점</h3>
+<p>은행들이 디지털 혁신과 함께 고객 맞춤형 서비스를 통해 수신 경쟁력을 강화하고 있다.</p>
+<h2 id="43-keb">43. [단독]KEB하나銀 "수신 중시 경영으로 전환" … 예대마진 관리 강화</h2>
+<p><code>은행</code> · <a href="https://www.mk.co.kr/news/stock/12046331">원문 보기</a></p>
+<h3 id="_128">요약</h3>
+<p>KEB하나은행이 수신 중시 경영으로 전환한다고 발표했다. 예대마진 관리를 강화해 안정적인 수익구조 확보에 집중하겠다는 전략을 밝혔다.</p>
+<h3 id="_129">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_130">시사점</h3>
+<p>은행들이 고금리 환경에서 수익성 확보를 위해 자산·부채 관리 방식의 변화를 모색하고 있다.</p>
+<h2 id="44-roe-12-30">44. 우리금융 "올해 ROE 12% 목표, 배당성향도 30% 확대"</h2>
+<p><code>금융지주</code> · <a href="https://www.mk.co.kr/news/stock/12046329">원문 보기</a></p>
+<h3 id="_131">요약</h3>
+<p>우리금융지주가 올해 자기자본이익률(ROE) 12% 달성을 목표로 하고, 배당성향도 30%로 확대한다고 발표했다. 주주가치 제고를 위한 적극적인 배당 정책을 추진한다는 계획이다.</p>
+<h3 id="_132">전망</h3>
+<p>올해 ROE 12% 목표 달성과 배당성향 30% 확대를 계획하고 있다.</p>
+<h3 id="_133">시사점</h3>
+<p>금융지주들이 주주가치 제고를 위해 수익성 개선과 배당 확대에 나서면서, 투자자들에게 보다 매력적인 투자처로 부각되고 있다.</p>
+<h2 id="45">45. 신한금융, 베트남 사업 확대 … '신한베트남은행' 사명 변경</h2>
+<p><code>금융지주</code> · <a href="https://www.mk.co.kr/news/stock/12046327">원문 보기</a></p>
+<h3 id="_134">요약</h3>
+<p>신한금융그룹이 베트남 사업 확대를 위해 현지 법인의 사명을 '신한베트남은행'으로 변경한다고 발표했다. 베트남 시장에서의 브랜드 통합과 사업 확장을 추진하는 전략이다.</p>
+<h3 id="_135">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_136">시사점</h3>
+<p>국내 금융그룹들이 동남아시아 시장에서 현지화 전략을 통해 시장 점유율 확대에 나서고 있다.</p>
+<h2 id="46-mask-ai">46. [M&amp;A리포트]SK텔레콤, 美 AI보안 업체 '센티넬원' 투자 … 국내 사업 확대</h2>
+<p><code>통신</code> · <a href="https://www.mk.co.kr/news/stock/12046325">원문 보기</a></p>
+<h3 id="_137">요약</h3>
+<p>SK텔레콤이 미국 AI보안 전문업체 센티넬원에 투자하고 국내 사업 확대를 추진한다고 발표했다. AI 기반 보안 솔루션 시장에서의 경쟁력 확보를 위한 전략적 투자로 분석된다.</p>
+<h3 id="_138">전망</h3>
+<p>국내에서 관련 사업을 확대할 계획이다.</p>
+<h3 id="_139">시사점</h3>
+<p>통신사들이 AI 보안 분야로 사업 영역을 확장하면서, 디지털 보안 시장에서의 새로운 경쟁 구도가 형성되고 있다.</p>
+<h2 id="47-3155">47. 현대차 '캐스퍼 일렉트릭' 예약판매 시작 … 3155만원부터</h2>
+<p><code>자동차</code> · <a href="https://www.mk.co.kr/news/stock/12046323">원문 보기</a></p>
+<h3 id="_140">요약</h3>
+<p>현대자동차가 소형 전기차 '캐스퍼 일렉트릭'의 예약판매를 시작한다고 발표했다. 가격은 3155만원부터 책정되어 대중적인 전기차 시장 확대를 노린다.</p>
+<h3 id="_141">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_142">시사점</h3>
+<p>전기차 시장에서 소형·중저가 모델의 경쟁이 치열해지면서, 소비자들의 전기차 접근성이 크게 개선되고 있다.</p>
+<h2 id="48-lg">48. LG이노텍, 카메라모듈 新기술 개발 … "웨이퍼 레벨 기술로 초박형화"</h2>
+<p><code>전자부품</code> · <a href="https://www.mk.co.kr/news/stock/12046321">원문 보기</a></p>
+<h3 id="_143">요약</h3>
+<p>LG이노텍이 웨이퍼 레벨 기술을 활용한 초박형 카메라모듈 신기술을 개발했다고 발표했다. 스마트폰의 박형화 요구에 대응하는 차세대 카메라 기술로 평가된다.</p>
+<h3 id="_144">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_145">시사점</h3>
+<p>스마트폰 카메라의 고도화와 박형화가 동시에 요구되면서, 관련 기술 개발이 핵심 경쟁력으로 부상하고 있다.</p>
+<h2 id="49-lg-gm">49. LG에너지솔루션 "원통형 배터리 수요 급증" … GM과 추가 공급계약</h2>
+<p><code>배터리</code> · <a href="https://www.mk.co.kr/news/stock/12046319">원문 보기</a></p>
+<h3 id="_146">요약</h3>
+<p>LG에너지솔루션이 원통형 배터리 수요가 급증하고 있다며 GM과 추가 공급계약을 체결했다고 발표했다. 전기차 배터리 시장에서 원통형 배터리의 수요가 확대되고 있다는 분석이다.</p>
+<h3 id="_147">전망</h3>
+<p>원통형 배터리 수요가 급증할 것으로 예상된다.</p>
+<h3 id="_148">시사점</h3>
+<p>전기차 배터리 시장에서 형태별 수요 다변화가 진행되면서, 제조사들은 다양한 배터리 타입에 대한 대응 능력이 중요해지고 있다.</p>
+<h2 id="50">50. 한화오션, 호주 원자력잠수함 사업 참여 검토 … '오쿠스' 프로젝트</h2>
+<p><code>조선</code> · <a href="https://www.mk.co.kr/news/stock/12046317">원문 보기</a></p>
+<h3 id="_149">요약</h3>
+<p>한화오션이 호주 원자력잠수함 건조사업인 '오쿠스' 프로젝트 참여를 검토하고 있다고 발표했다. 글로벌 방산 협력 사업에 참여해 사업 영역을 확장하려는 전략으로 분석된다.</p>
+<h3 id="_150">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_151">시사점</h3>
+<p>국내 조선업체들이 군함 건조 등 고부가가치 선박 시장으로 진출을 확대하면서, 방산 수출 기회가 늘어나고 있다.</p>
+<h2 id="51-2030">51. 포스코홀딩스, 아르헨티나 리튬 생산기지 2030년 완공</h2>
+<p><code>소재</code> · <a href="https://www.mk.co.kr/news/stock/12046315">원문 보기</a></p>
+<h3 id="_152">요약</h3>
+<p>포스코홀딩스가 아르헨티나에 건설 중인 리튬 생산기지를 2030년에 완공한다고 발표했다. 전기차 배터리 핵심 소재인 리튬의 안정적 공급망 확보를 위한 장기 프로젝트다.</p>
+<h3 id="_153">전망</h3>
+<p>2030년 완공을 목표로 하고 있다.</p>
+<h3 id="_154">시사점</h3>
+<p>국내 기업들이 전기차 시대를 대비해 핵심 소재의 해외 생산기지 구축에 적극 나서면서, 공급망 안정성 확보에 주력하고 있다.</p>
+<h2 id="52-sk-2">52. SK이노베이션 배터리 분리막 중국 2공장 건설</h2>
+<p><code>화학</code> · <a href="https://www.mk.co.kr/news/stock/12046313">원문 보기</a></p>
+<h3 id="_155">요약</h3>
+<p>SK이노베이션이 중국에 배터리 분리막 제조를 위한 2번째 공장 건설을 추진한다고 발표했다. 전기차 배터리 수요 급증에 대응해 생산능력을 확대하는 전략이다.</p>
+<h3 id="_156">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_157">시사점</h3>
+<p>배터리 소재 기업들이 중국 시장 공급을 위한 현지 생산체제 구축에 나서면서, 글로벌 배터리 밸류체인에서의 경쟁력 확보에 주력하고 있다.</p>
+<h2 id="53-why-2-ai">53. [Why] '제2의 엔비디아' 꿈꾸는 AI칩 스타트업들, 왜 줄줄이 실패하나</h2>
+<p><code>반도체</code> · <a href="https://www.mk.co.kr/news/economy/12046311">원문 보기</a></p>
+<h3 id="_158">요약</h3>
+<p>엔비디아의 성공에 고무된 AI칩 스타트업들이 연이어 실패하고 있는 현상을 분석했다. 기술적 진입장벽과 막대한 개발비용, 시장 선점 효과 등이 신규 업체들의 성공을 어렵게 만드는 요인으로 지적됐다.</p>
+<h3 id="_159">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_160">시사점</h3>
+<p>AI 반도체 시장의 높은 진입장벽으로 인해 기존 강자들의 독과점 구조가 더욱 공고해질 가능성이 높다. 후발 업체들은 차별화된 전략이 필요하다.</p>
+<h2 id="54-cj-enm">54. [기업이슈]CJ ENM 음반·콘서트 부문 수익성 개선 … 수익 다각화 전략</h2>
+<p><code>엔터테인먼트</code> · <a href="https://www.mk.co.kr/news/stock/12046309">원문 보기</a></p>
+<h3 id="_161">요약</h3>
+<p>CJ ENM이 음반과 콘서트 부문의 수익성 개선을 통해 수익 다각화 전략을 추진하고 있다. 방송 콘텐츠 외에 음악 사업 영역에서도 안정적인 수익 기반을 구축하려는 노력으로 평가된다.</p>
+<h3 id="_162">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_163">시사점</h3>
+<p>엔터테인먼트 기업들이 단일 사업 의존도를 줄이고 다양한 수익원을 확보하려는 전략적 변화를 보이고 있다.</p>
+<h2 id="55-1">55. '1분기 폭증' 업체별 구매력으로 이월</h2>
+<p><code>유통</code> · <a href="https://www.mk.co.kr/news/stock/12046307">원문 보기</a></p>
+<h3 id="_164">요약</h3>
+<p>1분기 소비 급증으로 인한 업체별 구매력이 다음 분기로 이월되고 있는 현상이 나타나고 있다. 소비 회복세가 지속되면서 유통업계 전반의 실적 개선이 기대된다.</p>
+<h3 id="_165">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_166">시사점</h3>
+<p>소비 회복 추세가 확산되면서 유통업계의 실적 개선 모멘텀이 지속될 가능성이 높아졌다.</p>
+<h2 id="56-100">56. 교보생명, '100세 건강플랜' 판매 … 실손 형태 건강보험 확대</h2>
+<p><code>보험</code> · <a href="https://www.mk.co.kr/news/stock/12046305">원문 보기</a></p>
+<h3 id="_167">요약</h3>
+<p>교보생명이 100세까지 보장하는 '100세 건강플랜'을 출시했다. 실손 형태의 건강보험 상품을 확대해 고령화 시대에 대응하는 보험 상품 라인업을 강화했다.</p>
+<h3 id="_168">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_169">시사점</h3>
+<p>인구 고령화에 따른 장기 건강보장 수요 증가로 보험사들이 관련 상품 개발에 적극적으로 나서고 있다.</p>
+<h2 id="57-pb-2">57. 삼성증권 PB센터 확대 운영 … "자산 2억원 이상 고객 대상"</h2>
+<p><code>증권</code> · <a href="https://www.mk.co.kr/news/stock/12046303">원문 보기</a></p>
+<h3 id="_170">요약</h3>
+<p>삼성증권이 자산 2억원 이상 고객을 대상으로 하는 PB(프라이빗뱅킹) 센터 운영을 확대한다고 발표했다. 고액 자산가 대상 맞춤형 자산관리 서비스를 강화하는 전략이다.</p>
+<h3 id="_171">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_172">시사점</h3>
+<p>증권사들이 고액 자산가 유치를 위한 차별화된 서비스 제공에 나서면서, 자산관리 시장의 경쟁이 치열해지고 있다.</p>
+<h2 id="58">58. 메리츠화재, 운전자보험 특약 신설 … "교통사고 형사합의금 보장"</h2>
+<p><code>보험</code> · <a href="https://www.mk.co.kr/news/stock/12046301">원문 보기</a></p>
+<h3 id="_173">요약</h3>
+<p>메리츠화재가 교통사고 형사합의금을 보장하는 운전자보험 특약을 신설했다고 발표했다. 교통사고 관련 법적 리스크에 대한 보장을 강화한 상품으로 평가된다.</p>
+<h3 id="_174">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_175">시사점</h3>
+<p>자동차 보험 시장에서 법적 리스크 보장에 대한 수요가 증가하면서, 보험사들이 관련 상품 개발에 적극적으로 나서고 있다.</p>
+<h2 id="59-kb-100">59. KB손해보험, 장기운전자보험 출시 … "최대 100세까지 보장"</h2>
+<p><code>보험</code> · <a href="https://www.mk.co.kr/news/stock/12046299">원문 보기</a></p>
+<h3 id="_176">요약</h3>
+<p>KB손해보험이 최대 100세까지 보장하는 장기운전자보험을 출시했다고 발표했다. 고령화 시대에 맞춰 운전자의 생애 주기 전반을 보장하는 상품으로 차별화했다.</p>
+<h3 id="_177">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_178">시사점</h3>
+<p>고령 운전자 증가에 따라 장기간 보장하는 운전자보험에 대한 수요가 늘어나면서, 관련 상품 시장이 확대되고 있다.</p>
+<h2 id="60">60. 한국투자증권, 연금저축 라이프사이클 펀드 출시</h2>
+<p><code>자산운용</code> · <a href="https://www.mk.co.kr/news/stock/12046297">원문 보기</a></p>
+<h3 id="_179">요약</h3>
+<p>한국투자증권이 가입자의 연령대에 따라 투자 비율을 자동 조정하는 연금저축 라이프사이클 펀드를 출시했다. 생애주기별 맞춤형 자산배분을 통한 은퇴 준비 상품으로 설계됐다.</p>
+<h3 id="_180">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_181">시사점</h3>
+<p>고령화와 연금 개혁 논의가 활발해지면서, 개인의 은퇴 자산 관리에 대한 관심이 높아지고 자동화된 투자 상품 수요가 증가하고 있다.</p></article>
+
+            <footer class="footer">
+                — End of Brief —
+            </footer>
+        </main>
+    </div>
+
+    <button id="to-top-btn" title="Go to top" aria-label="Go to top">↑</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Theme toggle (persists via data-attribute only; no storage in artifacts)
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        let isDark = false;
+
+        // Detect system preference on first load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.setAttribute('data-theme', 'dark');
+            isDark = true;
+            themeToggle.textContent = '☀';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            isDark = !isDark;
+            if (isDark) {
+                root.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀';
+            } else {
+                root.removeAttribute('data-theme');
+                themeToggle.textContent = '☾';
+            }
+        });
+
+        // 2. Wrap article bodies for collapse/expand
+        document.querySelectorAll('.news-article').forEach(function(article) {
+            const h2 = article.querySelector('h2');
+            if (!h2) return;
+
+            // Gather everything after h2 into .article-body wrapper
+            const body = document.createElement('div');
+            body.className = 'article-body';
+            let next = h2.nextSibling;
+            const toMove = [];
+            while (next) {
+                toMove.push(next);
+                next = next.nextSibling;
+            }
+            toMove.forEach(function(node) { body.appendChild(node); });
+            article.appendChild(body);
+
+            // Click h2 to toggle
+            h2.addEventListener('click', function() {
+                article.classList.toggle('collapsed');
+            });
+        });
+
+        // 3. Reading progress bar
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }
+
+        // 4. To-top button
+        const toTopBtn = document.getElementById('to-top-btn');
+        toTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. TOC active link highlighting (intersection observer)
+        const tocLinks = document.querySelectorAll('.toc a');
+        const articleHeadings = document.querySelectorAll('.news-article h2');
+
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            toTopBtn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+
+            // Find current section
+            let current = '';
+            articleHeadings.forEach(function(heading) {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 120) {
+                    current = heading.id || '';
+                }
+            });
+
+            tocLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        updateProgress();
+    });
+    </script>
+</body>
+</html>
