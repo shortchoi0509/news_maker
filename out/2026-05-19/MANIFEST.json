@@ -1,0 +1,162 @@
+{
+  "date": "2026-05-19",
+  "total_articles": 26,
+  "articles": [
+    {
+      "title": "미 연방준비제도 기준금리 0.25% 인하",
+      "section": "world",
+      "url": "https://www.mk.co.kr/news/world/10009/",
+      "file": "0_25_09.md"
+    },
+    {
+      "title": "삼성전자, 2분기 영업이익 15% 증가 전망",
+      "section": "it",
+      "url": "https://www.mk.co.kr/news/it/10001/",
+      "file": "2_15_01.md"
+    },
+    {
+      "title": "코스피 2,920 포인트 돌파, 3개월 만에 고점",
+      "section": "stock",
+      "url": "https://www.mk.co.kr/news/stock/10002/",
+      "file": "2_920_3_02.md"
+    },
+    {
+      "title": "서울지하철 9호선 노사 협상 교착",
+      "section": "society",
+      "url": "https://www.mk.co.kr/news/society/10006/",
+      "file": "9_06.md"
+    },
+    {
+      "title": "정부, 서울 전월세 시장 안정화 대책 발표",
+      "section": "realestate",
+      "url": "https://www.mk.co.kr/news/realestate/10003/",
+      "file": "_03.md"
+    },
+    {
+      "title": "롯데쇼핑, 동남아 면세점 사업 확대",
+      "section": "business",
+      "url": "https://www.mk.co.kr/news/business/10005/",
+      "file": "_05.md"
+    },
+    {
+      "title": "한국 독립영화 '봄날의 기억' 칸영화제 경쟁부문 초청",
+      "section": "culture",
+      "url": "https://www.mk.co.kr/news/culture/10007/",
+      "file": "_07.md"
+    },
+    {
+      "title": "글로벌 경제 전망: 한국 기업의 경쟁력 강화 필요",
+      "section": "economy",
+      "url": "https://www.mk.co.kr/news/economy/10008/",
+      "file": "_08.md"
+    },
+    {
+      "title": "유명 스타트업 방문기: 역동성과 현실",
+      "section": "columnists",
+      "url": "https://www.mk.co.kr/news/columnists/10010/",
+      "file": "_10.md"
+    },
+    {
+      "title": "저출산 문제 해결, 근본적 대책 필요",
+      "section": "editorial",
+      "url": "https://www.mk.co.kr/news/editorial/10011/",
+      "file": "_11.md"
+    },
+    {
+      "title": "한국은행, 경제성장률 전망 상향 조정",
+      "section": "economy",
+      "url": "https://www.mk.co.kr/news/economy/10013/",
+      "file": "_13.md"
+    },
+    {
+      "title": "국내 배터리 기업, 글로벌 공급 계약 확대",
+      "section": "it",
+      "url": "https://www.mk.co.kr/news/it/10014/",
+      "file": "_14.md"
+    },
+    {
+      "title": "강남역 미술관, 한국 현대미술 대규모 전시",
+      "section": "culture",
+      "url": "https://www.mk.co.kr/news/culture/10015/",
+      "file": "_15.md"
+    },
+    {
+      "title": "국회 기후변화 대응법안 가결",
+      "section": "politics",
+      "url": "https://www.mk.co.kr/news/politics/10016/",
+      "file": "_16.md"
+    },
+    {
+      "title": "개인투자자 중소형주 집중, 강세 계속",
+      "section": "stock",
+      "url": "https://www.mk.co.kr/news/stock/10017/",
+      "file": "_17.md"
+    },
+    {
+      "title": "유럽중앙은행 기준금리 인상 결정",
+      "section": "world",
+      "url": "https://www.mk.co.kr/news/world/10018/",
+      "file": "_18.md"
+    },
+    {
+      "title": "디지털 시대 인재 양성의 과제",
+      "section": "columnists",
+      "url": "https://www.mk.co.kr/news/columnists/10019/",
+      "file": "_19.md"
+    },
+    {
+      "title": "서울 오피스텔 가격 상승 추세 지속",
+      "section": "realestate",
+      "url": "https://www.mk.co.kr/news/realestate/10020/",
+      "file": "_20.md"
+    },
+    {
+      "title": "정부 소재부품산업 육성 정책 발표",
+      "section": "economy",
+      "url": "https://www.mk.co.kr/news/economy/10021/",
+      "file": "_21.md"
+    },
+    {
+      "title": "전시 \"동아시아 도시 문명\" 개최",
+      "section": "culture",
+      "url": "https://www.mk.co.kr/news/culture/10022/",
+      "file": "_22.md"
+    },
+    {
+      "title": "신재생에너지 발전량 역사적 고점 달성",
+      "section": "it",
+      "url": "https://www.mk.co.kr/news/it/10023/",
+      "file": "_23.md"
+    },
+    {
+      "title": "자동차 업계 전동화 경쟁 심화",
+      "section": "business",
+      "url": "https://www.mk.co.kr/news/business/10024/",
+      "file": "_24.md"
+    },
+    {
+      "title": "박물관 관람객 증가, 문화 수요 높아져",
+      "section": "culture",
+      "url": "https://www.mk.co.kr/news/culture/10025/",
+      "file": "_25.md"
+    },
+    {
+      "title": "글로벌 공급망 재편 속 한국의 전략",
+      "section": "politics",
+      "url": "https://www.mk.co.kr/news/politics/10026/",
+      "file": "_26.md"
+    },
+    {
+      "title": "AI 칩셋 시장, 올해 40% 성장 예상",
+      "section": "it",
+      "url": "https://www.mk.co.kr/news/it/10004/",
+      "file": "ai_40_04.md"
+    },
+    {
+      "title": "LG전자 친환경 가전 라인업 확대",
+      "section": "business",
+      "url": "https://www.mk.co.kr/news/business/10012/",
+      "file": "lg_12.md"
+    }
+  ]
+}
