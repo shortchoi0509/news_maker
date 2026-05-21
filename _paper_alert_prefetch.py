@@ -29,6 +29,7 @@ from datetime import datetime, timedelta, timezone
 from html import unescape
 from pathlib import Path
 
+# ScienceDirect (Elsevier) journals - fetched via RSS.
 FEEDS = {
     "Applied Geochemistry": "https://rss.sciencedirect.com/publication/science/08832927",
     "Chemical Geology": "https://rss.sciencedirect.com/publication/science/00092541",
@@ -37,6 +38,14 @@ FEEDS = {
     "Science of the Total Environment": "https://rss.sciencedirect.com/publication/science/00489697",
     "Geochimica et Cosmochimica Acta": "https://rss.sciencedirect.com/publication/science/00167037",
     "Journal of Hazardous Materials": "https://rss.sciencedirect.com/publication/science/03043894",
+    "Journal of Contaminant Hydrology": "https://rss.sciencedirect.com/publication/science/01697722",
+    "Journal of Environmental Radioactivity": "https://rss.sciencedirect.com/publication/science/0265931X",
+    "Journal of Hydrology: Regional Studies": "https://rss.sciencedirect.com/publication/science/22145818",
+}
+
+# Non-ScienceDirect journals - fetched via the Crossref journal works API by ISSN.
+CROSSREF_JOURNALS = {
+    "Hydrogeology Journal": "1431-2174",
 }
 
 MAILTO = "shortchoi0509@gmail.com"
@@ -220,14 +229,48 @@ def crossref_abstract(doi: str, title: str) -> str:
         return ""
 
 
+def fetch_crossref_journal(journal: str, issn: str) -> list[dict]:
+    url = (
+        f"https://api.crossref.org/journals/{issn}/works"
+        f"?sort=published&order=desc&rows=60&mailto={MAILTO}"
+        "&select=DOI,title,issued,URL"
+    )
+    data = json.loads(http_get(url, headers={"User-Agent": UA}))
+    items = []
+    for work in data.get("message", {}).get("items", []):
+        doi = (work.get("DOI") or "").strip()
+        if not doi:
+            continue
+        titles = work.get("title") or []
+        title = next((strip_html(t) for t in titles if t and t.strip()), "")
+        if not title:
+            continue
+        parts = ((work.get("issued") or {}).get("date-parts") or [[]])[0]
+        pub = "-".join(f"{p:02d}" if i else str(p) for i, p in enumerate(parts))
+        items.append({
+            "guid": f"https://doi.org/{doi}",
+            "title": title,
+            "link": work.get("URL") or f"https://doi.org/{doi}",
+            "journal": journal,
+            "pubDate": pub,
+            "description": "",
+            "doi": doi,
+            "pii": "",
+        })
+    return items
+
+
 def enrich(item: dict, key: str) -> tuple[str, str]:
-    text, src = elsevier_abstract(item["doi"], item["pii"], key)
-    if text:
-        return text, src
-    text = openalex_abstract(item["doi"], item["title"])
+    doi, pii = item["doi"], item["pii"]
+    # The Elsevier API only serves Elsevier content; skip it for other publishers.
+    if pii or doi.startswith("10.1016/"):
+        text, src = elsevier_abstract(doi, pii, key)
+        if text:
+            return text, src
+    text = openalex_abstract(doi, item["title"])
     if text:
         return text, "openalex"
-    text = crossref_abstract(item["doi"], item["title"])
+    text = crossref_abstract(doi, item["title"])
     if text:
         return text, "crossref"
     return "", "none"
@@ -246,6 +289,12 @@ def main() -> int:
             feeds_ok += 1
         except Exception as exc:
             print(f"::warning::Feed failed ({journal}): {exc}")
+    for journal, issn in CROSSREF_JOURNALS.items():
+        try:
+            raw.extend(fetch_crossref_journal(journal, issn))
+            feeds_ok += 1
+        except Exception as exc:
+            print(f"::warning::Crossref journal failed ({journal}): {exc}")
 
     if feeds_ok == 0:
         print("::error::All RSS feeds failed; not writing inbox (routine will fall back)")
@@ -260,7 +309,8 @@ def main() -> int:
         seen_run.add(guid)
         new.append(item)
 
-    print(f"[PREFETCH] feeds_ok={feeds_ok}/{len(FEEDS)} raw={len(raw)} new={len(new)}")
+    total_sources = len(FEEDS) + len(CROSSREF_JOURNALS)
+    print(f"[PREFETCH] feeds_ok={feeds_ok}/{total_sources} raw={len(raw)} new={len(new)}")
 
     counts = {"elsevier": 0, "openalex": 0, "crossref": 0, "none": 0}
     out = []
