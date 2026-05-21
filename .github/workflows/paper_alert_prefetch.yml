@@ -1,0 +1,45 @@
+name: Paper Alert Prefetch
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 07:00 KST Mon/Wed/Fri (UTC 22:00 Sun/Tue/Thu) - one hour before the routine
+    - cron: "0 22 * * 0,2,4"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-alert-prefetch
+  cancel-in-progress: false
+
+jobs:
+  prefetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch RSS and enrich abstracts
+        env:
+          ELSEVIER: ${{ secrets.ELSEVIER }}
+        run: python _paper_alert_prefetch.py
+
+      - name: Commit inbox
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper_alert/inbox/
+          if git diff --cached --quiet; then
+            echo "No inbox changes to commit"
+          else
+            git commit -m "chore: paper-alert prefetch $(TZ=Asia/Seoul date +%F)"
+            git pull --rebase origin main || true
+            git push origin HEAD:main
+          fi
