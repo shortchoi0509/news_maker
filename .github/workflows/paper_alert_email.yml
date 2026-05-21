@@ -1,0 +1,61 @@
+name: Paper Alert Email
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: "YYYY-MM-DD (비우면 가장 최신 digest)"
+        required: false
+        default: ""
+  push:
+    branches:
+      - main
+    paths:
+      - "paper_alert/digests/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: paper-alert-email
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Resolve target date
+        run: |
+          set -e
+          INPUT="${{ github.event.inputs.target_date }}"
+          if [ -n "$INPUT" ]; then
+            TARGET="$INPUT"
+          else
+            TARGET=$(ls -1 paper_alert/digests/ 2>/dev/null \
+              | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' | sort | tail -n 1)
+          fi
+          if [ -z "$TARGET" ]; then
+            echo "::error::No digest date resolved (paper_alert/digests/ is empty)"
+            exit 1
+          fi
+          DIGEST="paper_alert/digests/paper_alert_${TARGET}.html"
+          if [ ! -s "$DIGEST" ]; then
+            echo "::error::Digest missing or empty: $DIGEST"
+            exit 1
+          fi
+          echo "TODAY=$TARGET" >> "$GITHUB_ENV"
+          echo "Resolved digest date: $TARGET"
+
+      - name: Send paper alert digest via Gmail
+        env:
+          GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python _send_paper_alert.py
