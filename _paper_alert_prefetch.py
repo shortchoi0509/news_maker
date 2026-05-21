@@ -51,6 +51,7 @@ CONTENT = "{http://purl.org/rss/1.0/modules/content/}"
 TAG_RE = re.compile(r"<[^>]+>")
 DOI_RE = re.compile(r"10\.\d{4,9}/[^\s\"'<>]+")
 PII_RE = re.compile(r"/pii/([A-Z0-9]+)", re.I)
+PUBDATE_RE = re.compile(r"Publication date:\s*(.+?)\s*(?:Source:|$)", re.I)
 
 elsevier_denied = False
 
@@ -96,6 +97,12 @@ def parse_feed(journal: str, xml_bytes: bytes) -> list[dict]:
             or item.findtext(CONTENT + "encoded")
             or ""
         )
+        if not pub:
+            # ScienceDirect leaves <pubDate> empty; the date sits in the
+            # description as "Publication date: <date> Source: ...".
+            m = PUBDATE_RE.search(desc)
+            if m:
+                pub = m.group(1).strip()
         doi = ""
         for cand in (
             item.findtext(PRISM + "doi"),
