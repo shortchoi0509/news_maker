@@ -49,13 +49,25 @@ def main() -> int:
         print("::error::MAIL_TO has no valid recipients", file=sys.stderr)
         return 2
 
-    html_path = Path(f"out/{today}/html/daily_brief_{today}.html")
-    if not html_path.is_file():
-        print(f"::error::HTML brief not found: {html_path}", file=sys.stderr)
+    email_html = Path(f"out/{today}/html/email_brief_{today}.html")
+    full_html = Path(f"out/{today}/html/daily_brief_{today}.html")
+    if email_html.is_file():
+        html_path = email_html
+    elif full_html.is_file():
+        print(
+            "::warning::email_brief not found, falling back to full daily_brief",
+            file=sys.stderr,
+        )
+        html_path = full_html
+    else:
+        print(
+            f"::error::No HTML brief found: {email_html} / {full_html}",
+            file=sys.stderr,
+        )
         return 1
 
     html_body = html_path.read_text(encoding="utf-8")
-    subject = os.environ.get("MAIL_SUBJECT") or f"[데일리 브리프] {today} 매일경제 뉴스 요약"
+    subject = os.environ.get("MAIL_SUBJECT") or f"[데일리 브리프] {today} 매일경제 핵심 뉴스"
 
     msg = EmailMessage()
     msg["Subject"] = subject

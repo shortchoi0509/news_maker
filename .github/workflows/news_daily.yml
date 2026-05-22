@@ -102,11 +102,26 @@ jobs:
                - 이모지(📈📉🧐🚀 등) 사용 금지. 깔끔한 평문으로만 작성.
                - "오늘의 한눈에 보기" 단락은 일반론·시황 클리셰("변동성 확대에 주의" 같은) 금지. 반드시 오늘 기사들에 등장한 사실과 흐름에 근거할 것.
 
-            4. python generate_html.py 를 실행해 HTML도 생성.
-            5. git add out/${{ env.TODAY }} && git commit -m "feat: Daily news ${{ env.TODAY }}" 후
+            4. 핵심 뉴스 선별판 마크다운을 다음 경로에 작성:
+               out/${{ env.TODAY }}/SUMMARY_KO/email_brief_${{ env.TODAY }}.md
+               - 전체 기사 중 "독자가 오늘 반드시 알아야 할" 핵심 기사만 10~15개 선별
+                 (그날 뉴스의 양·중요도에 따라 10~15 사이에서 가변).
+               - 선별 기준: 시장·경제 전반에 미치는 영향, 정책·제도 변화, 큼직한
+                 사건·전환점. 단순 개별 종목 등락, 지엽적 인사, 홍보성 기사는 제외.
+               - 형식은 daily_brief 와 동일(frontmatter / 목차 / ## 오늘의 한눈에 보기 /
+                 기사별 ## NN. 제목 + 요약/전망/시사점). 단:
+                 - frontmatter title 은 "매일경제 핵심 브리프", articles 는 선별된 개수.
+                 - 선별된 기사는 1번부터 새로 번호를 매기고 "오늘의 한눈에 보기"의
+                   [#N] 참조도 이 새 번호 기준으로 맞출 것.
+                 - 각 기사 요약/전망/시사점 내용은 daily_brief 에서 작성한 것을 그대로
+                   재사용(다시 쓰지 말 것). "오늘의 한눈에 보기"는 선별 기사 흐름에
+                   맞춰 새로 작성하되 위 품질 규칙을 동일하게 적용.
+
+            5. python generate_html.py 를 실행해 HTML도 생성 (daily_brief, email_brief 둘 다 변환됨).
+            6. git add out/${{ env.TODAY }} && git commit -m "feat: Daily news ${{ env.TODAY }}" 후
                git fetch origin main && git rebase origin/main && git push origin main
                (충돌 시 rebase --abort 후 git pull --rebase origin main 재시도)
-            6. 최종 검증: 마크다운 파일이 존재하고 5KB 이상인지 확인.
+            7. 최종 검증: daily_brief 와 email_brief 마크다운이 모두 존재하고 daily_brief 는 5KB 이상인지 확인.
 
             제약:
             - 절대 OpenAI / DeepSeek / 기타 외부 LLM API 호출 금지.
@@ -115,6 +130,7 @@ jobs:
         run: |
           set -e
           MD="out/${TODAY}/SUMMARY_KO/daily_brief_${TODAY}.md"
+          EMAIL_MD="out/${TODAY}/SUMMARY_KO/email_brief_${TODAY}.md"
           if [ ! -s "$MD" ]; then
             echo "::error::Daily brief markdown is missing or empty: $MD"
             exit 1
@@ -124,6 +140,11 @@ jobs:
           if [ "$SIZE" -lt 5120 ]; then
             echo "::error::Daily brief is suspiciously small (< 5KB): ${SIZE}"
             exit 1
+          fi
+          if [ ! -s "$EMAIL_MD" ]; then
+            echo "::warning::Email brief markdown missing; email will fall back to full daily brief"
+          else
+            echo "Email brief size: $(stat -c%s "$EMAIL_MD") bytes"
           fi
           ls -la "out/${TODAY}/" || true
 
