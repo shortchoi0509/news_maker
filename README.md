@@ -14,8 +14,10 @@
    - `SUMMARY_KO/email_brief_<YYYY-MM-DD>.md` — 핵심 10~15개만 선별한 발송용
    - 둘 다 최상단 `## 오늘의 한눈에 보기` (주제별 단락 종합 개관) +
      각 기사별 `## NN. 제목` + `### 요약` / `### 전망` / `### 시사점`
-3. `generate_html.py` — `out/<date>/` 의 모든 마크다운을 에디토리얼 스타일 HTML 로 변환
-4. `_send_email.py` — `email_brief` HTML 을 Gmail SMTP 로 발송 (없으면 `daily_brief` 로 폴백,
+3. `_verify_brief.py` — 브리프 마크다운의 한글 무결성 검사. 기사 제목에서 한글이
+   대량 소실된 인코딩 손상이 감지되면 워크플로우를 실패시켜 깨진 메일 발송을 차단
+4. `generate_html.py` — `out/<date>/` 의 모든 마크다운을 에디토리얼 스타일 HTML 로 변환
+5. `_send_email.py` — `email_brief` HTML 을 Gmail SMTP 로 발송 (없으면 `daily_brief` 로 폴백,
    인라인 본문 + 첨부)
 
 ## Required GitHub Secrets
