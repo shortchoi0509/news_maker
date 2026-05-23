@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>멕시코 축구 국가대표팀 훈련센터 밝힌 Lg 사이니지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <style>
+    /* ============================================
+       Editorial Design System
+       ============================================ */
+    :root {
+        --font-serif: 'Noto Serif KR', 'Source Serif Pro', Georgia, serif;
+        --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+        /* Light theme - warm neutral */
+        --bg-primary: #fafaf7;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f3f2ed;
+        --bg-card: #ffffff;
+        --border-subtle: #e8e6df;
+        --border-strong: #2c2c2c;
+
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --text-tertiary: #888580;
+        --text-muted: #a8a5a0;
+
+        --accent: #8b0000;
+        --accent-soft: rgba(139, 0, 0, 0.08);
+        --accent-line: #c9302c;
+
+        /* Semantic colors - 아이콘 블록 */
+        --color-summary: #1a4d3a;
+        --color-summary-bg: #ecf4ef;
+        --color-detail: #2c3e50;
+        --color-detail-bg: #f5f5f0;
+        --color-extra: #6b5b3e;
+        --color-extra-bg: #f7f3ea;
+        --color-insight: #5b3a8c;
+        --color-insight-bg: #f1ecf7;
+        --color-glossary: #8b6f47;
+        --color-glossary-bg: #faf6ef;
+
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+        --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #0f0f0e;
+        --bg-secondary: #1a1a18;
+        --bg-tertiary: #242420;
+        --bg-card: #1a1a18;
+        --border-subtle: #2e2e2a;
+        --border-strong: #e8e6df;
+
+        --text-primary: #f0ede4;
+        --text-secondary: #c8c5bd;
+        --text-tertiary: #8a8680;
+        --text-muted: #5a5650;
+
+        --accent: #e85d5d;
+        --accent-soft: rgba(232, 93, 93, 0.12);
+        --accent-line: #e85d5d;
+
+        --color-summary: #7bc49a;
+        --color-summary-bg: rgba(123, 196, 154, 0.1);
+        --color-detail: #a8c8e5;
+        --color-detail-bg: rgba(168, 200, 229, 0.08);
+        --color-extra: #d4b878;
+        --color-extra-bg: rgba(212, 184, 120, 0.1);
+        --color-insight: #c9a8e8;
+        --color-insight-bg: rgba(201, 168, 232, 0.1);
+        --color-glossary: #d4b896;
+        --color-glossary-bg: rgba(212, 184, 150, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        margin: 0;
+        padding: 0;
+        transition: background 0.3s ease, color 0.3s ease;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       Progress Bar
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--accent);
+        z-index: 1000;
+        transition: width 0.1s linear;
+    }
+
+    /* ============================================
+       Top Bar
+       ============================================ */
+    .top-bar {
+        position: sticky;
+        top: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .top-bar {
+        background-color: rgba(26, 26, 24, 0.85);
+    }
+
+    .top-bar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brand {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+    }
+
+    .top-bar-meta {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .theme-toggle {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all 0.2s;
+        padding: 0;
+    }
+
+    .theme-toggle:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: rotate(15deg);
+    }
+
+    /* ============================================
+       Main Layout
+       ============================================ */
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    /* ============================================
+       Sidebar / TOC
+       ============================================ */
+    #sidebar {
+        position: sticky;
+        top: 90px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-track { background: transparent; }
+    #sidebar::-webkit-scrollbar-thumb {
+        background: var(--border-subtle);
+        border-radius: 2px;
+    }
+
+    .sidebar-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-tertiary);
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: toc-counter;
+    }
+
+    .toc ul ul { display: none; }
+
+    .toc li {
+        counter-increment: toc-counter;
+        position: relative;
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 10px 0 10px 32px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        border-left: 2px solid transparent;
+        padding-left: 16px;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .toc a::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        position: absolute;
+        left: -24px;
+        top: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .toc a:hover {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .toc a.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        font-weight: 500;
+    }
+
+    .toc-empty {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Content Area
+       ============================================ */
+    .content-main { min-width: 0; }
+
+    .masthead {
+        border-bottom: 4px double var(--text-primary);
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
+    .masthead-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .masthead h1 {
+        font-family: var(--font-serif);
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px 0;
+        color: var(--text-primary);
+    }
+
+    .masthead-meta {
+        display: flex;
+        gap: 24px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .masthead-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .masthead-meta .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--text-muted);
+        border-radius: 50%;
+    }
+
+    /* ============================================
+       News Article Cards
+       ============================================ */
+    .executive-summary {
+        background: var(--accent-soft);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        padding: 32px 40px;
+        margin: 8px 0 36px;
+        position: relative;
+    }
+
+    .executive-summary h2 {
+        font-family: var(--font-serif);
+        font-size: 1.45rem;
+        margin: 0 0 18px;
+        padding: 0;
+        color: var(--text-primary);
+        border: none;
+    }
+
+    .executive-summary h2::after { content: none; }
+
+    .executive-summary p {
+        font-size: 1.0rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+        margin: 0 0 14px;
+    }
+
+    .executive-summary p:last-child { margin-bottom: 0; }
+
+    .news-article {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 40px 44px;
+        margin-bottom: 28px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-article::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+    }
+
+    .news-article:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-1px);
+    }
+
+    .news-article:hover::before {
+        height: 100%;
+    }
+
+    .news-article h2 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        margin: 0 0 8px 0;
+        color: var(--text-primary);
+        cursor: pointer;
+        user-select: none;
+        padding-right: 40px;
+        position: relative;
+    }
+
+    .news-article h2::after {
+        content: '−';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--text-muted);
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .news-article.collapsed h2::after {
+        content: '+';
+    }
+
+    .news-article h2:hover::after {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .source-link {
+        margin: 0 0 24px 0;
+    }
+
+    .source-link a {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-tertiary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+
+    .source-link a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .source-link .arrow {
+        transition: transform 0.2s;
+    }
+
+    .source-link a:hover .arrow {
+        transform: translateX(3px);
+    }
+
+    /* Article body content wrapper (foldable) */
+    .article-body {
+        max-height: 10000px;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 1;
+    }
+
+    .news-article.collapsed .article-body {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /* ============================================
+       Article Subtitle (HEADLINE)
+       ============================================ */
+    .article-subtitle {
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--accent);
+        padding: 20px 24px;
+        margin: 0 0 28px 0;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .subtitle-label {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .article-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .contents-divider {
+        height: 1px;
+        background: linear-gradient(to right, var(--border-subtle), transparent);
+        margin: 0 0 24px 0;
+    }
+
+    /* ============================================
+       News Blocks (icon rows)
+       ============================================ */
+    .news-block {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+        padding: 14px 18px;
+        margin: 8px 0;
+        border-radius: var(--radius-md);
+        line-height: 1.65;
+        font-size: 0.96rem;
+        transition: background 0.2s;
+    }
+
+    .block-icon {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2px;
+    }
+
+    .block-content {
+        color: var(--text-primary);
+    }
+
+    /* 핵심 요약 - 가장 강조 */
+    .block-summary {
+        background: var(--color-summary-bg);
+        border-left: 3px solid var(--color-summary);
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+    .block-summary .block-content {
+        color: var(--color-summary);
+        font-weight: 600;
+    }
+    [data-theme="dark"] .block-summary .block-content {
+        color: var(--color-summary);
+    }
+
+    /* 주요 내용 */
+    .block-detail {
+        background: transparent;
+        padding: 10px 18px 10px 0;
+        border-left: none;
+    }
+    .block-detail .block-icon {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    /* 추가 내용 */
+    .block-extra {
+        background: var(--color-extra-bg);
+        border-left: 2px dashed var(--color-extra);
+        margin: 12px 0;
+        font-size: 0.92rem;
+    }
+    .block-extra .block-content { color: var(--color-extra); }
+
+    /* 의미/영향 - 인사이트 */
+    .block-insight {
+        background: var(--color-insight-bg);
+        border: 1px solid transparent;
+        border-left: 3px solid var(--color-insight);
+        margin-top: 16px;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .block-insight .block-content { color: var(--color-insight); }
+
+    /* 용어 설명 */
+    .block-glossary {
+        background: var(--color-glossary-bg);
+        border-top: 1px solid var(--border-subtle);
+        border-radius: 0;
+        font-size: 0.88rem;
+        margin-top: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .block-glossary .block-content {
+        color: var(--color-glossary);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Miscellaneous
+       ============================================ */
+    .article-separator { display: none; }
+
+    p { margin: 12px 0; }
+
+    code {
+        font-family: var(--font-mono);
+        background: var(--bg-tertiary);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.88em;
+    }
+
+    pre {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-size: 0.88rem;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ============================================
+       To-top Button
+       ============================================ */
+    #to-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.2s;
+        z-index: 999;
+    }
+
+    #to-top-btn:hover { transform: translateY(-3px); }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        margin-top: 80px;
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* ============================================
+       Mobile Responsive
+       ============================================ */
+    @media (max-width: 900px) {
+        .top-bar-inner { padding: 12px 20px; }
+        .brand { font-size: 1.1rem; }
+        .top-bar-meta { gap: 10px; font-size: 0.7rem; }
+
+        .main-wrapper {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #sidebar {
+            position: relative;
+            top: 0;
+            max-height: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: var(--bg-card);
+        }
+
+        .masthead h1 { font-size: 2rem; }
+        .masthead-meta { flex-wrap: wrap; gap: 12px; font-size: 0.7rem; }
+
+        .news-article {
+            padding: 28px 24px;
+        }
+
+        .news-article h2 { font-size: 1.35rem; padding-right: 32px; }
+        .article-subtitle { padding: 16px 18px; }
+        .news-block { padding: 12px 14px; font-size: 0.92rem; }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-article {
+        animation: fadeUp 0.4s ease both;
+    }
+    </style>
+</head>
+<body>
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <span>The Daily Brief</span>
+            </div>
+            <div class="top-bar-meta">
+                <span>2026-05-24</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-label">Index · 뉴스 목록</div>
+            <div class="toc">
+                <div class="toc">
+<ul>
+<li><a href="#_1">요약</a></li>
+<li><a href="#_2">주요 인용</a></li>
+<li><a href="#_3">산업적 시사: 본 기사는 관련 산업의 구조 변화와 기업 경쟁력에 영향을 미칠 수 있습니다.</a></li>
+</ul>
+</div>
+
+            </div>
+        </nav>
+
+        <main class="content-main">
+            <header class="masthead">
+                <div class="masthead-kicker">Daily Market Brief</div>
+                <h1>멕시코 축구 국가대표팀 훈련센터 밝힌 Lg 사이니지</h1>
+                <div class="masthead-meta">
+                    <span>📅 2026-05-24</span>
+                    <span class="dot"></span>
+                    <span>📰 3 Articles</span>
+                    <span class="dot"></span>
+                    <span>KST</span>
+                </div>
+            </header>
+
+            
+<p>title: 멕시코 축구 국가대표팀 훈련센터 밝힌 LG 사이니지
+url: https://www.mk.co.kr/news/business/12055836
+date: 2026-05-24</p>
+<article class="news-article" data-index="2"><h2 id="_1">요약</h2>
+<p>이번 LG전자의 멕시코 축구 국가대표팀 훈련센터 디스플레이 공급은 선수들의 훈련 환경 개선에 직접적인 영향을 줄 것으로 보여요. 훈련장, 회의실, 강당, 숙소 등 곳곳에 설치된 116개의 디스플레이는 선수들이 경기 영상을 분석하거나 전술 회의를 진행할 때 더 나은 시각적 경험을 제공할 수 있어요. ⚽️ 특히, 선수단 숙소에 공급된 'LG 프로센트릭' 플랫폼은 개인 맞춤형 TV 화면과 다양한 앱을 통합 관리할 수 있게 하여 휴식 시간의 편의성을 높일 수 있답니다. 📺더 나아가, 멕시코 축구 국가대표팀뿐만 아니라 북중미 월드컵 경기장인 미국 텍사스주 AT&amp;T 스타디움과 조지아주 메르세데스-벤츠 스타디움에도 LG전자 상업용 디스플레이가 설치되어 있다는 점은 주목할 만해요. 이는 해당 경기장에서 경기를 관람하는 팬들에게도 더욱 생생하고 몰입감 넘치는 시청 경험을 제공할 수 있다는 것을 의미해요. 🤩 경기장의 역동적인 분위기를 더욱 풍성하게 만들고, 선수들의 플레이를 더욱 선명하게 전달하는 </p>
+<h2 id="_2">주요 인용</h2>
+<ul>
+<li>이번 LG전자의 멕시코 축구 국가대표팀 훈련센터 디스플레이 공급은 선수들의 훈련 환경 개선에 직접적인 영향을 줄 것으로 보여요. 훈련장, 회의실, 강당, 숙소 등 곳곳에 설치된 116개의 디스플레이는 선수들이 경기 영상을 분석하거나 전술 회의를 진행할 때 더 나은 시각적 경험을 제공할 수 있어요. ⚽️ 특히, 선수단 숙소에 공급된 'LG 프로센트릭' 플랫폼은 개인 맞춤형 TV 화면과 다양한 앱을 통합 관리할 수 있게 하여 휴식 시간의 편의성을 높일 수 있답니다. 📺더 나아가, 멕시코 축구 국가대표팀뿐만 아니라 북중미 월드컵 경기장인 미국 텍사스주 AT&amp;T 스타디움과 조지아주 메르세데스-벤츠 스타디움에도 LG전자 상업용 디스플레이가 설치되어 있다는 점은 주목할 만해요. 이는 해당 경기장에서 경기를 관람하는 팬들에게도 더욱 생생하고 몰입감 넘치는 시청 경험을 제공할 수 있다는 것을 의미해요. 🤩 경기장의 역동적인 분위기를 더욱 풍성하게 만들고, 선수들의 플레이를 더욱 선명하게 전달하는 데 기여할 수 있답니다. 🌟- LG전자에게 이번 멕시코 축구 국가대표팀 훈련센터 공급은 스포츠 시장에서의 입지를 더욱 공고히 하는 중요한 계기가 될 것으로 보여요. 🇲🇽 단순히 제품을 판매하는 것을 넘어, 콘텐츠 관리 시스템인 'LG 슈퍼사인'과 'LG 크리에이트보드' 같은 운영 솔루션을 함께 제공함으로써 통합적인 디스플레이 솔루션 역량을 보여주었기 때문이에요. 이는 스포츠 경기장뿐만 아니라 다양한 B2B(기업 간 거래) 시장에서 LG전자가 단순 하드웨어 공급업체를 넘어 종합적인 기술 파트너로 자리매김하는 데 기여할 수 있어요. 🤝이전에도 LG전자는 미국 보스턴 레드삭스 홈구장, 스페인 발렌시아의 로이그 아레나 등 다수의 글로벌 스포츠 시설에 대형 디스플레이를 공급하며 스포츠 사이니지 시장에서 경쟁력을 입증해왔어요. 🏟️ 이번 멕시코 축구 국가대표팀과의 협력은 이러한 성공 사례를 확장하고, 첨단 기술과 솔루션을 바탕으로 스포츠 시설의 고객 경험을 혁신하려는 LG전자의 전략이 잘 맞아떨어지고 있음을 보여줍니다. 이를 통해 LG전자는 글로벌 스포츠 사이니지 시장에서 지속적인 성장 동력을 확보하고, 관련 기술 및 솔루션 개발에 더욱 박차를 가할 것으로 예상돼요. 💪- LG전자의 멕시코 축구 국가대표팀 훈련센터 공급은 스포츠 인프라 구축에 대한 민간 기업의 투자와 기술 지원이 활발하게 이루어지고 있음을 보여주는 사례예요. 🇲🇽 이러한 사례는 스포츠 분야의 발전을 넘어, 관련 첨단 기술의 확산과 시장 성장을 견인하는 긍정적인 영향을 줄 수 있어요. 특히, 고성능 훈련 시설에 최신 디스플레이 기술이 적용되면서 선수들의 경기력 향상과 훈련 효율 증대에 기여할 수 있으며, 이는 국가대표팀의 성적 향상으로 이어져 스포츠에 대한 국민적 관심과 참여를 높이는 선순환 구조를 만들 수 있답니다. 📈또한, LG전자가 북중미 월드컵 경기장에도 디스플레이를 공급했다는 점은 국제적인 스포츠 행사를 통해 기술력을 선보이고, 관련 시장을 확대해 나가는 중요한 기회가 될 수 있어요. 이는 한국 기업의 기술력을 세계에 알리는 홍보 효과와 더불어, 미래 스포츠 산업의 디지털 전환을 가속화하는 데 기여할 것으로 기대돼요. 🌐 시장 전반적으로는 고화질, 대형 디스플레이에 대한 수요를 증가시키고, 관련 솔루션 개발 및 투자 확대를 유도할 수 있답니다. 💰</li>
+</ul>
+<h2 id="_3"><strong>산업적 시사</strong>: 본 기사는 관련 산업의 구조 변화와 기업 경쟁력에 영향을 미칠 수 있습니다.</h2>
+<p>본 기사에서 다루는 주제는 향후 관련 분야의 발전 방향을 보여주는 중요한 신호입니다.</p></article>
+
+            <footer class="footer">
+                — End of Brief —
+            </footer>
+        </main>
+    </div>
+
+    <button id="to-top-btn" title="Go to top" aria-label="Go to top">↑</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Theme toggle (persists via data-attribute only; no storage in artifacts)
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        let isDark = false;
+
+        // Detect system preference on first load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.setAttribute('data-theme', 'dark');
+            isDark = true;
+            themeToggle.textContent = '☀';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            isDark = !isDark;
+            if (isDark) {
+                root.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀';
+            } else {
+                root.removeAttribute('data-theme');
+                themeToggle.textContent = '☾';
+            }
+        });
+
+        // 2. Wrap article bodies for collapse/expand
+        document.querySelectorAll('.news-article').forEach(function(article) {
+            const h2 = article.querySelector('h2');
+            if (!h2) return;
+
+            // Gather everything after h2 into .article-body wrapper
+            const body = document.createElement('div');
+            body.className = 'article-body';
+            let next = h2.nextSibling;
+            const toMove = [];
+            while (next) {
+                toMove.push(next);
+                next = next.nextSibling;
+            }
+            toMove.forEach(function(node) { body.appendChild(node); });
+            article.appendChild(body);
+
+            // Click h2 to toggle
+            h2.addEventListener('click', function() {
+                article.classList.toggle('collapsed');
+            });
+        });
+
+        // 3. Reading progress bar
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }
+
+        // 4. To-top button
+        const toTopBtn = document.getElementById('to-top-btn');
+        toTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. TOC active link highlighting (intersection observer)
+        const tocLinks = document.querySelectorAll('.toc a');
+        const articleHeadings = document.querySelectorAll('.news-article h2');
+
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            toTopBtn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+
+            // Find current section
+            let current = '';
+            articleHeadings.forEach(function(heading) {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 120) {
+                    current = heading.id || '';
+                }
+            });
+
+            tocLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        updateProgress();
+    });
+    </script>
+</body>
+</html>
