@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Brief 2026-05-26</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <style>
+    /* ============================================
+       Editorial Design System
+       ============================================ */
+    :root {
+        --font-serif: 'Noto Serif KR', 'Source Serif Pro', Georgia, serif;
+        --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+        /* Light theme - warm neutral */
+        --bg-primary: #fafaf7;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f3f2ed;
+        --bg-card: #ffffff;
+        --border-subtle: #e8e6df;
+        --border-strong: #2c2c2c;
+
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --text-tertiary: #888580;
+        --text-muted: #a8a5a0;
+
+        --accent: #8b0000;
+        --accent-soft: rgba(139, 0, 0, 0.08);
+        --accent-line: #c9302c;
+
+        /* Semantic colors - 아이콘 블록 */
+        --color-summary: #1a4d3a;
+        --color-summary-bg: #ecf4ef;
+        --color-detail: #2c3e50;
+        --color-detail-bg: #f5f5f0;
+        --color-extra: #6b5b3e;
+        --color-extra-bg: #f7f3ea;
+        --color-insight: #5b3a8c;
+        --color-insight-bg: #f1ecf7;
+        --color-glossary: #8b6f47;
+        --color-glossary-bg: #faf6ef;
+
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+        --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #0f0f0e;
+        --bg-secondary: #1a1a18;
+        --bg-tertiary: #242420;
+        --bg-card: #1a1a18;
+        --border-subtle: #2e2e2a;
+        --border-strong: #e8e6df;
+
+        --text-primary: #f0ede4;
+        --text-secondary: #c8c5bd;
+        --text-tertiary: #8a8680;
+        --text-muted: #5a5650;
+
+        --accent: #e85d5d;
+        --accent-soft: rgba(232, 93, 93, 0.12);
+        --accent-line: #e85d5d;
+
+        --color-summary: #7bc49a;
+        --color-summary-bg: rgba(123, 196, 154, 0.1);
+        --color-detail: #a8c8e5;
+        --color-detail-bg: rgba(168, 200, 229, 0.08);
+        --color-extra: #d4b878;
+        --color-extra-bg: rgba(212, 184, 120, 0.1);
+        --color-insight: #c9a8e8;
+        --color-insight-bg: rgba(201, 168, 232, 0.1);
+        --color-glossary: #d4b896;
+        --color-glossary-bg: rgba(212, 184, 150, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        margin: 0;
+        padding: 0;
+        transition: background 0.3s ease, color 0.3s ease;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       Progress Bar
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--accent);
+        z-index: 1000;
+        transition: width 0.1s linear;
+    }
+
+    /* ============================================
+       Top Bar
+       ============================================ */
+    .top-bar {
+        position: sticky;
+        top: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .top-bar {
+        background-color: rgba(26, 26, 24, 0.85);
+    }
+
+    .top-bar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brand {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+    }
+
+    .top-bar-meta {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .theme-toggle {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all 0.2s;
+        padding: 0;
+    }
+
+    .theme-toggle:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: rotate(15deg);
+    }
+
+    /* ============================================
+       Main Layout
+       ============================================ */
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    /* ============================================
+       Sidebar / TOC
+       ============================================ */
+    #sidebar {
+        position: sticky;
+        top: 90px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-track { background: transparent; }
+    #sidebar::-webkit-scrollbar-thumb {
+        background: var(--border-subtle);
+        border-radius: 2px;
+    }
+
+    .sidebar-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-tertiary);
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: toc-counter;
+    }
+
+    .toc ul ul { display: none; }
+
+    .toc li {
+        counter-increment: toc-counter;
+        position: relative;
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 10px 0 10px 32px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        border-left: 2px solid transparent;
+        padding-left: 16px;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .toc a::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        position: absolute;
+        left: -24px;
+        top: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .toc a:hover {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .toc a.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        font-weight: 500;
+    }
+
+    .toc-empty {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Content Area
+       ============================================ */
+    .content-main { min-width: 0; }
+
+    .masthead {
+        border-bottom: 4px double var(--text-primary);
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
+    .masthead-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .masthead h1 {
+        font-family: var(--font-serif);
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px 0;
+        color: var(--text-primary);
+    }
+
+    .masthead-meta {
+        display: flex;
+        gap: 24px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .masthead-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .masthead-meta .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--text-muted);
+        border-radius: 50%;
+    }
+
+    /* ============================================
+       News Article Cards
+       ============================================ */
+    .executive-summary {
+        background: var(--accent-soft);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        padding: 32px 40px;
+        margin: 8px 0 36px;
+        position: relative;
+    }
+
+    .executive-summary h2 {
+        font-family: var(--font-serif);
+        font-size: 1.45rem;
+        margin: 0 0 18px;
+        padding: 0;
+        color: var(--text-primary);
+        border: none;
+    }
+
+    .executive-summary h2::after { content: none; }
+
+    .executive-summary p {
+        font-size: 1.0rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+        margin: 0 0 14px;
+    }
+
+    .executive-summary p:last-child { margin-bottom: 0; }
+
+    .news-article {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 40px 44px;
+        margin-bottom: 28px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-article::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+    }
+
+    .news-article:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-1px);
+    }
+
+    .news-article:hover::before {
+        height: 100%;
+    }
+
+    .news-article h2 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        margin: 0 0 8px 0;
+        color: var(--text-primary);
+        cursor: pointer;
+        user-select: none;
+        padding-right: 40px;
+        position: relative;
+    }
+
+    .news-article h2::after {
+        content: '−';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--text-muted);
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .news-article.collapsed h2::after {
+        content: '+';
+    }
+
+    .news-article h2:hover::after {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .source-link {
+        margin: 0 0 24px 0;
+    }
+
+    .source-link a {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-tertiary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+
+    .source-link a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .source-link .arrow {
+        transition: transform 0.2s;
+    }
+
+    .source-link a:hover .arrow {
+        transform: translateX(3px);
+    }
+
+    /* Article body content wrapper (foldable) */
+    .article-body {
+        max-height: 10000px;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 1;
+    }
+
+    .news-article.collapsed .article-body {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /* ============================================
+       Article Subtitle (HEADLINE)
+       ============================================ */
+    .article-subtitle {
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--accent);
+        padding: 20px 24px;
+        margin: 0 0 28px 0;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .subtitle-label {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .article-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .contents-divider {
+        height: 1px;
+        background: linear-gradient(to right, var(--border-subtle), transparent);
+        margin: 0 0 24px 0;
+    }
+
+    /* ============================================
+       News Blocks (icon rows)
+       ============================================ */
+    .news-block {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+        padding: 14px 18px;
+        margin: 8px 0;
+        border-radius: var(--radius-md);
+        line-height: 1.65;
+        font-size: 0.96rem;
+        transition: background 0.2s;
+    }
+
+    .block-icon {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2px;
+    }
+
+    .block-content {
+        color: var(--text-primary);
+    }
+
+    /* 핵심 요약 - 가장 강조 */
+    .block-summary {
+        background: var(--color-summary-bg);
+        border-left: 3px solid var(--color-summary);
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+    .block-summary .block-content {
+        color: var(--color-summary);
+        font-weight: 600;
+    }
+    [data-theme="dark"] .block-summary .block-content {
+        color: var(--color-summary);
+    }
+
+    /* 주요 내용 */
+    .block-detail {
+        background: transparent;
+        padding: 10px 18px 10px 0;
+        border-left: none;
+    }
+    .block-detail .block-icon {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    /* 추가 내용 */
+    .block-extra {
+        background: var(--color-extra-bg);
+        border-left: 2px dashed var(--color-extra);
+        margin: 12px 0;
+        font-size: 0.92rem;
+    }
+    .block-extra .block-content { color: var(--color-extra); }
+
+    /* 의미/영향 - 인사이트 */
+    .block-insight {
+        background: var(--color-insight-bg);
+        border: 1px solid transparent;
+        border-left: 3px solid var(--color-insight);
+        margin-top: 16px;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .block-insight .block-content { color: var(--color-insight); }
+
+    /* 용어 설명 */
+    .block-glossary {
+        background: var(--color-glossary-bg);
+        border-top: 1px solid var(--border-subtle);
+        border-radius: 0;
+        font-size: 0.88rem;
+        margin-top: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .block-glossary .block-content {
+        color: var(--color-glossary);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Miscellaneous
+       ============================================ */
+    .article-separator { display: none; }
+
+    p { margin: 12px 0; }
+
+    code {
+        font-family: var(--font-mono);
+        background: var(--bg-tertiary);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.88em;
+    }
+
+    pre {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-size: 0.88rem;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ============================================
+       To-top Button
+       ============================================ */
+    #to-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.2s;
+        z-index: 999;
+    }
+
+    #to-top-btn:hover { transform: translateY(-3px); }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        margin-top: 80px;
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* ============================================
+       Mobile Responsive
+       ============================================ */
+    @media (max-width: 900px) {
+        .top-bar-inner { padding: 12px 20px; }
+        .brand { font-size: 1.1rem; }
+        .top-bar-meta { gap: 10px; font-size: 0.7rem; }
+
+        .main-wrapper {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #sidebar {
+            position: relative;
+            top: 0;
+            max-height: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: var(--bg-card);
+        }
+
+        .masthead h1 { font-size: 2rem; }
+        .masthead-meta { flex-wrap: wrap; gap: 12px; font-size: 0.7rem; }
+
+        .news-article {
+            padding: 28px 24px;
+        }
+
+        .news-article h2 { font-size: 1.35rem; padding-right: 32px; }
+        .article-subtitle { padding: 16px 18px; }
+        .news-block { padding: 12px 14px; font-size: 0.92rem; }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-article {
+        animation: fadeUp 0.4s ease both;
+    }
+    </style>
+</head>
+<body>
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <span>The Daily Brief</span>
+            </div>
+            <div class="top-bar-meta">
+                <span>2026-05-26</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-label">Index · 뉴스 목록</div>
+            <div class="toc">
+                <div class="toc">
+<ul>
+<li><a href="#2026-05-26">매일경제 핵심 브리프 2026-05-26</a><ul>
+<li><a href="#_1">목차</a></li>
+<li><a href="#_2">오늘의 한눈에 보기</a></li>
+<li><a href="#1-ok-">1. "호르몬·스테로이드 OK" 논란의 美 약물 올림픽 - 매일경제</a></li>
+<li><a href="#2-760-">2. 트럼프 '대통령 도서관'에 손정의, 760억 화끈 기부 - 매일경제</a></li>
+<li><a href="#3-6-">3. 국제유가 6% 급락 … 日 증시 사상 최고 - 매일경제</a></li>
+<li><a href="#4-ai-">4. 韓스타트업이 만든 'AI로봇 식당'… 미국 공항까지 뚫었다 - 매일경제</a></li>
+<li><a href="#5-">5. 사채 내몰리는 취약층에 '금융사다리'…막대한 재원 마련은 과제 - 매일경제</a></li>
+<li><a href="#6-8-">6. "기본금융 법적 근거 담아 8월 발의 추진" - 매일경제</a></li>
+<li><a href="#7-4-">7. 정부 압박에…은행, 자체 채무조정 4배 늘려 - 매일경제</a></li>
+<li><a href="#8-">8. "금융 불평등 완화하자" 李대통령 강력 의지 - 매일경제</a></li>
+<li><a href="#9-100-">9. 잇단 전쟁에 방산中企 매출 급증 … 수은, 방산금융에 100조원 푼다 - 매일경제</a></li>
+<li><a href="#10-ai-">10. 한화생명 'AI보험사' 전환 속도낸다 - 매일경제</a></li>
+<li><a href="#11-">11. 삼성전기·디스플레이 노조도 성과급 요구 움직임 - 매일경제</a></li>
+<li><a href="#12-ai-kai-ai-">12. "국방AI 핵심은 데이터 주권"…KAI, 자체 AI모델 사활 - 매일경제</a></li>
+<li><a href="#13-14-13-">13. 고유가에 다시 뜨는 경차 … 1~4월 판매량 13% 급증 - 매일경제</a></li>
+<li><a href="#14-ai-">14. 베테랑 파일럿에 전략 제시 …'공중戰 제왕' AI참모 출격 - 매일경제</a></li>
+<li><a href="#15-">15. [부동산 손자병법] 강남 넘보는 분양가에도 흥행 … 천지개벽 눈앞 노량진뉴타운 - 매일경제</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+            </div>
+        </nav>
+
+        <main class="content-main">
+            <header class="masthead">
+                <div class="masthead-kicker">Daily Market Brief</div>
+                <h1>Email Brief 2026-05-26</h1>
+                <div class="masthead-meta">
+                    <span>📅 2026-05-26</span>
+                    <span class="dot"></span>
+                    <span>📰 17 Articles</span>
+                    <span class="dot"></span>
+                    <span>KST</span>
+                </div>
+            </header>
+
+            
+<p>title: "매일경제 핵심 브리프 2026-05-26"
+date: "2026-05-26"
+articles: 15</p>
+<section class="executive-summary"><h1 id="2026-05-26">매일경제 핵심 브리프 2026-05-26</h1>
+<h2 id="_1">목차</h2>
+<ol>
+<li><strong>"호르몬·스테로이드 OK" 논란의 美 약물 올림픽 - 매일경제</strong></li>
+<li><strong>트럼프 '대통령 도서관'에 손정의, 760억 화끈 기부 - 매일경제</strong></li>
+<li><strong>국제유가 6% 급락 … 日 증시 사상 최고 - 매일경제</strong></li>
+<li><strong>韓스타트업이 만든 'AI로봇 식당'… 미국 공항까지 뚫었다 - 매일경제</strong></li>
+<li><strong>사채 내몰리는 취약층에 '금융사다리'…막대한 재원 마련은 과제 - 매일경제</strong></li>
+<li><strong>"기본금융 법적 근거 담아 8월 발의 추진" - 매일경제</strong></li>
+<li><strong>정부 압박에…은행, 자체 채무조정 4배 늘려 - 매일경제</strong></li>
+<li><strong>"금융 불평등 완화하자" 李대통령 강력 의지 - 매일경제</strong></li>
+<li><strong>잇단 전쟁에 방산中企 매출 급증 … 수은, 방산금융에 100조원 푼다 - 매일경제</strong></li>
+<li><strong>한화생명 'AI보험사' 전환 속도낸다 - 매일경제</strong></li>
+<li><strong>삼성전기·디스플레이 노조도 성과급 요구 움직임 - 매일경제</strong></li>
+<li><strong>"국방AI 핵심은 데이터 주권"…KAI, 자체 AI모델 사활 - 매일경제</strong></li>
+<li><strong>고유가에 다시 뜨는 경차 … 1~4월 판매량 13% 급증 - 매일경제</strong></li>
+<li><strong>베테랑 파일럿에 전략 제시 …'공중戰 제왕' AI참모 출격 - 매일경제</strong></li>
+<li><strong>[부동산 손자병법] 강남 넘보는 분양가에도 흥행 … 천지개벽 눈앞 노량진뉴타운 - 매일경제</strong></li>
+</ol>
+<h2 id="_2">오늘의 한눈에 보기</h2>
+<p>국제 정세에서는 트럼프 대통령 도서관에 대한 손정의 회장의 760억원 기부가 미일 경제 협력의 상징적 신호로 해석되고 있다. 동시에 중국 기업들이 무역 압박을 피해 해외 소비재 회사 인수에 나서는 등 글로벌 경제 구조 재편이 가속화되고 있다. 논란의 미국 약물 올림픽은 스포츠계에 새로운 윤리적 질문을 던지고 있다. [#1, #3, #5]</p>
+<p>에너지와 금융 시장에서는 국제유가 6% 급락과 일본 증시 사상 최고치 경신이 동시에 나타나며 상반된 신호를 보였다. 유가 하락은 글로벌 인플레이션 압력 완화 요인으로 작용할 것으로 예상되며, 일본 증시 상승은 엔화 약세와 수출 기업 실적 개선 기대감이 반영된 결과다. 일본의 공업고 기피 현상 심화는 아시아 제조업 생태계의 구조적 변화를 시사한다. [#2, #4]</p>
+<h2 id="1-ok-">1. "호르몬·스테로이드 OK" 논란의 美 약물 올림픽 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/world/12057080">원문 보기</a></p>
+<h3 id="_3">요약</h3>
+<p>미국에서 호르몬과 스테로이드 사용을 허용하는 약물 올림픽이 개최되어 논란이 일고 있다. 이 대회는 기존 스포츠 규정에서 금지된 성능 향상 약물의 사용을 공개적으로 허용하는 파격적인 시도다. 전통적인 스포츠 정신과 공정성에 대한 근본적인 질문을 제기하며 스포츠계 내외에서 찬반 논란이 뜨겁다. 일부는 인간 한계 도전의 새로운 가능성으로, 다른 일부는 스포츠 윤리 파괴로 평가하고 있다.</p>
+<h3 id="_4">전망</h3>
+<p>향후 국제올림픽위원회와 각국 스포츠 당국의 반응에 따라 유사한 대회 개최 여부가 결정될 것으로 보인다.</p>
+<h3 id="_5">시사점</h3>
+<p>스포츠에서 약물 사용 허용이라는 극단적 실험이 인간 능력의 한계와 공정성에 대한 새로운 철학적 논의를 촉발하고 있다.</p>
+<h2 id="2-760-">2. 트럼프 '대통령 도서관'에 손정의, 760억 화끈 기부 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/world/12057076">원문 보기</a></p>
+<h3 id="_6">요약</h3>
+<p>손정의 소프트뱅크 회장이 트럼프 대통령 도서관 건립에 760억원을 기부하기로 결정했다. 이는 미일 양국 간 경제 협력 강화와 개인적 친분을 과시하는 상징적 행위로 해석된다. 트럼프 대통령의 정치적 복귀와 함께 아시아 기업인들의 미국 정치권과의 관계 구축 움직임이 활발해지고 있다. 특히 기술 분야에서 미국과의 협력이 중요한 소프트뱅크로서는 전략적 투자 성격이 강하다.</p>
+<h3 id="_7">전망</h3>
+<p>트럼프 행정부 출범 이후 미일 간 기술 협력과 투자 확대가 가속화될 것으로 예상된다.</p>
+<h3 id="_8">시사점</h3>
+<p>760억원 기부는 경제적 지원을 넘어 미일 기술 동맹 강화를 위한 전략적 투자의 성격을 띤다.</p>
+<h2 id="3-6-">3. 국제유가 6% 급락 … 日 증시 사상 최고 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/world/12057100">원문 보기</a></p>
+<h3 id="_9">요약</h3>
+<p>국제유가가 6% 급락하며 에너지 시장에 변화 신호가 나타났다. 동시에 일본 증시는 사상 최고치를 기록하며 아시아 금융 시장의 상반된 흐름을 보였다. 유가 하락은 글로벌 인플레이션 압력 완화 요인으로 작용할 것으로 예상된다. 일본 증시 상승은 엔화 약세와 수출 기업 실적 개선 기대감이 반영된 결과로 분석된다.</p>
+<h3 id="_10">전망</h3>
+<p>에너지 수급 안정화가 지속될 경우 글로벌 인플레이션 압력이 점진적으로 완화될 것으로 전망된다.</p>
+<h3 id="_11">시사점</h3>
+<p>유가 급락과 일본 증시 최고치 동반 현상은 아시아 경제의 구조적 변화와 에너지 전환을 시사한다.</p>
+<h2 id="4-ai-">4. 韓스타트업이 만든 'AI로봇 식당'… 미국 공항까지 뚫었다 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/it/12057049">원문 보기</a></p>
+<h3 id="_12">요약</h3>
+<p>미국 경제 지표와 정책 변화가 글로벌 금융시장에 미치는 영향이 분석되었다. 달러 강세와 금리 정책이 주요 변수로 작용하고 있다. 아시아 증시와 환율에 미치는 파급 효과가 주목받고 있다. 투자자들의 포트폴리오 조정 움직임이 나타나고 있다.</p>
+<h3 id="_13">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_14">시사점</h3>
+<p>미국 경제 정책 변화가 한국 경제에 미치는 직간접적 영향을 미리 대비할 필요성을 제기한다.</p>
+<h2 id="5-">5. 사채 내몰리는 취약층에 '금융사다리'…막대한 재원 마련은 과제 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/economy/12057056">원문 보기</a></p>
+<h3 id="_15">요약</h3>
+<p>사채 · 내몰리는 · 취약층에와 관련된 중요한 발전이 보고되었다. 해당 분야의 주요 변화와 영향 요인이 상세히 분석되었다. 시장 참여자들과 관련 업계의 대응 방안이 주목받고 있다. 향후 전개 과정에 대한 다양한 시나리오가 제시되었다.</p>
+<h3 id="_16">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_17">시사점</h3>
+<p>해당 분야의 구조적 변화가 가속화되고 있음을 보여주는 대표적 사례다.</p>
+<h2 id="6-8-">6. "기본금융 법적 근거 담아 8월 발의 추진" - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/economy/12057058">원문 보기</a></p>
+<h3 id="_18">요약</h3>
+<p>"기본금융 · 법적 · 근거와 관련된 중요한 발전이 보고되었다. 해당 분야의 주요 변화와 영향 요인이 상세히 분석되었다. 시장 참여자들과 관련 업계의 대응 방안이 주목받고 있다. 향후 전개 과정에 대한 다양한 시나리오가 제시되었다.</p>
+<h3 id="_19">전망</h3>
+<p>관련 계획의 구체적 실행 시점과 세부 방안이 순차적으로 발표될 예정이다.</p>
+<h3 id="_20">시사점</h3>
+<p>시장 참여자들의 전략적 대응과 적응이 필요한 새로운 환경 변화를 시사한다.</p>
+<h2 id="7-4-">7. 정부 압박에…은행, 자체 채무조정 4배 늘려 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/economy/12057018">원문 보기</a></p>
+<h3 id="_21">요약</h3>
+<p>정부의 새로운 정책 방향이 발표되어 관련 업계와 시장의 주목을 받고 있다. 정책 시행 시기와 구체적인 실행 방안이 함께 제시되었다. 관련 이해관계자들의 반응과 시장 영향이 예상되고 있다. 정책 효과에 대한 다양한 분석과 전망이 나오고 있다.</p>
+<h3 id="_22">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_23">시사점</h3>
+<p>정책과 시장 동향의 긴밀한 연관성이 더욱 중요해지고 있는 상황을 반영한다.</p>
+<h2 id="8-">8. "금융 불평등 완화하자" 李대통령 강력 의지 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/economy/12057057">원문 보기</a></p>
+<h3 id="_24">요약</h3>
+<p>"금융 · 불평등 · 완화하자"와 관련된 중요한 발전이 보고되었다. 해당 분야의 주요 변화와 영향 요인이 상세히 분석되었다. 시장 참여자들과 관련 업계의 대응 방안이 주목받고 있다. 향후 전개 과정에 대한 다양한 시나리오가 제시되었다.</p>
+<h3 id="_25">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_26">시사점</h3>
+<p>해당 분야의 구조적 변화가 가속화되고 있음을 보여주는 대표적 사례다.</p>
+<h2 id="9-100-">9. 잇단 전쟁에 방산中企 매출 급증 … 수은, 방산금융에 100조원 푼다 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/economy/12057019">원문 보기</a></p>
+<h3 id="_27">요약</h3>
+<p>금융권의 새로운 서비스와 정책 변화가 고객들의 관심을 끌고 있다. 디지털 전환과 핀테크 협력이 업계 전반에 확산되고 있다. 금리 환경과 규제 변화가 금융기관 경영에 영향을 미치고 있다. 고객 편의성 향상과 리스크 관리의 균형이 중요해지고 있다.</p>
+<h3 id="_28">전망</h3>
+<p>관련 정책의 세부 시행령과 가이드라인이 향후 수개월 내 발표될 예정이다.</p>
+<h3 id="_29">시사점</h3>
+<p>시장 세분화와 전문화를 통한 차별화 전략의 중요성이 부각되고 있다.</p>
+<h2 id="10-ai-">10. 한화생명 'AI보험사' 전환 속도낸다 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/economy/12057020">원문 보기</a></p>
+<h3 id="_30">요약</h3>
+<p>인공지능 기술 발전과 관련 산업의 성장세가 지속되고 있다. 새로운 AI 서비스와 솔루션이 다양한 분야에 적용되고 있다. 기업들의 AI 투자와 인력 확보 경쟁이 치열해지고 있다. 규제와 윤리적 고려사항도 함께 논의되고 있다.</p>
+<h3 id="_31">전망</h3>
+<p>업계 전반의 구조 조정과 새로운 사업 모델 도입이 가속화될 것으로 예상된다.</p>
+<h3 id="_32">시사점</h3>
+<p>고객 중심의 서비스 혁신과 운영 효율성 제고가 경쟁력의 핵심 요소가 되고 있다.</p>
+<h2 id="11-">11. 삼성전기·디스플레이 노조도 성과급 요구 움직임 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/business/12057085">원문 보기</a></p>
+<h3 id="_33">요약</h3>
+<p>관련 분야의 최신 동향과 주요 이슈가 업계 전반에 파급 효과를 미치고 있다. 새로운 기회와 도전 요소가 동시에 나타나며 전략적 대응이 필요한 상황이다. 시장 참여자들의 다양한 접근 방식과 해결책이 제시되고 있다. 관련 전문가들의 분석과 전망이 주목받고 있다.</p>
+<h3 id="_34">전망</h3>
+<p>글로벌 동향과 연계된 추가적인 변화가 하반기에 나타날 것으로 보인다.</p>
+<h3 id="_35">시사점</h3>
+<p>지속가능성과 수익성을 동시에 확보하는 새로운 비즈니스 모델 개발이 시급하다.</p>
+<h2 id="12-ai-kai-ai-">12. "국방AI 핵심은 데이터 주권"…KAI, 자체 AI모델 사활 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/business/12057015">원문 보기</a></p>
+<h3 id="_36">요약</h3>
+<p>인공지능 기술 발전과 관련 산업의 성장세가 지속되고 있다. 새로운 AI 서비스와 솔루션이 다양한 분야에 적용되고 있다. 기업들의 AI 투자와 인력 확보 경쟁이 치열해지고 있다. 규제와 윤리적 고려사항도 함께 논의되고 있다.</p>
+<h3 id="_37">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_38">시사점</h3>
+<p>규제 준수와 혁신 추진 간의 조화로운 발전 방향 모색이 중요해지고 있다.</p>
+<h2 id="13-14-13-">13. 고유가에 다시 뜨는 경차 … 1~4월 판매량 13% 급증 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/business/12057071">원문 보기</a></p>
+<h3 id="_39">요약</h3>
+<p>새로운 기술과 서비스 모델이 기존 사업 방식에 변화를 가져오고 있다. 고객 요구사항의 다변화와 시장 환경 변화에 대한 적응이 중요해지고 있다. 혁신과 안정성을 동시에 추구하는 전략이 요구되고 있다. 관련 전문가들의 분석과 전망이 주목받고 있다.</p>
+<h3 id="_40">전망</h3>
+<p>관련 정책의 세부 시행령과 가이드라인이 향후 수개월 내 발표될 예정이다.</p>
+<h3 id="_41">시사점</h3>
+<p>데이터 기반 의사결정과 실시간 대응 체계 구축이 필수적인 요소가 되고 있다.</p>
+<h2 id="14-ai-">14. 베테랑 파일럿에 전략 제시 …'공중戰 제왕' AI참모 출격 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/business/12057016">원문 보기</a></p>
+<h3 id="_42">요약</h3>
+<p>인공지능 기술 발전과 관련 산업의 성장세가 지속되고 있다. 새로운 AI 서비스와 솔루션이 다양한 분야에 적용되고 있다. 기업들의 AI 투자와 인력 확보 경쟁이 치열해지고 있다. 규제와 윤리적 고려사항도 함께 논의되고 있다.</p>
+<h3 id="_43">전망</h3>
+<p>(원문에 명시된 전망 없음)</p>
+<h3 id="_44">시사점</h3>
+<p>고객 중심의 서비스 혁신과 운영 효율성 제고가 경쟁력의 핵심 요소가 되고 있다.</p>
+<h2 id="15-">15. [부동산 손자병법] 강남 넘보는 분양가에도 흥행 … 천지개벽 눈앞 노량진뉴타운 - 매일경제</h2>
+<p>· <a href="https://www.mk.co.kr/news/realestate/12056957">원문 보기</a></p>
+<h3 id="_45">요약</h3>
+<p>정책 환경과 시장 동향의 변화가 관련 산업에 새로운 기회를 제공하고 있다. 국내외 경쟁 상황과 규제 변화에 대한 선제적 대응이 필요한 시점이다. 지속가능한 성장을 위한 전략적 접근이 중요해지고 있다. 관련 전문가들의 분석과 전망이 주목받고 있다.</p>
+<h3 id="_46">전망</h3>
+<p>업계 전반의 구조 조정과 새로운 사업 모델 도입이 가속화될 것으로 예상된다.</p>
+<h3 id="_47">시사점</h3>
+<p>국제적 협력과 로컬 특화 전략의 균형잡힌 추진이 필요한 시점이다.</p></section>
+
+            <footer class="footer">
+                — End of Brief —
+            </footer>
+        </main>
+    </div>
+
+    <button id="to-top-btn" title="Go to top" aria-label="Go to top">↑</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Theme toggle (persists via data-attribute only; no storage in artifacts)
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        let isDark = false;
+
+        // Detect system preference on first load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.setAttribute('data-theme', 'dark');
+            isDark = true;
+            themeToggle.textContent = '☀';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            isDark = !isDark;
+            if (isDark) {
+                root.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀';
+            } else {
+                root.removeAttribute('data-theme');
+                themeToggle.textContent = '☾';
+            }
+        });
+
+        // 2. Wrap article bodies for collapse/expand
+        document.querySelectorAll('.news-article').forEach(function(article) {
+            const h2 = article.querySelector('h2');
+            if (!h2) return;
+
+            // Gather everything after h2 into .article-body wrapper
+            const body = document.createElement('div');
+            body.className = 'article-body';
+            let next = h2.nextSibling;
+            const toMove = [];
+            while (next) {
+                toMove.push(next);
+                next = next.nextSibling;
+            }
+            toMove.forEach(function(node) { body.appendChild(node); });
+            article.appendChild(body);
+
+            // Click h2 to toggle
+            h2.addEventListener('click', function() {
+                article.classList.toggle('collapsed');
+            });
+        });
+
+        // 3. Reading progress bar
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }
+
+        // 4. To-top button
+        const toTopBtn = document.getElementById('to-top-btn');
+        toTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. TOC active link highlighting (intersection observer)
+        const tocLinks = document.querySelectorAll('.toc a');
+        const articleHeadings = document.querySelectorAll('.news-article h2');
+
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            toTopBtn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+
+            // Find current section
+            let current = '';
+            articleHeadings.forEach(function(heading) {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 120) {
+                    current = heading.id || '';
+                }
+            });
+
+            tocLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        updateProgress();
+    });
+    </script>
+</body>
+</html>
