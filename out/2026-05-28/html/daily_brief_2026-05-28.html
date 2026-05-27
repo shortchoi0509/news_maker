@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Brief 2026-05-28</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <style>
+    /* ============================================
+       Editorial Design System
+       ============================================ */
+    :root {
+        --font-serif: 'Noto Serif KR', 'Source Serif Pro', Georgia, serif;
+        --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+        /* Light theme - warm neutral */
+        --bg-primary: #fafaf7;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f3f2ed;
+        --bg-card: #ffffff;
+        --border-subtle: #e8e6df;
+        --border-strong: #2c2c2c;
+
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --text-tertiary: #888580;
+        --text-muted: #a8a5a0;
+
+        --accent: #8b0000;
+        --accent-soft: rgba(139, 0, 0, 0.08);
+        --accent-line: #c9302c;
+
+        /* Semantic colors - 아이콘 블록 */
+        --color-summary: #1a4d3a;
+        --color-summary-bg: #ecf4ef;
+        --color-detail: #2c3e50;
+        --color-detail-bg: #f5f5f0;
+        --color-extra: #6b5b3e;
+        --color-extra-bg: #f7f3ea;
+        --color-insight: #5b3a8c;
+        --color-insight-bg: #f1ecf7;
+        --color-glossary: #8b6f47;
+        --color-glossary-bg: #faf6ef;
+
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+        --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #0f0f0e;
+        --bg-secondary: #1a1a18;
+        --bg-tertiary: #242420;
+        --bg-card: #1a1a18;
+        --border-subtle: #2e2e2a;
+        --border-strong: #e8e6df;
+
+        --text-primary: #f0ede4;
+        --text-secondary: #c8c5bd;
+        --text-tertiary: #8a8680;
+        --text-muted: #5a5650;
+
+        --accent: #e85d5d;
+        --accent-soft: rgba(232, 93, 93, 0.12);
+        --accent-line: #e85d5d;
+
+        --color-summary: #7bc49a;
+        --color-summary-bg: rgba(123, 196, 154, 0.1);
+        --color-detail: #a8c8e5;
+        --color-detail-bg: rgba(168, 200, 229, 0.08);
+        --color-extra: #d4b878;
+        --color-extra-bg: rgba(212, 184, 120, 0.1);
+        --color-insight: #c9a8e8;
+        --color-insight-bg: rgba(201, 168, 232, 0.1);
+        --color-glossary: #d4b896;
+        --color-glossary-bg: rgba(212, 184, 150, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        margin: 0;
+        padding: 0;
+        transition: background 0.3s ease, color 0.3s ease;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       Progress Bar
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--accent);
+        z-index: 1000;
+        transition: width 0.1s linear;
+    }
+
+    /* ============================================
+       Top Bar
+       ============================================ */
+    .top-bar {
+        position: sticky;
+        top: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .top-bar {
+        background-color: rgba(26, 26, 24, 0.85);
+    }
+
+    .top-bar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brand {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+    }
+
+    .top-bar-meta {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .theme-toggle {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all 0.2s;
+        padding: 0;
+    }
+
+    .theme-toggle:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: rotate(15deg);
+    }
+
+    /* ============================================
+       Main Layout
+       ============================================ */
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    /* ============================================
+       Sidebar / TOC
+       ============================================ */
+    #sidebar {
+        position: sticky;
+        top: 90px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-track { background: transparent; }
+    #sidebar::-webkit-scrollbar-thumb {
+        background: var(--border-subtle);
+        border-radius: 2px;
+    }
+
+    .sidebar-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-tertiary);
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: toc-counter;
+    }
+
+    .toc ul ul { display: none; }
+
+    .toc li {
+        counter-increment: toc-counter;
+        position: relative;
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 10px 0 10px 32px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        border-left: 2px solid transparent;
+        padding-left: 16px;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .toc a::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        position: absolute;
+        left: -24px;
+        top: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .toc a:hover {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .toc a.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        font-weight: 500;
+    }
+
+    .toc-empty {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Content Area
+       ============================================ */
+    .content-main { min-width: 0; }
+
+    .masthead {
+        border-bottom: 4px double var(--text-primary);
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
+    .masthead-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .masthead h1 {
+        font-family: var(--font-serif);
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px 0;
+        color: var(--text-primary);
+    }
+
+    .masthead-meta {
+        display: flex;
+        gap: 24px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .masthead-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .masthead-meta .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--text-muted);
+        border-radius: 50%;
+    }
+
+    /* ============================================
+       News Article Cards
+       ============================================ */
+    .executive-summary {
+        background: var(--accent-soft);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        padding: 32px 40px;
+        margin: 8px 0 36px;
+        position: relative;
+    }
+
+    .executive-summary h2 {
+        font-family: var(--font-serif);
+        font-size: 1.45rem;
+        margin: 0 0 18px;
+        padding: 0;
+        color: var(--text-primary);
+        border: none;
+    }
+
+    .executive-summary h2::after { content: none; }
+
+    .executive-summary p {
+        font-size: 1.0rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+        margin: 0 0 14px;
+    }
+
+    .executive-summary p:last-child { margin-bottom: 0; }
+
+    .news-article {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 40px 44px;
+        margin-bottom: 28px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-article::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+    }
+
+    .news-article:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-1px);
+    }
+
+    .news-article:hover::before {
+        height: 100%;
+    }
+
+    .news-article h2 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        margin: 0 0 8px 0;
+        color: var(--text-primary);
+        cursor: pointer;
+        user-select: none;
+        padding-right: 40px;
+        position: relative;
+    }
+
+    .news-article h2::after {
+        content: '−';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--text-muted);
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .news-article.collapsed h2::after {
+        content: '+';
+    }
+
+    .news-article h2:hover::after {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .source-link {
+        margin: 0 0 24px 0;
+    }
+
+    .source-link a {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-tertiary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+
+    .source-link a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .source-link .arrow {
+        transition: transform 0.2s;
+    }
+
+    .source-link a:hover .arrow {
+        transform: translateX(3px);
+    }
+
+    /* Article body content wrapper (foldable) */
+    .article-body {
+        max-height: 10000px;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 1;
+    }
+
+    .news-article.collapsed .article-body {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /* ============================================
+       Article Subtitle (HEADLINE)
+       ============================================ */
+    .article-subtitle {
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--accent);
+        padding: 20px 24px;
+        margin: 0 0 28px 0;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .subtitle-label {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .article-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .contents-divider {
+        height: 1px;
+        background: linear-gradient(to right, var(--border-subtle), transparent);
+        margin: 0 0 24px 0;
+    }
+
+    /* ============================================
+       News Blocks (icon rows)
+       ============================================ */
+    .news-block {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+        padding: 14px 18px;
+        margin: 8px 0;
+        border-radius: var(--radius-md);
+        line-height: 1.65;
+        font-size: 0.96rem;
+        transition: background 0.2s;
+    }
+
+    .block-icon {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2px;
+    }
+
+    .block-content {
+        color: var(--text-primary);
+    }
+
+    /* 핵심 요약 - 가장 강조 */
+    .block-summary {
+        background: var(--color-summary-bg);
+        border-left: 3px solid var(--color-summary);
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+    .block-summary .block-content {
+        color: var(--color-summary);
+        font-weight: 600;
+    }
+    [data-theme="dark"] .block-summary .block-content {
+        color: var(--color-summary);
+    }
+
+    /* 주요 내용 */
+    .block-detail {
+        background: transparent;
+        padding: 10px 18px 10px 0;
+        border-left: none;
+    }
+    .block-detail .block-icon {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    /* 추가 내용 */
+    .block-extra {
+        background: var(--color-extra-bg);
+        border-left: 2px dashed var(--color-extra);
+        margin: 12px 0;
+        font-size: 0.92rem;
+    }
+    .block-extra .block-content { color: var(--color-extra); }
+
+    /* 의미/영향 - 인사이트 */
+    .block-insight {
+        background: var(--color-insight-bg);
+        border: 1px solid transparent;
+        border-left: 3px solid var(--color-insight);
+        margin-top: 16px;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .block-insight .block-content { color: var(--color-insight); }
+
+    /* 용어 설명 */
+    .block-glossary {
+        background: var(--color-glossary-bg);
+        border-top: 1px solid var(--border-subtle);
+        border-radius: 0;
+        font-size: 0.88rem;
+        margin-top: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .block-glossary .block-content {
+        color: var(--color-glossary);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Miscellaneous
+       ============================================ */
+    .article-separator { display: none; }
+
+    p { margin: 12px 0; }
+
+    code {
+        font-family: var(--font-mono);
+        background: var(--bg-tertiary);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.88em;
+    }
+
+    pre {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-size: 0.88rem;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ============================================
+       To-top Button
+       ============================================ */
+    #to-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.2s;
+        z-index: 999;
+    }
+
+    #to-top-btn:hover { transform: translateY(-3px); }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        margin-top: 80px;
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* ============================================
+       Mobile Responsive
+       ============================================ */
+    @media (max-width: 900px) {
+        .top-bar-inner { padding: 12px 20px; }
+        .brand { font-size: 1.1rem; }
+        .top-bar-meta { gap: 10px; font-size: 0.7rem; }
+
+        .main-wrapper {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #sidebar {
+            position: relative;
+            top: 0;
+            max-height: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: var(--bg-card);
+        }
+
+        .masthead h1 { font-size: 2rem; }
+        .masthead-meta { flex-wrap: wrap; gap: 12px; font-size: 0.7rem; }
+
+        .news-article {
+            padding: 28px 24px;
+        }
+
+        .news-article h2 { font-size: 1.35rem; padding-right: 32px; }
+        .article-subtitle { padding: 16px 18px; }
+        .news-block { padding: 12px 14px; font-size: 0.92rem; }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-article {
+        animation: fadeUp 0.4s ease both;
+    }
+    </style>
+</head>
+<body>
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <span>The Daily Brief</span>
+            </div>
+            <div class="top-bar-meta">
+                <span>2026-05-28</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-label">Index · 뉴스 목록</div>
+            <div class="toc">
+                <div class="toc">
+<ul>
+<li><a href="#_1">목차</a></li>
+<li><a href="#_2">오늘의 한눈에 보기</a></li>
+<li><a href="#1-ai">1. "이젠 피지컬AI 대장주" 현대모비스의 질주</a></li>
+<li><a href="#2">2. "삼전 성과급 합의는 위법" 주주단체, 무효소송 착수</a></li>
+<li><a href="#3-gpt-ai">3. '챗GPT' 개발사 오픈AI 상장 카운트다운 … 수혜주 들썩</a></li>
+<li><a href="#4-x-etf">4. '스페이스X' 탄 우주ETF 인기몰이</a></li>
+<li><a href="#5">5. 피자헛 품는 前 현대차 부사장…"마케팅 경험 살려 승부할 것"</a></li>
+<li><a href="#6">6. [단독] "중복상장 허용 땐 모회사 주총 거쳐야"… 막판 진통</a></li>
+<li><a href="#7-pef-7">7. 세 불리는 PEF협의회 … 웰투시 등 7곳 승선</a></li>
+<li><a href="#8-ai-131">8. [미국 주식 돋보기] AI 올라탄 네비우스 … 올 들어 131% 급등</a></li>
+<li><a href="#9">9. 국민성장펀드 대형 위탁운용사…스카이레이크·에이티넘 선정</a></li>
+<li><a href="#10-ds-80-dx-80">10. DS노조 80% 찬성표 던질때 DX노조 80% 반대표 던졌다</a></li>
+<li><a href="#11-3000">11. 스카이브릿지, 한국 부동산 첫 투자…서울 오피스텔에 3000억</a></li>
+<li><a href="#12">12. 골드만삭스 "엔비디아 상승 여력 여전히 남아"</a></li>
+<li><a href="#13-11">13. 월가 "서진 실적 부진에도 올연말 목표주가 11만원"</a></li>
+<li><a href="#14-sk-es-sk">14. [단독] 사업재편 SK-E&amp;S, 자회사 SK바이오랜드 매각 추진</a></li>
+<li><a href="#15-ai">15. '갤럭시 AI' 호조 삼성의 승부수…"반도체 중국사업 접어야 할 때"</a></li>
+<li><a href="#16">16. 선진국들 "메모리 확보해야"…'공급 부족' 현실화하나</a></li>
+<li><a href="#17-ai">17. 뜨는 AI수혜주 자켄·모두투어…'이상적 흐름'</a></li>
+<li><a href="#18">18. "엄마를 부탁해" 효도산업 대어 낚을 곳은</a></li>
+<li><a href="#19-1-44-5">19. 부산국제금융센터, 1분기 순이익 44억 5% 감소</a></li>
+<li><a href="#20">20. [단독] 카드사들 온라인 전용상품 줄줄이 출시…"보험료 혜택"</a></li>
+<li><a href="#21-30">21. 타이어뱅크 '30% 수수료율' 논란에도 성장가도</a></li>
+<li><a href="#22-6">22. "6년 공사해도 준공 못해"…공공주택 체감 재고 감소 "진짜"</a></li>
+<li><a href="#23-9-14">23. 메트로9, 잠실역 인근 정비사업 수주…사업비 1.4조원</a></li>
+<li><a href="#24">24. "청약 안된다더니 당첨" 민간택지 분양권 투기 기승</a></li>
+<li><a href="#25-ai">25. 아마존 "韓 파트너와 AI데이터센터 구축할 것"</a></li>
+<li><a href="#26-4">26. 신입사원 초봉 4천만원 투자은행…"상반기 실적 좋아"</a></li>
+<li><a href="#27-mt">27. [MT이슈]'어둠의 경영' 프랜차이즈 본부들…가맹점 손실 뻔히 알면서</a></li>
+<li><a href="#28">28. "나는 억대 연봉자" 자부심도 잠깐…청년 고민 깊어졌다</a></li>
+<li><a href="#29-19">29. 코로나19 신약의 역설 … 성공한 약일수록 일찌감치 시장 퇴출</a></li>
+<li><a href="#30">30. 알리 쿠팡 '맞불'…중국 직구업체 이어 토종 플랫폼도 중국 진출</a></li>
+<li><a href="#31-3045">31. "나이키 에어포스 30만원→45만원" 사치품도 된 스니커즈</a></li>
+<li><a href="#32">32. 달러 강세 장기화에 "자국 통화 절하" 신흥국 엔저현상</a></li>
+<li><a href="#33">33. 中서 불리는 '삼성 공장 철수설' 딜레마…투자냐 철수냐</a></li>
+<li><a href="#34">34. 현대차 '기능성 소재' 내재화…벤틀리급 하이엔드 내장재</a></li>
+<li><a href="#35">35. 세아홀딩스, 전기차 급속충전기 사업 진출</a></li>
+<li><a href="#36-lgsk">36. LG전자·SK스퀘어·펄어비스 등, 예비상장지수에 편입</a></li>
+<li><a href="#37-pwc-ics">37. 삼일PwC "블랙록 ICS 위법 논란, 별도 법인 설립하면 해결"</a></li>
+<li><a href="#38-20-pf">38. 하나저축은행, 20억짜리 부동산 PF대출 부실 인정</a></li>
+<li><a href="#39-15">39. "메가스터디 15년 주주" 개미, 상장폐지 무효 청구</a></li>
+<li><a href="#40">40. 서소문고가 붕괴에 '인프라 안전관리' 도마 위</a></li>
+<li><a href="#41">41. "타워크레인 파업 때문에" 입주예정자들 발만 동동</a></li>
+<li><a href="#42-1-2">42. 공공기관 반부패 청렴도 1위 예보·2위 한은…꼴찌는?</a></li>
+<li><a href="#43-1">43. '中 조선 1위 탈환' 위기감…조선업계 "수주량보다 수익성"</a></li>
+<li><a href="#44-1">44. 지하철 1호선 지연에 "내가 왜"…이색 보상상품 뜬다</a></li>
+<li><a href="#45">45. 의대정원 확정에 의료진 집단행동 예고…정부 "불법시 엄정 대응"</a></li>
+<li><a href="#46-5">46. 정부 "수산식품 수출 세계 5위 도전"…韓食 세계화 시동</a></li>
+<li><a href="#47-90">47. 백화점 매장 90% '무인화'…"고객 체험은 늘고 비용은 줄고"</a></li>
+<li><a href="#48-lx">48. LX·센스톤 합병…비상장 토지정보 기업 덩치 키운다</a></li>
+<li><a href="#49-5">49. 5년치 부족 알루미늄, 풀어줄 '마법사'는</a></li>
+<li><a href="#50">50. 빌게이츠 "디지털화폐 모든 거래에서 현금 대체할 것"</a></li>
+<li><a href="#51">51. 마르디 메크르디, 아시아 첫 상장…"지속가능한 패션"</a></li>
+<li><a href="#52">52. 한투증권 "英 거래소 오차드글로벌펀드 상장완료"</a></li>
+<li><a href="#53-3">53. 뷰웍스 3분기 연속 적자…가상화폐 하락 여파</a></li>
+<li><a href="#54-5-15-1">54. 5세대 이동통신 글로벌 특허 韓 15%로 1위</a></li>
+<li><a href="#55">55. "마이데이터 사업, 핀테크에 유리하게"…규제 완화 신호탄</a></li>
+<li><a href="#56">56. 후지필름·소니 등 日기업들 韓 바이오 벤처에 러브콜</a></li>
+<li><a href="#57">57. [박인호의 전망대]美 달러 패권시대 저물까</a></li>
+</ul>
+</div>
+
+            </div>
+        </nav>
+
+        <main class="content-main">
+            <header class="masthead">
+                <div class="masthead-kicker">Daily Market Brief</div>
+                <h1>Daily Brief 2026-05-28</h1>
+                <div class="masthead-meta">
+                    <span>📅 2026-05-28</span>
+                    <span class="dot"></span>
+                    <span>📰 59 Articles</span>
+                    <span class="dot"></span>
+                    <span>KST</span>
+                </div>
+            </header>
+
+            
+<p>title: "매일경제 데일리 브리프"
+date: "2026-05-28"
+articles: 57</p>
+<section class="executive-summary"><h2 id="_1">목차</h2>
+<p><strong>1. "이젠 피지컬AI 대장주" 현대모비스의 질주</strong>
+<strong>2. "삼전 성과급 합의는 위법" 주주단체, 무효소송 착수</strong>
+<strong>3. '챗GPT' 개발사 오픈AI 상장 카운트다운 … 수혜주 들썩</strong>
+<strong>4. '스페이스X' 탄 우주ETF 인기몰이</strong>
+<strong>5. 피자헛 품는 前 현대차 부사장…"마케팅 경험 살려 승부할 것"</strong>
+<strong>6. [단독] "중복상장 허용 땐 모회사 주총 거쳐야"… 막판 진통</strong>
+<strong>7. 세 불리는 PEF협의회 … 웰투시 등 7곳 승선</strong>
+<strong>8. [미국 주식 돋보기] AI 올라탄 네비우스 … 올 들어 131% 급등</strong>
+<strong>9. 국민성장펀드 대형 위탁운용사…스카이레이크·에이티넘 선정</strong>
+<strong>10. DS노조 80% 찬성표 던질때 DX노조 80% 반대표 던졌다</strong>
+<strong>11. 스카이브릿지, 한국 부동산 첫 투자…서울 오피스텔에 3000억</strong>
+<strong>12. 골드만삭스 "엔비디아 상승 여력 여전히 남아"</strong>
+<strong>13. 월가 "서진 실적 부진에도 올연말 목표주가 11만원"</strong>
+<strong>14. [단독] 사업재편 SK-E&amp;S, 자회사 SK바이오랜드 매각 추진</strong>
+<strong>15. '갤럭시 AI' 호조 삼성의 승부수…"반도체 중국사업 접어야 할 때"</strong>
+<strong>16. 선진국들 "메모리 확보해야"…'공급 부족' 현실화하나</strong>
+<strong>17. 뜨는 AI수혜주 자켄·모두투어…'이상적 흐름'</strong>
+<strong>18. "엄마를 부탁해" 효도산업 대어 낚을 곳은</strong>
+<strong>19. 부산국제금융센터, 1분기 순이익 44억 5% 감소</strong>
+<strong>20. [단독] 카드사들 온라인 전용상품 줄줄이 출시…"보험료 혜택"</strong>
+<strong>21. 타이어뱅크 '30% 수수료율' 논란에도 성장가도</strong>
+<strong>22. "6년 공사해도 준공 못해"…공공주택 체감 재고 감소 "진짜"</strong>
+<strong>23. 메트로9, 잠실역 인근 정비사업 수주…사업비 1.4조원</strong>
+<strong>24. "청약 안된다더니 당첨" 민간택지 분양권 투기 기승</strong>
+<strong>25. 아마존 "韓 파트너와 AI데이터센터 구축할 것" - 매일경제</strong>
+<strong>26. 신입사원 초봉 4천만원 투자은행…"상반기 실적 좋아"</strong>
+<strong>27. [MT이슈]'어둠의 경영' 프랜차이즈 본부들…가맹점 손실 뻔히 알면서</strong>
+<strong>28. "나는 억대 연봉자" 자부심도 잠깐…청년 고민 깊어졌다</strong>
+<strong>29. 코로나19 신약의 역설 … 성공한 약일수록 일찌감치 시장 퇴출</strong>
+<strong>30. 알리 쿠팡 '맞불'…중국 직구업체 이어 토종 플랫폼도 중국 진출</strong>
+<strong>31. "나이키 에어포스 30만원→45만원" 사치품도 된 스니커즈</strong>
+<strong>32. 달러 강세 장기화에 "자국 통화 절하" 신흥국 엔저현상</strong>
+<strong>33. 中서 불리는 '삼성 공장 철수설' 딜레마…투자냐 철수냐</strong>
+<strong>34. 현대차 '기능성 소재' 내재화…벤틀리急 하이엔드 내장재</strong>
+<strong>35. 세아홀딩스, 전기차 급속충전기 사업 진출</strong>
+<strong>36. LG전자·SK스퀘어·펄어비스 등, 예비상장지수에 편입</strong>
+<strong>37. 삼일PwC "블랙록 ICS 위법 논란, 별도 법인 설립하면 해결"</strong>
+<strong>38. 하나저축은행, 20억짜리 부동산 PF대출 부실 인정</strong>
+<strong>39. "메가스터디 15년 주주" 개미, 상장폐지 무효 청구</strong>
+<strong>40. 서소문고가 붕괴에 '인프라 안전관리' 도마 위</strong>
+<strong>41. "타워크레인 파업 때문에" 입주예정자들 발만 동동</strong>
+<strong>42. 공공기관 반부패 청렴도 1위 예보·2위 한은…꼴찌는?</strong>
+<strong>43. '中 조선 1위 탈환' 위기감…조선업계 "수주량보다 수익성"</strong>
+<strong>44. 지하철 1호선 지연에 "내가 왜"…이색 보상상품 뜬다</strong>
+<strong>45. 의대정원 확정에 의료진 집단행동 예고…정부 "불법시 엄정 대응"</strong>
+<strong>46. 정부 "수산식품 수출 세계 5위 도전"…韓食 세계화 시동</strong>
+<strong>47. 백화점 매장 90% '무인화'…"고객 체험은 늘고 비용은 줄고"</strong>
+<strong>48. LX·센스톤 합병…비상장 토지정보 기업 덩치 키운다</strong>
+<strong>49. 5년치 부족 알루미늄, 풀어줄 '마법사'는</strong>
+<strong>50. 빌게이츠 "디지털화폐 모든 거래에서 현금 대체할 것"</strong>
+<strong>51. 마르디 메크르디, 아시아 첫 상장…"지속가능한 패션"</strong>
+<strong>52. 한투증권 "英 거래소 오차드글로벌펀드 상장완료"</strong>
+<strong>53. 뷰웍스 3분기 연속 적자…가상화폐 하락 여파</strong>
+<strong>54. 5세대 이동통신 글로벌 특허 韓 15%로 1위</strong>
+<strong>55. "마이데이터 사업, 핀테크에 유리하게"…규제 완화 신호탄</strong>
+<strong>56. 후지필름·소니 등 日기업들 韓 바이오 벤처에 러브콜</strong>
+<strong>57. [박인호의 전망대]美 달러 패권시대 저물까</strong></p>
+<h2 id="_2">오늘의 한눈에 보기</h2>
+<p>기술주 슈퍼사이클 속에서 AI와 로봇 분야가 새로운 투자 테마로 급부상했다. 현대모비스는 휴머노이드 로봇용 액추에이터 독점 공급으로 주가가 1년 만에 3배 가까이 뛰며 피지컬AI 대장주로 주목받고 있고, 오픈AI의 IPO 소식은 관련 ETF와 수혜주들의 급등을 이끌었다. 스페이스X의 나스닥 상장 기대감으로 우주 테마 ETF도 개인 투자자들의 순매수 1위를 기록하며 새로운 투자 열풍을 보여줬다 [#1, #3, #4]. </p>
+<p>반도체와 메모리 시장에서는 공급 부족 현상이 뚜렷해지고 있다. 선진국들이 메모리 반도체 확보에 나서고 있으며, 삼성전자는 갤럭시 AI 호조 속에서도 중국 사업 접기를 검토하는 상황이다. 메모리 공급 부족이 현실화되면서 관련 기업들의 실적 개선 기대감이 높아지고 있다 [#15, #16].</p>
+<p>성과급을 둘러싼 노사갈등이 확산되고 있다. 삼성전자 주주단체가 '세전 영업이익' 기준 성과급을 위법한 배당으로 보고 무효소송을 제기했고, 이러한 갈등은 다른 대기업으로도 번지고 있다. DS와 DX 노조의 성과급 찬반 결과가 정반대로 나타나는 등 기업별로 상황이 달라지고 있다 [#2, #10].</p>
+<p>부동산 시장에서는 공급 부족 문제가 심화되고 있다. 공공주택 준공이 6년째 지연되고 있고, 타워크레인 파업으로 건설 현장이 마비되는 등 주택 공급에 차질이 빚어지고 있다. 반면 해외 자본의 국내 부동산 투자는 활발해 스카이브릿지가 서울 오피스텔에 3000억원을 투자하기로 했다 [#11, #22, #41].</p>
+<p>사회 인프라의 안전 관리 이슈도 부각됐다. 서소문고가 붕괴 사고로 인프라 안전관리의 중요성이 재조명되고 있으며, 의료진 집단행동 예고로 의료 시스템의 안정성에도 우려가 커지고 있다 [#40, #45].</p>
+<h2 id="1-ai">1. "이젠 피지컬AI 대장주" 현대모비스의 질주</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059143">원문 보기</a></p>
+<h3 id="_3">요약</h3>
+<p>현대모비스가 휴머노이드 로봇 '아틀라스'에 액추에이터 부품을 독점 공급하면서 '피지컬 AI 대장주'로 주목받고 있다. 현대모비스 주가는 1년 만에 3배 가까이 급등했으며, CES 2026에서 선보인 휴머노이드 로봇 기술이 제조 현장의 단순 반복 작업과 위험한 작업을 대신할 수 있을 것으로 기대된다. 액추에이터는 로봇 전체 제조 원가의 상당 부분을 차지하는 고부가가치 핵심 부품이다. 현대차그룹은 로봇 기술 개발과 온디바이스 AI 칩 개발을 통해 자율성과 판단 능력을 높이는 기술에 적극 투자하고 있다.</p>
+<h3 id="_4">전망</h3>
+<p>휴머노이드 로봇이 제조 현장에서 단순 반복 작업이나 위험한 작업을 대신하면서 안전하고 효율적인 환경을 제공할 것으로 예상된다. 온디바이스 AI 칩과 같은 기술 발전은 물류, 제조 등 다양한 산업 분야의 자동화를 가속화하고 사회 전반의 생산성 향상으로 이어질 것으로 기대된다.</p>
+<h3 id="_5">시사점</h3>
+<p>현대모비스의 휴머노이드 로봇 핵심 부품 독점 공급은 제조업의 자동화 혁신을 선도할 수 있는 기회를 제공한다.</p>
+<h2 id="2">2. "삼전 성과급 합의는 위법" 주주단체, 무효소송 착수</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059040">원문 보기</a></p>
+<h3 id="_6">요약</h3>
+<p>삼성전자 주주단체가 회사의 '세전 영업이익' 기준 성과급 지급을 위법한 배당으로 보고 무효소송을 제기했다. 주주단체는 성과급 산정 방식이 상법상 배당 절차를 거치지 않은 위법한 배당이며, 회사 자금의 외부 유출에 해당해 주주총회 결의가 필요하다고 주장하고 있다. 이러한 법적 분쟁은 기업 경영의 불확실성을 증가시키고 투자자 신뢰도 하락을 우려케 한다. 법원 판결에 따라 향후 기업들의 성과급 지급 기준과 절차에 대한 중요한 선례가 될 수 있다.</p>
+<h3 id="_7">전망</h3>
+<p>법원에서 주주 단체의 주장이 받아들여진다면 앞으로 기업들이 성과급을 지급할 때 주주총회 승인 등 추가적인 절차를 거쳐야 할 가능성이 높다. 이는 성과급 지급 방식의 표준화 및 제도 개선을 촉진할 것으로 보인다.</p>
+<h3 id="_8">시사점</h3>
+<p>삼성전자의 성과급 관련 법적 분쟁은 대기업 성과급 지급 방식의 투명성과 주주 가치 보호에 대한 중요한 시험대가 되고 있다.</p>
+<h2 id="3-gpt-ai">3. '챗GPT' 개발사 오픈AI 상장 카운트다운 … 수혜주 들썩</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059132">원문 보기</a></p>
+<h3 id="_9">요약</h3>
+<p>오픈AI의 기업공개(IPO) 추진이 본격화되면서 관련 수혜주들이 급등하고 있다. 오픈AI의 최대 투자자인 소프트뱅크는 지분 10%를 보유하고 있으며, 총 투자 규모 650억 달러를 통해 10월까지 지분 13%를 확보할 전망이다. 소프트뱅크 주가는 일주일 새 35.65% 상승했고, 시장에서는 오픈AI의 기업가치를 최대 1조 달러로 평가하고 있다. 국내에서는 삼성SDS와 LG CNS가 챗GPT 엔터프라이즈 및 챗GPT 에듀의 리셀러 파트너십을 체결해 직접적인 수혜 기대감을 받고 있다.</p>
+<h3 id="_10">전망</h3>
+<p>오픈AI의 1조 달러 규모 IPO는 역사상 최대 규모로 AI 기술 기업들의 증시 상장 열기를 더욱 뜨겁게 달굴 것으로 예상된다. IPO를 통해 확보한 자금을 인공지능 인프라 사업 확대에 투입할 계획이다.</p>
+<h3 id="_11">시사점</h3>
+<p>오픈AI의 IPO는 AI 산업 전반의 폭발적 성장과 대규모 자본 유입 가능성을 보여주는 상징적 사건이다.</p>
+<h2 id="4-x-etf">4. '스페이스X' 탄 우주ETF 인기몰이</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059142">원문 보기</a></p>
+<h3 id="_12">요약</h3>
+<p>스페이스X의 나스닥 조기 상장 소식으로 우주 테마 ETF가 개인 투자자들에게 인기를 끌고 있다. TIGER 미국우주테크 ETF는 최근 일주일간 7801억원의 개인 순매수를 기록하며 반도체 ETF를 제치고 1위를 차지했다. 스페이스X 상장 기대감으로 로켓랩, AST스페이스모바일 등 우주 관련 기업들의 주가가 급등했고, 해당 ETF들의 주간 수익률은 40%에 육박했다. 시장에서는 스페이스X의 기업 가치를 최대 1조 7500억 달러로 추정하고 있다.</p>
+<h3 id="_13">전망</h3>
+<p>6월 12일로 예정된 스페이스X 상장이 구체화되면서 투자자들의 자금이 우주 테마 ETF로 대거 몰릴 것으로 예상된다. 상장 후 확보한 자금을 인공지능 인프라 사업 확대에 투입할 계획이다.</p>
+<h3 id="_14">시사점</h3>
+<p>스페이스X ETF의 폭발적 인기는 새로운 투자 테마에 대한 개인 투자자들의 뜨거운 관심을 보여준다.</p>
+<h2 id="5">5. 피자헛 품는 前 현대차 부사장…"마케팅 경험 살려 승부할 것"</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059031">원문 보기</a></p>
+<h3 id="_15">요약</h3>
+<p>전 현대차 부사장 출신 김기호 대표가 피자헛 브랜드를 인수하며 외식업계에 뛰어들었다. 김 대표는 현대차에서 30년간 근무하며 마케팅 전문가로 활동했고, 특히 소나타와 그랜저 브랜드 전략을 담당했다. 피자헛은 과거 국내 피자 시장 1위였으나 현재는 시장 점유율이 하락한 상태다. 김 대표는 현대차에서 쌓은 브랜드 마케팅 노하우와 고객 경험 개선 전략을 피자헛에 적용해 브랜드 재건을 추진할 계획이다.</p>
+<h3 id="_16">전망</h3>
+<p>김 대표는 피자헛의 브랜드 가치 제고와 매장 운영 효율성 개선을 통해 시장 점유율 회복을 추진할 예정이다. 현대차에서 축적한 마케팅 경험을 바탕으로 피자헛만의 차별화된 브랜드 전략을 수립할 것으로 보인다.</p>
+<h3 id="_17">시사점</h3>
+<p>자동차업계의 마케팅 전문가가 외식업으로 업종을 바꾼 것은 산업간 인재 이동과 경험 융합의 새로운 사례를 제시한다.</p>
+<h2 id="6">6. [단독] "중복상장 허용 땐 모회사 주총 거쳐야"… 막판 진통</h2>
+<p><code>정책</code> · <a href="https://www.mk.co.kr/news/stock/12059141">원문 보기</a></p>
+<h3 id="_18">요약</h3>
+<p>정부가 자회사의 중복상장을 허용하되 모회사 주주총회 승인을 의무화하는 방안을 검토하고 있다. 현행법상 자회사가 모회사와 같은 거래소에 상장하는 것은 금지되어 있으나, 이를 완화해 기업의 선택권을 늘리자는 취지다. 하지만 소액주주 보호와 기업 지배구조 투명성을 위해 주주총회 승인 절차를 거치도록 하는 조건을 붙일 예정이다. 이 제도는 기업들의 자금 조달 다양화와 성장 기회 확대에 도움이 될 것으로 기대된다.</p>
+<h3 id="_19">전망</h3>
+<p>중복상장 허용 정책이 확정되면 기업들의 자본 조달 방식이 다양해지고 상장 시장의 활성화로 이어질 것으로 예상된다. 주주총회 승인 의무화로 소액주주 권익 보호도 강화될 전망이다.</p>
+<h3 id="_20">시사점</h3>
+<p>중복상장 허용은 기업의 자금 조달 선택권을 확대하면서도 주주 보호 장치를 마련한 균형잡힌 정책 접근을 보여준다.</p>
+<h2 id="7-pef-7">7. 세 불리는 PEF협의회 … 웰투시 등 7곳 승선</h2>
+<p><code>금융</code> · <a href="https://www.mk.co.kr/news/economy/12059138">원문 보기</a></p>
+<h3 id="_21">요약</h3>
+<p>사모펀드(PEF) 업계의 자율규제기구인 PEF협의회 설립이 추진되고 있다. 웰투시, 맥쿼리, 골드만삭스, 칼라일, KKR, 베인캐피털, 센터브리지 등 7개 PEF 운용사가 협의회 참여 의사를 밝혔다. 협의회는 PEF 업계의 투명성 제고와 투자자 보호를 위한 자율규제 역할을 담당할 예정이다. 최근 PEF 관련 분쟁과 논란이 잇따르면서 업계 차원의 자정 노력이 필요하다는 목소리가 높아졌다.</p>
+<h3 id="_22">전망</h3>
+<p>PEF협의회가 설립되면 업계의 자율규제 체계가 강화되고 투자자 보호 및 시장 신뢰도 향상에 기여할 것으로 예상된다. 협의회를 통해 PEF 운용의 투명성과 건전성이 제고될 전망이다.</p>
+<h3 id="_23">시사점</h3>
+<p>PEF협의회 설립은 급성장한 사모펀드 시장의 성숙도를 높이고 자율규제 시스템 정착을 위한 중요한 발걸음이다.</p>
+<h2 id="8-ai-131">8. [미국 주식 돋보기] AI 올라탄 네비우스 … 올 들어 131% 급등</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059137">원문 보기</a></p>
+<h3 id="_24">요약</h3>
+<p>미국 바이오 기업 네비우스가 AI 치료법 개발로 올해 들어 131% 급등했다. 네비우스는 암 치료용 AI 플랫폼을 개발하는 회사로, 인공지능을 활용한 개인 맞춤형 암 치료법 연구에 집중하고 있다. 최근 AI 기술을 활용한 신약 개발과 치료법 혁신에 대한 관심이 높아지면서 관련 바이오 기업들의 주가가 큰 폭으로 상승하고 있다. 네비우스는 특히 면역항암제와 AI 기술을 결합한 치료법 개발로 주목받고 있다.</p>
+<h3 id="_25">전망</h3>
+<p>AI를 활용한 개인 맞춤형 치료법 개발이 본격화되면서 관련 바이오 기업들의 성장세가 이어질 것으로 예상된다. 네비우스의 AI 치료 플랫폼이 임상시험에서 좋은 결과를 보이면 추가 상승 여력이 있을 것으로 보인다.</p>
+<h3 id="_26">시사점</h3>
+<p>네비우스의 급등은 AI 기술과 바이오 산업의 융합이 새로운 투자 기회를 창출하고 있음을 보여준다.</p>
+<h2 id="9">9. 국민성장펀드 대형 위탁운용사…스카이레이크·에이티넘 선정</h2>
+<p><code>금융</code> · <a href="https://www.mk.co.kr/news/economy/12059135">원문 보기</a></p>
+<h3 id="_27">요약</h3>
+<p>정부의 국민성장펀드 대형 위탁운용사로 스카이레이크인베스트먼트와 에이티넘인베스트먼트가 선정됐다. 국민성장펀드는 정부가 벤처·스타트업 생태계 활성화를 위해 조성한 대규모 모펀드다. 스카이레이크는 벤처캐피털과 사모펀드 운용 경험을 보유하고 있으며, 에이티넘은 대체투자 전문 운용사로 평가받고 있다. 두 운용사는 각각 수천억원 규모의 자금을 위탁받아 중소기업과 벤처기업에 투자할 예정이다.</p>
+<h3 id="_28">전망</h3>
+<p>국민성장펀드를 통한 대규모 자금이 벤처·스타트업 생태계에 유입되면서 중소기업의 성장 지원이 강화될 것으로 예상된다. 선정된 운용사들의 투자 성과에 따라 추가 자금 배정도 검토될 전망이다.</p>
+<h3 id="_29">시사점</h3>
+<p>국민성장펀드의 대형 위탁운용사 선정은 정부 주도의 벤처·스타트업 육성 정책이 구체화되고 있음을 보여준다.</p>
+<h2 id="10-ds-80-dx-80">10. DS노조 80% 찬성표 던질때 DX노조 80% 반대표 던졌다</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059134">원문 보기</a></p>
+<h3 id="_30">요약</h3>
+<p>DS 노조와 DX 노조의 성과급 협상 결과가 정반대로 나타났다. DS 노조는 80% 찬성으로 성과급 지급에 합의한 반면, DX 노조는 80% 반대로 성과급 요구안을 거부했다. 이는 같은 그룹 내에서도 사업부별로 성과급에 대한 노조 입장이 크게 달라지고 있음을 보여준다. 최근 대기업들의 성과급을 둘러싼 노사 갈등이 확산되는 가운데, 기업별·사업부별로 협상 결과가 엇갈리는 양상이다.</p>
+<h3 id="_31">전망</h3>
+<p>성과급을 둘러싼 노사 협상이 기업별, 사업부별로 다른 결과를 보이면서 향후 협상 과정이 더욱 복잡해질 것으로 예상된다. 각 노조의 교섭력과 해당 사업부의 실적에 따라 결과가 달라질 전망이다.</p>
+<h3 id="_32">시사점</h3>
+<p>동일 그룹 내 노조들의 상반된 성과급 협상 결과는 노사관계의 개별화와 복잡성을 보여준다.</p>
+<h2 id="11-3000">11. 스카이브릿지, 한국 부동산 첫 투자…서울 오피스텔에 3000억</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12059133">원문 보기</a></p>
+<h3 id="_33">요약</h3>
+<p>미국 헤지펀드 스카이브릿지캐피털이 한국 부동산에 첫 투자를 단행한다고 발표했다. 서울 강남구 오피스텔 프로젝트에 3000억원을 투자할 예정이며, 이는 스카이브릿지의 한국 부동산 시장 진출 첫 사례다. 해당 프로젝트는 강남 핵심 지역에 위치한 대형 오피스텔 단지로, 임대 수익성과 자산 가치 상승 가능성이 높다고 평가받고 있다. 스카이브릿지는 한국의 부동산 시장 성장 잠재력과 안정성을 높이 평가한다고 밝혔다.</p>
+<h3 id="_34">전망</h3>
+<p>스카이브릿지의 첫 한국 부동산 투자가 성공하면 추가 투자와 다른 해외 자본의 유입으로 이어질 가능성이 있다. 강남 오피스텔 시장의 활성화에도 기여할 것으로 예상된다.</p>
+<h3 id="_35">시사점</h3>
+<p>글로벌 헤지펀드의 국내 부동산 투자는 한국 부동산 시장의 국제적 매력도와 안정성을 입증하는 사례다.</p>
+<h2 id="12">12. 골드만삭스 "엔비디아 상승 여력 여전히 남아"</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059131">원문 보기</a></p>
+<h3 id="_36">요약</h3>
+<p>골드만삭스가 엔비디아의 주가 상승 여력이 여전히 남아있다고 분석했다. 엔비디아는 AI 반도체 시장의 독점적 지위를 바탕으로 지속적인 성장이 예상되며, 데이터센터용 GPU 수요가 급증하고 있다고 평가했다. 골드만삭스는 엔비디아의 목표주가를 상향 조정하며 매수 의견을 유지했다. AI 인프라 구축 수요가 계속 증가하고 있고, 엔비디아가 이 시장에서 압도적인 경쟁 우위를 유지하고 있다는 점이 긍정적 요인으로 작용하고 있다.</p>
+<h3 id="_37">전망</h3>
+<p>AI 데이터센터 구축 수요가 지속적으로 증가하면서 엔비디아의 GPU 판매량과 수익성이 더욱 개선될 것으로 예상된다. 엔비디아의 차세대 AI 칩 출시도 주가 상승 요인으로 작용할 전망이다.</p>
+<h3 id="_38">시사점</h3>
+<p>골드만삭스의 엔비디아 강세 전망은 AI 반도체 시장의 폭발적 성장세가 지속될 것이라는 시장의 기대감을 반영한다.</p>
+<h2 id="13-11">13. 월가 "서진 실적 부진에도 올연말 목표주가 11만원"</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059130">원문 보기</a></p>
+<h3 id="_39">요약</h3>
+<p>월가 증권사들이 서진시스템의 실적 부진에도 불구하고 올해 말 목표주가를 11만원으로 제시했다. 서진시스템은 반도체 장비 업체로 최근 실적이 부진했지만, 메모리 반도체 투자 사이클 회복과 AI 반도체 수요 증가로 하반기부터 실적 개선이 예상된다고 분석했다. 특히 삼성전자와 SK하이닉스의 메모리 투자 재개와 중국 반도체 장비 수요 증가가 긍정적 요인으로 작용할 것으로 전망된다.</p>
+<h3 id="_40">전망</h3>
+<p>하반기부터 메모리 반도체 업체들의 설비 투자가 본격화되면서 서진시스템의 수주량과 실적이 크게 개선될 것으로 예상된다. AI 반도체 관련 장비 수요도 추가 성장 동력이 될 전망이다.</p>
+<h3 id="_41">시사점</h3>
+<p>서진시스템에 대한 월가의 긍정적 전망은 반도체 장비 업계의 회복세가 본격화될 것이라는 기대감을 보여준다.</p>
+<h2 id="14-sk-es-sk">14. [단독] 사업재편 SK-E&amp;S, 자회사 SK바이오랜드 매각 추진</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059129">원문 보기</a></p>
+<h3 id="_42">요약</h3>
+<p>SK E&amp;S가 사업 재편의 일환으로 자회사 SK바이오랜드 매각을 추진하고 있다. SK바이오랜드는 화장품 원료와 바이오 소재를 생산하는 회사로, SK E&amp;S의 핵심 사업인 LNG와 신재생에너지와는 사업 연관성이 낮다고 판단된 것으로 보인다. SK E&amp;S는 에너지 사업에 집중하기 위해 비핵심 자산을 정리하고 있으며, SK바이오랜드 매각 대금은 LNG 터미널 건설과 신재생에너지 투자에 활용할 계획이다.</p>
+<h3 id="_43">전망</h3>
+<p>SK E&amp;S의 비핵심 자산 매각이 완료되면 에너지 사업 집중도가 높아지고 재무 건전성도 개선될 것으로 예상된다. 매각 대금을 활용한 LNG와 신재생에너지 사업 확장도 가속화될 전망이다.</p>
+<h3 id="_44">시사점</h3>
+<p>SK E&amp;S의 SK바이오랜드 매각은 기업들의 사업 집중화와 포트폴리오 재편 트렌드를 보여주는 사례다.</p>
+<h2 id="15-ai">15. '갤럭시 AI' 호조 삼성의 승부수…"반도체 중국사업 접어야 할 때"</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059128">원문 보기</a></p>
+<h3 id="_45">요약</h3>
+<p>삼성전자가 갤럭시 AI의 호조에도 불구하고 반도체 중국 사업 축소를 검토하고 있다. 미중 기술패권 경쟁이 심화되면서 중국 시장에서의 리스크가 증가하고 있고, 미국 정부의 대중 반도체 제재도 강화되고 있는 상황이다. 삼성전자는 중국 의존도를 줄이고 미국과 유럽 등 다른 지역으로 사업을 다변화하는 방향을 검토하고 있다. 갤럭시 AI 기능이 소비자들에게 긍정적인 반응을 얻으면서 스마트폰 사업의 경쟁력도 강화되고 있다.</p>
+<h3 id="_46">전망</h3>
+<p>삼성전자의 중국 사업 비중 축소가 현실화되면 중국 이외 지역에서의 사업 확대와 투자가 가속화될 것으로 예상된다. 갤럭시 AI 성공을 바탕으로 프리미엄 스마트폰 시장에서의 점유율 확대도 기대된다.</p>
+<h3 id="_47">시사점</h3>
+<p>삼성전자의 중국 사업 재검토는 글로벌 기술패권 경쟁 심화 속에서 기업들이 직면한 지정학적 리스크 관리의 필요성을 보여준다.</p>
+<h2 id="16">16. 선진국들 "메모리 확보해야"…'공급 부족' 현실화하나</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059127">원문 보기</a></p>
+<h3 id="_48">요약</h3>
+<p>선진국들이 메모리 반도체 확보에 나서면서 글로벌 공급 부족 현상이 현실화되고 있다. 미국과 유럽 등은 AI 인프라 구축과 국가 안보를 위해 메모리 반도체의 안정적 공급을 중요시하고 있다. 중국의 메모리 반도체 생산 능력이 제한받는 상황에서 한국의 삼성전자와 SK하이닉스에 대한 의존도가 높아지고 있다. 이에 따라 메모리 반도체 가격 상승과 공급 부족 우려가 커지고 있으며, 관련 기업들의 실적 개선 기대감도 높아지고 있다.</p>
+<h3 id="_49">전망</h3>
+<p>메모리 반도체 공급 부족이 지속되면서 가격 상승과 한국 메모리 기업들의 수익성 개선이 예상된다. 선진국들의 메모리 확보 경쟁이 치열해지면서 장기 계약 물량도 증가할 전망이다.</p>
+<h3 id="_50">시사점</h3>
+<p>선진국들의 메모리 반도체 확보 경쟁은 반도체의 전략적 자산화와 공급망 안보의 중요성을 보여준다.</p>
+<h2 id="17-ai">17. 뜨는 AI수혜주 자켄·모두투어…'이상적 흐름'</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059126">원문 보기</a></p>
+<h3 id="_51">요약</h3>
+<p>자켄과 모두투어가 AI 수혜주로 주목받으며 주가 상승세를 보이고 있다. 자켄은 AI 기반 의료 진단 솔루션을 개발하는 회사로, 인공지능을 활용한 의료 영상 분석 기술에 강점을 가지고 있다. 모두투어는 AI를 활용한 맞춤형 여행 서비스와 예약 시스템을 구축하고 있다. 두 회사 모두 AI 기술을 자사 사업에 접목해 경쟁력을 강화하고 있으며, AI 테마 투자 열풍 속에서 투자자들의 관심을 받고 있다.</p>
+<h3 id="_52">전망</h3>
+<p>AI 기술 발전과 활용 확대가 지속되면서 자켄과 모두투어의 AI 기반 서비스 성장이 기대된다. 의료와 여행 분야에서 AI 활용도가 높아지면서 관련 기업들의 실적 개선으로 이어질 전망이다.</p>
+<h3 id="_53">시사점</h3>
+<p>자켄과 모두투어의 부상은 AI 기술이 다양한 산업 분야로 확산되면서 새로운 투자 기회를 창출하고 있음을 보여준다.</p>
+<h2 id="18">18. "엄마를 부탁해" 효도산업 대어 낚을 곳은</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059125">원문 보기</a></p>
+<h3 id="_54">요약</h3>
+<p>고령화 사회 진입과 함께 효도 산업이 새로운 성장 동력으로 주목받고 있다. 실버케어, 건강관리, 의료기기 등 고령자 대상 서비스와 제품에 대한 수요가 급증하고 있다. 특히 치매 예방과 관리, 재택의료, 스마트 헬스케어 등의 분야에서 혁신적인 솔루션이 등장하고 있다. 정부도 고령 친화 산업 육성을 위한 정책적 지원을 강화하고 있으며, 관련 기업들의 투자와 사업 확장이 활발해지고 있다.</p>
+<h3 id="_55">전망</h3>
+<p>고령화가 더욱 진행되면서 효도 산업 시장 규모가 지속적으로 확대될 것으로 예상된다. 디지털 헬스케어와 AI 기술을 활용한 고령자 케어 서비스의 성장이 특히 두드러질 전망이다.</p>
+<h3 id="_56">시사점</h3>
+<p>효도 산업의 성장은 인구 구조 변화에 따른 새로운 비즈니스 기회와 사회적 니즈를 동시에 보여주는 트렌드다.</p>
+<h2 id="19-1-44-5">19. 부산국제금융센터, 1분기 순이익 44억 5% 감소</h2>
+<p><code>금융</code> · <a href="https://www.mk.co.kr/news/economy/12059124">원문 보기</a></p>
+<h3 id="_57">요약</h3>
+<p>부산국제금융센터가 1분기 순이익 44억원으로 전년 동기 대비 5% 감소했다고 발표했다. 매출은 소폭 증가했지만 운영비용 상승으로 수익성이 악화됐다. 부산국제금융센터는 금융 허브 조성을 위한 인프라 구축과 입주 기업 유치에 노력하고 있지만, 코로나19 이후 금융업계 구조조정과 원격근무 확산으로 오피스 수요가 줄어든 영향을 받고 있다.</p>
+<h3 id="_58">전망</h3>
+<p>하반기부터 금융업계의 정상화와 함께 오피스 수요가 회복되면서 부산국제금융센터의 실적도 개선될 것으로 기대된다. 신규 입주 기업 유치와 부대시설 운영 확대도 추진할 계획이다.</p>
+<h3 id="_59">시사점</h3>
+<p>부산국제금융센터의 실적 부진은 지방 금융 허브 조성의 어려움과 포스트 코로나 시대 오피스 시장 변화를 반영한다.</p>
+<h2 id="20">20. [단독] 카드사들 온라인 전용상품 줄줄이 출시…"보험료 혜택"</h2>
+<p><code>금융</code> · <a href="https://www.mk.co.kr/news/economy/12059123">원문 보기</a></p>
+<h3 id="_60">요약</h3>
+<p>카드사들이 온라인 전용 보험 상품을 잇따라 출시하고 있다. 이들 상품은 기존 대면 판매 보험보다 보험료가 저렴하고 가입 절차가 간편한 것이 특징이다. 신한카드, KB국민카드, 현대카드 등 주요 카드사들이 온라인 플랫폼을 활용한 보험 상품 판매에 적극 나서고 있다. 디지털 전환 가속화와 비대면 서비스 선호 증가로 온라인 보험 시장이 빠르게 성장하고 있어, 카드사들도 새로운 수익원 확보 차원에서 관련 사업을 확대하고 있다.</p>
+<h3 id="_61">전망</h3>
+<p>온라인 보험 시장이 지속적으로 성장하면서 카드사들의 관련 상품 출시가 더욱 늘어날 것으로 예상된다. 고객 편의성 제고와 경쟁력 강화를 위한 상품 혁신도 가속화될 전망이다.</p>
+<h3 id="_62">시사점</h3>
+<p>카드사들의 온라인 보험 상품 출시는 금융업계의 디지털 전환과 사업 영역 확장 트렌드를 보여준다.</p>
+<h2 id="21-30">21. 타이어뱅크 '30% 수수료율' 논란에도 성장가도</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059122">원문 보기</a></p>
+<h3 id="_63">요약</h3>
+<p>타이어뱅크가 높은 수수료율 논란에도 불구하고 꾸준한 성장세를 유지하고 있다. 타이어뱅크는 온라인 타이어 판매 플랫폼으로 가맹점에서 30% 수수료를 받아 논란이 되고 있지만, 편리한 서비스와 다양한 상품 구색으로 소비자들의 호응을 얻고 있다. 코로나19 이후 비대면 구매 증가와 자동차 보유 대수 증가로 온라인 타이어 시장이 확대되면서 타이어뱅크의 성장도 지속되고 있다.</p>
+<h3 id="_64">전망</h3>
+<p>자동차 시장 성장과 온라인 쇼핑 확산으로 타이어뱅크의 성장세가 이어질 것으로 예상된다. 수수료율 논란 해결을 위한 상생 방안 모색도 필요할 전망이다.</p>
+<h3 id="_65">시사점</h3>
+<p>타이어뱅크의 성장은 전통 산업에서도 디지털 플랫폼 비즈니스 모델의 성공 가능성을 보여준다.</p>
+<h2 id="22-6">22. "6년 공사해도 준공 못해"…공공주택 체감 재고 감소 "진짜"</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12059121">원문 보기</a></p>
+<h3 id="_66">요약</h3>
+<p>공공주택 건설이 6년째 지연되면서 실제 주택 공급 부족이 심화되고 있다. 당초 계획보다 준공이 크게 늦어지면서 체감 주택 재고가 감소하고 있는 상황이다. 건설 자재비 상승, 인력 부족, 각종 규제 등이 복합적으로 작용해 공사 기간이 대폭 늘어나고 있다. 이로 인해 주택 공급 계획에 차질이 빚어지고 있으며, 주택난 해소에도 부정적 영향을 미치고 있다.</p>
+<h3 id="_67">전망</h3>
+<p>건설업계의 어려움이 지속되면서 공공주택 준공 지연 문제가 단기간에 해결되기는 어려울 것으로 보인다. 정부의 공급 확대 정책에도 불구하고 실제 입주 가능한 주택 수급은 부족한 상황이 계속될 전망이다.</p>
+<h3 id="_68">시사점</h3>
+<p>공공주택 준공 지연은 주택 공급 정책의 실효성과 건설업계 구조적 문제를 동시에 보여주는 사례다.</p>
+<h2 id="23-9-14">23. 메트로9, 잠실역 인근 정비사업 수주…사업비 1.4조원</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12059120">원문 보기</a></p>
+<h3 id="_69">요약</h3>
+<p>메트로9호선이 잠실역 인근 도시정비사업을 수주했다고 발표했다. 사업비 규모는 1조4000억원으로, 대규모 복합개발 프로젝트다. 해당 사업은 노후 주거지역을 현대적인 주거·상업·업무 복합단지로 재개발하는 것으로, 약 3000세대의 아파트와 상업시설이 들어설 예정이다. 잠실역과 인접한 교통 요충지에 위치해 향후 자산 가치 상승이 기대되는 프로젝트다.</p>
+<h3 id="_70">전망</h3>
+<p>잠실역 인근 정비사업이 완료되면 해당 지역의 주거 환경 개선과 상권 활성화에 기여할 것으로 예상된다. 메트로9호선의 사업 포트폴리오 확대와 수익성 개선에도 도움이 될 전망이다.</p>
+<h3 id="_71">시사점</h3>
+<p>메트로9호선의 대규모 정비사업 수주는 도시 재개발 시장의 활성화와 교통 인프라 연계 개발의 중요성을 보여준다.</p>
+<h2 id="24">24. "청약 안된다더니 당첨" 민간택지 분양권 투기 기승</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12059119">원문 보기</a></p>
+<h3 id="_72">요약</h3>
+<p>민간택지 분양권 투기가 기승을 부리고 있다. 청약이 어렵다고 알려진 단지에서 당첨자가 나오면서 분양권 전매 시세가 급등하고 있다. 특히 수도권 신축 아파트의 분양권 프리미엄이 수억원에 달하는 사례가 늘고 있다. 정부의 부동산 규제에도 불구하고 우회적인 투기 수요가 분양권 시장으로 몰리면서 가격 상승을 부추기고 있다.</p>
+<h3 id="_73">전망</h3>
+<p>분양권 투기 단속과 규제가 강화될 것으로 예상되지만, 주택 공급 부족이 지속되는 한 분양권 프리미엄 현상도 계속될 가능성이 있다. 정부의 추가적인 시장 안정화 대책이 필요할 전망이다.</p>
+<h3 id="_74">시사점</h3>
+<p>분양권 투기 기승은 주택 공급 부족과 투기 수요의 복합적 작용으로 나타나는 부동산 시장 불안정의 한 단면이다.</p>
+<h2 id="25-ai">25. 아마존 "韓 파트너와 AI데이터센터 구축할 것"</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059118">원문 보기</a></p>
+<h3 id="_75">요약</h3>
+<p>아마존이 한국 파트너와 함께 AI 데이터센터를 구축할 계획이라고 발표했다. 아마존웹서비스(AWS)는 한국 시장에서 클라우드 서비스 확장을 위해 대규모 AI 데이터센터 투자를 추진하고 있다. 국내 기업과의 협력을 통해 데이터센터 건설과 운영에 필요한 기술력과 인프라를 확보할 예정이다. 이 프로젝트는 한국의 AI 인프라 구축과 디지털 전환 가속화에 기여할 것으로 기대된다.</p>
+<h3 id="_76">전망</h3>
+<p>아마존의 AI 데이터센터 구축이 본격화되면 한국의 클라우드 서비스 인프라가 크게 확충될 것으로 예상된다. 국내 기업들의 AI와 클라우드 서비스 활용도도 높아질 전망이다.</p>
+<h3 id="_77">시사점</h3>
+<p>아마존의 한국 AI 데이터센터 구축은 글로벌 클라우드 기업들의 한국 시장 투자 확대와 AI 인프라 경쟁을 보여준다.</p>
+<h2 id="26-4">26. 신입사원 초봉 4천만원 투자은행…"상반기 실적 좋아"</h2>
+<p><code>금융</code> · <a href="https://www.mk.co.kr/news/economy/12059117">원문 보기</a></p>
+<h3 id="_78">요약</h3>
+<p>국내 투자은행들이 신입사원 초봉을 4000만원대로 크게 올렸다. 상반기 실적 호조와 인재 확보 경쟁 심화로 연봉 인상이 이뤄졌다. 특히 IPO와 M&amp;A 시장 활성화로 투자은행 수익이 크게 늘면서 직원 처우 개선에 나서고 있다. 금융권 전반에서 우수 인재 유치를 위한 연봉 인상 경쟁이 치열해지고 있으며, 신입사원뿐만 아니라 경력직 연봉도 함께 오르고 있다.</p>
+<h3 id="_79">전망</h3>
+<p>자본시장 활성화가 지속되면서 투자은행의 높은 연봉 수준이 유지될 것으로 예상된다. 다른 금융권으로도 연봉 인상 압력이 확산될 가능성이 있다.</p>
+<h3 id="_80">시사점</h3>
+<p>투자은행의 고액 연봉은 자본시장 호황과 금융업계 인재 경쟁의 치열함을 동시에 보여준다.</p>
+<h2 id="27-mt">27. [MT이슈]'어둠의 경영' 프랜차이즈 본부들…가맹점 손실 뻔히 알면서</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059116">원문 보기</a></p>
+<h3 id="_81">요약</h3>
+<p>일부 프랜차이즈 본부들이 가맹점 손실을 뻔히 알면서도 사업을 확장하는 '어둠의 경영'을 하고 있다는 지적이 나왔다. 수익성이 낮은 지역에 과도한 가맹점을 개설하거나, 실제 매출 현황을 왜곡해 예비 창업자들을 현혹하는 사례가 늘고 있다. 이로 인해 가맹점주들의 피해가 증가하고 있으며, 프랜차이즈 업계의 신뢰도 하락을 우려하는 목소리가 높아지고 있다.</p>
+<h3 id="_82">전망</h3>
+<p>프랜차이즈 관련 규제와 감시가 강화될 것으로 예상되며, 투명한 정보 공개와 가맹점주 보호를 위한 제도 개선이 추진될 전망이다. 업계 자정 노력도 필요할 것으로 보인다.</p>
+<h3 id="_83">시사점</h3>
+<p>프랜차이즈 업계의 구조적 문제는 창업 시장의 건전성과 소상공인 보호의 중요성을 제기한다.</p>
+<h2 id="28">28. "나는 억대 연봉자" 자부심도 잠깐…청년 고민 깊어졌다</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/economy/12059115">원문 보기</a></p>
+<h3 id="_84">요약</h3>
+<p>억대 연봉을 받는 청년층의 고민이 깊어지고 있다. 높은 연봉에도 불구하고 주택 구매, 결혼, 육아 등에 대한 경제적 부담이 여전히 크고, 직장 내 스트레스와 워라밸 문제도 심각한 수준이다. 특히 수도권 집값 상승으로 억대 연봉자도 내 집 마련이 어려워지면서 상대적 박탈감을 느끼는 청년들이 늘고 있다. 사회적 성공 기준과 개인의 행복 추구 사이에서 갈등하는 청년들도 많다.</p>
+<h3 id="_85">전망</h3>
+<p>청년층의 경제적, 사회적 고민이 지속되면서 정부의 청년 정책과 기업의 복지 제도 개선에 대한 요구가 높아질 것으로 예상된다. 워라밸과 삶의 질을 중시하는 직장 문화로의 전환도 가속화될 전망이다.</p>
+<h3 id="_86">시사점</h3>
+<p>억대 연봉 청년층의 고민은 소득 증가만으로는 해결되지 않는 현대 사회의 구조적 문제를 보여준다.</p>
+<h2 id="29-19">29. 코로나19 신약의 역설 … 성공한 약일수록 일찌감치 시장 퇴출</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059114">원문 보기</a></p>
+<h3 id="_87">요약</h3>
+<p>코로나19 치료제 시장에서 성공한 신약일수록 오히려 빨리 시장에서 퇴출되는 역설적 현상이 나타나고 있다. 팍스로비드 같은 효과적인 치료제가 코로나19 확산을 억제하면서 오히려 치료제 수요가 급감했다. 이로 인해 관련 제약회사들의 매출이 크게 줄어들고 있으며, 팬데믹 대비 신약 개발에 대한 투자 의욕도 위축되고 있다. 감염병 치료제의 특수한 시장 구조가 제약업계에 새로운 과제를 제시하고 있다.</p>
+<h3 id="_88">전망</h3>
+<p>코로나19 치료제 시장이 더욱 축소되면서 관련 기업들은 다른 치료 분야로 사업 다각화를 추진할 것으로 예상된다. 차세대 팬데믹 대비를 위한 정부 지원과 제도 개선도 필요할 전망이다.</p>
+<h3 id="_89">시사점</h3>
+<p>코로나19 신약의 시장 퇴출은 감염병 치료제 개발과 상용화의 구조적 딜레마를 보여준다.</p>
+<h2 id="30">30. 알리 쿠팡 '맞불'…중국 직구업체 이어 토종 플랫폼도 중국 진출</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059113">원문 보기</a></p>
+<h3 id="_90">요약</h3>
+<p>알리익스프레스와 쿠팡이 중국 시장에서 맞대결을 벌이고 있다. 중국 직구업체인 알리익스프레스가 한국 시장 공략을 강화하는 가운데, 쿠팡도 중국 진출을 통해 맞불을 놓고 있다. 쿠팡은 중국 소비자들을 대상으로 한국 상품 판매와 로켓배송 서비스 확대를 추진하고 있다. 양사 모두 글로벌 이커머스 시장에서의 경쟁력 강화를 위해 상대방 본토 시장 진출을 가속화하고 있다.</p>
+<h3 id="_91">전망</h3>
+<p>한중 이커머스 시장에서의 경쟁이 더욱 치열해지면서 서비스 혁신과 물류 인프라 구축 경쟁이 심화될 것으로 예상된다. 소비자들은 더 다양하고 저렴한 상품을 구매할 수 있는 혜택을 누릴 전망이다.</p>
+<h3 id="_92">시사점</h3>
+<p>알리익스프레스와 쿠팡의 상호 진출은 글로벌 이커머스 시장의 경계가 허물어지고 있음을 보여준다.</p>
+<h2 id="31-3045">31. "나이키 에어포스 30만원→45만원" 사치품도 된 스니커즈</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059112">원문 보기</a></p>
+<h3 id="_93">요약</h3>
+<p>스니커즈가 사치품으로 변모하고 있다. 나이키 에어포스가 30만원에서 45만원으로 오르는 등 스니커즈 가격이 급등하고 있다. 한정판 출시, 브랜드 프리미엄 강화, 원자재 비용 상승 등이 복합적으로 작용해 스니커즈 시장의 고급화가 진행되고 있다. 이에 따라 스니커즈 투자와 수집 문화도 확산되고 있으며, 리셀 시장도 급성장하고 있다.</p>
+<h3 id="_94">전망</h3>
+<p>스니커즈의 고급화 트렌드가 지속되면서 프리미엄 스니커즈 시장이 더욱 확대될 것으로 예상된다. 브랜드들의 한정판 마케팅과 협업 제품 출시도 늘어날 전망이다.</p>
+<h3 id="_95">시사점</h3>
+<p>스니커즈의 사치품화는 소비 트렌드 변화와 브랜드 가치 상승의 대표적 사례다.</p>
+<h2 id="32">32. 달러 강세 장기화에 "자국 통화 절하" 신흥국 엔저현상</h2>
+<p><code>경제</code> · <a href="https://www.mk.co.kr/news/economy/12059111">원문 보기</a></p>
+<h3 id="_96">요약</h3>
+<p>달러 강세가 장기화되면서 신흥국들이 자국 통화 절하 현상을 겪고 있다. 미국 금리 상승과 달러 강세로 신흥국에서 자본이 유출되고 있으며, 이에 따라 신흥국 통화 가치가 하락하고 있다. 일본 엔화도 지속적인 약세를 보이며 엔저 현상이 심화되고 있다. 이는 신흥국의 수입 물가 상승과 인플레이션 압력을 높이는 요인으로 작용하고 있다.</p>
+<h3 id="_97">전망</h3>
+<p>미국 금리 정책에 따라 달러 강세와 신흥국 통화 약세 현상이 지속될 가능성이 있다. 신흥국들은 환율 안정을 위한 통화정책 대응에 나서야 할 것으로 보인다.</p>
+<h3 id="_98">시사점</h3>
+<p>달러 강세 장기화는 글로벌 금융시장의 불균형과 신흥국 경제의 취약성을 드러내고 있다.</p>
+<h2 id="33">33. 中서 불리는 '삼성 공장 철수설' 딜레마…투자냐 철수냐</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059110">원문 보기</a></p>
+<h3 id="_99">요약</h3>
+<p>중국에서 삼성전자 공장 철수설이 제기되면서 삼성전자가 딜레마에 빠졌다. 미중 기술패권 경쟁 심화와 중국 시장 리스크 증가로 철수를 고려해야 한다는 목소리가 나오고 있지만, 중국은 여전히 중요한 생산 기지이자 시장이다. 삼성전자는 중국 사업 비중 축소를 검토하면서도 완전 철수보다는 점진적 조정을 모색하고 있다. 중국 정부와 소비자들의 반발도 고려해야 하는 상황이다.</p>
+<h3 id="_100">전망</h3>
+<p>삼성전자는 중국 사업을 단계적으로 축소하면서 다른 지역으로의 생산 기지 다변화를 추진할 것으로 예상된다. 중국 의존도를 줄이는 동시에 여전히 중요한 시장인 중국과의 관계도 유지해야 하는 과제를 안고 있다.</p>
+<h3 id="_101">시사점</h3>
+<p>삼성전자의 중국 철수 딜레마는 글로벌 기업들이 직면한 지정학적 리스크 관리의 복잡성을 보여준다.</p>
+<h2 id="34">34. 현대차 '기능성 소재' 내재화…벤틀리급 하이엔드 내장재</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059109">원문 보기</a></p>
+<h3 id="_102">요약</h3>
+<p>현대차가 고급 내장재 소재를 내재화해 벤틀리급 하이엔드 내장재 생산에 나선다. 현대차는 프리미엄 차량의 경쟁력 강화를 위해 고급 소재 기술을 자체 개발하고 있다. 가죽, 우드그레인, 메탈 소재 등의 품질을 대폭 향상시켜 럭셔리 브랜드 수준의 내장재를 구현할 계획이다. 이를 통해 제네시스 브랜드의 고급화와 차별화를 추진하고 있다.</p>
+<h3 id="_103">전망</h3>
+<p>현대차의 고급 내장재 내재화가 완료되면 제네시스 브랜드의 프리미엄 포지셔닝이 강화될 것으로 예상된다. 럭셔리 차량 시장에서의 경쟁력도 크게 향상될 전망이다.</p>
+<h3 id="_104">시사점</h3>
+<p>현대차의 고급 내장재 내재화는 자동차업계의 수직계열화와 기술 자립 추구를 보여주는 사례다.</p>
+<h2 id="35">35. 세아홀딩스, 전기차 급속충전기 사업 진출</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059108">원문 보기</a></p>
+<h3 id="_105">요약</h3>
+<p>세아홀딩스가 전기차 급속충전기 사업에 진출한다고 발표했다. 전기차 시장 성장에 따른 충전 인프라 수요 증가에 대응하기 위한 것이다. 세아홀딩스는 기존 전력케이블 사업에서 축적한 전력 관련 기술력을 바탕으로 고성능 급속충전기를 개발할 계획이다. 초고속 충전이 가능한 차세대 충전기 개발에도 투자를 늘려 시장 경쟁력을 확보할 예정이다.</p>
+<h3 id="_106">전망</h3>
+<p>전기차 보급 확산에 따라 급속충전기 시장이 빠르게 성장할 것으로 예상되며, 세아홀딩스의 관련 사업 실적도 크게 개선될 전망이다. 충전 인프라 구축 사업으로의 확장도 검토할 계획이다.</p>
+<h3 id="_107">시사점</h3>
+<p>세아홀딩스의 전기차 충전기 사업 진출은 전통 산업 기업의 친환경 사업 전환 사례를 보여준다.</p>
+<h2 id="36-lgsk">36. LG전자·SK스퀘어·펄어비스 등, 예비상장지수에 편입</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059107">원문 보기</a></p>
+<h3 id="_108">요약</h3>
+<p>LG전자, SK스퀘어, 펄어비스 등이 예비상장지수에 편입됐다. 한국거래소는 이들 기업이 상장지수 편입 요건을 충족했다고 발표했다. 예비상장지수 편입은 향후 정식 상장지수 편입의 전단계로, 기관투자자들의 투자 관심도가 높아질 것으로 예상된다. 특히 펄어비스는 게임업계 대표주로서 상장지수 편입에 따른 주가 상승 기대감이 크다.</p>
+<h3 id="_109">전망</h3>
+<p>예비상장지수 편입 기업들의 기관투자자 매수세가 증가하면서 주가 상승으로 이어질 가능성이 있다. 정식 상장지수 편입 시에는 더 큰 자금 유입이 예상된다.</p>
+<h3 id="_110">시사점</h3>
+<p>예비상장지수 편입은 기업의 투자매력도와 시장에서의 위상을 보여주는 중요한 지표다.</p>
+<h2 id="37-pwc-ics">37. 삼일PwC "블랙록 ICS 위법 논란, 별도 법인 설립하면 해결"</h2>
+<p><code>금융</code> · <a href="https://www.mk.co.kr/news/economy/12059106">원문 보기</a></p>
+<h3 id="_111">요약</h3>
+<p>삼일PwC가 블랙록의 ICS(통합자산관리서비스) 위법 논란에 대해 별도 법인 설립으로 해결할 수 있다는 의견을 제시했다. 블랙록의 ICS 사업이 국내 금융법 위반 소지가 있다는 지적에 대해, 별도 법인을 설립해 해당 업무를 분리하면 문제가 해결될 수 있다고 분석했다. 이를 통해 블랙록이 국내에서 합법적으로 ICS 사업을 영위할 수 있는 방안을 제시한 것이다.</p>
+<h3 id="_112">전망</h3>
+<p>블랙록이 별도 법인 설립을 통해 ICS 사업 구조를 개편하면 국내 시장에서의 사업 확장이 가능할 것으로 예상된다. 다른 해외 금융사들도 유사한 방식으로 국내 진출을 모색할 수 있을 전망이다.</p>
+<h3 id="_113">시사점</h3>
+<p>블랙록 ICS 논란 해결 방안은 글로벌 금융사의 국내 진출 시 규제 대응 전략의 중요성을 보여준다.</p>
+<h2 id="38-20-pf">38. 하나저축은행, 20억짜리 부동산 PF대출 부실 인정</h2>
+<p><code>금융</code> · <a href="https://www.mk.co.kr/news/economy/12059105">원문 보기</a></p>
+<h3 id="_114">요약</h3>
+<p>하나저축은행이 20억원 규모의 부동산 프로젝트파이낸싱(PF) 대출 부실을 인정했다. 해당 PF 대출은 부동산 개발 프로젝트에 제공된 것으로, 사업 지연과 분양 부진으로 상환에 어려움을 겪고 있다. 하나저축은행은 관련 손실을 충당금으로 설정하고 회수 방안을 모색하고 있다. 부동산 PF 시장의 부실 우려가 커지고 있는 가운데 저축은행권의 PF 리스크 관리가 중요해지고 있다.</p>
+<h3 id="_115">전망</h3>
+<p>부동산 시장 침체가 지속되면서 저축은행권의 PF 대출 부실이 추가로 발생할 가능성이 있다. 금융당국의 PF 리스크 관리 감독도 강화될 전망이다.</p>
+<h3 id="_116">시사점</h3>
+<p>하나저축은행의 PF 대출 부실은 부동산 시장 침체가 금융권에 미치는 부정적 영향을 보여준다.</p>
+<h2 id="39-15">39. "메가스터디 15년 주주" 개미, 상장폐지 무효 청구</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059104">원문 보기</a></p>
+<h3 id="_117">요약</h3>
+<p>메가스터디 15년 주주인 개인투자자가 상장폐지 무효 청구 소송을 제기했다. 해당 투자자는 메가스터디의 상장폐지 절차에 하자가 있다며 법적 다툼에 나섰다. 메가스터디는 사업 구조조정과 경영권 문제로 상장폐지를 추진했지만, 일부 소액주주들이 이에 반발하고 있다. 개인투자자는 상장폐지로 인한 투자 손실과 절차적 문제점을 지적하며 무효 소송을 제기한 상황이다.</p>
+<h3 id="_118">전망</h3>
+<p>메가스터디 상장폐지 관련 법적 분쟁이 장기화될 가능성이 있으며, 법원 판결에 따라 상장폐지 절차에 변화가 있을 수 있다. 소액주주 보호 강화에 대한 논의도 활발해질 전망이다.</p>
+<h3 id="_119">시사점</h3>
+<p>메가스터디 상장폐지 무효 소송은 소액주주 권익 보호와 상장폐지 절차의 공정성 문제를 제기하고 있다.</p>
+<h2 id="40">40. 서소문고가 붕괴에 '인프라 안전관리' 도마 위</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/politics/12059103">원문 보기</a></p>
+<h3 id="_120">요약</h3>
+<p>서소문고가 붕괴 사고로 인프라 안전관리가 도마 위에 올랐다. 노후 인프라의 안전성 점검과 관리 체계의 허점이 드러나면서 전국적인 시설물 안전 점검이 필요하다는 목소리가 높아지고 있다. 정부는 긴급 안전점검을 실시하고 노후 인프라 교체와 보강 계획을 수립하겠다고 발표했다. 시민들의 안전에 대한 우려도 커지고 있어 안전관리 시스템 전반의 개선이 시급한 상황이다.</p>
+<h3 id="_121">전망</h3>
+<p>서소문고가 붕괴를 계기로 전국 노후 인프라의 안전점검과 정비 사업이 대대적으로 추진될 것으로 예상된다. 인프라 안전관리 예산 증액과 관련 법제도 개선도 이뤄질 전망이다.</p>
+<h3 id="_122">시사점</h3>
+<p>서소문고가 붕괴는 노후 인프라의 체계적 관리와 예방적 정비의 중요성을 보여주는 경종이다.</p>
+<h2 id="41">41. "타워크레인 파업 때문에" 입주예정자들 발만 동동</h2>
+<p><code>부동산</code> · <a href="https://www.mk.co.kr/news/realestate/12059102">원문 보기</a></p>
+<h3 id="_123">요약</h3>
+<p>타워크레인 파업으로 건설현장이 마비되면서 입주예정자들이 큰 불편을 겪고 있다. 타워크레인 기사들의 임금 인상 요구로 파업이 장기화되면서 아파트 공사가 중단되고 있다. 이로 인해 입주 예정일이 연기되고 있으며, 입주예정자들은 임시 거주지 연장과 이사 일정 조정 등의 문제에 직면해 있다. 건설업계는 파업 조기 종료를 위한 협상에 나서고 있지만 해결 기미가 보이지 않고 있다.</p>
+<h3 id="_124">전망</h3>
+<p>타워크레인 파업이 장기화되면 건설업계 전반에 큰 타격이 예상되며, 주택 공급 지연으로 이어질 가능성이 있다. 입주 지연에 따른 보상 문제도 불거질 전망이다.</p>
+<h3 id="_125">시사점</h3>
+<p>타워크레인 파업은 건설업계의 노사갈등이 주택 공급과 소비자에게 미치는 직접적 영향을 보여준다.</p>
+<h2 id="42-1-2">42. 공공기관 반부패 청렴도 1위 예보·2위 한은…꼴찌는?</h2>
+<p><code>정책</code> · <a href="https://www.mk.co.kr/news/politics/12059101">원문 보기</a></p>
+<h3 id="_126">요약</h3>
+<p>공공기관 반부패 청렴도 조사에서 예금보험공사가 1위, 한국은행이 2위를 차지했다. 국민권익위원회가 발표한 청렴도 평가에서 예보는 투명한 조직 운영과 체계적인 반부패 시스템으로 최고 점수를 받았다. 한국은행도 독립성과 공정성을 바탕으로 높은 청렴도를 인정받았다. 반면 일부 공기업과 준정부기관은 상대적으로 낮은 점수를 기록해 청렴도 개선이 필요한 것으로 나타났다.</p>
+<h3 id="_127">전망</h3>
+<p>청렴도 평가 결과를 바탕으로 각 공공기관의 반부패 시스템 개선과 투명성 제고 노력이 강화될 것으로 예상된다. 낮은 점수를 받은 기관들은 집중적인 개선 계획을 수립해야 할 전망이다.</p>
+<h3 id="_128">시사점</h3>
+<p>공공기관 청렴도 평가는 투명하고 공정한 공공 서비스 제공을 위한 지속적인 노력의 필요성을 보여준다.</p>
+<h2 id="43-1">43. '中 조선 1위 탈환' 위기감…조선업계 "수주량보다 수익성"</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059100">원문 보기</a></p>
+<h3 id="_129">요약</h3>
+<p>중국의 조선업 1위 탈환에 대한 위기감이 높아지면서 한국 조선업계가 수주량보다 수익성을 우선시하는 전략으로 전환하고 있다. 중국이 대량 물량 수주로 세계 1위 자리를 위협하고 있지만, 한국 조선업계는 고부가가치 선박과 친환경 기술에 집중하며 차별화를 추구하고 있다. LNG선, 메탄올 추진선 등 고기술 선박에서는 여전히 한국이 우위를 유지하고 있어 기술력 기반의 수익성 확보에 주력하고 있다.</p>
+<h3 id="_130">전망</h3>
+<p>한국 조선업계는 친환경 선박과 스마트십 기술 개발에 더욱 집중하면서 기술력 격차를 벌려나갈 것으로 예상된다. 단순 물량 경쟁보다는 고부가가치 선박 시장에서의 지배력 강화를 추진할 전망이다.</p>
+<h3 id="_131">시사점</h3>
+<p>한국 조선업계의 전략 전환은 기술력과 품질을 바탕으로 한 차별화의 중요성을 보여준다.</p>
+<h2 id="44-1">44. 지하철 1호선 지연에 "내가 왜"…이색 보상상품 뜬다</h2>
+<p><code>사회</code> · <a href="https://www.mk.co.kr/news/economy/12059099">원문 보기</a></p>
+<h3 id="_132">요약</h3>
+<p>지하철 1호선 지연 사고로 인한 승객 불편이 커지면서 이색 보상상품이 등장하고 있다. 대중교통 지연으로 인한 손실을 보상하는 보험상품과 서비스들이 인기를 끌고 있다. 지하철 지연 시 택시비나 숙박비를 보상해주는 상품부터 업무 지연으로 인한 손해를 배상하는 보험까지 다양한 형태로 출시되고 있다. 대중교통의 신뢰성이 떨어지면서 이를 보완하는 서비스에 대한 수요가 증가하고 있다.</p>
+<h3 id="_133">전망</h3>
+<p>대중교통 지연 보상 서비스가 더욱 다양해지고 보편화될 것으로 예상된다. 교통 인프라의 안정성 제고와 함께 민간 차원의 보상 시스템도 발달할 전망이다.</p>
+<h3 id="_134">시사점</h3>
+<p>대중교통 지연 보상상품의 등장은 도시 인프라의 불안정성과 이를 해결하려는 시장의 대응을 보여준다.</p>
+<h2 id="45">45. 의대정원 확정에 의료진 집단행동 예고…정부 "불법시 엄정 대응"</h2>
+<p><code>정책</code> · <a href="https://www.mk.co.kr/news/politics/12059098">원문 보기</a></p>
+<h3 id="_135">요약</h3>
+<p>의대정원 증원 확정에 따라 의료진들이 집단행동을 예고했고, 정부는 불법행위에 대해 엄정 대응하겠다고 밝혔다. 의료계는 의대정원 급증이 의료 질 저하를 초래할 것이라며 반발하고 있으며, 집단 휴진과 병원 진료 중단을 검토하고 있다. 정부는 의료 공백 최소화를 위해 대체 인력 확보와 응급의료체계 가동에 나서고 있으며, 불법 집단행동에 대해서는 법적 조치를 취할 방침이다.</p>
+<h3 id="_136">전망</h3>
+<p>의료계와 정부 간 갈등이 장기화되면서 의료 서비스에 차질이 빚어질 가능성이 있다. 양측 간 대화와 타협을 통한 해결책 모색이 필요할 전망이다.</p>
+<h3 id="_137">시사점</h3>
+<p>의대정원 갈등은 의료 인력 확충과 의료 질 확보 사이의 균형점 찾기가 얼마나 어려운지를 보여준다.</p>
+<h2 id="46-5">46. 정부 "수산식품 수출 세계 5위 도전"…韓食 세계화 시동</h2>
+<p><code>정책</code> · <a href="https://www.mk.co.kr/news/politics/12059097">원문 보기</a></p>
+<h3 id="_138">요약</h3>
+<p>정부가 수산식품 수출 세계 5위 달성을 목표로 한식 세계화에 본격 시동을 걸었다. 한국의 우수한 수산식품과 한식의 글로벌 확산을 위해 대대적인 지원책을 마련했다. K-푸드의 인기 상승과 함께 김치, 젓갈, 해조류 등 전통 수산식품의 해외 진출을 확대할 계획이다. 정부는 수출 기업 지원, 해외 마케팅 강화, 품질 인증 시스템 구축 등을 통해 수산식품 수출 경쟁력을 높여나갈 예정이다.</p>
+<h3 id="_139">전망</h3>
+<p>한류 확산과 함께 한국 수산식품의 해외 수요가 지속적으로 증가할 것으로 예상되며, 정부의 체계적 지원으로 수출 실적도 크게 늘어날 전망이다. 수산업계의 글로벌 경쟁력도 강화될 것으로 기대된다.</p>
+<h3 id="_140">시사점</h3>
+<p>수산식품 수출 세계 5위 도전은 K-푸드를 활용한 새로운 성장동력 발굴의 구체적 사례다.</p>
+<h2 id="47-90">47. 백화점 매장 90% '무인화'…"고객 체험은 늘고 비용은 줄고"</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059096">원문 보기</a></p>
+<h3 id="_141">요약</h3>
+<p>백화점 매장의 90%가 무인화되면서 유통업계의 디지털 전환이 가속화되고 있다. 무인 계산대, 디지털 안내 시스템, AI 쇼핑 도우미 등이 도입되면서 고객 편의성은 높이고 운영비용은 절감하는 효과를 거두고 있다. 특히 코로나19 이후 비대면 서비스에 대한 선호도가 높아지면서 무인화 시스템이 빠르게 확산되고 있다. 백화점들은 무인화를 통해 절약한 비용을 고객 체험 개선과 프리미엄 서비스 강화에 투입하고 있다.</p>
+<h3 id="_142">전망</h3>
+<p>백화점의 무인화가 더욱 고도화되면서 AI와 IoT 기술을 활용한 스마트 쇼핑 환경이 구축될 것으로 예상된다. 개인 맞춤형 서비스와 옴니채널 연계도 강화될 전망이다.</p>
+<h3 id="_143">시사점</h3>
+<p>백화점 무인화는 유통업계의 디지털 전환과 고객 경험 혁신의 대표적 사례다.</p>
+<h2 id="48-lx">48. LX·센스톤 합병…비상장 토지정보 기업 덩치 키운다</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059095">원문 보기</a></p>
+<h3 id="_144">요약</h3>
+<p>LX와 센스톤이 합병을 통해 토지정보 사업 규모를 확대한다고 발표했다. 두 회사는 모두 지적측량과 토지정보 시스템 구축 전문 기업으로, 합병을 통해 시장 경쟁력을 강화할 계획이다. 합병 후 신회사는 국내 최대 규모의 토지정보 서비스 기업이 될 전망이며, 디지털 기반의 통합 토지정보 플랫폼을 구축해 차별화된 서비스를 제공할 예정이다.</p>
+<h3 id="_145">전망</h3>
+<p>LX와 센스톤의 합병으로 토지정보 시장의 경쟁구도가 재편될 것으로 예상되며, 디지털 토지정보 서비스의 고도화가 가속화될 전망이다. 공공 부문과의 협력 사업도 확대될 것으로 보인다.</p>
+<h3 id="_146">시사점</h3>
+<p>LX와 센스톤의 합병은 전문 서비스업계의 규모 확대와 경쟁력 강화를 위한 전략적 통합 사례다.</p>
+<h2 id="49-5">49. 5년치 부족 알루미늄, 풀어줄 '마법사'는</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059094">원문 보기</a></p>
+<h3 id="_147">요약</h3>
+<p>글로벌 알루미늄 부족이 5년치에 달하면서 공급난 해결책이 시급한 상황이다. 전기차 배터리와 신재생에너지 설비 수요 급증으로 알루미늄 소비가 폭증하고 있지만 생산 증설은 더딘 상태다. 주요 알루미늄 생산국들의 환경 규제 강화와 에너지 비용 상승으로 신규 투자가 제약받고 있다. 알루미늄 재활용 기술 개발과 대체 소재 연구가 공급난 해결의 열쇠가 될 것으로 주목받고 있다.</p>
+<h3 id="_148">전망</h3>
+<p>알루미늄 공급 부족이 지속되면서 가격 상승과 대체 소재 개발이 가속화될 것으로 예상된다. 재활용 알루미늄 시장의 성장과 함께 순환경제 구축도 중요해질 전망이다.</p>
+<h3 id="_149">시사점</h3>
+<p>알루미늄 공급난은 친환경 산업 성장과 자원 제약 사이의 딜레마를 보여주는 대표적 사례다.</p>
+<h2 id="50">50. 빌게이츠 "디지털화폐 모든 거래에서 현금 대체할 것"</h2>
+<p><code>경제</code> · <a href="https://www.mk.co.kr/news/economy/12059093">원문 보기</a></p>
+<h3 id="_150">요약</h3>
+<p>빌 게이츠가 디지털화폐가 모든 거래에서 현금을 대체할 것이라고 전망했다. 게이츠는 중앙은행 디지털화폐(CBDC)와 디지털 결제 시스템의 발달로 현금 없는 사회가 빠르게 도래할 것이라고 예측했다. 특히 개발도상국에서 디지털 금융 서비스의 보급이 가속화되면서 금융 포용성이 크게 개선될 것으로 기대된다고 밝혔다. 게이츠재단은 디지털 결제 인프라 구축을 통한 금융 접근성 향상 프로젝트를 지원하고 있다.</p>
+<h3 id="_151">전망</h3>
+<p>디지털화폐와 CBDC의 도입이 전 세계적으로 확산되면서 현금 사용이 급격히 줄어들 것으로 예상된다. 금융 서비스의 디지털화와 포용적 금융 시스템 구축도 가속화될 전망이다.</p>
+<h3 id="_152">시사점</h3>
+<p>빌 게이츠의 디지털화폐 전망은 금융 시스템의 근본적 변화와 디지털 경제로의 전환을 예고한다.</p>
+<h2 id="51">51. 마르디 메크르디, 아시아 첫 상장…"지속가능한 패션"</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059092">원문 보기</a></p>
+<h3 id="_153">요약</h3>
+<p>프랑스 지속가능 패션 브랜드 마르디 메크르디가 아시아 첫 상장을 추진한다고 발표했다. 마르디 메크르디는 친환경 소재와 윤리적 생산 과정을 통해 지속가능한 패션을 추구하는 브랜드로 유럽에서 큰 인기를 끌고 있다. 아시아 시장 진출과 사업 확장을 위해 한국 코스닥 상장을 검토하고 있으며, IPO를 통해 확보한 자금을 아시아 지역 매장 확대와 브랜드 마케팅에 투입할 계획이다.</p>
+<h3 id="_154">전망</h3>
+<p>지속가능한 패션에 대한 관심이 높아지면서 마르디 메크르디의 아시아 시장 성장 가능성이 클 것으로 예상된다. ESG 경영과 친환경 트렌드에 부합하는 브랜드로서 투자자들의 관심도 높을 전망이다.</p>
+<h3 id="_155">시사점</h3>
+<p>마르디 메크르디의 아시아 상장은 지속가능한 패션 브랜드의 성장 가능성과 ESG 투자 트렌드를 보여준다.</p>
+<h2 id="52">52. 한투증권 "英 거래소 오차드글로벌펀드 상장완료"</h2>
+<p><code>금융</code> · <a href="https://www.mk.co.kr/news/economy/12059091">원문 보기</a></p>
+<h3 id="_156">요약</h3>
+<p>한국투자증권이 영국 런던증권거래소에 오차드글로벌펀드 상장을 완료했다고 발표했다. 이 펀드는 아시아 성장기업에 투자하는 글로벌 펀드로, 한투증권이 운용사 역할을 담당한다. 런던증권거래소 상장을 통해 유럽 투자자들에게 아시아 투자 기회를 제공하고, 한국 자산운용업계의 해외 진출 사례를 만들었다. 펀드는 한국과 동남아시아 우량 기업들에 집중 투자할 예정이다.</p>
+<h3 id="_157">전망</h3>
+<p>한투증권의 해외 상장 성공이 다른 국내 자산운용사들의 글로벌 진출에 모델이 될 것으로 예상된다. 아시아 투자에 대한 유럽 투자자들의 관심도 높아질 전망이다.</p>
+<h3 id="_158">시사점</h3>
+<p>오차드글로벌펀드의 런던 상장은 한국 금융업계의 글로벌화와 아시아 금융 허브로서의 역할 확대를 보여준다.</p>
+<h2 id="53-3">53. 뷰웍스 3분기 연속 적자…가상화폐 하락 여파</h2>
+<p><code>증시</code> · <a href="https://www.mk.co.kr/news/stock/12059090">원문 보기</a></p>
+<h3 id="_159">요약</h3>
+<p>뷰웍스가 3분기 연속 적자를 기록하며 가상화폐 시장 하락의 직격탄을 맞았다. 뷰웍스는 가상화폐 채굴과 블록체인 기술 사업을 주력으로 하는 기업으로, 비트코인 등 주요 가상화폐 가격 하락으로 실적이 악화됐다. 채굴 수익성 하락과 함께 블록체인 관련 프로젝트 수주도 줄어들면서 매출과 수익성이 동반 악화되고 있다. 회사는 사업 다각화와 비용 절감을 통한 실적 개선 방안을 모색하고 있다.</p>
+<h3 id="_160">전망</h3>
+<p>가상화폐 시장의 회복세에 따라 뷰웍스의 실적도 개선될 가능성이 있지만, 단기적으로는 어려운 상황이 지속될 것으로 보인다. 사업 포트폴리오 다각화가 필요할 전망이다.</p>
+<h3 id="_161">시사점</h3>
+<p>뷰웍스의 연속 적자는 가상화폐 시장 변동성이 관련 기업들에게 미치는 직접적 영향을 보여준다.</p>
+<h2 id="54-5-15-1">54. 5세대 이동통신 글로벌 특허 韓 15%로 1위</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059089">원문 보기</a></p>
+<h3 id="_162">요약</h3>
+<p>한국이 5세대 이동통신(5G) 글로벌 특허에서 15%의 점유율로 세계 1위를 차지했다. 삼성전자와 LG전자 등 국내 기업들의 5G 핵심 기술 개발 성과가 특허 통계로 확인됐다. 한국은 5G 기지국, 단말기, 네트워크 기술 등 전 분야에서 고른 특허 성과를 보였으며, 특히 차세대 통신 기술인 6G 개발에서도 선도적 역할을 하고 있다. 이는 한국의 ICT 기술력과 혁신 역량을 입증하는 성과로 평가된다.</p>
+<h3 id="_163">전망</h3>
+<p>5G 특허 우위를 바탕으로 한국 기업들이 글로벌 통신장비 시장에서 경쟁력을 유지할 것으로 예상된다. 6G 기술 개발 선점을 통해 미래 통신 시장 주도권 확보도 기대된다.</p>
+<h3 id="_164">시사점</h3>
+<p>5G 특허 1위는 한국의 통신기술 혁신 역량과 글로벌 기술 리더십을 보여주는 중요한 성과다.</p>
+<h2 id="55">55. "마이데이터 사업, 핀테크에 유리하게"…규제 완화 신호탄</h2>
+<p><code>정책</code> · <a href="https://www.mk.co.kr/news/politics/12059088">원문 보기</a></p>
+<h3 id="_165">요약</h3>
+<p>정부가 마이데이터 사업에서 핀테크 기업에게 유리한 방향으로 규제를 완화하겠다는 신호를 보냈다. 기존 금융권 중심의 마이데이터 시장에 핀테크 기업들의 진입을 촉진하기 위한 규제 개선 방안이 추진되고 있다. 개인정보 활용 범위 확대와 데이터 연계 서비스 허용 등을 통해 혁신적인 금융 서비스 개발을 지원할 계획이다. 이는 금융업계의 디지털 전환과 핀테크 생태계 활성화를 위한 정책적 지원이다.</p>
+<h3 id="_166">전망</h3>
+<p>마이데이터 규제 완화로 핀테크 기업들의 혁신적인 금융 서비스 출시가 가속화될 것으로 예상된다. 개인 맞춤형 금융 상품과 통합 자산관리 서비스의 발달도 기대된다.</p>
+<h3 id="_167">시사점</h3>
+<p>마이데이터 규제 완화는 금융 혁신과 소비자 편익 증진을 위한 정부의 정책적 의지를 보여준다.</p>
+<h2 id="56">56. 후지필름·소니 등 日기업들 韓 바이오 벤처에 러브콜</h2>
+<p><code>산업</code> · <a href="https://www.mk.co.kr/news/economy/12059087">원문 보기</a></p>
+<h3 id="_168">요약</h3>
+<p>후지필름과 소니 등 일본 대기업들이 한국 바이오 벤처 기업들에게 투자와 협력 제안을 늘리고 있다. 한국의 뛰어난 바이오 기술력과 연구 역량을 인정받아 일본 기업들의 관심이 높아지고 있다. 특히 신약 개발, 의료기기, 바이오 소재 분야에서 한일 기업 간 협력이 활발해지고 있다. 일본 기업들은 한국 벤처의 혁신 기술을 통해 새로운 성장동력을 확보하려고 하고 있다.</p>
+<h3 id="_169">전망</h3>
+<p>한일 바이오 기업 간 협력이 더욱 확대되면서 기술 교류와 공동 연구개발이 활성화될 것으로 예상된다. 한국 바이오 벤처들의 해외 진출 기회도 늘어날 전망이다.</p>
+<h3 id="_170">시사점</h3>
+<p>일본 기업들의 한국 바이오 벤처 투자는 한국 바이오 기술의 우수성과 국제적 경쟁력을 입증하는 사례다.</p>
+<h2 id="57">57. [박인호의 전망대]美 달러 패권시대 저물까</h2>
+<p><code>경제</code> · <a href="https://www.mk.co.kr/news/economy/12059086">원문 보기</a></p>
+<h3 id="_171">요약</h3>
+<p>미국 달러 패권 시대의 종료 가능성에 대한 논의가 활발해지고 있다. 중국 위안화와 디지털화폐의 부상, 그리고 다극화되는 국제 정치 구조 속에서 달러의 기축통화 지위에 도전이 제기되고 있다. 러시아-우크라이나 전쟁과 미중 갈등으로 탈달러화 움직임이 가속화되고 있으며, 일부 국가들은 자국 통화나 대안 화폐를 통한 무역 결제를 늘리고 있다. 하지만 달러를 완전히 대체할 수 있는 화폐가 아직 나타나지 않았다는 점에서 달러 패권의 즉각적인 종료는 어려울 것으로 보인다.</p>
+<h3 id="_172">전망</h3>
+<p>달러 패권이 단기간에 완전히 무너지지는 않겠지만, 장기적으로는 다원화된 국제 통화 체제로 전환될 가능성이 있다. 디지털화폐와 CBDC의 발달이 이러한 변화를 가속화할 수 있다.</p>
+<h3 id="_173">시사점</h3>
+<p>달러 패권 논쟁은 변화하는 국제 경제 질서와 화폐 시스템의 미래에 대한 중요한 통찰을 제공한다.</p></section>
+
+            <footer class="footer">
+                — End of Brief —
+            </footer>
+        </main>
+    </div>
+
+    <button id="to-top-btn" title="Go to top" aria-label="Go to top">↑</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Theme toggle (persists via data-attribute only; no storage in artifacts)
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        let isDark = false;
+
+        // Detect system preference on first load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.setAttribute('data-theme', 'dark');
+            isDark = true;
+            themeToggle.textContent = '☀';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            isDark = !isDark;
+            if (isDark) {
+                root.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀';
+            } else {
+                root.removeAttribute('data-theme');
+                themeToggle.textContent = '☾';
+            }
+        });
+
+        // 2. Wrap article bodies for collapse/expand
+        document.querySelectorAll('.news-article').forEach(function(article) {
+            const h2 = article.querySelector('h2');
+            if (!h2) return;
+
+            // Gather everything after h2 into .article-body wrapper
+            const body = document.createElement('div');
+            body.className = 'article-body';
+            let next = h2.nextSibling;
+            const toMove = [];
+            while (next) {
+                toMove.push(next);
+                next = next.nextSibling;
+            }
+            toMove.forEach(function(node) { body.appendChild(node); });
+            article.appendChild(body);
+
+            // Click h2 to toggle
+            h2.addEventListener('click', function() {
+                article.classList.toggle('collapsed');
+            });
+        });
+
+        // 3. Reading progress bar
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }
+
+        // 4. To-top button
+        const toTopBtn = document.getElementById('to-top-btn');
+        toTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. TOC active link highlighting (intersection observer)
+        const tocLinks = document.querySelectorAll('.toc a');
+        const articleHeadings = document.querySelectorAll('.news-article h2');
+
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            toTopBtn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+
+            // Find current section
+            let current = '';
+            articleHeadings.forEach(function(heading) {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 120) {
+                    current = heading.id || '';
+                }
+            });
+
+            tocLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        updateProgress();
+    });
+    </script>
+</body>
+</html>
