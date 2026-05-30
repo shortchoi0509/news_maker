@@ -10,6 +10,7 @@ URL = "https://www.mk.co.kr/today-paper/"
 TARGET = {"world","economy","business","realestate","it","stock","society","politics","culture","columnists","journalist","contributors","editorial"}
 #TARGET = {"editorial"}
 def fetch(sess, url):
+    import time
     # Add more realistic User-Agent headers
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -24,9 +25,9 @@ def fetch(sess, url):
     except requests.exceptions.HTTPError as e:
         # Retry with different headers on 403
         if e.response.status_code == 403:
-            import time
             time.sleep(2)
-            headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+            headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
             r = sess.get(url, timeout=20, headers=headers)
             r.raise_for_status()
             return r.text
