@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Brief 2026-06-03</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <style>
+    /* ============================================
+       Editorial Design System
+       ============================================ */
+    :root {
+        --font-serif: 'Noto Serif KR', 'Source Serif Pro', Georgia, serif;
+        --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+        /* Light theme - warm neutral */
+        --bg-primary: #fafaf7;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f3f2ed;
+        --bg-card: #ffffff;
+        --border-subtle: #e8e6df;
+        --border-strong: #2c2c2c;
+
+        --text-primary: #1a1a1a;
+        --text-secondary: #4a4a4a;
+        --text-tertiary: #888580;
+        --text-muted: #a8a5a0;
+
+        --accent: #8b0000;
+        --accent-soft: rgba(139, 0, 0, 0.08);
+        --accent-line: #c9302c;
+
+        /* Semantic colors - 아이콘 블록 */
+        --color-summary: #1a4d3a;
+        --color-summary-bg: #ecf4ef;
+        --color-detail: #2c3e50;
+        --color-detail-bg: #f5f5f0;
+        --color-extra: #6b5b3e;
+        --color-extra-bg: #f7f3ea;
+        --color-insight: #5b3a8c;
+        --color-insight-bg: #f1ecf7;
+        --color-glossary: #8b6f47;
+        --color-glossary-bg: #faf6ef;
+
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+        --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+        --shadow-lg: 0 4px 20px rgba(0,0,0,0.08);
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+    }
+
+    [data-theme="dark"] {
+        --bg-primary: #0f0f0e;
+        --bg-secondary: #1a1a18;
+        --bg-tertiary: #242420;
+        --bg-card: #1a1a18;
+        --border-subtle: #2e2e2a;
+        --border-strong: #e8e6df;
+
+        --text-primary: #f0ede4;
+        --text-secondary: #c8c5bd;
+        --text-tertiary: #8a8680;
+        --text-muted: #5a5650;
+
+        --accent: #e85d5d;
+        --accent-soft: rgba(232, 93, 93, 0.12);
+        --accent-line: #e85d5d;
+
+        --color-summary: #7bc49a;
+        --color-summary-bg: rgba(123, 196, 154, 0.1);
+        --color-detail: #a8c8e5;
+        --color-detail-bg: rgba(168, 200, 229, 0.08);
+        --color-extra: #d4b878;
+        --color-extra-bg: rgba(212, 184, 120, 0.1);
+        --color-insight: #c9a8e8;
+        --color-insight-bg: rgba(201, 168, 232, 0.1);
+        --color-glossary: #d4b896;
+        --color-glossary-bg: rgba(212, 184, 150, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        margin: 0;
+        padding: 0;
+        transition: background 0.3s ease, color 0.3s ease;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       Progress Bar
+       ============================================ */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--accent);
+        z-index: 1000;
+        transition: width 0.1s linear;
+    }
+
+    /* ============================================
+       Top Bar
+       ============================================ */
+    .top-bar {
+        position: sticky;
+        top: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .top-bar {
+        background-color: rgba(26, 26, 24, 0.85);
+    }
+
+    .top-bar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .brand {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+    }
+
+    .top-bar-meta {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .theme-toggle {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all 0.2s;
+        padding: 0;
+    }
+
+    .theme-toggle:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: rotate(15deg);
+    }
+
+    /* ============================================
+       Main Layout
+       ============================================ */
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    /* ============================================
+       Sidebar / TOC
+       ============================================ */
+    #sidebar {
+        position: sticky;
+        top: 90px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-track { background: transparent; }
+    #sidebar::-webkit-scrollbar-thumb {
+        background: var(--border-subtle);
+        border-radius: 2px;
+    }
+
+    .sidebar-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-tertiary);
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: toc-counter;
+    }
+
+    .toc ul ul { display: none; }
+
+    .toc li {
+        counter-increment: toc-counter;
+        position: relative;
+        margin: 0;
+    }
+
+    .toc a {
+        display: block;
+        padding: 10px 0 10px 32px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        border-left: 2px solid transparent;
+        padding-left: 16px;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .toc a::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        position: absolute;
+        left: -24px;
+        top: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .toc a:hover {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .toc a.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        font-weight: 500;
+    }
+
+    .toc-empty {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Content Area
+       ============================================ */
+    .content-main { min-width: 0; }
+
+    .masthead {
+        border-bottom: 4px double var(--text-primary);
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
+    .masthead-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .masthead h1 {
+        font-family: var(--font-serif);
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px 0;
+        color: var(--text-primary);
+    }
+
+    .masthead-meta {
+        display: flex;
+        gap: 24px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .masthead-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .masthead-meta .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--text-muted);
+        border-radius: 50%;
+    }
+
+    /* ============================================
+       News Article Cards
+       ============================================ */
+    .executive-summary {
+        background: var(--accent-soft);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        padding: 32px 40px;
+        margin: 8px 0 36px;
+        position: relative;
+    }
+
+    .executive-summary h2 {
+        font-family: var(--font-serif);
+        font-size: 1.45rem;
+        margin: 0 0 18px;
+        padding: 0;
+        color: var(--text-primary);
+        border: none;
+    }
+
+    .executive-summary h2::after { content: none; }
+
+    .executive-summary p {
+        font-size: 1.0rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+        margin: 0 0 14px;
+    }
+
+    .executive-summary p:last-child { margin-bottom: 0; }
+
+    .news-article {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 40px 44px;
+        margin-bottom: 28px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-article::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+    }
+
+    .news-article:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-1px);
+    }
+
+    .news-article:hover::before {
+        height: 100%;
+    }
+
+    .news-article h2 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        margin: 0 0 8px 0;
+        color: var(--text-primary);
+        cursor: pointer;
+        user-select: none;
+        padding-right: 40px;
+        position: relative;
+    }
+
+    .news-article h2::after {
+        content: '−';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--text-muted);
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .news-article.collapsed h2::after {
+        content: '+';
+    }
+
+    .news-article h2:hover::after {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .source-link {
+        margin: 0 0 24px 0;
+    }
+
+    .source-link a {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-tertiary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+    }
+
+    .source-link a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    .source-link .arrow {
+        transition: transform 0.2s;
+    }
+
+    .source-link a:hover .arrow {
+        transform: translateX(3px);
+    }
+
+    /* Article body content wrapper (foldable) */
+    .article-body {
+        max-height: 10000px;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 1;
+    }
+
+    .news-article.collapsed .article-body {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    /* ============================================
+       Article Subtitle (HEADLINE)
+       ============================================ */
+    .article-subtitle {
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--accent);
+        padding: 20px 24px;
+        margin: 0 0 28px 0;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .subtitle-label {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .article-title {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .contents-divider {
+        height: 1px;
+        background: linear-gradient(to right, var(--border-subtle), transparent);
+        margin: 0 0 24px 0;
+    }
+
+    /* ============================================
+       News Blocks (icon rows)
+       ============================================ */
+    .news-block {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+        padding: 14px 18px;
+        margin: 8px 0;
+        border-radius: var(--radius-md);
+        line-height: 1.65;
+        font-size: 0.96rem;
+        transition: background 0.2s;
+    }
+
+    .block-icon {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2px;
+    }
+
+    .block-content {
+        color: var(--text-primary);
+    }
+
+    /* 핵심 요약 - 가장 강조 */
+    .block-summary {
+        background: var(--color-summary-bg);
+        border-left: 3px solid var(--color-summary);
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+    .block-summary .block-content {
+        color: var(--color-summary);
+        font-weight: 600;
+    }
+    [data-theme="dark"] .block-summary .block-content {
+        color: var(--color-summary);
+    }
+
+    /* 주요 내용 */
+    .block-detail {
+        background: transparent;
+        padding: 10px 18px 10px 0;
+        border-left: none;
+    }
+    .block-detail .block-icon {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    /* 추가 내용 */
+    .block-extra {
+        background: var(--color-extra-bg);
+        border-left: 2px dashed var(--color-extra);
+        margin: 12px 0;
+        font-size: 0.92rem;
+    }
+    .block-extra .block-content { color: var(--color-extra); }
+
+    /* 의미/영향 - 인사이트 */
+    .block-insight {
+        background: var(--color-insight-bg);
+        border: 1px solid transparent;
+        border-left: 3px solid var(--color-insight);
+        margin-top: 16px;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .block-insight .block-content { color: var(--color-insight); }
+
+    /* 용어 설명 */
+    .block-glossary {
+        background: var(--color-glossary-bg);
+        border-top: 1px solid var(--border-subtle);
+        border-radius: 0;
+        font-size: 0.88rem;
+        margin-top: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .block-glossary .block-content {
+        color: var(--color-glossary);
+        font-style: italic;
+    }
+
+    /* ============================================
+       Miscellaneous
+       ============================================ */
+    .article-separator { display: none; }
+
+    p { margin: 12px 0; }
+
+    code {
+        font-family: var(--font-mono);
+        background: var(--bg-tertiary);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.88em;
+    }
+
+    pre {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-size: 0.88rem;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ============================================
+       To-top Button
+       ============================================ */
+    #to-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.2s;
+        z-index: 999;
+    }
+
+    #to-top-btn:hover { transform: translateY(-3px); }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+        margin-top: 80px;
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* ============================================
+       Mobile Responsive
+       ============================================ */
+    @media (max-width: 900px) {
+        .top-bar-inner { padding: 12px 20px; }
+        .brand { font-size: 1.1rem; }
+        .top-bar-meta { gap: 10px; font-size: 0.7rem; }
+
+        .main-wrapper {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #sidebar {
+            position: relative;
+            top: 0;
+            max-height: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: var(--bg-card);
+        }
+
+        .masthead h1 { font-size: 2rem; }
+        .masthead-meta { flex-wrap: wrap; gap: 12px; font-size: 0.7rem; }
+
+        .news-article {
+            padding: 28px 24px;
+        }
+
+        .news-article h2 { font-size: 1.35rem; padding-right: 32px; }
+        .article-subtitle { padding: 16px 18px; }
+        .news-block { padding: 12px 14px; font-size: 0.92rem; }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-article {
+        animation: fadeUp 0.4s ease both;
+    }
+    </style>
+</head>
+<body>
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <span>The Daily Brief</span>
+            </div>
+            <div class="top-bar-meta">
+                <span>2026-06-03</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-label">Index · 뉴스 목록</div>
+            <div class="toc">
+                <div class="toc">
+<ul>
+<li><a href="#_1">매일경제 핵심 브리프</a><ul>
+<li><a href="#_2">목차</a></li>
+<li><a href="#_3">오늘의 한눈에 보기</a></li>
+<li><a href="#1-4">1. 이재명 정부 남은 4년, 힘싣기냐 견제냐</a></li>
+<li><a href="#2-1-4-8">2. 취임 1주년 李 "국정속도 두배로 … 남은 4년을 8년처럼 일하겠다"</a></li>
+<li><a href="#3-3">3. 정부, 캐나다산 원유 도입 3배 확대 추진</a></li>
+<li><a href="#4-5-31-26">4. 5월 소비자물가 3.1% 올라 … 고유가에 26개월來 최대치 상승</a></li>
+<li><a href="#5-8-3">5. [뉴스&amp;분석] 8천피 환호 속 불안 … 환율·물가·금리 '3高'</a></li>
+<li><a href="#6-3">6. '원화 약세=경제 위기' 공식 흔들린 3가지 이유</a></li>
+<li><a href="#7-hbm5">7. 삼성, HBM5 세계 첫 공개 … 하이닉스 "생산능력 전속력 확대"</a></li>
+<li><a href="#8-2030-5-2">8. 최태원 "2030년까지 메모리 부족 … 하이닉스 생산능력 5년 내 2배로"</a></li>
+<li><a href="#9-hbm">9. 젠슨 황 "HBM 더 많이 만들어달라"</a></li>
+<li><a href="#10-120-ai">10. 구글, 120조원 유상증자 … AI '쩐의 전쟁' 계속된다</a></li>
+<li><a href="#11-ai-4-1">11. 판 커지는 AI 베팅 … 4대 빅테크, 올 '1천조원' 쏟아붓는다</a></li>
+<li><a href="#12-ai">12. 네이버, 엔비디아와 AI 팩토리 사업</a></li>
+<li><a href="#13-k-1-3">13. 수출신화 K뷰티…"해외 덤핑 1년새 3배로"</a></li>
+<li><a href="#14">14. 코스피 매도 쏟아낸 외국인…거래대금 비중 되레 늘었네</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+            </div>
+        </nav>
+
+        <main class="content-main">
+            <header class="masthead">
+                <div class="masthead-kicker">Daily Market Brief</div>
+                <h1>Email Brief 2026-06-03</h1>
+                <div class="masthead-meta">
+                    <span>📅 2026-06-03</span>
+                    <span class="dot"></span>
+                    <span>📰 16 Articles</span>
+                    <span class="dot"></span>
+                    <span>KST</span>
+                </div>
+            </header>
+
+            
+<p>title: "매일경제 핵심 브리프"
+date: "2026-06-03"
+articles: 14</p>
+<section class="executive-summary"><h1 id="_1">매일경제 핵심 브리프</h1>
+<h2 id="_2">목차</h2>
+<ol>
+<li><strong>이재명 정부 남은 4년, 힘싣기냐 견제냐</strong></li>
+<li><strong>취임 1주년 李 "국정속도 두배로 … 남은 4년을 8년처럼 일하겠다"</strong></li>
+<li><strong>정부, 캐나다산 원유 도입 3배 확대 추진</strong></li>
+<li><strong>5월 소비자물가 3.1% 올라 … 고유가에 26개월來 최대치 상승</strong></li>
+<li><strong>[뉴스&amp;분석] 8천피 환호 속 불안 … 환율·물가·금리 '3高'</strong></li>
+<li><strong>'원화 약세=경제 위기' 공식 흔들린 3가지 이유</strong></li>
+<li><strong>삼성, HBM5 세계 첫 공개 … 하이닉스 "생산능력 전속력 확대"</strong></li>
+<li><strong>최태원 "2030년까지 메모리 부족 … 하이닉스 생산능력 5년 내 2배로"</strong></li>
+<li><strong>젠슨 황 "HBM 더 많이 만들어달라"</strong></li>
+<li><strong>구글, 120조원 유상증자 … AI '쩐의 전쟁' 계속된다</strong></li>
+<li><strong>판 커지는 AI 베팅 … 4대 빅테크, 올 '1천조원' 쏟아붓는다</strong></li>
+<li><strong>네이버, 엔비디아와 AI 팩토리 사업</strong></li>
+<li><strong>수출신화 K뷰티…"해외 덤핑 1년새 3배로"</strong></li>
+<li><strong>코스피 매도 쏟아낸 외국인…거래대금 비중 되레 늘었네</strong></li>
+</ol>
+<h2 id="_3">오늘의 한눈에 보기</h2>
+<p>이재명 정부 출범 1년을 맞아 정치적 분수령과 정책 가속화가 동시에 나타났다. 이재명 대통령은 취임 1주년 기념사에서 국정속도를 두 배로 높여 남은 4년을 8년처럼 일하겠다고 선언했고, 지방선거를 통해 정부에 힘을 실어줄지 견제할지를 묻는 정치적 대결구도가 형성되었다. 이번 선거는 정부 정책의 향방과 국정 운영 동력에 중요한 영향을 미칠 전망이다 [#1, #2].</p>
+<p>에너지 안보 강화와 물가 관리가 정부의 핵심 과제로 부상했다. 정부는 캐나다산 원유 도입을 3배 확대 추진하며 에너지 공급원 다변화에 나섰지만, 5월 소비자물가가 3.1% 상승해 26개월 만에 최대치를 기록했다. 코스피가 8천포인트를 돌파하는 환호 속에서도 환율·물가·금리 3고 현상이 지속되고 있어 경제 정책 운용의 어려움이 가중되고 있다. 다만 기존의 원화 약세가 곧 경제 위기를 의미한다는 공식이 흔들리고 있어 새로운 관점의 접근이 필요한 상황이다 [#3, #4, #5, #6].</p>
+<p>AI 시대 메모리 반도체 패권 경쟁이 치열해지고 있다. 삼성전자는 차세대 고대역폭 메모리인 HBM5를 세계 최초로 공개했고, SK하이닉스는 생산능력을 전속력으로 확대한다고 발표했다. SK그룹 최태원 회장은 2030년까지 메모리 부족 현상이 지속될 것이라며 하이닉스 생산능력을 5년 내 2배로 확대하겠다고 밝혔다. 엔비디아 젠슨 황 CEO는 한국 방문 중 HBM을 더 많이 만들어달라고 요청하며 한국 메모리 반도체 기업들의 중요성을 강조했다 [#7, #8, #9].</p>
+<p>글로벌 AI 투자 경쟁이 전례 없는 규모로 확대되고 있다. 구글이 120조원 규모의 유상증자를 실시하며 AI 투자 확대에 나섰고, 글로벌 4대 빅테크 기업이 올해 AI 분야에 총 1천조원을 투자할 계획이라고 발표했다. 국내에서도 네이버가 엔비디아와 AI 팩토리 사업을 추진하며 글로벌 AI 생태계 참여를 확대하고 있다. 이러한 투자 경쟁은 AI 기술 발전을 가속화하지만 동시에 시장 진입 장벽을 높이는 결과를 낳고 있다 [#10, #11, #12].</p>
+<p>수출 주력 산업에서 엇갈린 현상이 나타나고 있다. K뷰티는 수출 신화를 이어가고 있지만 해외 덤핑 판매가 1년 새 3배 증가해 브랜드 가치 훼손이 우려되고 있다. 한편 증시에서는 외국인들이 코스피에서 대량 매도를 쏟아내고 있음에도 거래대금 비중은 오히려 늘어나는 이례적 현상이 나타나 외국인 투자자들의 복잡한 포트폴리오 리밸런싱이 진행되고 있음을 보여주고 있다 [#13, #14].</p>
+<h2 id="1-4">1. 이재명 정부 남은 4년, 힘싣기냐 견제냐</h2>
+<p><code>정치</code> · <a href="https://www.mk.co.kr/news/politics/12064282">원문 보기</a></p>
+<h3 id="_4">요약</h3>
+<p>이번 지방선거는 이재명 정부 출범 1년 만에 치러지는 첫 전국 단위 선거로, 선거 결과에 따라 정부 정책의 향방과 국정 운영 방식에 대한 국민들의 체감도가 달라질 수 있다. 선거 운동 기간 동안 여야가 내세우는 이재명 정부 일꾼론과 정부·여당 견제론이 맞붙고 있다. 민주당은 광역단체장 9곳 우세, 6곳 경합으로 판단하고 있으며, 국민의힘은 8곳 경합지로 분류하고 있어 승패를 알 수 없는 격전지가 많다. 선거 결과에 따라 여야 지도부 개편 등 정국에 상당한 변화가 예상된다.</p>
+<h3 id="_5">전망</h3>
+<p>선거 결과에 따라 여야 지도부 개편 등 정국 변화가 예상되며, 이는 향후 정책 추진 방향에 중요한 시험대가 될 것으로 보인다.</p>
+<h3 id="_6">시사점</h3>
+<p>이재명 정부의 첫 전국 단위 선거 결과는 정부의 국정 운영 동력과 향후 4년간 정책 추진력에 직접적인 영향을 미칠 전망이다.</p>
+<h2 id="2-1-4-8">2. 취임 1주년 李 "국정속도 두배로 … 남은 4년을 8년처럼 일하겠다"</h2>
+<p><code>정치</code> · <a href="https://www.mk.co.kr/news/politics/12064527">원문 보기</a></p>
+<h3 id="_7">요약</h3>
+<p>이재명 대통령이 취임 1주년을 맞아 국정속도를 두 배로 높여 남은 4년을 8년처럼 일하겠다고 밝혔다. 이는 지방선거를 앞두고 정부의 강력한 추진 의지를 과시하며 국민들에게 더욱 적극적인 정책 추진을 약속한 것이다. 1년간의 성과를 바탕으로 향후 4년간 더욱 속도감 있는 국정 운영을 하겠다는 의지를 표명했다. 지방선거 결과와 상관없이 정부 정책의 지속성과 추진력을 강조한 것으로 해석된다. 국정 운영에 대한 자신감과 함께 국민들의 기대에 부응하겠다는 의지를 보여줬다.</p>
+<h3 id="_8">전망</h3>
+<p>이재명 정부의 정책 추진 속도가 더욱 빨라질 것으로 예상된다.</p>
+<h3 id="_9">시사점</h3>
+<p>이재명 대통령의 국정속도 두 배 선언은 취임 1주년 시점에서 정부의 강력한 정책 추진 의지를 보여준다.</p>
+<h2 id="3-3">3. 정부, 캐나다산 원유 도입 3배 확대 추진</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/politics/12064534">원문 보기</a></p>
+<h3 id="_10">요약</h3>
+<p>한국 정부가 캐나다산 원유 도입을 3배 확대하는 협력을 추진하고 있다. 이번 협력을 통해 한국은 안정적인 에너지 공급원을 확보하게 되면서 원유 및 LNG 가격 변동성에 대한 우려를 다소 덜 수 있게 될 것으로 보인다. 캐나다산 자원의 도입 확대는 국내 에너지 수급 안정에 기여하여 소비자들의 에너지 비용 부담 완화 가능성을 시사한다. 또한 캐나다의 니켈, 코발트 등 핵심광물 확보도 용이해져 배터리, 첨단 산업 분야 기업들의 경쟁력 강화에도 긍정적인 영향을 줄 수 있다.</p>
+<h3 id="_11">전망</h3>
+<p>에너지 공급망 다변화를 통해 향후 에너지 안보 강화가 기대된다.</p>
+<h3 id="_12">시사점</h3>
+<p>캐나다산 원유 도입 확대는 글로벌 공급망 불안정 속에서 에너지 안보 확보를 위한 정부의 선제적 대응을 보여준다.</p>
+<h2 id="4-5-31-26">4. 5월 소비자물가 3.1% 올라 … 고유가에 26개월來 최대치 상승</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12064545">원문 보기</a></p>
+<h3 id="_13">요약</h3>
+<p>5월 소비자물가가 전년 동월 대비 3.1% 상승하여 26개월 만에 최대치를 기록했다. 고유가가 주요 상승 요인으로 작용했으며, 이는 전반적인 물가 상승 압력을 가중시키고 있다. 물가 상승률이 예상보다 높게 나타나면서 가계 부담 증가와 함께 통화정책에 대한 우려도 커지고 있다. 에너지 가격 상승이 다른 품목으로 확산되면서 인플레이션 압력이 지속될 가능성이 높아지고 있다. 정부와 한국은행의 물가 안정화 정책에 대한 관심이 집중되고 있다.</p>
+<h3 id="_14">전망</h3>
+<p>고유가 지속 시 물가 상승 압력이 계속될 것으로 예상되며, 이에 따른 통화정책 조정이 검토될 가능성이 있다.</p>
+<h3 id="_15">시사점</h3>
+<p>26개월 만의 최대 물가 상승률은 에너지 가격 변동이 국내 물가에 미치는 영향력이 여전히 크다는 점을 확인해준다.</p>
+<h2 id="5-8-3">5. [뉴스&amp;분석] 8천피 환호 속 불안 … 환율·물가·금리 '3高'</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12064549">원문 보기</a></p>
+<h3 id="_16">요약</h3>
+<p>코스피가 8천포인트를 돌파하며 환호하는 분위기 속에서도 환율, 물가, 금리의 3고 현상으로 인한 불안이 지속되고 있다. 주식시장의 상승에도 불구하고 거시경제 지표들의 악화로 인해 실물경제에 대한 우려가 커지고 있다. 환율 상승, 물가 상승, 금리 상승이 동시에 나타나면서 경제 정책 운용의 어려움이 가중되고 있다. 주식시장과 실물경제 간의 괴리 현상이 뚜렷해지면서 정책당국의 대응 방안에 관심이 집중되고 있다.</p>
+<h3 id="_17">전망</h3>
+<p>환율, 물가, 금리 3고 현상이 지속될 경우 실물경제에 부정적 영향을 미칠 것으로 우려된다.</p>
+<h3 id="_18">시사점</h3>
+<p>코스피 8천포인트 돌파와 3고 현상의 공존은 자산시장과 실물경제 간 불일치가 심화되고 있음을 보여준다.</p>
+<h2 id="6-3">6. '원화 약세=경제 위기' 공식 흔들린 3가지 이유</h2>
+<p><code>경제일반</code> · <a href="https://www.mk.co.kr/news/economy/12064548">원문 보기</a></p>
+<h3 id="_19">요약</h3>
+<p>기존의 원화 약세가 곧 경제 위기를 의미한다는 공식이 흔들리고 있는 상황이다. 세 가지 주요 이유로 인해 이러한 변화가 나타나고 있으며, 원화 약세에 대한 새로운 해석과 대응 방식이 필요한 시점이다. 환율 변동이 경제 전반에 미치는 영향에 대한 기존 인식의 변화가 필요하며, 글로벌 경제 환경 변화에 따른 새로운 접근이 요구되고 있다. 원화 가치 하락이 반드시 경제적 위기 상황을 의미하지 않는다는 새로운 시각이 제시되고 있다.</p>
+<h3 id="_20">전망</h3>
+<p>원화 약세에 대한 기존 공식의 변화로 향후 환율 정책과 경제 정책 접근 방식의 변화가 예상된다.</p>
+<h3 id="_21">시사점</h3>
+<p>원화 약세에 대한 전통적 해석의 변화는 글로벌 경제 환경 변화에 따른 한국 경제의 새로운 대응 패러다임 필요성을 시사한다.</p>
+<h2 id="7-hbm5">7. 삼성, HBM5 세계 첫 공개 … 하이닉스 "생산능력 전속력 확대"</h2>
+<p><code>IT/반도체</code> · <a href="https://www.mk.co.kr/news/stock/12064520">원문 보기</a></p>
+<h3 id="_22">요약</h3>
+<p>삼성전자가 차세대 고대역폭 메모리인 HBM5를 세계 최초로 공개했다. 이는 AI 반도체 시장에서 경쟁력 확보를 위한 기술력 과시의 의미가 크다. SK하이닉스는 HBM 생산능력을 전속력으로 확대한다고 발표하며 시장 점유율 확대에 나섰다. 양사 모두 AI 반도체 시장의 급성장에 대비해 생산 역량 강화에 총력을 기울이고 있다. HBM은 AI 칩의 핵심 부품으로, 수요 급증에 따라 메모리 반도체 업계의 새로운 성장 동력이 되고 있다. 국내 메모리 반도체 기업들의 기술 경쟁과 생산 확대가 가속화되고 있다.</p>
+<h3 id="_23">전망</h3>
+<p>HBM 수요 급증에 대비해 양사의 생산 확대와 기술 경쟁이 지속될 것으로 보인다.</p>
+<h3 id="_24">시사점</h3>
+<p>삼성의 HBM5 세계 첫 공개는 AI 시대 메모리 반도체 기술 주도권 경쟁에서 한국 기업들의 우위를 보여준다.</p>
+<h2 id="8-2030-5-2">8. 최태원 "2030년까지 메모리 부족 … 하이닉스 생산능력 5년 내 2배로"</h2>
+<p><code>IT/반도체</code> · <a href="https://www.mk.co.kr/news/stock/12064521">원문 보기</a></p>
+<h3 id="_25">요약</h3>
+<p>SK그룹 최태원 회장이 2030년까지 메모리 반도체 부족 현상이 지속될 것이라며 SK하이닉스의 생산능력을 5년 내 2배로 확대하겠다고 발표했다. 이는 AI와 데이터 센터 확산으로 인한 메모리 수요 급증을 반영한 전략이다. 최태원 회장은 메모리 시장의 구조적 변화와 장기적 성장 가능성을 언급하며 대규모 투자 계획을 밝혔다. 생산능력 확대를 위해 새로운 생산 라인 구축과 기술 개발에 집중할 계획이다. 이러한 확장 계획은 SK하이닉스가 메모리 시장에서의 글로벌 경쟁력을 더욱 강화하려는 의지를 보여준다.</p>
+<h3 id="_26">전망</h3>
+<p>5년 내 생산능력 2배 확대를 통해 SK하이닉스의 시장 지위가 더욱 공고해질 것으로 예상된다.</p>
+<h3 id="_27">시사점</h3>
+<p>최태원 회장의 2030년까지 메모리 부족 전망은 AI 시대 메모리 반도체 산업의 지속적 성장 가능성을 시사한다.</p>
+<h2 id="9-hbm">9. 젠슨 황 "HBM 더 많이 만들어달라"</h2>
+<p><code>IT/반도체</code> · <a href="https://www.mk.co.kr/news/stock/12064522">원문 보기</a></p>
+<h3 id="_28">요약</h3>
+<p>엔비디아 젠슨 황 CEO가 한국 방문 중 HBM을 더 많이 만들어달라고 요청했다. 이는 AI 반도체 시장의 급성장으로 인한 HBM 공급 부족 상황을 반영한다. 엔비디아는 AI 칩 시장의 선두주자로서 HBM의 안정적 공급이 사업 확장에 필수적인 상황이다. 젠슨 황의 직접적인 요청은 한국 메모리 반도체 기업들의 중요성과 협력 관계의 긴밀함을 보여준다. AI 시장 확산으로 HBM 수요가 예상보다 빠르게 증가하면서 공급망 확보가 핵심 과제가 되고 있다.</p>
+<h3 id="_29">전망</h3>
+<p>AI 시장 확산으로 HBM 수요가 지속적으로 증가할 것으로 예상된다.</p>
+<h3 id="_30">시사점</h3>
+<p>젠슨 황의 HBM 증산 요청은 한국 메모리 반도체 기업들이 글로벌 AI 생태계의 핵심 파트너임을 확인해준다.</p>
+<h2 id="10-120-ai">10. 구글, 120조원 유상증자 … AI '쩐의 전쟁' 계속된다</h2>
+<p><code>IT/반도체</code> · <a href="https://www.mk.co.kr/news/economy/12064544">원문 보기</a></p>
+<h3 id="_31">요약</h3>
+<p>구글이 120조원 규모의 유상증자를 실시하며 AI 투자 확대에 나섰다. 이는 글로벌 빅테크 기업들 간의 AI 분야 경쟁이 자금력을 바탕으로 한 쩐의 전쟁 양상으로 치열해지고 있음을 보여준다. 구글의 대규모 유상증자는 AI 기술 개발과 인프라 구축에 막대한 투자가 필요하다는 판단에 따른 것으로 분석된다. AI 시장에서의 경쟁 우위 확보를 위해 기술 개발뿐만 아니라 자금력도 중요한 요소가 되고 있다. 이러한 투자 경쟁은 AI 기술 발전을 가속화하지만 동시에 시장 진입 장벽을 높이는 결과를 낳고 있다.</p>
+<h3 id="_32">전망</h3>
+<p>글로벌 빅테크 기업들의 AI 투자 경쟁이 더욱 치열해질 것으로 예상된다.</p>
+<h3 id="_33">시사점</h3>
+<p>구글의 120조원 유상증자는 AI 시장에서의 기술 경쟁이 자본력 경쟁으로 확대되고 있음을 명확히 보여준다.</p>
+<h2 id="11-ai-4-1">11. 판 커지는 AI 베팅 … 4대 빅테크, 올 '1천조원' 쏟아붓는다</h2>
+<p><code>IT/반도체</code> · <a href="https://www.mk.co.kr/news/economy/12064543">원문 보기</a></p>
+<h3 id="_34">요약</h3>
+<p>글로벌 4대 빅테크 기업이 올해 AI 분야에 총 1천조원을 투자할 계획이라고 발표했다. 이는 AI 기술이 미래 경쟁력을 결정하는 핵심 요소로 인식되면서 기업들이 대규모 투자에 나서고 있음을 보여준다. 아마존, 마이크로소프트, 구글, 메타 등 주요 기업들이 AI 연구개발, 인프라 구축, 인재 확보 등에 막대한 자금을 투입하고 있다. 이러한 투자 경쟁은 AI 기술 발전을 가속화하지만 동시에 중소 기업들의 시장 진입을 어렵게 만들고 있다. AI 시장에서의 패권 경쟁이 자금력을 바탕으로 한 치열한 양상을 보이고 있다.</p>
+<h3 id="_35">전망</h3>
+<p>4대 빅테크의 대규모 AI 투자로 AI 기술 발전이 더욱 가속화될 것으로 예상된다.</p>
+<h3 id="_36">시사점</h3>
+<p>1천조원 규모의 AI 투자는 글로벌 기술 패권 경쟁이 전례 없는 수준으로 치열해지고 있음을 보여준다.</p>
+<h2 id="12-ai">12. 네이버, 엔비디아와 AI 팩토리 사업</h2>
+<p><code>IT/반도체</code> · <a href="https://www.mk.co.kr/news/stock/12064519">원문 보기</a></p>
+<h3 id="_37">요약</h3>
+<p>네이버가 엔비디아와 AI 팩토리 사업을 추진한다고 발표했다. 이는 네이버가 AI 기술 역량 강화를 위해 글로벌 최고 수준의 AI 반도체 기업과 전략적 협력에 나선 것이다. AI 팩토리는 AI 모델 개발과 서비스 운영을 위한 통합 플랫폼으로, 네이버의 AI 경쟁력 확보에 중요한 인프라가 될 것으로 기대된다. 엔비디아의 최신 AI 칩과 네이버의 소프트웨어 기술이 결합되어 시너지 효과를 낼 것으로 예상된다. 이번 협력은 국내 IT 기업이 글로벌 AI 생태계에서 경쟁력을 확보하는 중요한 전환점이 될 것으로 보인다.</p>
+<h3 id="_38">전망</h3>
+<p>네이버와 엔비디아의 협력으로 국내 AI 기술 생태계가 한층 강화될 것으로 기대된다.</p>
+<h3 id="_39">시사점</h3>
+<p>네이버의 엔비디아 AI 팩토리 사업 추진은 국내 IT 기업들의 글로벌 AI 기술 협력 확대를 보여준다.</p>
+<h2 id="13-k-1-3">13. 수출신화 K뷰티…"해외 덤핑 1년새 3배로"</h2>
+<p><code>산업/소비재</code> · <a href="https://www.mk.co.kr/news/economy/12064537">원문 보기</a></p>
+<h3 id="_40">요약</h3>
+<p>K뷰티가 수출 신화를 이어가고 있지만 해외 덤핑 판매가 1년 새 3배로 급증했다고 보고되었다. 한국 화장품의 해외 인기가 높아지면서 수출량은 증가했지만, 동시에 가격 경쟁으로 인한 덤핑 판매도 크게 늘어났다. 이는 K뷰티 브랜드들이 해외 시장 점유율 확대를 위해 가격 경쟁에 나서면서 나타난 현상으로 분석된다. 단기적으로는 시장 확대에 기여하지만 장기적으로는 브랜드 가치 훼손과 수익성 악화를 우려하는 목소리가 나오고 있다. K뷰티 업계는 가격 경쟁보다는 품질과 브랜드 차별화를 통한 지속 가능한 성장 전략이 필요한 상황이다.</p>
+<h3 id="_41">전망</h3>
+<p>K뷰티 업계는 가격 경쟁보다 브랜드 차별화를 통한 지속가능한 성장 전략 모색이 필요할 것으로 보인다.</p>
+<h3 id="_42">시사점</h3>
+<p>K뷰티의 해외 덤핑 증가는 급속한 시장 확장 과정에서 나타나는 성장통으로, 장기적 브랜드 가치 관리의 중요성을 시사한다.</p>
+<h2 id="14">14. 코스피 매도 쏟아낸 외국인…거래대금 비중 되레 늘었네</h2>
+<p><code>기업/부동산</code> · <a href="https://www.mk.co.kr/news/stock/12064518">원문 보기</a></p>
+<h3 id="_43">요약</h3>
+<p>외국인들이 코스피에서 대량 매도를 쏟아내고 있음에도 불구하고 거래대금 비중은 오히려 늘어나는 이례적 현상이 나타났다. 이는 외국인들의 매도 물량이 크지만 동시에 매수 활동도 활발하게 이루어지고 있음을 의미한다. 외국인 투자자들의 포트폴리오 리밸런싱이 활발하게 진행되고 있는 것으로 분석된다. 단순한 이탈보다는 선별적 투자 전략의 변화로 해석되고 있다. 국내 주식시장에서 외국인 자금의 영향력이 여전히 크다는 점을 보여준다.</p>
+<h3 id="_44">전망</h3>
+<p>외국인의 선별적 투자 패턴이 지속되면서 종목별 차별화가 심화될 것으로 예상된다.</p>
+<h3 id="_45">시사점</h3>
+<p>외국인 매도 증가에도 거래비중 확대는 투자 패턴의 복잡성과 시장에서의 지속적 영향력을 보여준다.</p></section>
+
+            <footer class="footer">
+                — End of Brief —
+            </footer>
+        </main>
+    </div>
+
+    <button id="to-top-btn" title="Go to top" aria-label="Go to top">↑</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Theme toggle (persists via data-attribute only; no storage in artifacts)
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        let isDark = false;
+
+        // Detect system preference on first load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            root.setAttribute('data-theme', 'dark');
+            isDark = true;
+            themeToggle.textContent = '☀';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            isDark = !isDark;
+            if (isDark) {
+                root.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀';
+            } else {
+                root.removeAttribute('data-theme');
+                themeToggle.textContent = '☾';
+            }
+        });
+
+        // 2. Wrap article bodies for collapse/expand
+        document.querySelectorAll('.news-article').forEach(function(article) {
+            const h2 = article.querySelector('h2');
+            if (!h2) return;
+
+            // Gather everything after h2 into .article-body wrapper
+            const body = document.createElement('div');
+            body.className = 'article-body';
+            let next = h2.nextSibling;
+            const toMove = [];
+            while (next) {
+                toMove.push(next);
+                next = next.nextSibling;
+            }
+            toMove.forEach(function(node) { body.appendChild(node); });
+            article.appendChild(body);
+
+            // Click h2 to toggle
+            h2.addEventListener('click', function() {
+                article.classList.toggle('collapsed');
+            });
+        });
+
+        // 3. Reading progress bar
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }
+
+        // 4. To-top button
+        const toTopBtn = document.getElementById('to-top-btn');
+        toTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. TOC active link highlighting (intersection observer)
+        const tocLinks = document.querySelectorAll('.toc a');
+        const articleHeadings = document.querySelectorAll('.news-article h2');
+
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            toTopBtn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+
+            // Find current section
+            let current = '';
+            articleHeadings.forEach(function(heading) {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 120) {
+                    current = heading.id || '';
+                }
+            });
+
+            tocLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        updateProgress();
+    });
+    </script>
+</body>
+</html>
