@@ -6,8 +6,33 @@ Claude Desktop에서 네이버웍스 메일을 읽고 발송할 수 있게 하�
 
 [`yunfeizhu/mcp-mail-server`](https://github.com/yunfeizhu/mcp-mail-server)
 (npm: `mcp-mail-server`) — TypeScript 기반 IMAP/SMTP MCP 서버.
-**Linux 샌드박스에서 직접 검증 완료** (2026-06-02): 패키지 다운로드 →
-stdio 초기화 → `tools/list` 24개 도구 응답 확인.
+
+## 패치 빌드 (`server/`)
+
+상류 `mcp-mail-server` v1.2.1을 그대로 쓰면 `get_recent_messages` 응답에 항상
+본문/첨부가 포함돼서 7건만 요청해도 1MB 한도를 넘기고 실패한다. `server/`에
+**같은 코드 + 두 가지 옵션 추가**한 패치 빌드를 둔다:
+
+- `headers_only: true` → 본문·HTML·첨부 메타데이터 모두 빼고 메타데이터만 반환
+  (100건도 한 번에 통과)
+- `max_body_length: <int>` → 본문 텍스트를 N자로 자름 (0이면 본문 제거, 음수면 그대로)
+
+이 옵션들은 `get_recent_messages`, `get_unseen_messages`에 추가됐다. 다른 22개
+도구는 상류와 동일.
+
+### 패치 빌드로 전환하기
+
+```powershell
+# 0. 자격증명을 아직 등록 안 했으면 먼저 한 번 실행
+powershell -ExecutionPolicy Bypass -File .\setup-naverworks-mcp.ps1
+
+# 1. 패치 빌드 의존성 설치 + claude_desktop_config의 command/args 갱신
+powershell -ExecutionPolicy Bypass -File .\install-patched.ps1
+
+# 2. Claude Desktop 완전 종료 후 재시작
+# 3. Chat에서 테스트:
+#    "get_recent_messages로 INBOX 최근 30개 메일을 headers_only=true로 가져와줘"
+```
 
 ## 사용법
 
