@@ -185,6 +185,24 @@ jobs:
           fi
           ls -la "out/${TODAY}/" || true
 
+      - name: Verify SUMMARY_KO is clean
+        run: |
+          set -e
+          DIR="out/${TODAY}/SUMMARY_KO"
+          if [ ! -d "$DIR" ]; then
+            echo "::error::$DIR not found"
+            exit 1
+          fi
+          UNEXPECTED=$(find "$DIR" -maxdepth 1 -type f -name "*.md" \
+            ! -name "daily_brief_${TODAY}.md" \
+            ! -name "email_brief_${TODAY}.md" || true)
+          if [ -n "$UNEXPECTED" ]; then
+            echo "::error::Unexpected .md files in $DIR — a per-article summarization script likely ran. Pipeline must produce only daily_brief / email_brief:"
+            echo "$UNEXPECTED"
+            exit 1
+          fi
+          echo "SUMMARY_KO clean: only daily_brief and email_brief present"
+
       - name: Verify Korean text integrity
         run: |
           set -e
