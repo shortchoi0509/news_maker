@@ -2,8 +2,8 @@ name: Daily News Pipeline (Claude)
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "30 15 * * *"  # 매일 KST 00:30 (UTC 15:30)
+  # schedule:
+  #   - cron: "30 15 * * *"  # 매일 KST 00:30 (UTC 15:30) — 일시 정지
 
 permissions:
   contents: write
